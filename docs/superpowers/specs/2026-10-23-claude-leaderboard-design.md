@@ -1,16 +1,24 @@
 # Claude Leaderboard
 
-Date: 2026-10-23. Status: approved by Stephen in conversation (engine, board home, model, rubric, source registry). Plan to follow.
+Date: 2026-10-23. Status: approved by Stephen in conversation (engine, board home, model, rubric, source registry, `life` category). Plan to follow.
 
 ## Problem
 
-Reports of people earning money or saving real hours with Claude are scattered across Reddit, Substack, Hacker News, X, and YouTube. Reading them by hand is slow, the good ones are buried in hype, and nothing tracks which ideas keep coming back.
+Reports of people earning money, saving real hours at work, or running their household and family life with Claude are scattered across Reddit, Substack, Hacker News, X, and YouTube. Reading them by hand is slow, the good ones are buried in hype, and nothing tracks which ideas keep coming back.
+
+Three categories of use count.
+
+| Category | Meaning | Examples |
+|---|---|---|
+| `money` | Earns dollars | Micro-SaaS, consulting, content, freelance work done with Claude |
+| `time` | Saves hours in professional work | Spec writing, data analysis, research, job search |
+| `life` | Personal productivity, family and kid logistics, planning | Meal planning, kids' schedules and activities, travel planning, household admin, budgeting, learning with kids |
 
 ## Goals
 
 - A weekly scan collects 50 or more concrete candidates and publishes the top 5.
 - Every candidate is scored on one fixed rubric that weights fit to Stephen's skills.
-- A board shows this week, all time, and ideas that recur across weeks.
+- A board shows this week, all time, and ideas that recur across weeks, plus the best idea in each category so `life` ideas stay visible next to dollar ideas.
 - Every scored candidate is kept, so any ranking can be audited later.
 - Sources, rubric, and routine instructions live in the repo and can be edited without touching the routine.
 
@@ -85,18 +93,18 @@ Every source failure is recorded in the week file under `sources_failed` and nev
 
 ## 4. Scoring (rubric.md)
 
-Each factor has a 0 to N scale with written anchors. Total is the sum, 0 to 100.
+Each factor has a 0 to N scale with written anchors. Total is the sum, 0 to 100. The same six factors apply to every category, and the anchors for Fit, Upside, and Time to benefit change by category so a `life` idea can score as high as a `money` idea.
 
 | Factor | Max | 0 means | Max means |
 |---|---|---|---|
-| Fit | 25 | Needs skills Stephen lacks, such as video editing or sales calls | Uses PM, data, AI, or compliance skills he already has |
-| Upside | 20 | Under $1k a year realistic | $100k a year or more realistic |
-| Time to first dollar | 15 | Six months or longer | Under two weeks |
+| Fit | 25 | `money` and `time`: needs skills Stephen lacks, such as video editing or sales calls. `life`: does not match his situation | `money` and `time`: uses PM, data, AI, or compliance skills he has. `life`: fits a parent in Seattle with an active, sports-heavy household |
+| Upside | 20 | Under $1k a year realistic, or under 1 hour a week saved | $100k a year or more realistic, or 10 or more hours a week saved, or removes a recurring family pain point |
+| Time to benefit | 15 | Six months or longer | Under two weeks. For `life`, the first use already pays off |
 | Effort | 15 | 30 or more hours a week to run | Under 3 hours a week once set up |
-| Evidence | 15 | One anonymous claim, no numbers | Three or more independent reports with specific numbers |
+| Evidence | 15 | One anonymous claim, no numbers | Three or more independent reports with specifics |
 | Durability | 10 | Arbitrage or loophole likely closed within months | Still works in two years |
 
-Time saved converts to dollars at $150 an hour, times hours saved a week, times 50 weeks. The rate sits in `rubric.md` and Stephen can change it. `rubric.md` also holds a short profile paragraph the routine uses to judge fit.
+`time` and `life` ideas convert hours saved to dollars at $150 an hour, times hours saved a week, times 50 weeks, so the `dollars` field is filled for every candidate. The rate sits in `rubric.md` and Stephen can change it. `rubric.md` also holds a short profile paragraph, professional and personal, that the routine uses to judge fit.
 
 ## 5. Data model
 
@@ -120,7 +128,7 @@ Time saved converts to dollars at $150 an hour, times hours saved a week, times 
 }
 ```
 
-`category` is `money` or `time`. Two to five evidence links per candidate.
+`category` is `money`, `time`, or `life`. The scores key `time_to_dollar` is kept for all categories and means time to first benefit. Two to five evidence links per candidate.
 
 ### Week file `data/weeks/2026-W44.json`
 
@@ -164,14 +172,14 @@ Time saved converts to dollars at $150 an hour, times hours saved a week, times 
 ```json
 {
   "updated": "2026-10-26T14:09:00Z",
-  "this_week": {"week": "2026-W44", "status": "ok", "candidates_scored": 57, "top5": []},
+  "this_week": {"week": "2026-W44", "status": "ok", "candidates_scored": 57, "top5": [], "category_leaders": {"money": {}, "time": {}, "life": {}}},
   "all_time": [],
   "rising": [],
   "history": [{"week": "2026-W44", "status": "ok", "candidates_scored": 57}]
 }
 ```
 
-`this_week.top5` holds full candidate records. `all_time` holds the 20 idea records with the highest `best_score`. `rising` holds idea records with `weeks_seen` of 3 or more, sorted by `weeks_seen` then `best_score`.
+`this_week.top5` holds full candidate records. `this_week.category_leaders` holds the highest-scoring candidate of the week in each category, or null when a category had none, so a `life` idea is always shown even when the top 5 is all `money`. `all_time` holds the 20 idea records with the highest `best_score`. `rising` holds idea records with `weeks_seen` of 3 or more, sorted by `weeks_seen` then `best_score`.
 
 ## 6. build.py
 
@@ -192,7 +200,7 @@ python build.py data/weeks/2026-W44.json
 
 - Vanilla HTML, CSS, and JS. No build step. Fetches `data/leaderboard.json` with a cache-busting query.
 - Header with title, last run date, candidates scored, and status. A `thin` or `skipped` week shows a visible flag.
-- Three tabs. This Week lists the top 5 as cards with rank, title, total, category, pitch, first step, and evidence links. All Time is a table of 20 rows with rank, title, best score, weeks seen, first seen. Rising lists ideas seen in three or more weeks.
+- Three tabs. This Week lists the top 5 as cards with rank, title, total, category, pitch, first step, and evidence links, followed by a Category Leaders row with the best `money`, `time`, and `life` idea of the week. All Time is a table of 20 rows with rank, title, category, best score, weeks seen, first seen, with a category filter. Rising lists ideas seen in three or more weeks.
 - Any row or card expands to show the six sub-scores with their reasons and all evidence links.
 - Works at phone width with no horizontal scroll. Same palette family as the job-digest board for familiarity.
 - A footer line shows the run history as a compact list of weeks with status.
@@ -227,6 +235,8 @@ Starting set, approved 2026-10-23.
 
 **Tier 2, Reddit, creator monetization.** r/Substack, r/content_marketing, r/copywriting, r/SEO, r/blogging, r/selfpublish, r/Etsy, r/printondemand.
 
+**Tier 1, Reddit, personal and family.** r/Parenting, r/daddit, r/Mommit, r/getdisciplined, r/personalfinance, r/budget, r/MealPrepSunday, r/travel, r/HomeImprovement, r/homeschool. r/claudexplorers and r/ClaudeHomies above also carry most non-coding personal use.
+
 **Tier 1, forums and aggregators.** Hacker News (Algolia API), Indie Hackers, Product Hunt.
 
 **Tier 1, newsletters via RSS.** One Useful Thing, Every (Chain of Thought), Latent Space, Lenny's Newsletter, Product Growth, Product with Attitude, The AI Maker, The Pragmatic Engineer, Simon Willison's weblog, Ben's Bites, The Rundown AI, Superhuman AI, The Neuron, Starter Story, Indie Hackers newsletter, Growth Unhinged, Justin Welsh, Behind the Craft.
@@ -254,7 +264,7 @@ Run logs are available at claude.ai/code/routines.
 
 ## 11. Testing
 
-- `tests/test_build.py` covers validation failures (missing keys, score over max, bad total, wrong evidence count, top5 mismatch), status derivation at 14, 15, 49, and 50 candidates, merge of a new idea, merge of a repeat idea across two weeks, evidence cap at ten, all-time cap at 20, rising threshold at three weeks, and idempotence.
+- `tests/test_build.py` covers validation failures (missing keys, unknown category, score over max, bad total, wrong evidence count, top5 mismatch), category leaders with a missing category, status derivation at 14, 15, 49, and 50 candidates, merge of a new idea, merge of a repeat idea across two weeks, evidence cap at ten, all-time cap at 20, rising threshold at three weeks, and idempotence.
 - The board is checked by opening `index.html` against a fixture `leaderboard.json` with `ok`, `thin`, and `skipped` weeks, at desktop and phone width.
 - The routine is checked end to end by the manual first run, then by reading its run log and the resulting commit.
 
