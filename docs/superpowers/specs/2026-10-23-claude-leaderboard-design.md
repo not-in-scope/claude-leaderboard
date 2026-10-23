@@ -165,7 +165,7 @@ Each factor has a 0 to N scale with written anchors. Total is the sum, 0 to 100.
 }
 ```
 
-`evidence` keeps the ten most recent distinct URLs across weeks.
+`evidence` keeps the ten most recent distinct URLs across weeks. The record also carries `weeks`, the sorted list of week ids it appeared in, and `weeks_seen` is its length, so rerunning a week never double counts.
 
 ### Board data `data/leaderboard.json`
 
