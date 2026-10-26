@@ -1,470 +1,60 @@
 {
- "updated": "2026-10-26T20:55:04Z",
+ "updated": "2026-10-26T22:30:00Z",
  "this_week": {
   "week": "2026-W44",
-  "status": "skipped",
-  "note": "Rerun of W44, still skipped: 6 candidates, so top5 is empty. Network access is set to Trusted, not Full. The proxy refused Reddit, hn.algolia.com, every RSS feed host, dev.to, medium.com and news.ycombinator.com (curl 000, CONNECT 403), and WebFetch failed DNS on every host. Only anthropic.com and raw.githubusercontent.com were reachable directly. Collection used about 63 web searches, stopped well short of the 150 budget because the index rarely surfaces pages from the last 10 days. Tier 3 not due (day 26). Calls made: kept the three ideas from the earlier W44 run and their in-window evidence, read from search, not re-fetched; added CARE (Anthropic customer story, page undated, among the newest listed) to small-org back office; scored Claude Duet reviews as one idea; McAulay's GBP 100K/month claim is self-reported and both links cite the same interview. Left out as off-scope or single-link: Simon Willison's Battle Drones and Compass Rose games (2026-10-20, 2026-10-24, hobby), levelsio's GTA mission (2026-10-20, hobby), Julian Goldie's Claude SEO system claiming 185,000 clicks (2026-10-24, one self-promotional link), Aakash Gupta's Claude Code harness guide (2026-10-20, no outcome), Mid-Ohio Food Collective customer story (undated, large org). Fix needed: set this environment's network access to Full, or allow reddit.com, hn.algolia.com, dev.to and the newsletter feed hosts.",
-  "candidates_scored": 6,
+  "status": "thin",
+  "note": "Reddit returned HTTP 403 from reddit.com itself on all 63 subreddits after one retry (network is open: HN Algolia, dev.to, newsletter feeds and anthropic.com all fetched fine), so no Reddit data; per routine no searches spent on Reddit. Direct fetches did most of the work: HN Algolia stories plus comment search, the dev.to API (tags claude, claudecode, ai and others), Medium tag feeds, newsletter RSS, and shippedandpaid.com case pages for verified revenue. About 30 web searches used; results skewed old, so every kept item was dated by fetch. Tier 3 not due (day 26). Calls made: Every's /feed returns HTML and Growth Unhinged's feed 404s, so Every was read by search; Medium article bodies 403, so Medium candidates rest on feed titles and subtitles; Forbes 403, its claim carried from the earlier W44 run. Themes from the earlier W44 run were split into specific ideas (family calendar drive planner, family finance app, law-firm weekend rebuild, grant SOP, Tabby, VibeLing MCP); old theme ids family-logistics-household-admin-agent, small-org-back-office-automation and solo-apps-shipped-with-claude-code were not reused. Jake Moran moved from the short-form video record to the new HyperFrames explainer idea. Left out: Anthropic customer stories (pages undated), MailCheap and Ritmo (source posts Oct 14-15, outside window), hobby games and Simon Willison's artifacts, BI/Looker blog dated Oct 14 kept only as supporting evidence.",
+  "candidates_scored": 48,
   "sources_failed": [
    {
-    "source": "r/ClaudeAI",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/ClaudeCode",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/Anthropic",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/claude",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/claudexplorers",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/ClaudeHomies",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/indiehackers",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/SideProject",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/SaaS",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/microsaas",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/VibeCodingSaaS",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/NoCodeSaaS",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/Entrepreneur",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/EntrepreneurRideAlong",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/startups",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/smallbusiness",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/sweatystartup",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/Business_Ideas",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/freelance",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/Upwork",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/consulting",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/passive_income",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/digitalnomad",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/ChatGPTCoding",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/vibecoding",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/aipromptprogramming",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/AI_Agents",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/LLMDevs",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/AgentsOfAI",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/AiBuilders",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/PromptEngineering",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/automation",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/n8n",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/Parenting",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/daddit",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/Mommit",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/getdisciplined",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/personalfinance",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/budget",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/MealPrepSunday",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/travel",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/HomeImprovement",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/homeschool",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/ProductManagement",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/dataengineering",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/datascience",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/analytics",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/BusinessIntelligence",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/ExperiencedDevs",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/productivity",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/ChatGPT",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/ChatGPTPro",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/OpenAI",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/ArtificialInteligence",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/artificial",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/cursor",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/Substack",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/content_marketing",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/copywriting",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/SEO",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/blogging",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/selfpublish",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/Etsy",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "r/printondemand",
-    "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403, curl 000); no search fallback, since site:reddit.com search returns no Reddit pages"
-   },
-   {
-    "source": "Hacker News",
-    "error": "hn.algolia.com blocked by sandbox proxy (CONNECT 403); web search found only older Show HN pages"
-   },
-   {
-    "source": "Dev.to",
-    "error": "RSS feed blocked by sandbox proxy (CONNECT 403) and WebFetch DNS failure; web search used instead"
-   },
-   {
-    "source": "One Useful Thing",
-    "error": "RSS feed blocked by sandbox proxy (CONNECT 403) and WebFetch DNS failure; web search used instead"
+    "source": "Reddit (all 63 tier 1 and 2 subreddits)",
+    "error": "HTTP 403 from reddit.com on top.json after 5 s retry; no search fallback per routine"
    },
    {
     "source": "Every",
-    "error": "RSS feed blocked by sandbox proxy (CONNECT 403) and WebFetch DNS failure; web search used instead"
-   },
-   {
-    "source": "Latent Space",
-    "error": "RSS feed blocked by sandbox proxy (CONNECT 403) and WebFetch DNS failure; web search used instead"
-   },
-   {
-    "source": "Lenny's Newsletter",
-    "error": "RSS feed blocked by sandbox proxy (CONNECT 403) and WebFetch DNS failure; web search used instead"
-   },
-   {
-    "source": "Product Growth",
-    "error": "RSS feed blocked by sandbox proxy (CONNECT 403) and WebFetch DNS failure; web search used instead"
-   },
-   {
-    "source": "Product with Attitude",
-    "error": "RSS feed blocked by sandbox proxy (CONNECT 403) and WebFetch DNS failure; web search used instead"
-   },
-   {
-    "source": "The AI Maker",
-    "error": "RSS feed blocked by sandbox proxy (CONNECT 403) and WebFetch DNS failure; web search used instead"
-   },
-   {
-    "source": "The Pragmatic Engineer",
-    "error": "RSS feed blocked by sandbox proxy (CONNECT 403) and WebFetch DNS failure; web search used instead"
-   },
-   {
-    "source": "Simon Willison's weblog",
-    "error": "RSS feed blocked by sandbox proxy (CONNECT 403) and WebFetch DNS failure; web search used instead"
-   },
-   {
-    "source": "Ben's Bites",
-    "error": "RSS feed blocked by sandbox proxy (CONNECT 403) and WebFetch DNS failure; web search used instead"
+    "error": "https://every.to/feed returns HTML, not RSS; used search"
    },
    {
     "source": "Growth Unhinged",
-    "error": "RSS feed blocked by sandbox proxy (CONNECT 403) and WebFetch DNS failure; web search used instead"
+    "error": "feed 404"
    },
    {
-    "source": "Behind the Craft",
-    "error": "RSS feed blocked by sandbox proxy (CONNECT 403) and WebFetch DNS failure; web search used instead"
+    "source": "Product with Attitude",
+    "error": "feed read, no items in window"
    }
   ],
-  "top5": [],
-  "category_leaders": {
-   "money": {
-    "id": "solo-apps-shipped-with-claude-code",
-    "title": "Solo apps shipped fast with Claude Code",
+  "top5": [
+   {
+    "id": "family-sports-calendar-drive-time-planner",
+    "title": "Kids' game calendar with drive times and parent handoffs planned by Claude",
     "aliases": [
-     "side project built with claude code",
-     "mcp feature for existing app"
-    ],
-    "category": "money",
-    "pitch": "Solo builders shipped working products in days with Claude Code: one founder made $200 in a day after adding an MCP server to his language app, another got 141 users in 19 days for a tab manager. A 0-to-1 product manager can use Claude Code to close the engineering gap, but the space is crowded and revenue numbers are small.",
-    "first_step": "Spend one evening asking Claude Code to build a throwaway version of a compliance-workflow tool you wished existed at Amazon, then show it to two former colleagues.",
-    "scores": {
-     "fit": 17,
-     "upside": 7,
-     "time_to_dollar": 9,
-     "effort": 9,
-     "evidence": 9,
-     "durability": 4
-    },
-    "reasons": {
-     "fit": "0-to-1 product strength applies directly; Claude Code covers most of the engineering gap.",
-     "upside": "Reported results are $200 in a day and free-tier users; realistic $1k to $10k a year.",
-     "time_to_dollar": "Weeks to first dollar if a paid tier exists.",
-     "effort": "3 to 10 hours a week to maintain and market.",
-     "evidence": "Two independent reports with specifics (revenue, user counts) plus a Show HN build report.",
-     "durability": "Very crowded; easy-to-build apps get copied quickly."
-    },
-    "dollars": {
-     "low": 1000,
-     "high": 12000,
-     "basis": "annual"
-    },
-    "hours_per_week": 6,
-    "evidence": [
-     {
-      "url": "https://x.com/vital_pavlenko/status/2112154537226080295",
-      "source": "x.com",
-      "date": "2026-10-19",
-      "claim": "$200 in a day after shipping an MCP server for VibeLing"
-     },
-     {
-      "url": "https://dev.to/taewoo/19-days-546-messages-141-users-building-my-app-by-mostly-talking-to-claude-code-1mgb",
-      "source": "Dev.to",
-      "date": "2026-10-24",
-      "claim": "141 users 19 days after the first line of code"
-     },
-     {
-      "url": "https://i.buzzing.cc/en/showhn/posts/2026/43/en_hn_2026_10_21__50176936/",
-      "source": "Hacker News",
-      "date": "2026-10-21",
-      "claim": "Online multiplayer game built in two days with Claude Code (Show HN 50176936)"
-     }
-    ],
-    "total": 55
-   },
-   "time": {
-    "id": "small-org-back-office-automation",
-    "title": "Small-org back-office automation with Claude",
-    "aliases": [
-     "nonprofit reporting with claude in excel",
-     "sop and ops cleanup with claude"
-    ],
-    "category": "time",
-    "pitch": "A 46-person food bank used Claude in Excel to cut biweekly overtime from 99 to 11 hours and a monthly report from a week to 30 seconds, CARE's 20-person partnerships team reports 3 to 5 hours saved per person per week, and a lawyer and an ops writer each cleared weeks of deferred process work in a weekend or an afternoon. Reporting, SOPs and spreadsheet analysis are his data and BI home turf, and the same pattern can be sold to small orgs.",
-    "first_step": "Pick one recurring report you build by hand at work and have Claude rebuild it from the raw export in a single session, timing both.",
-    "scores": {
-     "fit": 18,
-     "upside": 12,
-     "time_to_dollar": 13,
-     "effort": 12,
-     "evidence": 10,
-     "durability": 7
-    },
-    "reasons": {
-     "fit": "Uses his data, BI and process-documentation strengths directly.",
-     "upside": "Realistically 3 to 8 hours a week of reporting and ops work saved.",
-     "time_to_dollar": "First report or SOP rebuild saves time within days.",
-     "effort": "Under 3 hours a week to maintain once built.",
-     "evidence": "Four independent reports; two Anthropic case studies with hard numbers, two first-person posts read from search snippets.",
-     "durability": "Durable skill, though spreadsheet AI features will keep commoditising the simple cases."
-    },
-    "dollars": {
-     "low": 22500,
-     "high": 60000,
-     "basis": "annual, 3 to 8 hours a week saved x 150 x 50"
-    },
-    "hours_per_week": 2,
-    "evidence": [
-     {
-      "url": "https://www.anthropic.com/customers/montgomery-county-food-bank",
-      "source": "Customer stories",
-      "date": "2026-10-22",
-      "claim": "Biweekly overtime cut from 99 hours to 11; monthly report from a week of work to 30 seconds"
-     },
-     {
-      "url": "https://noelbagwell.substack.com/p/how-i-did-months-of-work-in-one-weekend",
-      "source": "noelbagwell.substack.com",
-      "date": "2026-10-26",
-      "claim": "Lawyer rebuilt much of his firm's tech stack: months of work in one weekend"
-     },
-     {
-      "url": "https://perchnotes.substack.com/p/eight-weeks-of-putting-it-off-four",
-      "source": "perchnotes.substack.com",
-      "date": "2026-10-21",
-      "claim": "Eight weeks of putting it off, four hours with Claude (SOP update and Asana changes)"
-     },
-     {
-      "url": "https://www.anthropic.com/customers/care-international",
-      "source": "Customer stories",
-      "date": "2026-10-26",
-      "claim": "3 to 5 hours a week saved per person on a roughly 20-person Foundation Partnerships team (story undated; listed among newest on 2026-10-26)"
-     }
-    ],
-    "total": 72
-   },
-   "life": {
-    "id": "family-logistics-household-admin-agent",
-    "title": "Family logistics and household admin run through Claude",
-    "aliases": [
-     "kids sports calendar assistant",
-     "family finance app built with claude code"
+     "which parent drives to which game",
+     "sports schedule conflicts with claude"
     ],
     "category": "life",
-    "pitch": "A Forbes columnist runs his two teenage sons' sports calendars through Claude connected to Gmail and Calendar, getting drive times and leave-by times per parent, and a developer built a self-hosted family finance app in 9 days with Claude Code that he and his wife use daily. A sports-heavy Seattle household with a data-minded parent can wire both up in a weekend and get evenings back.",
-    "first_step": "Connect Claude to the family Google Calendar this weekend and ask it to produce next week's practice and game schedule with leave-by times for each parent.",
+    "pitch": "Ari Redbord wrote in Forbes that Claude reads the family calendar, estimates the drive between the field and the gym, and says when each parent would need to leave and who covers which event. His household has the same weekend sports juggling, and it uses his planning skill directly.",
+    "first_step": "Connect Google Calendar to Claude, paste this weekend's game schedules, and ask for a two-parent driving plan with leave-by times.",
     "scores": {
-     "fit": 22,
-     "upside": 15,
+     "fit": 24,
+     "upside": 16,
      "time_to_dollar": 14,
-     "effort": 13,
-     "evidence": 9,
+     "effort": 14,
+     "evidence": 5,
      "durability": 8
     },
+    "total": 81,
     "reasons": {
-     "fit": "Kids' sports scheduling plus household budgeting matches this household closely and uses his planning and data skills.",
-     "upside": "Removes a recurring weekly family pain point (practice logistics, who drives).",
-     "time_to_dollar": "First weekly plan pays off on first use.",
-     "effort": "Under an hour a week once connectors are set up.",
-     "evidence": "Two independent named reports with specifics, one on calendars and one on finances.",
-     "durability": "Calendar and email connectors are core product; still useful in two years, though the prompt-injection risk the Forbes piece flags needs care."
+     "fit": "Matches a two-parent sports household closely and uses his planning skill.",
+     "upside": "Removes a recurring weekend pain point, about 1 to 3 hours a week of coordination.",
+     "time_to_dollar": "The first weekend plan pays off.",
+     "effort": "Under an hour a week once the calendar is connected.",
+     "evidence": "One named person with a concrete workflow, with risks noted; no hours figure.",
+     "durability": "Calendar connectors and planning are core features that will last."
     },
     "dollars": {
-     "low": 15000,
-     "high": 30000,
-     "basis": "annual, 2 to 4 hours a week saved x 150 x 50"
+     "low": 7500,
+     "high": 22500,
+     "basis": "annual"
     },
     "hours_per_week": 1,
     "evidence": [
@@ -472,16 +62,370 @@
       "url": "https://www.forbes.com/sites/ariredbord/2026/10/22/ai-can-manage-your-family-calendar-but-there-are-risks/",
       "source": "forbes.com",
       "date": "2026-10-22",
-      "claim": "Claude estimates the drive between the field and the gym and tells me when each parent would have to leave the house"
+      "claim": "Claude estimates the drive between the field and the gym and tells me when each parent would need to leave"
      },
      {
-      "url": "https://dev.to/rodik/i-built-a-self-hosted-family-finance-app-with-claude-code-in-9-days-heres-what-it-cost-and-what-i-2nl2",
-      "source": "Dev.to",
-      "date": "2026-10-21",
-      "claim": "Family finance app built in 9 days with Claude Code; used daily by him and his wife"
+      "url": "https://www.anthropic.com/for/parents",
+      "source": "anthropic.com",
+      "date": "2026-10-26",
+      "claim": "Anthropic lists family schedule organization and activities as a parent use case"
      }
+    ]
+   },
+   {
+    "id": "claude-html-dashboards-replace-looker",
+    "title": "Looker dashboards replaced by Claude-written HTML pages on Snowflake",
+    "aliases": [
+     "bi software is dead",
+     "html dashboards instead of looker"
     ],
-    "total": 81
+    "category": "time",
+    "pitch": "An engineer at Sean Anderson's company replaced a $300k-a-year Looker contract with Claude-built HTML dashboards in about two months of part-time work, and they told Google they will not renew; the same week David Lequin's write-up on doing this at a 500-person company drew 80 HN comments. It uses his SQL, data platform and BI strengths and his stakeholder skill at selling a build-versus-buy call to finance.",
+    "first_step": "Pick one Looker or QuickSight dashboard your team opens weekly and have Claude Code rebuild it as one HTML file against the same SQL, then show both side by side.",
+    "scores": {
+     "fit": 24,
+     "upside": 14,
+     "time_to_dollar": 9,
+     "effort": 10,
+     "evidence": 9,
+     "durability": 7
+    },
+    "total": 73,
+    "reasons": {
+     "fit": "Uses SQL, data platforms, BI and VP-level build-versus-buy framing, two strengths plus a data edge.",
+     "upside": "Licence savings of $150k to $300k a year at one company; for him, 3 to 10 analyst hours a week.",
+     "time_to_dollar": "One dashboard can be rebuilt in an evening; a full migration takes the reported couple of months.",
+     "effort": "3 to 10 hours a week while dashboards are migrated, less once they run on a schedule.",
+     "evidence": "Two independent reports with specifics: a $300k Looker contract not renewed and a $150k one cut by a third.",
+     "durability": "Semantic layers and governance still matter, but cheap generated dashboards look durable for a couple of years."
+    },
+    "dollars": {
+     "low": 30000,
+     "high": 75000,
+     "basis": "annual"
+    },
+    "hours_per_week": 5,
+    "evidence": [
+     {
+      "url": "https://news.ycombinator.com/item?id=50214727",
+      "source": "Hacker News",
+      "date": "2026-10-23",
+      "claim": "Replacing a $300k/yr Looker subscription; one person part-time for a couple of months; told Google they won't renew"
+     },
+     {
+      "url": "https://news.ycombinator.com/item?id=50212320",
+      "source": "Hacker News",
+      "date": "2026-10-23",
+      "claim": "'Can we replace a $150k Looker with a bucket of HTML files?', 132 points, 80 comments"
+     },
+     {
+      "url": "https://david.lequin.dev/blog/bi-software-is-dead/",
+      "source": "david.lequin.dev",
+      "date": "2026-10-14",
+      "claim": "Weekly viewers of Claude-made dashboards went from 23 in March to 136 in June; Looker usage down a third"
+     }
+    ]
+   },
+   {
+    "id": "claude-code-job-search-pipeline",
+    "title": "Job search pipeline in Claude Code that scores postings and tailors applications",
+    "aliases": [
+     "ai job search repo",
+     "claude job hunter"
+    ],
+    "category": "time",
+    "pitch": "Gencay's Claude job hunter read 100 Upwork posts, narrowed them to 30, and drafted ten tailored proposals, building on Mads Lorentzen's open-source AI Job Search, which got its author 20 first interviews from 69 applications and one offer; Bikash Kalita released a similar free pipeline the same week. A senior PM targeting a few dozen roles could use it to cut application time while keeping every send manual.",
+    "first_step": "Clone the AI Job Search repo, run its setup with your resume, and score this week's ten most interesting PM postings.",
+    "scores": {
+     "fit": 18,
+     "upside": 12,
+     "time_to_dollar": 13,
+     "effort": 12,
+     "evidence": 10,
+     "durability": 6
+    },
+    "total": 71,
+    "reasons": {
+     "fit": "Job search is one of the profile's named time uses; scoring and tailoring play to his writing and structured thinking.",
+     "upside": "Replaces 3 to 8 hours a week of tailoring during an active search.",
+     "time_to_dollar": "First tailored application the same evening.",
+     "effort": "Under 3 hours a week once set up.",
+     "evidence": "Two independent reports with specifics (Gencay's run, Lorentzen's interview count) plus a third builder.",
+     "durability": "Useful for a year or two until job boards and ATS vendors build it in."
+    },
+    "dollars": {
+     "low": 22500,
+     "high": 60000,
+     "basis": "annual"
+    },
+    "hours_per_week": 2,
+    "evidence": [
+     {
+      "url": "https://www.learnwithmeai.com/p/claude-job-hunter",
+      "source": "learnwithmeai.com",
+      "date": "2026-10-21",
+      "claim": "100 Upwork posts pre-screened to 30, top ten got proposals; Lorentzen sent 69 tailored applications, got 20 first interviews"
+     },
+     {
+      "url": "https://medium.com/@kalita.bikash/my-claude-app-a-job-search-pipeline-that-automates-the-painful-parts-951e74893382",
+      "source": "Medium",
+      "date": "2026-10-26",
+      "claim": "Built an automated job search tool that runs inside Claude and made it free"
+     }
+    ]
+   },
+   {
+    "id": "rec-sports-video-film-review",
+    "title": "Rec-league basketball phone video turned into a coaching page by Claude Code",
+    "aliases": [
+     "sports video coach",
+     "claude watches my game film"
+    ],
+    "category": "life",
+    "pitch": "Marius gave Claude Code frames from his rec-league shooting drill; it counted 9 of 11 set shots and 7 of 19 jump shots, caught that all eight late jump shots missed, and he open-sourced the CLI that builds a phone coaching page with clips and drills. A sports-heavy household could run this on the kids' game video every weekend.",
+    "first_step": "Film ten minutes of one kid's practice this weekend and run sports-video-coach on it to see whether the feedback is usable.",
+    "scores": {
+     "fit": 21,
+     "upside": 12,
+     "time_to_dollar": 14,
+     "effort": 12,
+     "evidence": 5,
+     "durability": 7
+    },
+    "total": 71,
+    "reasons": {
+     "fit": "Fits a sports-heavy family directly and uses his data habits; video work is a weak spot but the tool hides it.",
+     "upside": "Turns unwatched game video into coaching; worth 1 to 3 hours a week of parent coaching time.",
+     "time_to_dollar": "The first session's review already pays off.",
+     "effort": "Under 3 hours a week to film and run.",
+     "evidence": "One named person with numbers from a real session.",
+     "durability": "Vision models will keep improving; the workflow should last a couple of years."
+    },
+    "dollars": {
+     "low": 7500,
+     "high": 15000,
+     "basis": "annual"
+    },
+    "hours_per_week": 2,
+    "evidence": [
+     {
+      "url": "https://dev.to/mariusd/exit-code-3-means-its-the-agents-turn-an-agent-first-cli-for-sports-film-review-3pjk",
+      "source": "Dev.to",
+      "date": "2026-10-23",
+      "claim": "Counted set shots 9 of 11 and jump shots 7 of 19; all 8 jump shots in the last ten minutes missed"
+     },
+     {
+      "url": "https://github.com/mariusDing/sports-video-coach",
+      "source": "github.com",
+      "date": "2026-10-23",
+      "claim": "MIT CLI that pulls frames, cuts clips and builds a phone coaching page and spoken report"
+     }
+    ]
+   },
+   {
+    "id": "proactive-agent-inbox-and-morning-brief",
+    "title": "Claude Duet as chief of staff for inbox, Slack and recurring work",
+    "aliases": [
+     "claude duet",
+     "always-on personal agent"
+    ],
+    "category": "time",
+    "pitch": "Dan Shipper tested Claude Duet for two weeks and called it the first personal agent he would call a pro tool, moving his usage to roughly 50/50 with ChatGPT, while Claire Vo found it polished but too quiet and slow on inbox, Slack and ticket-hunting tasks. A PM juggling stakeholders could hand it recurring follow-ups and weekly status threads.",
+    "first_step": "Join the Duet waitlist, or set up one scheduled Claude task that drafts Monday's stakeholder status from last week's threads.",
+    "scores": {
+     "fit": 16,
+     "upside": 12,
+     "time_to_dollar": 12,
+     "effort": 13,
+     "evidence": 10,
+     "durability": 5
+    },
+    "total": 68,
+    "reasons": {
+     "fit": "Uses his stakeholder follow-up load; generic otherwise.",
+     "upside": "3 to 5 hours a week of triage and follow-ups if it works as described.",
+     "time_to_dollar": "Benefit in the first week once access arrives.",
+     "effort": "Under 3 hours a week to review its output.",
+     "evidence": "Two independent named reviewers with specifics, both early and mixed.",
+     "durability": "Personal agents are crowded and changing fast; the habit lasts, the product may not."
+    },
+    "dollars": {
+     "low": 15000,
+     "high": 37500,
+     "basis": "annual"
+    },
+    "hours_per_week": 2,
+    "evidence": [
+     {
+      "url": "https://every.to/vibe-check/vibe-check-duet-anthropic-s-always-on-agent",
+      "source": "Every",
+      "date": "2026-10-21",
+      "claim": "Tested two weeks; 'the first personal agent I'd call a pro tool'; now closer to 50/50 ChatGPT and Claude"
+     },
+     {
+      "url": "https://www.lennysnewsletter.com/p/claude-duet-is-beautiful-i-still",
+      "source": "Lenny's Newsletter",
+      "date": "2026-10-21",
+      "claim": "Claire Vo tried it on inbox, Slack, a sales deck and Warriors tickets for her kids; too few nudges and slow parallel tasks"
+     },
+     {
+      "url": "https://every.to/context-window/anthropic-s-duet-gets-to-work",
+      "source": "Every",
+      "date": "2026-10-25",
+      "claim": "Follow-up on Duet in daily work"
+     }
+    ]
+   }
+  ],
+  "category_leaders": {
+   "money": {
+    "id": "freelance-scope-creep-change-order-skill",
+    "title": "Client-message scope check that drafts a priced change order",
+    "aliases": [
+     "scope-creep-guard"
+    ],
+    "category": "money",
+    "pitch": "Kitwise Studio published a Claude skill that splits a client message into separate asks, checks each against the agreed scope, and drafts a reply with prices and schedule impact. For a PM doing fractional consulting, it protects billable hours.",
+    "first_step": "Paste your next consulting scope and one tricky client email into Claude with this skill and compare its reply to yours.",
+    "scores": {
+     "fit": 14,
+     "upside": 6,
+     "time_to_dollar": 12,
+     "effort": 14,
+     "evidence": 3,
+     "durability": 7
+    },
+    "total": 56,
+    "reasons": {
+     "fit": "Stakeholder and scope management is a PM strength.",
+     "upside": "Recovers $1k to $5k a year of unbilled work for a part-time consultant.",
+     "time_to_dollar": "First use pays off.",
+     "effort": "Minutes a week.",
+     "evidence": "One builder, no outcome numbers.",
+     "durability": "Scope discipline is durable."
+    },
+    "dollars": {
+     "low": 1000,
+     "high": 5000,
+     "basis": "annual"
+    },
+    "hours_per_week": 1,
+    "evidence": [
+     {
+      "url": "https://dev.to/kitwisestudio/i-built-a-claude-skill-that-flags-scope-creep-before-you-reply-to-a-client-26pg",
+      "source": "Dev.to",
+      "date": "2026-10-23",
+      "claim": "Skill compares each ask to the scope and drafts a friendly change-order reply with pricing"
+     },
+     {
+      "url": "https://dev.to/kitwisestudio",
+      "source": "Dev.to",
+      "date": "2026-10-23",
+      "claim": "Kitwise Studio author page"
+     }
+    ]
+   },
+   "time": {
+    "id": "claude-html-dashboards-replace-looker",
+    "title": "Looker dashboards replaced by Claude-written HTML pages on Snowflake",
+    "aliases": [
+     "bi software is dead",
+     "html dashboards instead of looker"
+    ],
+    "category": "time",
+    "pitch": "An engineer at Sean Anderson's company replaced a $300k-a-year Looker contract with Claude-built HTML dashboards in about two months of part-time work, and they told Google they will not renew; the same week David Lequin's write-up on doing this at a 500-person company drew 80 HN comments. It uses his SQL, data platform and BI strengths and his stakeholder skill at selling a build-versus-buy call to finance.",
+    "first_step": "Pick one Looker or QuickSight dashboard your team opens weekly and have Claude Code rebuild it as one HTML file against the same SQL, then show both side by side.",
+    "scores": {
+     "fit": 24,
+     "upside": 14,
+     "time_to_dollar": 9,
+     "effort": 10,
+     "evidence": 9,
+     "durability": 7
+    },
+    "total": 73,
+    "reasons": {
+     "fit": "Uses SQL, data platforms, BI and VP-level build-versus-buy framing, two strengths plus a data edge.",
+     "upside": "Licence savings of $150k to $300k a year at one company; for him, 3 to 10 analyst hours a week.",
+     "time_to_dollar": "One dashboard can be rebuilt in an evening; a full migration takes the reported couple of months.",
+     "effort": "3 to 10 hours a week while dashboards are migrated, less once they run on a schedule.",
+     "evidence": "Two independent reports with specifics: a $300k Looker contract not renewed and a $150k one cut by a third.",
+     "durability": "Semantic layers and governance still matter, but cheap generated dashboards look durable for a couple of years."
+    },
+    "dollars": {
+     "low": 30000,
+     "high": 75000,
+     "basis": "annual"
+    },
+    "hours_per_week": 5,
+    "evidence": [
+     {
+      "url": "https://news.ycombinator.com/item?id=50214727",
+      "source": "Hacker News",
+      "date": "2026-10-23",
+      "claim": "Replacing a $300k/yr Looker subscription; one person part-time for a couple of months; told Google they won't renew"
+     },
+     {
+      "url": "https://news.ycombinator.com/item?id=50212320",
+      "source": "Hacker News",
+      "date": "2026-10-23",
+      "claim": "'Can we replace a $150k Looker with a bucket of HTML files?', 132 points, 80 comments"
+     },
+     {
+      "url": "https://david.lequin.dev/blog/bi-software-is-dead/",
+      "source": "david.lequin.dev",
+      "date": "2026-10-14",
+      "claim": "Weekly viewers of Claude-made dashboards went from 23 in March to 136 in June; Looker usage down a third"
+     }
+    ]
+   },
+   "life": {
+    "id": "family-sports-calendar-drive-time-planner",
+    "title": "Kids' game calendar with drive times and parent handoffs planned by Claude",
+    "aliases": [
+     "which parent drives to which game",
+     "sports schedule conflicts with claude"
+    ],
+    "category": "life",
+    "pitch": "Ari Redbord wrote in Forbes that Claude reads the family calendar, estimates the drive between the field and the gym, and says when each parent would need to leave and who covers which event. His household has the same weekend sports juggling, and it uses his planning skill directly.",
+    "first_step": "Connect Google Calendar to Claude, paste this weekend's game schedules, and ask for a two-parent driving plan with leave-by times.",
+    "scores": {
+     "fit": 24,
+     "upside": 16,
+     "time_to_dollar": 14,
+     "effort": 14,
+     "evidence": 5,
+     "durability": 8
+    },
+    "total": 81,
+    "reasons": {
+     "fit": "Matches a two-parent sports household closely and uses his planning skill.",
+     "upside": "Removes a recurring weekend pain point, about 1 to 3 hours a week of coordination.",
+     "time_to_dollar": "The first weekend plan pays off.",
+     "effort": "Under an hour a week once the calendar is connected.",
+     "evidence": "One named person with a concrete workflow, with risks noted; no hours figure.",
+     "durability": "Calendar connectors and planning are core features that will last."
+    },
+    "dollars": {
+     "low": 7500,
+     "high": 22500,
+     "basis": "annual"
+    },
+    "hours_per_week": 1,
+    "evidence": [
+     {
+      "url": "https://www.forbes.com/sites/ariredbord/2026/10/22/ai-can-manage-your-family-calendar-but-there-are-risks/",
+      "source": "forbes.com",
+      "date": "2026-10-22",
+      "claim": "Claude estimates the drive between the field and the gym and tells me when each parent would need to leave"
+     },
+     {
+      "url": "https://www.anthropic.com/for/parents",
+      "source": "anthropic.com",
+      "date": "2026-10-26",
+      "claim": "Anthropic lists family schedule organization and activities as a parent use case"
+     }
+    ]
    }
   }
  },
@@ -542,6 +486,130 @@
      "source": "Dev.to",
      "date": "2026-10-21",
      "claim": "Family finance app built in 9 days with Claude Code; used daily by him and his wife"
+    }
+   ]
+  },
+  {
+   "id": "family-sports-calendar-drive-time-planner",
+   "title": "Kids' game calendar with drive times and parent handoffs planned by Claude",
+   "aliases": [
+    "which parent drives to which game",
+    "sports schedule conflicts with claude"
+   ],
+   "category": "life",
+   "first_week": "2026-W44",
+   "last_week": "2026-W44",
+   "weeks": [
+    "2026-W44"
+   ],
+   "weeks_seen": 1,
+   "best_score": 81,
+   "best_week": "2026-W44",
+   "latest": {
+    "week": "2026-W44",
+    "pitch": "Ari Redbord wrote in Forbes that Claude reads the family calendar, estimates the drive between the field and the gym, and says when each parent would need to leave and who covers which event. His household has the same weekend sports juggling, and it uses his planning skill directly.",
+    "first_step": "Connect Google Calendar to Claude, paste this weekend's game schedules, and ask for a two-parent driving plan with leave-by times.",
+    "scores": {
+     "fit": 24,
+     "upside": 16,
+     "time_to_dollar": 14,
+     "effort": 14,
+     "evidence": 5,
+     "durability": 8
+    },
+    "total": 81,
+    "reasons": {
+     "fit": "Matches a two-parent sports household closely and uses his planning skill.",
+     "upside": "Removes a recurring weekend pain point, about 1 to 3 hours a week of coordination.",
+     "time_to_dollar": "The first weekend plan pays off.",
+     "effort": "Under an hour a week once the calendar is connected.",
+     "evidence": "One named person with a concrete workflow, with risks noted; no hours figure.",
+     "durability": "Calendar connectors and planning are core features that will last."
+    },
+    "dollars": {
+     "low": 7500,
+     "high": 22500,
+     "basis": "annual"
+    },
+    "hours_per_week": 1
+   },
+   "evidence": [
+    {
+     "url": "https://www.forbes.com/sites/ariredbord/2026/10/22/ai-can-manage-your-family-calendar-but-there-are-risks/",
+     "source": "forbes.com",
+     "date": "2026-10-22",
+     "claim": "Claude estimates the drive between the field and the gym and tells me when each parent would need to leave"
+    },
+    {
+     "url": "https://www.anthropic.com/for/parents",
+     "source": "anthropic.com",
+     "date": "2026-10-26",
+     "claim": "Anthropic lists family schedule organization and activities as a parent use case"
+    }
+   ]
+  },
+  {
+   "id": "claude-html-dashboards-replace-looker",
+   "title": "Looker dashboards replaced by Claude-written HTML pages on Snowflake",
+   "aliases": [
+    "bi software is dead",
+    "html dashboards instead of looker"
+   ],
+   "category": "time",
+   "first_week": "2026-W44",
+   "last_week": "2026-W44",
+   "weeks": [
+    "2026-W44"
+   ],
+   "weeks_seen": 1,
+   "best_score": 73,
+   "best_week": "2026-W44",
+   "latest": {
+    "week": "2026-W44",
+    "pitch": "An engineer at Sean Anderson's company replaced a $300k-a-year Looker contract with Claude-built HTML dashboards in about two months of part-time work, and they told Google they will not renew; the same week David Lequin's write-up on doing this at a 500-person company drew 80 HN comments. It uses his SQL, data platform and BI strengths and his stakeholder skill at selling a build-versus-buy call to finance.",
+    "first_step": "Pick one Looker or QuickSight dashboard your team opens weekly and have Claude Code rebuild it as one HTML file against the same SQL, then show both side by side.",
+    "scores": {
+     "fit": 24,
+     "upside": 14,
+     "time_to_dollar": 9,
+     "effort": 10,
+     "evidence": 9,
+     "durability": 7
+    },
+    "total": 73,
+    "reasons": {
+     "fit": "Uses SQL, data platforms, BI and VP-level build-versus-buy framing, two strengths plus a data edge.",
+     "upside": "Licence savings of $150k to $300k a year at one company; for him, 3 to 10 analyst hours a week.",
+     "time_to_dollar": "One dashboard can be rebuilt in an evening; a full migration takes the reported couple of months.",
+     "effort": "3 to 10 hours a week while dashboards are migrated, less once they run on a schedule.",
+     "evidence": "Two independent reports with specifics: a $300k Looker contract not renewed and a $150k one cut by a third.",
+     "durability": "Semantic layers and governance still matter, but cheap generated dashboards look durable for a couple of years."
+    },
+    "dollars": {
+     "low": 30000,
+     "high": 75000,
+     "basis": "annual"
+    },
+    "hours_per_week": 5
+   },
+   "evidence": [
+    {
+     "url": "https://news.ycombinator.com/item?id=50214727",
+     "source": "Hacker News",
+     "date": "2026-10-23",
+     "claim": "Replacing a $300k/yr Looker subscription; one person part-time for a couple of months; told Google they won't renew"
+    },
+    {
+     "url": "https://news.ycombinator.com/item?id=50212320",
+     "source": "Hacker News",
+     "date": "2026-10-23",
+     "claim": "'Can we replace a $150k Looker with a bucket of HTML files?', 132 points, 80 comments"
+    },
+    {
+     "url": "https://david.lequin.dev/blog/bi-software-is-dead/",
+     "source": "david.lequin.dev",
+     "date": "2026-10-14",
+     "claim": "Weekly viewers of Claude-made dashboards went from 23 in March to 136 in June; Looker usage down a third"
     }
    ]
   },
@@ -617,11 +685,131 @@
    ]
   },
   {
+   "id": "claude-code-job-search-pipeline",
+   "title": "Job search pipeline in Claude Code that scores postings and tailors applications",
+   "aliases": [
+    "ai job search repo",
+    "claude job hunter"
+   ],
+   "category": "time",
+   "first_week": "2026-W44",
+   "last_week": "2026-W44",
+   "weeks": [
+    "2026-W44"
+   ],
+   "weeks_seen": 1,
+   "best_score": 71,
+   "best_week": "2026-W44",
+   "latest": {
+    "week": "2026-W44",
+    "pitch": "Gencay's Claude job hunter read 100 Upwork posts, narrowed them to 30, and drafted ten tailored proposals, building on Mads Lorentzen's open-source AI Job Search, which got its author 20 first interviews from 69 applications and one offer; Bikash Kalita released a similar free pipeline the same week. A senior PM targeting a few dozen roles could use it to cut application time while keeping every send manual.",
+    "first_step": "Clone the AI Job Search repo, run its setup with your resume, and score this week's ten most interesting PM postings.",
+    "scores": {
+     "fit": 18,
+     "upside": 12,
+     "time_to_dollar": 13,
+     "effort": 12,
+     "evidence": 10,
+     "durability": 6
+    },
+    "total": 71,
+    "reasons": {
+     "fit": "Job search is one of the profile's named time uses; scoring and tailoring play to his writing and structured thinking.",
+     "upside": "Replaces 3 to 8 hours a week of tailoring during an active search.",
+     "time_to_dollar": "First tailored application the same evening.",
+     "effort": "Under 3 hours a week once set up.",
+     "evidence": "Two independent reports with specifics (Gencay's run, Lorentzen's interview count) plus a third builder.",
+     "durability": "Useful for a year or two until job boards and ATS vendors build it in."
+    },
+    "dollars": {
+     "low": 22500,
+     "high": 60000,
+     "basis": "annual"
+    },
+    "hours_per_week": 2
+   },
+   "evidence": [
+    {
+     "url": "https://www.learnwithmeai.com/p/claude-job-hunter",
+     "source": "learnwithmeai.com",
+     "date": "2026-10-21",
+     "claim": "100 Upwork posts pre-screened to 30, top ten got proposals; Lorentzen sent 69 tailored applications, got 20 first interviews"
+    },
+    {
+     "url": "https://medium.com/@kalita.bikash/my-claude-app-a-job-search-pipeline-that-automates-the-painful-parts-951e74893382",
+     "source": "Medium",
+     "date": "2026-10-26",
+     "claim": "Built an automated job search tool that runs inside Claude and made it free"
+    }
+   ]
+  },
+  {
+   "id": "rec-sports-video-film-review",
+   "title": "Rec-league basketball phone video turned into a coaching page by Claude Code",
+   "aliases": [
+    "sports video coach",
+    "claude watches my game film"
+   ],
+   "category": "life",
+   "first_week": "2026-W44",
+   "last_week": "2026-W44",
+   "weeks": [
+    "2026-W44"
+   ],
+   "weeks_seen": 1,
+   "best_score": 71,
+   "best_week": "2026-W44",
+   "latest": {
+    "week": "2026-W44",
+    "pitch": "Marius gave Claude Code frames from his rec-league shooting drill; it counted 9 of 11 set shots and 7 of 19 jump shots, caught that all eight late jump shots missed, and he open-sourced the CLI that builds a phone coaching page with clips and drills. A sports-heavy household could run this on the kids' game video every weekend.",
+    "first_step": "Film ten minutes of one kid's practice this weekend and run sports-video-coach on it to see whether the feedback is usable.",
+    "scores": {
+     "fit": 21,
+     "upside": 12,
+     "time_to_dollar": 14,
+     "effort": 12,
+     "evidence": 5,
+     "durability": 7
+    },
+    "total": 71,
+    "reasons": {
+     "fit": "Fits a sports-heavy family directly and uses his data habits; video work is a weak spot but the tool hides it.",
+     "upside": "Turns unwatched game video into coaching; worth 1 to 3 hours a week of parent coaching time.",
+     "time_to_dollar": "The first session's review already pays off.",
+     "effort": "Under 3 hours a week to film and run.",
+     "evidence": "One named person with numbers from a real session.",
+     "durability": "Vision models will keep improving; the workflow should last a couple of years."
+    },
+    "dollars": {
+     "low": 7500,
+     "high": 15000,
+     "basis": "annual"
+    },
+    "hours_per_week": 2
+   },
+   "evidence": [
+    {
+     "url": "https://dev.to/mariusd/exit-code-3-means-its-the-agents-turn-an-agent-first-cli-for-sports-film-review-3pjk",
+     "source": "Dev.to",
+     "date": "2026-10-23",
+     "claim": "Counted set shots 9 of 11 and jump shots 7 of 19; all 8 jump shots in the last ten minutes missed"
+    },
+    {
+     "url": "https://github.com/mariusDing/sports-video-coach",
+     "source": "github.com",
+     "date": "2026-10-23",
+     "claim": "MIT CLI that pulls frames, cuts clips and builds a phone coaching page and spoken report"
+    }
+   ]
+  },
+  {
    "id": "proactive-agent-inbox-and-morning-brief",
-   "title": "Proactive Claude agent for inbox triage and morning briefs",
+   "title": "Claude Duet as chief of staff for inbox, Slack and recurring work",
    "aliases": [
     "claude duet personal agent",
-    "always-on assistant for email and calendar"
+    "always-on assistant for email and calendar",
+    "claude duet",
+    "always-on personal agent"
    ],
    "category": "time",
    "first_week": "2026-W44",
@@ -634,33 +822,45 @@
    "best_week": "2026-W44",
    "latest": {
     "week": "2026-W44",
-    "pitch": "Dan Shipper used Claude Duet for two weeks and called it the first personal agent he would treat as a pro tool, with channels that keep his recurring docs, slides and dashboards current, while Claire Vo found it well designed but too quiet and slow to stick. A senior PM drowning in stakeholder email and recurring status docs can offload the morning brief and first-draft replies, and his stakeholder-alignment work is exactly the load it targets.",
-    "first_step": "Join the Duet waitlist, or set up a scheduled Claude task today that reads yesterday's email and calendar and writes a five-line morning brief, then compare it with your own notes for a week.",
+    "pitch": "Dan Shipper tested Claude Duet for two weeks and called it the first personal agent he would call a pro tool, moving his usage to roughly 50/50 with ChatGPT, while Claire Vo found it polished but too quiet and slow on inbox, Slack and ticket-hunting tasks. A PM juggling stakeholders could hand it recurring follow-ups and weekly status threads.",
+    "first_step": "Join the Duet waitlist, or set up one scheduled Claude task that drafts Monday's stakeholder status from last week's threads.",
     "scores": {
-     "fit": 17,
-     "upside": 11,
-     "time_to_dollar": 13,
+     "fit": 16,
+     "upside": 12,
+     "time_to_dollar": 12,
      "effort": 13,
-     "evidence": 9,
-     "durability": 7
+     "evidence": 10,
+     "durability": 5
     },
-    "total": 70,
+    "total": 68,
     "reasons": {
-     "fit": "Uses his stakeholder-management load directly; nothing here needs his compliance or data edge.",
-     "upside": "Realistically 3 to 5 hours a week of triage, briefs and status-doc upkeep.",
-     "time_to_dollar": "The first morning brief saves time on day one; waitlist access may delay the Duet version.",
-     "effort": "Under an hour a week to review drafts and correct its sense of urgency.",
-     "evidence": "Two independent named hands-on reviews with specifics (two weeks of use, 10+ minute task latency), but one is lukewarm.",
-     "durability": "Proactive agents are a core product direction for every lab; the workflow lasts even if the app changes."
+     "fit": "Uses his stakeholder follow-up load; generic otherwise.",
+     "upside": "3 to 5 hours a week of triage and follow-ups if it works as described.",
+     "time_to_dollar": "Benefit in the first week once access arrives.",
+     "effort": "Under 3 hours a week to review its output.",
+     "evidence": "Two independent named reviewers with specifics, both early and mixed.",
+     "durability": "Personal agents are crowded and changing fast; the habit lasts, the product may not."
     },
     "dollars": {
-     "low": 22500,
+     "low": 15000,
      "high": 37500,
-     "basis": "annual, 3 to 5 hours a week saved x 150 x 50"
+     "basis": "annual"
     },
-    "hours_per_week": 1
+    "hours_per_week": 2
    },
    "evidence": [
+    {
+     "url": "https://www.lennysnewsletter.com/p/claude-duet-is-beautiful-i-still",
+     "source": "Lenny's Newsletter",
+     "date": "2026-10-21",
+     "claim": "Claire Vo tried it on inbox, Slack, a sales deck and Warriors tickets for her kids; too few nudges and slow parallel tasks"
+    },
+    {
+     "url": "https://every.to/context-window/anthropic-s-duet-gets-to-work",
+     "source": "Every",
+     "date": "2026-10-25",
+     "claim": "Follow-up on Duet in daily work"
+    },
     {
      "url": "https://every.to/vibe-check/vibe-check-duet-anthropic-s-always-on-agent",
      "source": "Every",
@@ -688,197 +888,761 @@
    ]
   },
   {
-   "id": "solo-apps-shipped-with-claude-code",
-   "title": "Solo apps shipped fast with Claude Code",
+   "id": "self-hosted-family-finance-app",
+   "title": "Multi-country family finance app built in nine days with Claude Code",
    "aliases": [
-    "side project built with claude code",
-    "mcp feature for existing app"
+    "keepard",
+    "household budget app"
    ],
-   "category": "money",
+   "category": "life",
    "first_week": "2026-W44",
    "last_week": "2026-W44",
    "weeks": [
     "2026-W44"
    ],
    "weeks_seen": 1,
-   "best_score": 55,
+   "best_score": 68,
    "best_week": "2026-W44",
    "latest": {
     "week": "2026-W44",
-    "pitch": "Solo builders shipped working products in days with Claude Code: one founder made $200 in a day after adding an MCP server to his language app, another got 141 users in 19 days for a tab manager. A 0-to-1 product manager can use Claude Code to close the engineering gap, but the space is crowded and revenue numbers are small.",
-    "first_step": "Spend one evening asking Claude Code to build a throwaway version of a compliance-workflow tool you wished existed at Amazon, then show it to two former colleagues.",
+    "pitch": "Rodion, an agency CTO, replaced a monthly Excel evening with a self-hosted household finance app built in nine days with Claude Code, and he and his wife have used it daily for two months. It uses his SQL and data-pipeline skills for the family budget.",
+    "first_step": "Export three months of bank CSVs and ask Claude Code to build a local dashboard of spending by category, starting from the keepard repo.",
     "scores": {
-     "fit": 17,
-     "upside": 7,
-     "time_to_dollar": 9,
-     "effort": 9,
-     "evidence": 9,
-     "durability": 4
+     "fit": 21,
+     "upside": 9,
+     "time_to_dollar": 13,
+     "effort": 12,
+     "evidence": 5,
+     "durability": 8
     },
-    "total": 55,
+    "total": 68,
     "reasons": {
-     "fit": "0-to-1 product strength applies directly; Claude Code covers most of the engineering gap.",
-     "upside": "Reported results are $200 in a day and free-tier users; realistic $1k to $10k a year.",
-     "time_to_dollar": "Weeks to first dollar if a paid tier exists.",
-     "effort": "3 to 10 hours a week to maintain and market.",
-     "evidence": "Two independent reports with specifics (revenue, user counts) plus a Show HN build report.",
-     "durability": "Very crowded; easy-to-build apps get copied quickly."
+     "fit": "Fits household budgeting and uses his data pipeline skills.",
+     "upside": "Saves 1 to 2 hours a month to 1 hour a week of reconciliation.",
+     "time_to_dollar": "Usable within a weekend or two.",
+     "effort": "Under 3 hours a week once running.",
+     "evidence": "One named person with numbers from logs and git.",
+     "durability": "Your own app keeps working; bank import formats need upkeep."
     },
     "dollars": {
-     "low": 1000,
-     "high": 12000,
+     "low": 3750,
+     "high": 11250,
      "basis": "annual"
     },
-    "hours_per_week": 6
+    "hours_per_week": 1
    },
    "evidence": [
     {
-     "url": "https://x.com/vital_pavlenko/status/2112154537226080295",
-     "source": "x.com",
-     "date": "2026-10-19",
-     "claim": "$200 in a day after shipping an MCP server for VibeLing"
-    },
-    {
-     "url": "https://dev.to/taewoo/19-days-546-messages-141-users-building-my-app-by-mostly-talking-to-claude-code-1mgb",
+     "url": "https://dev.to/rodik/i-built-a-self-hosted-family-finance-app-with-claude-code-in-9-days-heres-what-it-cost-and-what-i-2nl2",
      "source": "Dev.to",
-     "date": "2026-10-24",
-     "claim": "141 users 19 days after the first line of code"
+     "date": "2026-10-21",
+     "claim": "Household finance app built in nine days with AI agents; he and his wife still use it every day two months later"
     },
     {
-     "url": "https://i.buzzing.cc/en/showhn/posts/2026/43/en_hn_2026_10_21__50176936/",
-     "source": "Hacker News",
+     "url": "https://github.com/sars/keepard",
+     "source": "github.com",
      "date": "2026-10-21",
-     "claim": "Online multiplayer game built in two days with Claude Code (Show HN 50176936)"
+     "claim": "Open-source repo with live demo"
     }
    ]
   },
   {
-   "id": "claude-code-growth-operating-system",
-   "title": "Agentic growth operating system built in Claude Code",
+   "id": "solo-law-firm-stack-weekend-rebuild",
+   "title": "Solo law firm website, intake and billing rebuilt in one weekend with Claude",
    "aliases": [
-    "growth os in claude code",
-    "claude code for growth marketing"
+    "months of work in one weekend",
+    "law firm back office with claude"
    ],
-   "category": "money",
+   "category": "time",
    "first_week": "2026-W44",
    "last_week": "2026-W44",
    "weeks": [
     "2026-W44"
    ],
    "weeks_seen": 1,
-   "best_score": 54,
+   "best_score": 64,
    "best_week": "2026-W44",
    "latest": {
     "week": "2026-W44",
-    "pitch": "James McAulay, formerly on the ElevenLabs growth team, says the agentic growth system he built in Claude Code helped his current business reach GBP 100,000 a month in 95 days without full-time hires. Growth experiments, funnel analytics and A/B testing match his data and experimentation background, though the revenue claim is self-reported.",
-    "first_step": "Watch the free masterclass and rebuild one piece, such as a weekly funnel report from your own analytics export, in Claude Code in one evening.",
+    "pitch": "Noel Bagwell, a solo lawyer, rebuilt his firm's website copy, intake automation, billing setup and booking calendars with Claude over one weekend, work he puts at 150 to 250 hours. The same playbook could be a consulting offer to compliance-heavy small practices.",
+    "first_step": "List the ten small back-office fixes you have postponed and do the first three with Claude this Saturday.",
+    "scores": {
+     "fit": 16,
+     "upside": 13,
+     "time_to_dollar": 12,
+     "effort": 11,
+     "evidence": 5,
+     "durability": 7
+    },
+    "total": 64,
+    "reasons": {
+     "fit": "Compliance-aware rewrite of intake and promises fits his regulated-domain strength; small-firm ops are new to him.",
+     "upside": "150 to 250 hours of work done once; as a service, $10k to $30k a year.",
+     "time_to_dollar": "First fixes the same weekend.",
+     "effort": "Under 3 hours a week after the rebuild.",
+     "evidence": "One named person with a detailed hour estimate.",
+     "durability": "Small-firm back-office cleanup will stay in demand for a couple of years."
+    },
+    "dollars": {
+     "low": 15000,
+     "high": 37500,
+     "basis": "annual"
+    },
+    "hours_per_week": 3
+   },
+   "evidence": [
+    {
+     "url": "https://noelbagwell.substack.com/p/how-i-did-months-of-work-in-one-weekend",
+     "source": "noelbagwell.substack.com",
+     "date": "2026-10-26",
+     "claim": "Between 150 and 250 hours of skilled work, three to six months for a solo lawyer, done in one weekend"
+    },
+    {
+     "url": "https://noelbagwell.substack.com/",
+     "source": "noelbagwell.substack.com",
+     "date": "2026-10-26",
+     "claim": "Counsel & Clarity, a one-lawyer firm in Clarksville, Tennessee"
+    }
+   ]
+  },
+  {
+   "id": "floor-plan-to-3d-remodel-shopping-list",
+   "title": "Old floor plan turned into 3D room options and a local shopping list",
+   "aliases": [
+    "home planning with claude"
+   ],
+   "category": "life",
+   "first_week": "2026-W44",
+   "last_week": "2026-W44",
+   "weeks": [
+    "2026-W44"
+   ],
+   "weeks_seen": 1,
+   "best_score": 63,
+   "best_week": "2026-W44",
+   "latest": {
+    "week": "2026-W44",
+    "pitch": "An HN commenter had Claude convert a previous owner's rough floor plan into 3D, try options for one room, and build a shopping list from a local store with budgets, for about $1 of quota against a $10k design quote. Fits a family planning a room change.",
+    "first_step": "Photograph your floor plan and ask Claude for three layouts of one room with a Home Depot list under a set budget.",
+    "scores": {
+     "fit": 16,
+     "upside": 9,
+     "time_to_dollar": 14,
+     "effort": 14,
+     "evidence": 3,
+     "durability": 7
+    },
+    "total": 63,
+    "reasons": {
+     "fit": "Matches household planning; uses his planning skill.",
+     "upside": "One-off project saving hundreds to thousands of dollars.",
+     "time_to_dollar": "First use pays off.",
+     "effort": "One-off, minutes a week.",
+     "evidence": "One anonymous claim with a number.",
+     "durability": "Will keep working."
+    },
+    "dollars": {
+     "low": 500,
+     "high": 5000,
+     "basis": "annual"
+    },
+    "hours_per_week": 0
+   },
+   "evidence": [
+    {
+     "url": "https://news.ycombinator.com/item?id=50216715",
+     "source": "Hacker News",
+     "date": "2026-10-23",
+     "claim": "Converted a drawing into 3D, room options and a shopping list with budgets for about $1 versus at least $10k"
+    },
+    {
+     "url": "https://news.ycombinator.com/item?id=50200997",
+     "source": "Hacker News",
+     "date": "2026-10-22",
+     "claim": "Ask HN thread: why doesn't OpenAI start 100 companies (context)"
+    }
+   ]
+  },
+  {
+   "id": "grant-due-diligence-sop-to-asana",
+   "title": "Grant due-diligence SOP rebuilt from webinar notes into Asana with Claude",
+   "aliases": [
+    "eight weeks of putting it off",
+    "sop to asana"
+   ],
+   "category": "time",
+   "first_week": "2026-W44",
+   "last_week": "2026-W44",
+   "weeks": [
+    "2026-W44"
+   ],
+   "weeks_seen": 1,
+   "best_score": 63,
+   "best_week": "2026-W44",
+   "latest": {
+    "week": "2026-W44",
+    "pitch": "Olivia Addy at the Open Wing Alliance had put off updating the grant due-diligence process for eight weeks; with Claude connected to Drive and Asana she rebuilt the plan, SOP and Asana tasks in four hours. Turning a stale process doc into a live checklist is routine PM work.",
+    "first_step": "Pick one process doc you own that is out of date, connect Claude to Drive and your task tool, and ask it to propose the changes step by step.",
     "scores": {
      "fit": 15,
-     "upside": 14,
-     "time_to_dollar": 7,
-     "effort": 7,
+     "upside": 8,
+     "time_to_dollar": 15,
+     "effort": 13,
      "evidence": 5,
-     "durability": 6
+     "durability": 7
     },
-    "total": 54,
+    "total": 63,
     "reasons": {
-     "fit": "Uses his data, SQL and A/B testing strength directly; the growth-marketing role is new to him.",
-     "upside": "As a consulting offer or a growth lever, $10k to $100k a year is plausible.",
-     "time_to_dollar": "Two to six months to land a client or see revenue lift.",
-     "effort": "10 to 30 hours a week to run growth work for a business.",
-     "evidence": "One named person with large numbers, self-reported and not verified; interview and summary page restate the same claim.",
-     "durability": "Growth skills last; the specific harness will need upkeep as tools change."
+     "fit": "Process design and compliance-style due diligence use one strength directly.",
+     "upside": "A few hours saved per process update, 1 to 2 hours a week averaged.",
+     "time_to_dollar": "Pays off the first time.",
+     "effort": "Under 3 hours a week.",
+     "evidence": "One named person with a concrete before and after.",
+     "durability": "Connector-based process work will last."
     },
     "dollars": {
-     "low": 10000,
-     "high": 60000,
+     "low": 7500,
+     "high": 15000,
      "basis": "annual"
     },
-    "hours_per_week": 12
+    "hours_per_week": 1
    },
    "evidence": [
     {
-     "url": "https://www.news.aakashg.com/p/claude-code-for-growth",
-     "source": "Product Growth",
-     "date": "2026-10-20",
-     "claim": "Masterclass presenting a free operating system for growth in Claude Code"
+     "url": "https://perchnotes.substack.com/p/eight-weeks-of-putting-it-off-four",
+     "source": "perchnotes.substack.com",
+     "date": "2026-10-21",
+     "claim": "Eight weeks of putting it off, four hours with Claude: plan, SOP and Asana changes"
     },
     {
-     "url": "https://www.aakashg.com/claude-code-for-growth-the-complete-masterclass-with-james-mcaulay/",
-     "source": "aakashg.com",
-     "date": "2026-10-20",
-     "claim": "Business reached GBP 100,000 monthly revenue in 95 days with no full-time employees (self-reported)"
+     "url": "https://perchnotes.substack.com/",
+     "source": "perchnotes.substack.com",
+     "date": "2026-10-21",
+     "claim": "Series testing Claude Cowork on grant program work"
     }
    ]
   },
   {
-   "id": "claude-code-short-form-video-pipeline",
-   "title": "Short-form video editing pipeline run by Claude Code",
+   "id": "fire-retirement-planner-agent-built",
+   "title": "FIRE retirement planner built hands-off with an Opus audit-and-fix loop",
    "aliases": [
-    "claude cuts my tiktok",
-    "launch videos with claude and hyperframes"
+    "coastmath"
    ],
-   "category": "money",
+   "category": "life",
    "first_week": "2026-W44",
    "last_week": "2026-W44",
    "weeks": [
     "2026-W44"
    ],
    "weeks_seen": 1,
-   "best_score": 44,
+   "best_score": 62,
    "best_week": "2026-W44",
    "latest": {
     "week": "2026-W44",
-    "pitch": "Creator Brooke Lacey, with 290,000+ TikTok followers, uses Claude Code with FFmpeg and Whisper to cut raw phone takes into captioned vertical ads in about 15 seconds, and Jake Moran showed Peter Yang how he makes launch videos from a few images with Claude and HyperFrames. Video production is one of his weak spots, so this is mainly useful for cheap launch clips for his own products, not as a business to run.",
-    "first_step": "Record one two-minute phone take about a product idea and ask Claude Code to cut it with FFmpeg and Whisper captions, timing the whole loop.",
+    "pitch": "The CoastMath builder used Opus and Fable agents to research FIRE subreddit feature requests, build the planner, and run a perpetual audit-and-fix loop on its calculation engine with every rule backed by a cited source. The cited-rules loop fits his compliance background and a family's retirement planning.",
+    "first_step": "Ask Claude Code to build a one-page coast-FIRE calculator for your household with every assumption cited.",
     "scores": {
-     "fit": 5,
-     "upside": 8,
-     "time_to_dollar": 9,
-     "effort": 9,
-     "evidence": 8,
-     "durability": 5
+     "fit": 20,
+     "upside": 7,
+     "time_to_dollar": 12,
+     "effort": 12,
+     "evidence": 4,
+     "durability": 7
     },
-    "total": 44,
+    "total": 62,
     "reasons": {
-     "fit": "Video production is a named weak spot; only the scripting part uses his strengths.",
-     "upside": "Saves editing hours or supports a content side business in the $1k to $10k range.",
-     "time_to_dollar": "Pipeline works in a weekend, but money depends on building an audience first.",
-     "effort": "3 to 10 hours a week to film and publish.",
-     "evidence": "Two independent named creators with specifics (audience size, 15-second cuts), both shown live on podcasts.",
-     "durability": "Video tools are commoditising fast; editing automation will soon be built into the apps."
+     "fit": "Compliance-style rule citation plus personal finance; two strengths.",
+     "upside": "1 to 2 hours a month of planning, plus better decisions.",
+     "time_to_dollar": "Weeks.",
+     "effort": "Under 3 hours a week.",
+     "evidence": "One builder, method detailed but no outcomes.",
+     "durability": "Tax rules change yearly."
     },
     "dollars": {
-     "low": 2000,
-     "high": 10000,
+     "low": 1875,
+     "high": 7500,
      "basis": "annual"
     },
-    "hours_per_week": 6
+    "hours_per_week": 1
    },
    "evidence": [
     {
-     "url": "https://lennysnewsletter.com/p/claude-cuts-my-tiktok-how-this-creator",
-     "source": "Lenny's Newsletter",
+     "url": "https://news.ycombinator.com/item?id=50123996",
+     "source": "Hacker News",
+     "date": "2026-10-16",
+     "claim": "Features built with Opus 5.5 and Fable 5.1; agents audit the calculation engine until no medium+ issues"
+    },
+    {
+     "url": "https://github.com/blank-slate-labs/coastmath",
+     "source": "github.com",
+     "date": "2026-10-16",
+     "claim": "Open-source planner with iOS app"
+    }
+   ]
+  },
+  {
+   "id": "handwritten-math-feedback-markup",
+   "title": "Handwritten math homework marked up by Claude like a teacher",
+   "aliases": [
+    "penmentor"
+   ],
+   "category": "life",
+   "first_week": "2026-W44",
+   "last_week": "2026-W44",
+   "weeks": [
+    "2026-W44"
+   ],
+   "weeks_seen": 1,
+   "best_score": 62,
+   "best_week": "2026-W44",
+   "latest": {
+    "week": "2026-W44",
+    "pitch": "Abdullah Alhariri released Penmentor, which has Claude annotate photos of handwritten math work the way a teacher would, and a homeschooling commenter planned to test it. Fits checking kids' homework without giving answers.",
+    "first_step": "Photograph one page of your kid's math homework and run it through Penmentor or ask Claude to mark errors without solving.",
+    "scores": {
+     "fit": 17,
+     "upside": 6,
+     "time_to_dollar": 14,
+     "effort": 14,
+     "evidence": 4,
+     "durability": 7
+    },
+    "total": 62,
+    "reasons": {
+     "fit": "Matches kids' homework in the household.",
+     "upside": "1 to 2 hours a week of homework checking.",
+     "time_to_dollar": "First page.",
+     "effort": "Minutes.",
+     "evidence": "One named builder; thin outcome data.",
+     "durability": "Durable."
+    },
+    "dollars": {
+     "low": 3750,
+     "high": 11250,
+     "basis": "annual"
+    },
+    "hours_per_week": 0
+   },
+   "evidence": [
+    {
+     "url": "https://news.ycombinator.com/item?id=50167604",
+     "source": "Hacker News",
+     "date": "2026-10-20",
+     "claim": "Claude marks up your handwritten math like a teacher"
+    },
+    {
+     "url": "https://github.com/AbdullahAlhariri/penmentor",
+     "source": "github.com",
+     "date": "2026-10-20",
+     "claim": "Open-source repo"
+    }
+   ]
+  },
+  {
+   "id": "docs-diff-watcher-routine",
+   "title": "Daily doc-change watcher routine posting Slack summaries and draft articles",
+   "aliases": [
+    "claude code routine watcher"
+   ],
+   "category": "time",
+   "first_week": "2026-W44",
+   "last_week": "2026-W44",
+   "weeks": [
+    "2026-W44"
+   ],
+   "weeks_seen": 1,
+   "best_score": 61,
+   "best_week": "2026-W44",
+   "latest": {
+    "week": "2026-W44",
+    "pitch": "Pesimmoq, who writes guides about the Claude API, missed a model launch for five days, so he built a Claude Code routine that diffs 12 documentation pages every morning, posts a Japanese summary to Slack, and drafts an article when his books are affected. A PM could watch competitor or regulator pages the same way.",
+    "first_step": "Set up one routine that diffs three competitor or policy pages daily and posts changes to your Slack.",
+    "scores": {
+     "fit": 17,
+     "upside": 6,
+     "time_to_dollar": 13,
+     "effort": 14,
+     "evidence": 4,
+     "durability": 7
+    },
+    "total": 61,
+    "reasons": {
+     "fit": "Competitive and regulatory monitoring uses his compliance edge.",
+     "upside": "1 to 2 hours a week of checking saved.",
+     "time_to_dollar": "First day's diff pays off.",
+     "effort": "Minutes a week.",
+     "evidence": "One builder with a specific setup.",
+     "durability": "Routines are a core feature."
+    },
+    "dollars": {
+     "low": 7500,
+     "high": 15000,
+     "basis": "annual"
+    },
+    "hours_per_week": 0
+   },
+   "evidence": [
+    {
+     "url": "https://dev.to/persimmoq/i-built-an-ai-coworker-that-works-while-i-sleep-using-nothing-but-claude-code-6k8",
+     "source": "Dev.to",
+     "date": "2026-10-16",
+     "claim": "Every morning at 09:00 JST reads 12 doc pages, diffs them, posts a summary to Slack"
+    },
+    {
+     "url": "https://dev.to/persimmoq",
+     "source": "Dev.to",
+     "date": "2026-10-16",
+     "claim": "Author missed the Haiku 5.5 launch for five days before building it"
+    }
+   ]
+  },
+  {
+   "id": "phonics-reader-with-claude-book-import",
+   "title": "Early-reader phonics app where Claude imports the family's own books",
+   "aliases": [
+    "yarareads"
+   ],
+   "category": "life",
+   "first_week": "2026-W44",
+   "last_week": "2026-W44",
+   "weeks": [
+    "2026-W44"
+   ],
+   "weeks_seen": 1,
+   "best_score": 61,
+   "best_week": "2026-W44",
+   "latest": {
+    "week": "2026-W44",
+    "pitch": "Eli Finer built a phonics reader so his 6-year-old can tap words to sound them out, with stories written by his 12-year-old, and an MCP connection so Claude can import a PDF of a book you own. Fits a family with young readers.",
+    "first_step": "Try the reader with your youngest and import one favorite book through Claude.",
+    "scores": {
+     "fit": 16,
+     "upside": 6,
+     "time_to_dollar": 14,
+     "effort": 14,
+     "evidence": 4,
+     "durability": 7
+    },
+    "total": 61,
+    "reasons": {
+     "fit": "Matches kids' learning at home.",
+     "upside": "About an hour a week of reading help.",
+     "time_to_dollar": "First session.",
+     "effort": "Minutes.",
+     "evidence": "One named builder; a commenter flagged phoneme errors.",
+     "durability": "Durable if maintained."
+    },
+    "dollars": {
+     "low": 3750,
+     "high": 7500,
+     "basis": "annual"
+    },
+    "hours_per_week": 0
+   },
+   "evidence": [
+    {
+     "url": "https://news.ycombinator.com/item?id=50155647",
+     "source": "Hacker News",
      "date": "2026-10-19",
-     "claim": "Raw phone video cut in roughly 15 seconds with Claude Code, FFmpeg and Whisper; 290,000+ TikTok audience"
+     "claim": "Built a reader for my 6-year-old; MCP lets Claude import a PDF of a book you own"
     },
     {
-     "url": "https://www.chatprd.ai/how-i-ai/brooke-lacey-claude-code-video-editing",
-     "source": "Podcasts",
+     "url": "https://github.com/finereli/yarareads",
+     "source": "github.com",
      "date": "2026-10-19",
-     "claim": "Phone take becomes a vertical ad with jump cuts, captions, zoom and app-screen inserts, no timeline"
+     "claim": "Open-source reader"
+    }
+   ]
+  },
+  {
+   "id": "friday-weekly-review-skill",
+   "title": "Friday 20-minute weekly review run by a Claude Code skill",
+   "aliases": [
+    "weekly review skill"
+   ],
+   "category": "life",
+   "first_week": "2026-W44",
+   "last_week": "2026-W44",
+   "weeks": [
+    "2026-W44"
+   ],
+   "weeks_seen": 1,
+   "best_score": 59,
+   "best_week": "2026-W44",
+   "latest": {
+    "week": "2026-W44",
+    "pitch": "Lil Nicky AI runs a 20-minute Friday review with a free Claude Code skill: score priorities as done, moved or dropped, home every stray task, then name the pattern. A low-effort habit for a busy parent with a heavy planning load.",
+    "first_step": "Install the skill and run it this Friday against your calendar and task list.",
+    "scores": {
+     "fit": 13,
+     "upside": 6,
+     "time_to_dollar": 14,
+     "effort": 15,
+     "evidence": 3,
+     "durability": 8
+    },
+    "total": 59,
+    "reasons": {
+     "fit": "Matches his planning load; generic.",
+     "upside": "About 1 hour a week saved in planning.",
+     "time_to_dollar": "First run pays off.",
+     "effort": "20 minutes a week.",
+     "evidence": "One builder, no numbers beyond time spent.",
+     "durability": "A durable habit."
+    },
+    "dollars": {
+     "low": 3750,
+     "high": 7500,
+     "basis": "annual"
+    },
+    "hours_per_week": 0
+   },
+   "evidence": [
+    {
+     "url": "https://dev.to/lilnickyai/the-20-minute-weekly-review-i-run-with-my-ai-agent-free-skill-41ag",
+     "source": "Dev.to",
+     "date": "2026-10-20",
+     "claim": "Every Friday, 20 minutes with the agent closes the week"
     },
     {
-     "url": "https://creatoreconomy.so/p/how-to-make-amazing-videos-with-claude-and-hyperframes-jake-moran",
-     "source": "Behind the Craft",
-     "date": "2026-10-25",
-     "claim": "Jake Moran makes a launch video from a few images with Claude and HyperFrames"
+     "url": "https://github.com/lilnickyai/claude-code-skills-samples",
+     "source": "github.com",
+     "date": "2026-10-20",
+     "claim": "Free installable skill"
+    }
+   ]
+  },
+  {
+   "id": "home-repair-diagnosis-free-claude",
+   "title": "Underfloor heating fault diagnosed and fixed with free Claude",
+   "aliases": [
+    "fix it myself with claude"
+   ],
+   "category": "life",
+   "first_week": "2026-W44",
+   "last_week": "2026-W44",
+   "weeks": [
+    "2026-W44"
+   ],
+   "weeks_seen": 1,
+   "best_score": 59,
+   "best_week": "2026-W44",
+   "latest": {
+    "week": "2026-W44",
+    "pitch": "An HN commenter fixed underfloor heating using the free Claude tier, and another had Claude trace a Windows hibernate crash to an old Nvidia driver from logs. Saves service calls in any household.",
+    "first_step": "Next time something breaks, give Claude photos, model numbers and symptoms before calling a technician.",
+    "scores": {
+     "fit": 12,
+     "upside": 7,
+     "time_to_dollar": 14,
+     "effort": 14,
+     "evidence": 4,
+     "durability": 8
+    },
+    "total": 59,
+    "reasons": {
+     "fit": "Generic household fit.",
+     "upside": "A few hundred dollars a year in service calls.",
+     "time_to_dollar": "First use pays off.",
+     "effort": "None between incidents.",
+     "evidence": "Two anonymous reports, little detail.",
+     "durability": "Durable."
+    },
+    "dollars": {
+     "low": 200,
+     "high": 1500,
+     "basis": "annual"
+    },
+    "hours_per_week": 0
+   },
+   "evidence": [
+    {
+     "url": "https://news.ycombinator.com/item?id=50245011",
+     "source": "Hacker News",
+     "date": "2026-10-26",
+     "claim": "Fixed my underfloor heating with the free Claude version"
     },
     {
-     "url": "https://x.com/petergyang/status/2114360145505595842",
-     "source": "X accounts",
+     "url": "https://news.ycombinator.com/item?id=50186039",
+     "source": "Hacker News",
+     "date": "2026-10-21",
+     "claim": "Claude diagnosed a hibernate-resume failure from logs to an old Nvidia driver"
+    }
+   ]
+  },
+  {
+   "id": "garmin-data-claude-training-coach",
+   "title": "Garmin sleep and HRV read by Claude to build watch workouts",
+   "aliases": [
+    "garmin mcp",
+    "claude builds my intervals"
+   ],
+   "category": "life",
+   "first_week": "2026-W44",
+   "last_week": "2026-W44",
+   "weeks": [
+    "2026-W44"
+   ],
+   "weeks_seen": 1,
+   "best_score": 58,
+   "best_week": "2026-W44",
+   "latest": {
+    "week": "2026-W44",
+    "pitch": "Ivan Ficko built an open-source Garmin Connect library and MCP server so Claude can answer how he slept, judge readiness from HRV, and push a 6x400 session to his watch. Useful for a parent fitting training around kids' schedules.",
+    "first_step": "Add the Garmin connector URL to Claude and ask for this week's sleep and readiness summary.",
+    "scores": {
+     "fit": 14,
+     "upside": 6,
+     "time_to_dollar": 14,
+     "effort": 14,
+     "evidence": 4,
+     "durability": 6
+    },
+    "total": 58,
+    "reasons": {
+     "fit": "Fits fitness planning in an active household; generic.",
+     "upside": "Under an hour to 1 hour a week of planning saved.",
+     "time_to_dollar": "Pays off on first use.",
+     "effort": "Minutes a week.",
+     "evidence": "One named builder, few outcome numbers.",
+     "durability": "Unofficial API access could break."
+    },
+    "dollars": {
+     "low": 3750,
+     "high": 7500,
+     "basis": "annual"
+    },
+    "hours_per_week": 0
+   },
+   "evidence": [
+    {
+     "url": "https://dev.to/dynamicsninja/i-built-a-garmin-connect-library-for-typescript-then-let-claude-use-it-g62",
+     "source": "Dev.to",
+     "date": "2026-10-23",
+     "claim": "MCP server lets Claude read sleep and HRV and build workouts for the watch"
+    },
+    {
+     "url": "https://garmin.ficdev.xyz/",
+     "source": "garmin.ficdev.xyz",
+     "date": "2026-10-23",
+     "claim": "Hosted connector URL to add in Claude"
+    }
+   ]
+  },
+  {
+   "id": "personal-agent-with-own-pnl",
+   "title": "Personal life agent that keeps routine and finances and runs its own P&L",
+   "aliases": [
+    "life-distributable",
+    "agent bought itself a mac mini"
+   ],
+   "category": "life",
+   "first_week": "2026-W44",
+   "last_week": "2026-W44",
+   "weeks": [
+    "2026-W44"
+   ],
+   "weeks_seen": 1,
+   "best_score": 58,
+   "best_week": "2026-W44",
+   "latest": {
+    "week": "2026-W44",
+    "pitch": "Matt Abate's open-source personal agent, set up by pasting one prompt into Claude Code, keeps him on his daily routine and manages his finances, and its own P&L stayed positive enough to pay for Claude Max at +$200 and a Mac mini at +$1,600. It suits someone who wants a single household planner.",
+    "first_step": "Paste the setup prompt into Claude Code on a spare Mac and give it only your calendar first.",
+    "scores": {
+     "fit": 16,
+     "upside": 9,
+     "time_to_dollar": 12,
+     "effort": 11,
+     "evidence": 5,
+     "durability": 5
+    },
+    "total": 58,
+    "reasons": {
+     "fit": "Uses his planning and data skills for household admin.",
+     "upside": "1 to 3 hours a week of personal admin.",
+     "time_to_dollar": "Value in the first week.",
+     "effort": "Under 3 hours a week of upkeep, more early on.",
+     "evidence": "One named person with numbers.",
+     "durability": "Personal agents change fast."
+    },
+    "dollars": {
+     "low": 7500,
+     "high": 22500,
+     "basis": "annual"
+    },
+    "hours_per_week": 2
+   },
+   "evidence": [
+    {
+     "url": "https://news.ycombinator.com/item?id=50180638",
+     "source": "Hacker News",
+     "date": "2026-10-21",
+     "claim": "Keeps me on my daily routine, manages my finances; P&L hit +$1,600"
+    },
+    {
+     "url": "https://github.com/mattabate/life-distributable",
+     "source": "github.com",
+     "date": "2026-10-21",
+     "claim": "Software distributed as a prompt; builds desktop and iPhone apps"
+    }
+   ]
+  },
+  {
+   "id": "scheduled-customer-issue-investigation",
+   "title": "Weekday 10 AM scheduled Claude investigation of customer issues",
+   "aliases": [
+    "claude triages support tickets"
+   ],
+   "category": "time",
+   "first_week": "2026-W44",
+   "last_week": "2026-W44",
+   "weeks": [
+    "2026-W44"
+   ],
+   "weeks_seen": 1,
+   "best_score": 57,
+   "best_week": "2026-W44",
+   "latest": {
+    "week": "2026-W44",
+    "pitch": "Ravikumar Makwana, a developer, has Claude investigate customer issues on a schedule every weekday at 10 AM so he starts the day with findings. A PM could run the same on support tickets and bug reports.",
+    "first_step": "Schedule one Claude task that reads yesterday's support tickets and groups them by root cause.",
+    "scores": {
+     "fit": 15,
+     "upside": 6,
+     "time_to_dollar": 13,
+     "effort": 14,
+     "evidence": 3,
+     "durability": 6
+    },
+    "total": 57,
+    "reasons": {
+     "fit": "Ticket triage and analytics use one strength.",
+     "upside": "1 to 2 hours a week.",
+     "time_to_dollar": "First week.",
+     "effort": "Minutes.",
+     "evidence": "One person, no numbers visible.",
+     "durability": "Durable pattern."
+    },
+    "dollars": {
+     "low": 7500,
+     "high": 15000,
+     "basis": "annual"
+    },
+    "hours_per_week": 0
+   },
+   "evidence": [
+    {
+     "url": "https://medium.com/@ravikumar.makwana/i-let-claude-investigate-my-customer-issues-every-weekday-at-10-am-d3881822bf9b",
+     "source": "Medium",
      "date": "2026-10-25",
-     "claim": "Make a launch video from just a few images; duplicate a creator's video style"
+     "claim": "Claude investigates customer issues every weekday at 10 AM"
+    },
+    {
+     "url": "https://medium.com/feed/tag/claude-ai",
+     "source": "Medium",
+     "date": "2026-10-25",
+     "claim": "Listed in Medium claude-ai tag feed"
     }
    ]
   }
@@ -887,8 +1651,8 @@
  "history": [
   {
    "week": "2026-W44",
-   "status": "skipped",
-   "candidates_scored": 6
+   "status": "thin",
+   "candidates_scored": 48
   }
  ]
 }
