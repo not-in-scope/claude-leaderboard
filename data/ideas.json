@@ -1,5 +1,135 @@
 [
  {
+  "id": "claude-code-growth-operating-system",
+  "title": "Agentic growth operating system built in Claude Code",
+  "aliases": [
+   "growth os in claude code",
+   "claude code for growth marketing"
+  ],
+  "category": "money",
+  "first_week": "2026-W44",
+  "last_week": "2026-W44",
+  "weeks": [
+   "2026-W44"
+  ],
+  "weeks_seen": 1,
+  "best_score": 54,
+  "best_week": "2026-W44",
+  "latest": {
+   "week": "2026-W44",
+   "pitch": "James McAulay, formerly on the ElevenLabs growth team, says the agentic growth system he built in Claude Code helped his current business reach GBP 100,000 a month in 95 days without full-time hires. Growth experiments, funnel analytics and A/B testing match his data and experimentation background, though the revenue claim is self-reported.",
+   "first_step": "Watch the free masterclass and rebuild one piece, such as a weekly funnel report from your own analytics export, in Claude Code in one evening.",
+   "scores": {
+    "fit": 15,
+    "upside": 14,
+    "time_to_dollar": 7,
+    "effort": 7,
+    "evidence": 5,
+    "durability": 6
+   },
+   "total": 54,
+   "reasons": {
+    "fit": "Uses his data, SQL and A/B testing strength directly; the growth-marketing role is new to him.",
+    "upside": "As a consulting offer or a growth lever, $10k to $100k a year is plausible.",
+    "time_to_dollar": "Two to six months to land a client or see revenue lift.",
+    "effort": "10 to 30 hours a week to run growth work for a business.",
+    "evidence": "One named person with large numbers, self-reported and not verified; interview and summary page restate the same claim.",
+    "durability": "Growth skills last; the specific harness will need upkeep as tools change."
+   },
+   "dollars": {
+    "low": 10000,
+    "high": 60000,
+    "basis": "annual"
+   },
+   "hours_per_week": 12
+  },
+  "evidence": [
+   {
+    "url": "https://www.news.aakashg.com/p/claude-code-for-growth",
+    "source": "Product Growth",
+    "date": "2026-10-20",
+    "claim": "Masterclass presenting a free operating system for growth in Claude Code"
+   },
+   {
+    "url": "https://www.aakashg.com/claude-code-for-growth-the-complete-masterclass-with-james-mcaulay/",
+    "source": "aakashg.com",
+    "date": "2026-10-20",
+    "claim": "Business reached GBP 100,000 monthly revenue in 95 days with no full-time employees (self-reported)"
+   }
+  ]
+ },
+ {
+  "id": "claude-code-short-form-video-pipeline",
+  "title": "Short-form video editing pipeline run by Claude Code",
+  "aliases": [
+   "claude cuts my tiktok",
+   "launch videos with claude and hyperframes"
+  ],
+  "category": "money",
+  "first_week": "2026-W44",
+  "last_week": "2026-W44",
+  "weeks": [
+   "2026-W44"
+  ],
+  "weeks_seen": 1,
+  "best_score": 44,
+  "best_week": "2026-W44",
+  "latest": {
+   "week": "2026-W44",
+   "pitch": "Creator Brooke Lacey, with 290,000+ TikTok followers, uses Claude Code with FFmpeg and Whisper to cut raw phone takes into captioned vertical ads in about 15 seconds, and Jake Moran showed Peter Yang how he makes launch videos from a few images with Claude and HyperFrames. Video production is one of his weak spots, so this is mainly useful for cheap launch clips for his own products, not as a business to run.",
+   "first_step": "Record one two-minute phone take about a product idea and ask Claude Code to cut it with FFmpeg and Whisper captions, timing the whole loop.",
+   "scores": {
+    "fit": 5,
+    "upside": 8,
+    "time_to_dollar": 9,
+    "effort": 9,
+    "evidence": 8,
+    "durability": 5
+   },
+   "total": 44,
+   "reasons": {
+    "fit": "Video production is a named weak spot; only the scripting part uses his strengths.",
+    "upside": "Saves editing hours or supports a content side business in the $1k to $10k range.",
+    "time_to_dollar": "Pipeline works in a weekend, but money depends on building an audience first.",
+    "effort": "3 to 10 hours a week to film and publish.",
+    "evidence": "Two independent named creators with specifics (audience size, 15-second cuts), both shown live on podcasts.",
+    "durability": "Video tools are commoditising fast; editing automation will soon be built into the apps."
+   },
+   "dollars": {
+    "low": 2000,
+    "high": 10000,
+    "basis": "annual"
+   },
+   "hours_per_week": 6
+  },
+  "evidence": [
+   {
+    "url": "https://lennysnewsletter.com/p/claude-cuts-my-tiktok-how-this-creator",
+    "source": "Lenny's Newsletter",
+    "date": "2026-10-19",
+    "claim": "Raw phone video cut in roughly 15 seconds with Claude Code, FFmpeg and Whisper; 290,000+ TikTok audience"
+   },
+   {
+    "url": "https://www.chatprd.ai/how-i-ai/brooke-lacey-claude-code-video-editing",
+    "source": "Podcasts",
+    "date": "2026-10-19",
+    "claim": "Phone take becomes a vertical ad with jump cuts, captions, zoom and app-screen inserts, no timeline"
+   },
+   {
+    "url": "https://creatoreconomy.so/p/how-to-make-amazing-videos-with-claude-and-hyperframes-jake-moran",
+    "source": "Behind the Craft",
+    "date": "2026-10-25",
+    "claim": "Jake Moran makes a launch video from a few images with Claude and HyperFrames"
+   },
+   {
+    "url": "https://x.com/petergyang/status/2114360145505595842",
+    "source": "X accounts",
+    "date": "2026-10-25",
+    "claim": "Make a launch video from just a few images; duplicate a creator's video style"
+   }
+  ]
+ },
+ {
   "id": "family-logistics-household-admin-agent",
   "title": "Family logistics and household admin run through Claude",
   "aliases": [
@@ -59,6 +189,77 @@
   ]
  },
  {
+  "id": "proactive-agent-inbox-and-morning-brief",
+  "title": "Proactive Claude agent for inbox triage and morning briefs",
+  "aliases": [
+   "claude duet personal agent",
+   "always-on assistant for email and calendar"
+  ],
+  "category": "time",
+  "first_week": "2026-W44",
+  "last_week": "2026-W44",
+  "weeks": [
+   "2026-W44"
+  ],
+  "weeks_seen": 1,
+  "best_score": 70,
+  "best_week": "2026-W44",
+  "latest": {
+   "week": "2026-W44",
+   "pitch": "Dan Shipper used Claude Duet for two weeks and called it the first personal agent he would treat as a pro tool, with channels that keep his recurring docs, slides and dashboards current, while Claire Vo found it well designed but too quiet and slow to stick. A senior PM drowning in stakeholder email and recurring status docs can offload the morning brief and first-draft replies, and his stakeholder-alignment work is exactly the load it targets.",
+   "first_step": "Join the Duet waitlist, or set up a scheduled Claude task today that reads yesterday's email and calendar and writes a five-line morning brief, then compare it with your own notes for a week.",
+   "scores": {
+    "fit": 17,
+    "upside": 11,
+    "time_to_dollar": 13,
+    "effort": 13,
+    "evidence": 9,
+    "durability": 7
+   },
+   "total": 70,
+   "reasons": {
+    "fit": "Uses his stakeholder-management load directly; nothing here needs his compliance or data edge.",
+    "upside": "Realistically 3 to 5 hours a week of triage, briefs and status-doc upkeep.",
+    "time_to_dollar": "The first morning brief saves time on day one; waitlist access may delay the Duet version.",
+    "effort": "Under an hour a week to review drafts and correct its sense of urgency.",
+    "evidence": "Two independent named hands-on reviews with specifics (two weeks of use, 10+ minute task latency), but one is lukewarm.",
+    "durability": "Proactive agents are a core product direction for every lab; the workflow lasts even if the app changes."
+   },
+   "dollars": {
+    "low": 22500,
+    "high": 37500,
+    "basis": "annual, 3 to 5 hours a week saved x 150 x 50"
+   },
+   "hours_per_week": 1
+  },
+  "evidence": [
+   {
+    "url": "https://every.to/vibe-check/vibe-check-duet-anthropic-s-always-on-agent",
+    "source": "Every",
+    "date": "2026-10-21",
+    "claim": "Tested for two weeks; 'the first personal agent I'd call a pro tool'"
+   },
+   {
+    "url": "https://x.com/danshipper/status/2112997559463506059",
+    "source": "X accounts",
+    "date": "2026-10-21",
+    "claim": "Gone from mostly ChatGPT to roughly 50/50 between ChatGPT and Claude"
+   },
+   {
+    "url": "https://www.lennysnewsletter.com/p/how-i-ai-claude-duet-honest-review",
+    "source": "Lenny's Newsletter",
+    "date": "2026-10-21",
+    "claim": "Claire Vo: beautiful design, but it stopped nudging her and parallel tasks took 10+ minutes"
+   },
+   {
+    "url": "https://podcasts.apple.com/us/podcast/claude-duet-is-beautiful-i-still-forgot-to-use-it/id1809663079?i=1000797499530",
+    "source": "Podcasts",
+    "date": "2026-10-21",
+    "claim": "How I AI episode: 'Claude Duet is beautiful. I still forgot to use it.'"
+   }
+  ]
+ },
+ {
   "id": "small-org-back-office-automation",
   "title": "Small-org back-office automation with Claude",
   "aliases": [
@@ -72,27 +273,27 @@
    "2026-W44"
   ],
   "weeks_seen": 1,
-  "best_score": 70,
+  "best_score": 72,
   "best_week": "2026-W44",
   "latest": {
    "week": "2026-W44",
-   "pitch": "A 46-person food bank used Claude in Excel for shift and pricing analysis, cutting biweekly overtime from 99 to 11 hours and a monthly report from a week to 30 seconds, while a lawyer and an ops writer each reported clearing weeks of deferred process and tooling work in a weekend or an afternoon. Reporting, SOPs and spreadsheet analysis are his data and BI home turf, and the same pattern can be sold to small orgs.",
+   "pitch": "A 46-person food bank used Claude in Excel to cut biweekly overtime from 99 to 11 hours and a monthly report from a week to 30 seconds, CARE's 20-person partnerships team reports 3 to 5 hours saved per person per week, and a lawyer and an ops writer each cleared weeks of deferred process work in a weekend or an afternoon. Reporting, SOPs and spreadsheet analysis are his data and BI home turf, and the same pattern can be sold to small orgs.",
    "first_step": "Pick one recurring report you build by hand at work and have Claude rebuild it from the raw export in a single session, timing both.",
    "scores": {
     "fit": 18,
     "upside": 12,
     "time_to_dollar": 13,
     "effort": 12,
-    "evidence": 8,
+    "evidence": 10,
     "durability": 7
    },
-   "total": 70,
+   "total": 72,
    "reasons": {
     "fit": "Uses his data, BI and process-documentation strengths directly.",
     "upside": "Realistically 3 to 8 hours a week of reporting and ops work saved.",
     "time_to_dollar": "First report or SOP rebuild saves time within days.",
     "effort": "Under 3 hours a week to maintain once built.",
-    "evidence": "Three independent reports, but only the food bank story has hard numbers; the other two are from search snippets.",
+    "evidence": "Four independent reports; two Anthropic case studies with hard numbers, two first-person posts read from search snippets.",
     "durability": "Durable skill, though spreadsheet AI features will keep commoditising the simple cases."
    },
    "dollars": {
@@ -103,6 +304,12 @@
    "hours_per_week": 2
   },
   "evidence": [
+   {
+    "url": "https://www.anthropic.com/customers/care-international",
+    "source": "Customer stories",
+    "date": "2026-10-26",
+    "claim": "3 to 5 hours a week saved per person on a roughly 20-person Foundation Partnerships team (story undated; listed among newest on 2026-10-26)"
+   },
    {
     "url": "https://www.anthropic.com/customers/montgomery-county-food-bank",
     "source": "Customer stories",
