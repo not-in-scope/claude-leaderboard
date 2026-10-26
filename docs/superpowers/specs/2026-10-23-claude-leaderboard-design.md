@@ -104,7 +104,7 @@ Each factor has a 0 to N scale with written anchors. Total is the sum, 0 to 100.
 | Evidence | 15 | One anonymous claim, no numbers | Three or more independent reports with specifics |
 | Durability | 10 | Arbitrage or loophole likely closed within months | Still works in two years |
 
-`time` and `life` ideas convert hours saved to dollars at $150 an hour, times hours saved a week, times 50 weeks, so the `dollars` field is filled for every candidate. The rate sits in `rubric.md` and Stephen can change it. `rubric.md` also holds a short profile paragraph, professional and personal, that the routine uses to judge fit.
+`time` and `life` ideas convert hours saved to dollars at $150 an hour, times hours saved a week, times 50 weeks, so the `dollars` field is filled for every candidate. The rate sits in `rubric.md` and Stephen can change it. `rubric.md` also holds a short profile paragraph, professional and personal, that the routine uses to judge fit, and a short note on how to write the pitch and the first step.
 
 ## 5. Data model
 
@@ -239,7 +239,7 @@ Starting set, approved 2026-10-23.
 
 **Tier 1, forums and aggregators.** Hacker News (Algolia API), Indie Hackers, Product Hunt.
 
-**Tier 1, newsletters via RSS.** One Useful Thing, Every (Chain of Thought), Latent Space, Lenny's Newsletter, Product Growth, Product with Attitude, The AI Maker, The Pragmatic Engineer, Simon Willison's weblog, Ben's Bites, The Rundown AI, Superhuman AI, The Neuron, Starter Story, Indie Hackers newsletter, Growth Unhinged, Justin Welsh, Behind the Craft.
+**Tier 1, newsletters via RSS.** One Useful Thing, Every (Chain of Thought), Latent Space, Lenny's Newsletter, Product Growth, Product with Attitude, The AI Maker, The Pragmatic Engineer, Simon Willison's weblog, Ben's Bites, The Rundown AI, Superhuman AI, The Neuron, Starter Story, Growth Unhinged, Justin Welsh, Behind the Craft. The Indie Hackers newsletter is covered by the Indie Hackers forum row.
 
 **Tier 1, Anthropic first-party.** Customer stories, news blog, Economic Index reports, Claude Code changelog.
 
