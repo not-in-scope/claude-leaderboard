@@ -164,3 +164,76 @@ def test_skipped_week_must_have_empty_top5():
     w = week_file(10, top5=["idea-000", "idea-001", "idea-002", "idea-003", "idea-004"])
     with pytest.raises(build.ValidationError, match="top5"):
         build.validate_week(w)
+
+
+# ---- merge ----
+
+def test_merge_new_idea_creates_record():
+    ideas = []
+    w = build.validate_week(week_file(50))
+    build.merge(ideas, w)
+    assert len(ideas) == 50
+    rec = ideas[0]
+    assert rec["id"] == "idea-000"
+    assert rec["weeks_seen"] == 1
+    assert rec["weeks"] == ["2026-W44"]
+    assert rec["best_score"] == 70 and rec["best_week"] == "2026-W44"
+    assert rec["first_week"] == "2026-W44" and rec["last_week"] == "2026-W44"
+    assert rec["latest"]["week"] == "2026-W44" and rec["latest"]["total"] == 70
+    assert len(rec["evidence"]) == 2
+    assert rec["aliases"] == []
+
+
+def test_merge_keeps_aliases():
+    ideas = []
+    w = week_file(50)
+    w["candidates"][0]["aliases"] = ["soc2 helper"]
+    build.merge(ideas, build.validate_week(w))
+    w2 = week_file(50, week="2026-W45")
+    w2["candidates"][0]["aliases"] = ["soc2 helper", "audit prep"]
+    build.merge(ideas, build.validate_week(w2))
+    assert ideas[0]["aliases"] == ["soc2 helper", "audit prep"]
+
+
+def test_merge_repeat_idea_across_weeks():
+    ideas = []
+    build.merge(ideas, build.validate_week(week_file(50, week="2026-W44")))
+    w2 = week_file(50, week="2026-W45")
+    w2["candidates"][0] = candidate(0, total=75, week="2026-W45")
+    build.merge(ideas, build.validate_week(w2))
+    rec = next(r for r in ideas if r["id"] == "idea-000")
+    assert rec["weeks_seen"] == 2
+    assert rec["first_week"] == "2026-W44" and rec["last_week"] == "2026-W45"
+    assert rec["best_score"] == 75 and rec["best_week"] == "2026-W45"
+    assert rec["latest"]["total"] == 75 and rec["latest"]["week"] == "2026-W45"
+    assert len(rec["evidence"]) == 4
+    assert rec["evidence"][0]["url"].startswith("https://example.com/2026-W45/")
+
+
+def test_merge_lower_score_keeps_best():
+    ideas = []
+    build.merge(ideas, build.validate_week(week_file(50, week="2026-W44")))
+    w2 = week_file(50, week="2026-W45")
+    w2["candidates"][0] = candidate(0, total=60, week="2026-W45")
+    build.merge(ideas, build.validate_week(w2))
+    rec = ideas[0]
+    assert rec["best_score"] == 70 and rec["best_week"] == "2026-W44"
+    assert rec["latest"]["total"] == 60
+
+
+def test_evidence_capped_at_ten():
+    ideas = []
+    for n in range(44, 51):  # 7 weeks x 2 links = 14 urls
+        build.merge(ideas, build.validate_week(week_file(50, week=f"2026-W{n}")))
+    rec = next(r for r in ideas if r["id"] == "idea-000")
+    assert len(rec["evidence"]) == 10
+    assert rec["weeks_seen"] == 7
+
+
+def test_merge_same_week_twice_is_idempotent():
+    ideas = []
+    w = build.validate_week(week_file(50))
+    build.merge(ideas, w)
+    snapshot = copy.deepcopy(ideas)
+    build.merge(ideas, copy.deepcopy(w))
+    assert ideas == snapshot

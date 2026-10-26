@@ -97,3 +97,64 @@ def validate_week(week):
         if unknown:
             raise ValidationError(f"top5 ids not in candidates: {unknown}")
     return week
+
+
+def _latest(c, week_id):
+    return {
+        "week": week_id,
+        "pitch": c["pitch"],
+        "first_step": c["first_step"],
+        "scores": c["scores"],
+        "total": c["total"],
+        "reasons": c["reasons"],
+        "dollars": c["dollars"],
+        "hours_per_week": c["hours_per_week"],
+    }
+
+
+def merge(ideas, week):
+    """Merge week candidates into the ideas list in place. Running the same
+    week twice changes nothing. Returns the list, sorted by id."""
+    by_id = {r["id"]: r for r in ideas}
+    wk = week["week"]
+    for c in week["candidates"]:
+        rec = by_id.get(c["id"])
+        if rec is None:
+            rec = {
+                "id": c["id"],
+                "title": c["title"],
+                "aliases": list(c.get("aliases", [])),
+                "category": c["category"],
+                "first_week": wk,
+                "last_week": wk,
+                "weeks": [wk],
+                "weeks_seen": 1,
+                "best_score": c["total"],
+                "best_week": wk,
+                "latest": _latest(c, wk),
+                "evidence": [],
+            }
+            ideas.append(rec)
+            by_id[rec["id"]] = rec
+        else:
+            if wk not in rec["weeks"]:
+                rec["weeks"].append(wk)
+                rec["weeks"].sort()
+                rec["weeks_seen"] = len(rec["weeks"])
+            rec["first_week"] = min(rec["first_week"], wk)
+            if wk >= rec["last_week"]:
+                rec["last_week"] = wk
+                rec["latest"] = _latest(c, wk)
+                rec["title"] = c["title"]
+                rec["category"] = c["category"]
+            if c["total"] > rec["best_score"]:
+                rec["best_score"] = c["total"]
+                rec["best_week"] = wk
+            for a in c.get("aliases", []):
+                if a not in rec["aliases"]:
+                    rec["aliases"].append(a)
+        known = {e["url"] for e in rec["evidence"]}
+        fresh = [e for e in c["evidence"] if e["url"] not in known]
+        rec["evidence"] = (fresh + rec["evidence"])[:EVIDENCE_KEEP]
+    ideas.sort(key=lambda r: r["id"])
+    return ideas
