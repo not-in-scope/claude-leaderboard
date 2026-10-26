@@ -18,7 +18,7 @@ Your shell does not keep variables between commands. Compute these values once, 
 
 Read `rubric.md`, `sources.md`, and `data/ideas.json`. The registry tells you which ideas already exist, so repeats get the same `id`.
 
-If `data/weeks/$WEEK.json` already exists, this is a rerun. Overwrite it.
+If `data/weeks/<WEEK>.json` already exists, this is a rerun. Overwrite it.
 
 ## 1. Collect
 
@@ -54,7 +54,7 @@ Apply `rubric.md` exactly. Integer scores within each factor's maximum. One-line
 
 ## 4. Write the week file
 
-Write `data/weeks/<WEEK>.json`. The envelope:
+Write `data/weeks/<WEEK>.json` with this envelope.
 
 ```json
 {
@@ -98,7 +98,7 @@ Rules the build script enforces: every `top5` entry is an `id` that exists in `c
 ## 5. Build
 
 ```bash
-python3 build.py data/weeks/$WEEK.json
+python3 build.py data/weeks/<WEEK>.json
 ```
 
 If it exits non-zero, read the message, fix the week file, and run it again. Three attempts at most. If it still fails, set `"status": "error"` in the week file, put the last error message in `note`, leave `data/ideas.json` and `data/leaderboard.json` untouched, and continue to step 6.
@@ -122,9 +122,9 @@ Fill in the literal week, count, and status.
 If the push is refused, push a branch and open a pull request:
 
 ```bash
-git checkout -b "week/$WEEK"
-git push -u origin "week/$WEEK"
-gh pr create --title "$WEEK scan" --body "Weekly scan. Push to main was refused." 2>/dev/null || echo "PR needed for branch week/$WEEK"
+git checkout -b "week/<WEEK>"
+git push -u origin "week/<WEEK>"
+gh pr create --title "<WEEK> scan" --body "Weekly scan. Push to main was refused." 2>/dev/null || echo "PR needed for branch week/<WEEK>"
 ```
 
 ## 8. Final message
