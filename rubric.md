@@ -78,8 +78,21 @@ Independent means different people, not one story reposted.
 | 6 to 8 | Works for one to two years with ordinary maintenance |
 | 9 to 10 | Still works in two years or longer, a durable skill or asset |
 
+## One idea per candidate
+
+A candidate is one specific thing a specific person did with Claude and the result they got. It is not a theme, a category, or a cluster of related reports. Test: could Stephen start doing exactly this on Saturday morning? If the answer needs "well, it depends which one", split it.
+
+| Too vague | Right grain |
+|---|---|
+| Family logistics and household admin run through Claude | Weekly meal plan and grocery list from the family calendar, generated every Sunday |
+| Solo apps shipped fast with Claude Code | Chrome tab manager built in 19 days, 141 users, by talking to Claude Code |
+| Small-org back-office automation with Claude | Food bank grant reports drafted from spreadsheet exports with Claude |
+| Freelance clients with Claude | Fixed-fee Upwork gigs cleaning client CSV data with Claude Code, about $4k a month |
+
+Titles name the specific idea in twelve words or fewer, concrete noun first.
+
 ## Writing the pitch and first step
 
-The pitch is two sentences. The first names what the person did and the result. The second says why it fits this profile.
+The pitch is two sentences. The first names what the specific person did and the specific result, with the number when there is one. The second says why it fits this profile.
 
 The first step is one concrete action that takes under three hours, such as "Build a throwaway version for your own household this weekend" or "Reply to the thread's author and ask for their pricing page."

@@ -50,8 +50,10 @@ Keep a scratch list as you go, for example `/tmp/candidates.jsonl`, one JSON obj
 ## 2. Clean and match
 
 - Drop anything without a URL to a first-hand report.
-- Merge duplicates. The same person's story in two places is one candidate with both links. Two different people doing the same thing is one candidate with both links and stronger evidence.
-- Match each candidate to `data/ideas.json` by meaning, not by string. If it is the same idea as an existing record, reuse that `id`. Otherwise mint a new kebab-case `id` of three to six words and one to three `aliases`.
+- One candidate is one specific idea. An idea is a specific thing you could start doing this week, not a theme. "Sync kids' sports schedules from team emails into a shared calendar with Claude" is an idea. "Family logistics run through Claude" is a theme and is not allowed. Never group different concrete things under one title, even when they share a category. Ten reports of ten different things are ten candidates.
+- Merge only when it is the same specific idea. The same person's story in two places is one candidate with both links. Two different people doing the same specific thing is one candidate with both links and stronger evidence.
+- The title names the specific idea in twelve words or fewer, concrete noun first. Banned as the main noun: automation, workflows, apps, tools, logistics, admin, use cases, productivity. If the title would fit many different reports, it is too vague.
+- Match each candidate to `data/ideas.json` by meaning, not by string. If it is the same specific idea as an existing record, reuse that `id`. Otherwise mint a new kebab-case `id` of three to six words and one to three `aliases`.
 
 ## 3. Score
 
