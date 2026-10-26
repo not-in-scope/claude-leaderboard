@@ -10,9 +10,9 @@ Three categories of use count.
 
 | Category | Meaning | Examples |
 |---|---|---|
-| `money` | Earns dollars | Micro-SaaS, consulting, content, freelance work done with Claude |
-| `time` | Saves hours in professional work | Spec writing, data analysis, research, job search |
-| `life` | Personal productivity, family and kid logistics, planning | Meal planning, kids' schedules and activities, travel planning, household admin, budgeting, learning with kids |
+| `money` | Earns dollars | Micro-SaaS, consulting, content, freelance work done with Claude, selling templates or agents |
+| `time` | Saves hours in professional work | Spec and PRD drafting, data analysis, research, job search, code review, reporting |
+| `life` | Personal productivity, family and kid logistics, planning | Meal planning, kids' schedules and activities, travel planning, household admin, budgeting, learning with kids, fitness planning |
 
 ## Goals
 
