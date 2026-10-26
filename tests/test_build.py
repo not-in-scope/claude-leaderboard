@@ -145,3 +145,22 @@ def test_duplicate_ids_rejected():
     w["candidates"][1]["id"] = "idea-000"
     with pytest.raises(build.ValidationError, match="duplicate"):
         build.validate_week(w)
+
+
+# ---- status ----
+
+@pytest.mark.parametrize("n,status", [(14, "skipped"), (15, "thin"), (49, "thin"), (50, "ok")])
+def test_status_derived_from_count(n, status):
+    assert build.derive_status(n) == status
+    w = week_file(n)
+    w["status"] = "ok"
+    w["candidates_scored"] = 999
+    build.validate_week(w)
+    assert w["status"] == status
+    assert w["candidates_scored"] == n
+
+
+def test_skipped_week_must_have_empty_top5():
+    w = week_file(10, top5=["idea-000", "idea-001", "idea-002", "idea-003", "idea-004"])
+    with pytest.raises(build.ValidationError, match="top5"):
+        build.validate_week(w)
