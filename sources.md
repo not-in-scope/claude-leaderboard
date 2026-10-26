@@ -6,7 +6,7 @@ Tier 1 is read every run and must be covered before collection stops. Tier 2 is 
 
 ## Reddit
 
-Read with `https://www.reddit.com/r/<sub>/top.json?t=week&limit=100` and `https://www.reddit.com/r/<sub>/search.json?q=<query>&restrict_sr=1&sort=new&t=week`. Fallback is a web search for `site:reddit.com/r/<sub> <query>` limited to the past week.
+Read with `https://www.reddit.com/r/<sub>/top.json?t=week&limit=100` and `https://www.reddit.com/r/<sub>/search.json?q=<query>&restrict_sr=1&sort=new&t=week&limit=50`. Fallback is a web search for `site:reddit.com/r/<sub> <query>` limited to the past week.
 
 | source | type | tier | how_read | queries | status | last_yield | note |
 |---|---|---|---|---|---|---|---|
@@ -83,7 +83,7 @@ Read with `https://www.reddit.com/r/<sub>/top.json?t=week&limit=100` and `https:
 
 | source | type | tier | how_read | queries | status | last_yield | note |
 |---|---|---|---|---|---|---|---|
-| Hacker News | forum | 1 | hn | claude, "claude code", anthropic | active | 0 | `https://hn.algolia.com/api/v1/search_by_date?query=<q>&tags=story&hitsPerPage=100&numericFilters=created_at_i>EPOCH` plus `tags=ask_hn,show_hn` |
+| Hacker News | forum | 1 | hn | claude, "claude code", anthropic | active | 0 | `https://hn.algolia.com/api/v1/search_by_date?query=<q>&tags=story&hitsPerPage=100&numericFilters=created_at_i>EPOCH` then separate requests with `tags=ask_hn` and `tags=show_hn` |
 | Indie Hackers | forum | 1 | search | site:indiehackers.com claude | active | 0 | revenue milestones |
 | Product Hunt | forum | 1 | search | site:producthunt.com "claude code" OR "built with claude" | active | 0 | launches |
 | Medium | blog | 2 | search | site:medium.com claude (earned OR revenue OR "saved me" OR clients) | active | 0 | |
@@ -100,7 +100,7 @@ Read the feed, keep items dated in the window. When a feed fails, search `site:<
 | Every | newsletter | 1 | rss | https://every.to/feed | active | 0 | Chain of Thought and others |
 | Latent Space | newsletter | 1 | rss | https://www.latent.space/feed | active | 0 | |
 | Lenny's Newsletter | newsletter | 1 | rss | https://www.lennysnewsletter.com/feed | active | 0 | |
-| Product Growth | newsletter | 1 | rss | https://www.news.aakashg.com/feed | active | 0 | Aakash Gupta |
+| Product Growth | newsletter | 1 | rss | https://news.aakashg.com/feed | active | 0 | Aakash Gupta |
 | Product with Attitude | newsletter | 1 | rss | https://karozieminski.substack.com/feed | active | 0 | Claude Code and Cowork workflows |
 | The AI Maker | newsletter | 1 | rss | https://aimaker.substack.com/feed | active | 0 | |
 | The Pragmatic Engineer | newsletter | 1 | rss | https://newsletter.pragmaticengineer.com/feed | active | 0 | |
@@ -146,4 +146,4 @@ Read the feed, keep items dated in the window. When a feed fails, search `site:<
 
 ## Excluded platforms
 
-Discord, Skool, Slack, Facebook groups, and TikTok are not readable by the routine. Content-farm domains that repackage the same claims are dropped when seen. Add a domain here to exclude it: fbpe.org.
+Discord, Skool, Slack, and Facebook groups are not readable by the routine. TikTok has no readable transcripts. Content-farm domains that repackage the same claims are dropped when seen. Excluded domains: fbpe.org.
