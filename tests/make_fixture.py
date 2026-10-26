@@ -5,7 +5,7 @@ Usage, from the repo root:
     python -m http.server 8000
 Open http://localhost:8000/?data=tests/fixtures/ok/leaderboard.json
 and the same with thin and skipped in place of ok.
-Expect Rising to hold 33 rows for ok, 12 for thin, and none for skipped.
+Expect Rising to hold 20 rows for ok (33 qualify, capped at 20), 12 for thin, and none for skipped.
 """
 import json
 import random

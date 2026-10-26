@@ -179,7 +179,7 @@ Each factor has a 0 to N scale with written anchors. Total is the sum, 0 to 100.
 }
 ```
 
-`this_week.top5` holds full candidate records. `this_week.category_leaders` holds the highest-scoring candidate of the week in each category, or null when a category had none, so a `life` idea is always shown even when the top 5 is all `money`. `all_time` holds the 20 idea records with the highest `best_score`. `rising` holds idea records with `weeks_seen` of 3 or more, sorted by `weeks_seen` then `best_score`.
+`this_week.top5` holds full candidate records. `this_week.category_leaders` holds the highest-scoring candidate of the week in each category, or null when a category had none, so a `life` idea is always shown even when the top 5 is all `money`. `all_time` holds the 20 idea records with the highest `best_score`. `rising` holds the 20 idea records with `weeks_seen` of 3 or more that rank highest by `weeks_seen` then `best_score`. Evidence URLs must start with http or https, and `dollars` must hold numeric `low` and `high` with `low` at most `high`.
 
 ## 6. build.py
 

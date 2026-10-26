@@ -10,6 +10,8 @@
 
 **Spec:** `docs/superpowers/specs/2026-10-23-claude-leaderboard-design.md`
 
+**Status note (2026-10-26):** Tasks 1 to 9 are implemented. Review passes after each task changed the code beyond the blocks below (input hardening in `build.py`, literal week placeholders and a valid example in `ROUTINE.md`, rubric anchors, safe links and a Rising cap on the board). The committed files are the source of truth; the blocks here are the starting point they were built from.
+
 **Working directory for every command:** `C:\Users\styos\OneDrive\Documents\Projects\claude-leaderboard` (already a git repo on `main` with the spec committed).
 
 ---
