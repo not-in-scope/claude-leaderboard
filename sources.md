@@ -97,7 +97,7 @@ Read the feed, keep items dated in the window. When a feed fails, search `site:<
 | source | type | tier | how_read | queries | status | last_yield | note |
 |---|---|---|---|---|---|---|---|
 | One Useful Thing | newsletter | 1 | rss | https://www.oneusefulthing.org/feed | active | 0 | W44 rerun: feed read directly; Ethan Mollick |
-| Every | newsletter | 1 | rss | https://every.to/feed | active | 1 | W44 rerun: /feed returns HTML, not RSS; read via search; Chain of Thought and others |
+| Every | newsletter | 1 | search | site:every.to claude | active | 1 | no public RSS; Chain of Thought, Vibe Check and others |
 | Latent Space | newsletter | 1 | rss | https://www.latent.space/feed | active | 0 | W44 rerun: feed read directly |
 | Lenny's Newsletter | newsletter | 1 | rss | https://www.lennysnewsletter.com/feed | active | 2 | W44 rerun: feed read directly |
 | Product Growth | newsletter | 1 | rss | https://news.aakashg.com/feed | active | 1 | W44 rerun: feed read directly; Aakash Gupta |
@@ -110,7 +110,7 @@ Read the feed, keep items dated in the window. When a feed fails, search `site:<
 | Superhuman AI | newsletter | 1 | search | site:superhuman.ai claude | active | 0 | beehiiv |
 | The Neuron | newsletter | 1 | search | site:theneurondaily.com claude | active | 0 | beehiiv |
 | Starter Story | newsletter | 1 | search | site:starterstory.com claude | active | 0 | |
-| Growth Unhinged | newsletter | 1 | rss | https://www.growthunhinged.com/feed | active | 0 | W44 rerun: feed 404; search found nothing in window; Kyle Poyar |
+| Growth Unhinged | newsletter | 1 | search | site:growthunhinged.com claude | active | 0 | feed 404; Kyle Poyar |
 | Justin Welsh | newsletter | 1 | search | site:justinwelsh.me claude | active | 0 | solo business |
 | Behind the Craft | newsletter | 1 | rss | https://creatoreconomy.so/feed | active | 2 | W44 rerun: feed read directly; Peter Yang |
 
