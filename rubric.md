@@ -37,8 +37,8 @@ Personal. Parent in Seattle. Active household with a lot of sports. Values hours
 |---|---|
 | 0 to 4 | Under $1k a year, or under 1 hour a week saved |
 | 5 to 9 | $1k to $10k, or 1 to 3 hours a week |
-| 10 to 14 | $10k to $50k, or 3 to 6 hours a week |
-| 15 to 20 | $50k or more, or 6 or more hours a week, or removes a recurring family pain point |
+| 10 to 14 | $10k to $100k, or 3 to 10 hours a week |
+| 15 to 20 | $100k or more, or 10 or more hours a week, or removes a recurring family pain point |
 
 ### Time to benefit, 0 to 15 (key `time_to_dollar`)
 
@@ -65,7 +65,7 @@ Personal. Parent in Seattle. Active household with a lot of sports. Values hours
 | 0 to 3 | One anonymous claim with no numbers |
 | 4 to 7 | One named person with numbers, or several vague reports |
 | 8 to 11 | Two independent reports with specifics |
-| 12 to 15 | Three or more independent reports with specifics, or one audited or paid-platform record |
+| 12 to 15 | Three or more independent reports with specifics |
 
 Independent means different people, not one story reposted.
 
@@ -75,8 +75,8 @@ Independent means different people, not one story reposted.
 |---|---|
 | 0 to 2 | Arbitrage or loophole likely closed within months |
 | 3 to 5 | Works for a year, then crowded or automated away |
-| 6 to 8 | Works for two years with ordinary maintenance |
-| 9 to 10 | Durable skill or asset, gets better as models improve |
+| 6 to 8 | Works for one to two years with ordinary maintenance |
+| 9 to 10 | Still works in two years or longer, a durable skill or asset |
 
 ## Writing the pitch and first step
 
