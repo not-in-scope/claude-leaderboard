@@ -29,13 +29,13 @@ h2{font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink2
 .card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin-bottom:10px;cursor:pointer}
 .card .top{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
 .rank{font-family:Consolas,monospace;font-size:13px;color:var(--ink2);min-width:26px}
-.title{font-weight:650;flex:1 1 200px}
+.title{font-weight:650;flex:1 1 200px;overflow-wrap:anywhere}
 .score{display:inline-block;min-width:38px;text-align:center;padding:2px 8px;border-radius:999px;font-weight:700;font-size:12px;background:var(--green2);color:var(--green)}
 .cat{font-size:10px;font-weight:700;padding:1px 7px;border-radius:4px;text-transform:uppercase;letter-spacing:.04em}
 .cat.money{background:var(--green2);color:var(--green)}
 .cat.time{background:var(--blue2);color:var(--blue)}
 .cat.life{background:var(--amber2);color:var(--amber)}
-.pitch{font-size:13px;color:#33424F;margin-top:6px}
+.pitch{font-size:13px;color:#33424F;margin-top:6px;overflow-wrap:anywhere}
 .step{font-size:13px;margin-top:6px}
 .step b{color:var(--ink2);font-weight:600;margin-right:4px}
 .links{font-size:12px;margin-top:6px}
@@ -79,7 +79,9 @@ tr.more td{background:#FAFCFD}
 const FACTORS = [["fit","Fit",25],["upside","Upside",20],["time_to_dollar","Time to benefit",15],
                  ["effort","Effort",15],["evidence","Evidence",15],["durability","Durability",10]];
 const CATS = ["money","time","life"];
-const DATA_URL = new URLSearchParams(location.search).get("data") || "data/leaderboard.json";
+const DATA_PARAM = new URLSearchParams(location.search).get("data");
+const DATA_URL = DATA_PARAM && !/^[a-z][a-z0-9+.-]*:/i.test(DATA_PARAM) && !DATA_PARAM.startsWith("//")
+  ? DATA_PARAM : "data/leaderboard.json";
 let BOARD = null, TAB = "week", CAT = "all";
 
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -90,7 +92,9 @@ const money = n => "$" + Number(n).toLocaleString();
 function flag(status){ return `<span class="flag ${esc(status)}">${esc(status)}</span>`; }
 function cat(c){ return `<span class="cat ${esc(c)}">${esc(c)}</span>`; }
 function links(ev){
-  return (ev || []).map(e => `<a href="${esc(e.url)}" target="_blank" rel="noopener" title="${esc(e.claim || "")}">${esc(e.source || host(e.url))}</a>`).join("");
+  return (ev || []).map(e => /^https?:\/\//i.test(e.url)
+    ? `<a href="${esc(e.url)}" target="_blank" rel="noopener" title="${esc(e.claim || "")}">${esc(e.source || host(e.url))}</a>`
+    : `<span>${esc(e.source || "")}</span>`).join("");
 }
 function subscores(scores, reasons){
   return `<div class="sub">${FACTORS.map(([k, l, m]) =>
@@ -106,7 +110,7 @@ function card(c, rank){
   const total = c.total ?? c.best_score;
   const pitch = c.pitch ?? L.pitch, step = c.first_step ?? L.first_step;
   const d = c.dollars || L.dollars, hrs = c.hours_per_week ?? L.hours_per_week;
-  return `<div class="card" onclick="this.classList.toggle('open')">
+  return `<div class="card" onclick="if(!event.target.closest('a'))this.classList.toggle('open')">
     <div class="top">${rank ? `<span class="rank">#${rank}</span>` : ""}<span class="title">${esc(c.title)}</span>${cat(c.category)}<span class="score">${total}</span></div>
     <div class="pitch">${esc(pitch)}</div>
     <div class="step"><b>First step</b>${esc(step)}</div>
@@ -140,9 +144,9 @@ function renderWeek(b){
 }
 function renderTable(rows){
   if (!rows.length) return `<div class="empty">Nothing here yet.</div>`;
-  const body = rows.map((r, i) => `
-    <tr class="row" onclick="const n=this.nextElementSibling;n.style.display=n.style.display==='table-row'?'none':'table-row'">
-      <td class="rank">${i + 1}</td><td><b>${esc(r.title)}</b></td><td>${cat(r.category)}</td>
+  const body = rows.map(r => `
+    <tr class="row" onclick="if(!event.target.closest('a')){const n=this.nextElementSibling;n.style.display=n.style.display==='table-row'?'none':'table-row'}">
+      <td class="rank">${r.rank}</td><td><b>${esc(r.title)}</b></td><td>${cat(r.category)}</td>
       <td><span class="score">${r.best_score}</span></td><td>${r.weeks_seen}</td><td>${esc(r.first_week)}</td>
     </tr>
     <tr class="more" style="display:none"><td colspan="6">
@@ -156,12 +160,13 @@ function renderTable(rows){
 }
 function renderAll(b){
   const chips = ["all", ...CATS].map(k => `<span class="tab ${CAT === k ? "on" : ""}" data-cat="${k}">${k}</span>`).join("");
-  const rows = CAT === "all" ? b.all_time : b.all_time.filter(r => r.category === CAT);
+  const ranked = b.all_time.map((r, i) => ({...r, rank: i + 1}));
+  const rows = CAT === "all" ? ranked : ranked.filter(r => r.category === CAT);
   return `<div class="tabs" id="cats">${chips}</div>` + renderTable(rows);
 }
 function renderRising(b){
   if (!b.rising.length) return `<div class="empty">Ideas seen in three or more weeks show up here.</div>`;
-  return renderTable(b.rising);
+  return renderTable(b.rising.map((r, i) => ({...r, rank: i + 1})));
 }
 function render(){
   const b = BOARD, tw = b.this_week;

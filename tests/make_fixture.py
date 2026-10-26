@@ -5,10 +5,10 @@ Usage, from the repo root:
     python -m http.server 8000
 Open http://localhost:8000/?data=tests/fixtures/ok/leaderboard.json
 and the same with thin and skipped in place of ok.
+Expect Rising to hold 33 rows for ok, 12 for thin, and none for skipped.
 """
 import json
 import random
-import shutil
 import sys
 from pathlib import Path
 
@@ -44,9 +44,9 @@ def candidate(i, week, rng):
     }
 
 
-def week(wk, n, seed):
+def week(wk, n, seed, start):
     rng = random.Random(seed)
-    cands = [candidate(i, wk, rng) for i in range(n)]
+    cands = [candidate(i, wk, rng) for i in range(start, start + n)]
     ranked = sorted(cands, key=lambda c: -c["total"])
     return {
         "week": wk,
@@ -64,13 +64,14 @@ def week(wk, n, seed):
 
 def main():
     out = ROOT / "tests" / "fixtures"
-    shutil.rmtree(out, ignore_errors=True)
     for name, last_n in (("ok", 56), ("thin", 22), ("skipped", 7)):
         d = out / name
-        (d / "weeks").mkdir(parents=True)
-        for wk, n, seed in (("2026-W42", 53, 1), ("2026-W43", 51, 2), ("2026-W44", last_n, 3)):
+        for old in [d / "ideas.json", d / "leaderboard.json", *(d / "weeks").glob("*.json")]:
+            old.unlink(missing_ok=True)
+        (d / "weeks").mkdir(parents=True, exist_ok=True)
+        for wk, n, seed, start in (("2026-W42", 53, 1, 0), ("2026-W43", 51, 2, 20), ("2026-W44", last_n, 3, 10)):
             p = d / "weeks" / f"{wk}.json"
-            p.write_text(json.dumps(week(wk, n, seed)), encoding="utf-8")
+            p.write_text(json.dumps(week(wk, n, seed, start)), encoding="utf-8")
             build.run(p, d)
         print(f"{name}: tests/fixtures/{name}/leaderboard.json")
 
