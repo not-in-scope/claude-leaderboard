@@ -158,3 +158,91 @@ def merge(ideas, week):
         rec["evidence"] = (fresh + rec["evidence"])[:EVIDENCE_KEEP]
     ideas.sort(key=lambda r: r["id"])
     return ideas
+
+
+def build_board(ideas, weeks):
+    """Board data from the registry and every week dict. Weeks with status
+    'error' appear in history only."""
+    weeks = sorted(weeks, key=lambda w: w["week"])
+    history = [{"week": w["week"], "status": w["status"],
+                "candidates_scored": w.get("candidates_scored", 0)} for w in weeks]
+    usable = [w for w in weeks if w["status"] != "error"]
+    this_week = None
+    updated = None
+    if usable:
+        w = usable[-1]
+        updated = w["run_at"]
+        by_id = {c["id"]: c for c in w["candidates"]}
+        leaders = {}
+        for cat in CATEGORIES:
+            pool = [c for c in w["candidates"] if c["category"] == cat]
+            leaders[cat] = max(pool, key=lambda c: (c["total"], c["id"])) if pool else None
+        this_week = {
+            "week": w["week"],
+            "status": w["status"],
+            "note": w.get("note", ""),
+            "candidates_scored": w["candidates_scored"],
+            "sources_failed": w.get("sources_failed", []),
+            "top5": [by_id[s] for s in w["top5"]],
+            "category_leaders": leaders,
+        }
+    all_time = sorted(ideas, key=lambda r: (-r["best_score"], r["first_week"], r["id"]))[:ALL_TIME_N]
+    rising = sorted((r for r in ideas if r["weeks_seen"] >= RISING_MIN_WEEKS),
+                    key=lambda r: (-r["weeks_seen"], -r["best_score"], r["id"]))
+    return {"updated": updated, "this_week": this_week, "all_time": all_time,
+            "rising": rising, "history": history}
+
+
+def load_json(path):
+    with open(path, encoding="utf-8") as f:
+        return json.load(f)
+
+
+def dump_json(path, obj):
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "w", encoding="utf-8", newline="\n") as f:
+        json.dump(obj, f, indent=1, ensure_ascii=False)
+        f.write("\n")
+
+
+def run(week_path, data_dir):
+    """Validate the week file, merge it, and rewrite the data files.
+    The week file must live in <data_dir>/weeks/. Nothing is written if
+    validation fails."""
+    week_path = Path(week_path)
+    data_dir = Path(data_dir)
+    weeks_dir = data_dir / "weeks"
+    ideas_path = data_dir / "ideas.json"
+    board_path = data_dir / "leaderboard.json"
+
+    week = validate_week(load_json(week_path))
+    ideas = load_json(ideas_path) if ideas_path.exists() else []
+    merge(ideas, week)
+
+    dump_json(week_path, week)
+    dump_json(ideas_path, ideas)
+    weeks = [load_json(p) for p in sorted(weeks_dir.glob("*.json"))]
+    board = build_board(ideas, weeks)
+    dump_json(board_path, board)
+    return board
+
+
+def main(argv):
+    if len(argv) not in (2, 3):
+        print("usage: python build.py data/weeks/<week>.json [data_dir]", file=sys.stderr)
+        return 2
+    data_dir = Path(argv[2]) if len(argv) == 3 else Path(__file__).resolve().parent / "data"
+    try:
+        board = run(argv[1], data_dir)
+    except ValidationError as e:
+        print(f"build.py: {e}", file=sys.stderr)
+        return 1
+    tw = board["this_week"]
+    print(f"{tw['week']}: {tw['status']}, {tw['candidates_scored']} candidates, "
+          f"{len(board['all_time'])} all-time, {len(board['rising'])} rising")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv))

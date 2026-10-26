@@ -237,3 +237,106 @@ def test_merge_same_week_twice_is_idempotent():
     snapshot = copy.deepcopy(ideas)
     build.merge(ideas, copy.deepcopy(w))
     assert ideas == snapshot
+
+
+# ---- board ----
+
+def test_all_time_capped_at_twenty_and_sorted():
+    w = week_file(50)
+    w["candidates"] = [candidate(i, total=50 + (i % 26)) for i in range(50)]
+    ideas = build.merge([], build.validate_week(w))
+    board = build.build_board(ideas, [w])
+    assert len(board["all_time"]) == 20
+    scores = [r["best_score"] for r in board["all_time"]]
+    assert scores == sorted(scores, reverse=True)
+    assert scores[0] == 75
+
+
+def test_rising_requires_three_weeks():
+    ideas, weeks = [], []
+    for wk in ("2026-W44", "2026-W45", "2026-W46"):
+        w = week_file(50, week=wk)
+        if wk == "2026-W46":
+            w["candidates"] = [c for c in w["candidates"] if c["id"] != "idea-049"]
+        build.validate_week(w)
+        build.merge(ideas, w)
+        weeks.append(w)
+    board = build.build_board(ideas, weeks)
+    ids = {r["id"] for r in board["rising"]}
+    assert "idea-000" in ids
+    assert "idea-049" not in ids
+    assert all(r["weeks_seen"] >= 3 for r in board["rising"])
+
+
+def test_this_week_top5_and_category_leaders():
+    w = week_file(50)
+    w["candidates"][3] = candidate(3, category="time", total=71)
+    w["candidates"][7] = candidate(7, category="time", total=74)
+    ideas = build.merge([], build.validate_week(w))
+    board = build.build_board(ideas, [w])
+    tw = board["this_week"]
+    assert tw["week"] == "2026-W44" and tw["status"] == "ok"
+    assert [c["id"] for c in tw["top5"]] == ["idea-000", "idea-001", "idea-002", "idea-003", "idea-004"]
+    leaders = tw["category_leaders"]
+    assert leaders["money"]["total"] == 70
+    assert leaders["time"]["id"] == "idea-007"
+    assert leaders["life"] is None
+
+
+def test_history_lists_error_weeks_but_ignores_them():
+    w = build.validate_week(week_file(50, week="2026-W44"))
+    err = {"week": "2026-W45", "run_at": "2026-11-02T14:00:00Z", "model": "m",
+           "status": "error", "note": "build failed", "candidates_scored": 0,
+           "sources_hit": [], "sources_failed": [], "top5": [], "candidates": []}
+    board = build.build_board(build.merge([], w), [err, w])
+    assert [h["week"] for h in board["history"]] == ["2026-W44", "2026-W45"]
+    assert board["history"][1]["status"] == "error"
+    assert board["this_week"]["week"] == "2026-W44"
+    assert board["updated"] == w["run_at"]
+
+
+def test_empty_board():
+    board = build.build_board([], [])
+    assert board == {"updated": None, "this_week": None, "all_time": [], "rising": [], "history": []}
+
+
+# ---- run (file IO) ----
+
+def test_run_end_to_end_and_idempotent(data_dir):
+    p = write_week(data_dir, week_file(50))
+    first = build.run(p, data_dir)
+    assert (data_dir / "ideas.json").exists()
+    assert (data_dir / "leaderboard.json").exists()
+    assert first["this_week"]["status"] == "ok"
+    assert len(first["this_week"]["top5"]) == 5
+    ideas_1 = (data_dir / "ideas.json").read_text(encoding="utf-8")
+    board_1 = (data_dir / "leaderboard.json").read_text(encoding="utf-8")
+    build.run(p, data_dir)
+    assert (data_dir / "ideas.json").read_text(encoding="utf-8") == ideas_1
+    assert (data_dir / "leaderboard.json").read_text(encoding="utf-8") == board_1
+
+
+def test_run_two_weeks_builds_history(data_dir):
+    build.run(write_week(data_dir, week_file(50, week="2026-W44")), data_dir)
+    board = build.run(write_week(data_dir, week_file(20, week="2026-W45")), data_dir)
+    assert [h["week"] for h in board["history"]] == ["2026-W44", "2026-W45"]
+    assert board["this_week"]["week"] == "2026-W45"
+    assert board["this_week"]["status"] == "thin"
+
+
+def test_run_writes_nothing_on_invalid_week(data_dir):
+    w = week_file(50)
+    w["candidates"][0]["total"] = 1
+    p = write_week(data_dir, w)
+    with pytest.raises(build.ValidationError):
+        build.run(p, data_dir)
+    assert not (data_dir / "ideas.json").exists()
+    assert not (data_dir / "leaderboard.json").exists()
+
+
+def test_main_returns_1_on_invalid(data_dir, capsys):
+    w = week_file(50)
+    w["candidates"][0]["total"] = 1
+    p = write_week(data_dir, w)
+    assert build.main(["build.py", str(p), str(data_dir)]) == 1
+    assert "total" in capsys.readouterr().err
