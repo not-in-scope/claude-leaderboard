@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Claude Leaderboard</title>
+<style>
+:root{--bg:#F3F6F8;--card:#fff;--line:#E4EAEF;--ink:#22303C;--ink2:#5A6B7A;--mute:#A5B1BB;
+  --green:#0E6E5C;--green2:#E9F6F1;--amber:#8A6116;--amber2:#FBF3E4;--red:#9A3B3B;--red2:#FBEAEA;
+  --blue:#2B5C8A;--blue2:#E8F0F8}
+*{box-sizing:border-box}
+body{margin:0;padding:28px 16px;background:var(--bg);font-family:'Segoe UI',system-ui,sans-serif;color:var(--ink);line-height:1.45}
+.wrap{max-width:960px;margin:0 auto}
+h1{font-size:22px;margin:0}
+.head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px}
+.stamp{font-family:Consolas,monospace;font-size:12px;color:var(--ink2)}
+.flag{display:inline-block;margin-left:6px;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700}
+.flag.ok{background:var(--green2);color:var(--green)}
+.flag.thin{background:var(--amber2);color:var(--amber)}
+.flag.skipped,.flag.error{background:var(--red2);color:var(--red)}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0}
+@media(max-width:600px){.tiles{grid-template-columns:repeat(2,1fr)}}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+.tile .n{font-size:24px;font-weight:650}
+.tile .l{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);margin-top:2px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 14px}
+.tab{border:1px solid var(--line);border-radius:999px;padding:5px 14px;font-size:13px;background:var(--card);cursor:pointer;color:#33424F;user-select:none}
+.tab.on{background:var(--green);border-color:var(--green);color:#fff}
+h2{font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink2);margin:22px 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin-bottom:10px;cursor:pointer}
+.card .top{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.rank{font-family:Consolas,monospace;font-size:13px;color:var(--ink2);min-width:26px}
+.title{font-weight:650;flex:1 1 200px}
+.score{display:inline-block;min-width:38px;text-align:center;padding:2px 8px;border-radius:999px;font-weight:700;font-size:12px;background:var(--green2);color:var(--green)}
+.cat{font-size:10px;font-weight:700;padding:1px 7px;border-radius:4px;text-transform:uppercase;letter-spacing:.04em}
+.cat.money{background:var(--green2);color:var(--green)}
+.cat.time{background:var(--blue2);color:var(--blue)}
+.cat.life{background:var(--amber2);color:var(--amber)}
+.pitch{font-size:13px;color:#33424F;margin-top:6px}
+.step{font-size:13px;margin-top:6px}
+.step b{color:var(--ink2);font-weight:600;margin-right:4px}
+.links{font-size:12px;margin-top:6px}
+.links a{color:var(--green);text-decoration:none;margin-right:10px}
+.detail{display:none;margin-top:10px;border-top:1px solid var(--line);padding-top:10px}
+.card.open .detail{display:block}
+.sub{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;font-size:12px}
+.sub div{background:var(--bg);border-radius:6px;padding:6px 8px}
+.sub .k{color:var(--ink2);font-size:11px;text-transform:uppercase;letter-spacing:.05em}
+.sub .v{font-weight:700}
+.sub .r{color:#33424F;margin-top:2px}
+.leaders{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:700px){.leaders{grid-template-columns:1fr}}
+.leaders .card{margin:0}
+.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th{text-align:left;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink2);background:#F5F8FA;padding:9px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 12px;border-bottom:1px solid #F0F3F6;vertical-align:top}
+tr.row{cursor:pointer}
+tr.more td{background:#FAFCFD}
+.empty{background:var(--card);border:1px dashed var(--line);border-radius:8px;padding:28px;text-align:center;color:var(--ink2)}
+.note{font-size:12px;color:var(--amber);margin:8px 0}
+.hist{margin-top:22px;font-family:Consolas,monospace;font-size:12px;color:var(--ink2);display:flex;gap:8px;flex-wrap:wrap}
+.hist span{padding:2px 8px;border-radius:4px;background:var(--card);border:1px solid var(--line)}
+.foot{margin-top:14px;font-size:12px;color:var(--mute)}
+.foot a{color:var(--ink2)}
+</style></head>
+<body><div class="wrap">
+<div class="head"><h1>Claude Leaderboard</h1><div class="stamp" id="stamp">loading…</div></div>
+<div class="tiles" id="tiles"></div>
+<div class="tabs" id="tabs">
+  <span class="tab on" data-tab="week">This week</span>
+  <span class="tab" data-tab="all">All time</span>
+  <span class="tab" data-tab="rising">Rising</span>
+</div>
+<div id="view"></div>
+<div class="hist" id="hist"></div>
+<div class="foot">Weekly scan of Reddit, Substack, Hacker News and more for productive and money-making uses of Claude. Scores follow <a href="rubric.md">rubric.md</a>; sources are in <a href="sources.md">sources.md</a>.</div>
+</div>
+<script>
+const FACTORS = [["fit","Fit",25],["upside","Upside",20],["time_to_dollar","Time to benefit",15],
+                 ["effort","Effort",15],["evidence","Evidence",15],["durability","Durability",10]];
+const CATS = ["money","time","life"];
+const DATA_URL = new URLSearchParams(location.search).get("data") || "data/leaderboard.json";
+let BOARD = null, TAB = "week", CAT = "all";
+
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fmtDate = iso => iso ? new Date(iso).toLocaleDateString(undefined, {month:"short", day:"numeric", year:"numeric"}) : "";
+const host = u => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch { return u; } };
+const money = n => "$" + Number(n).toLocaleString();
+
+function flag(status){ return `<span class="flag ${esc(status)}">${esc(status)}</span>`; }
+function cat(c){ return `<span class="cat ${esc(c)}">${esc(c)}</span>`; }
+function links(ev){
+  return (ev || []).map(e => `<a href="${esc(e.url)}" target="_blank" rel="noopener" title="${esc(e.claim || "")}">${esc(e.source || host(e.url))}</a>`).join("");
+}
+function subscores(scores, reasons){
+  return `<div class="sub">${FACTORS.map(([k, l, m]) =>
+    `<div><div class="k">${l}</div><div class="v">${scores?.[k] ?? "–"} / ${m}</div><div class="r">${esc(reasons?.[k] || "")}</div></div>`).join("")}</div>`;
+}
+function dollars(d, hrs){
+  if (!d) return "";
+  return `<div class="pitch">Est. ${money(d.low)} to ${money(d.high)} ${esc(d.basis)} · ${esc(hrs)} hrs/week to run</div>`;
+}
+function card(c, rank){
+  const L = c.latest || {};
+  const scores = c.scores || L.scores, reasons = c.reasons || L.reasons;
+  const total = c.total ?? c.best_score;
+  const pitch = c.pitch ?? L.pitch, step = c.first_step ?? L.first_step;
+  const d = c.dollars || L.dollars, hrs = c.hours_per_week ?? L.hours_per_week;
+  return `<div class="card" onclick="this.classList.toggle('open')">
+    <div class="top">${rank ? `<span class="rank">#${rank}</span>` : ""}<span class="title">${esc(c.title)}</span>${cat(c.category)}<span class="score">${total}</span></div>
+    <div class="pitch">${esc(pitch)}</div>
+    <div class="step"><b>First step</b>${esc(step)}</div>
+    <div class="links">${links(c.evidence)}</div>
+    <div class="detail">${subscores(scores, reasons)}${dollars(d, hrs)}</div>
+  </div>`;
+}
+function renderTiles(b){
+  const tw = b.this_week;
+  const tiles = [
+    [tw ? tw.candidates_scored : 0, "Scored this week"],
+    [tw ? tw.top5.length : 0, "Published"],
+    [b.all_time.length, "All-time ideas"],
+    [b.rising.length, "Rising"],
+  ];
+  document.getElementById("tiles").innerHTML = tiles.map(([n, l]) => `<div class="tile"><div class="n">${n}</div><div class="l">${l}</div></div>`).join("");
+}
+function renderWeek(b){
+  const tw = b.this_week;
+  if (!tw) return `<div class="empty">No runs yet. The first scan lands on Monday morning.</div>`;
+  let html = "";
+  if (tw.status === "thin") html += `<div class="note">Thin week. ${tw.candidates_scored} candidates were scored, below the 50 target.</div>`;
+  if (tw.status === "skipped") html += `<div class="note">Skipped week, no top 5. ${esc(tw.note || "Fewer than 15 candidates were found.")}</div>`;
+  if (tw.top5.length) html += `<h2>Top 5 · ${esc(tw.week)}</h2>` + tw.top5.map((c, i) => card(c, i + 1)).join("");
+  const L = tw.category_leaders || {};
+  if (CATS.some(k => L[k])) {
+    html += `<h2>Category leaders</h2><div class="leaders">${CATS.map(k => L[k] ? card(L[k]) : `<div class="empty">No ${k} idea this week</div>`).join("")}</div>`;
+  }
+  if (tw.sources_failed?.length) html += `<div class="note">Sources that failed this run: ${tw.sources_failed.map(s => esc(s.source)).join(", ")}</div>`;
+  return html;
+}
+function renderTable(rows){
+  if (!rows.length) return `<div class="empty">Nothing here yet.</div>`;
+  const body = rows.map((r, i) => `
+    <tr class="row" onclick="const n=this.nextElementSibling;n.style.display=n.style.display==='table-row'?'none':'table-row'">
+      <td class="rank">${i + 1}</td><td><b>${esc(r.title)}</b></td><td>${cat(r.category)}</td>
+      <td><span class="score">${r.best_score}</span></td><td>${r.weeks_seen}</td><td>${esc(r.first_week)}</td>
+    </tr>
+    <tr class="more" style="display:none"><td colspan="6">
+      <div class="pitch">${esc(r.latest?.pitch)}</div>
+      <div class="step"><b>First step</b>${esc(r.latest?.first_step)}</div>
+      <div class="links">${links(r.evidence)}</div>
+      <div style="margin-top:10px">${subscores(r.latest?.scores, r.latest?.reasons)}</div>
+      ${dollars(r.latest?.dollars, r.latest?.hours_per_week)}
+    </td></tr>`).join("");
+  return `<div class="tblwrap"><table><thead><tr><th>#</th><th>Idea</th><th>Category</th><th>Best</th><th>Weeks</th><th>First seen</th></tr></thead><tbody>${body}</tbody></table></div>`;
+}
+function renderAll(b){
+  const chips = ["all", ...CATS].map(k => `<span class="tab ${CAT === k ? "on" : ""}" data-cat="${k}">${k}</span>`).join("");
+  const rows = CAT === "all" ? b.all_time : b.all_time.filter(r => r.category === CAT);
+  return `<div class="tabs" id="cats">${chips}</div>` + renderTable(rows);
+}
+function renderRising(b){
+  if (!b.rising.length) return `<div class="empty">Ideas seen in three or more weeks show up here.</div>`;
+  return renderTable(b.rising);
+}
+function render(){
+  const b = BOARD, tw = b.this_week;
+  document.getElementById("stamp").innerHTML = tw ? `last run ${fmtDate(b.updated)} · ${esc(tw.week)} ${flag(tw.status)}` : "no runs yet";
+  renderTiles(b);
+  document.querySelectorAll("#tabs .tab").forEach(t => t.classList.toggle("on", t.dataset.tab === TAB));
+  const view = document.getElementById("view");
+  view.innerHTML = TAB === "week" ? renderWeek(b) : TAB === "all" ? renderAll(b) : renderRising(b);
+  view.querySelectorAll("#cats .tab").forEach(c => c.onclick = () => { CAT = c.dataset.cat; render(); });
+  document.getElementById("hist").innerHTML = (b.history || []).slice(-12).map(h =>
+    `<span title="${h.candidates_scored} scored">${esc(h.week)} ${flag(h.status)}</span>`).join("");
+}
+document.querySelectorAll("#tabs .tab").forEach(t => t.onclick = () => { TAB = t.dataset.tab; render(); });
+fetch(`${DATA_URL}${DATA_URL.includes("?") ? "&" : "?"}t=${Date.now()}`)
+  .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
+  .then(b => { BOARD = b; render(); })
+  .catch(e => {
+    document.getElementById("stamp").textContent = "could not load data";
+    document.getElementById("view").innerHTML = `<div class="empty">Could not load ${esc(DATA_URL)} (${esc(e.message)}).</div>`;
+  });
+</script></body></html>
