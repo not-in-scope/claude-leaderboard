@@ -8,7 +8,7 @@ Constraints of this sandbox:
 
 - Do not spawn subagents. Web search has a budget of about 200 calls per run shared by every agent, and parallel agents exhaust it in minutes. Do all collection yourself, in sequence.
 - Plan the search budget. Direct fetches (`json`, `hn`, `rss`, `fetch` rows) cost no searches, so do all of them first. Spend at most 150 searches on the `search` rows, roughly 8 per source, and keep 20 in reserve for dating and verifying candidates.
-- A `site:reddit.com` web search returns no Reddit pages. If the Reddit JSON endpoints fail, record the failure and move on; do not spend searches on Reddit.
+- A `site:reddit.com` web search returns no Reddit pages. If a Reddit RSS endpoint fails, record the failure and move on; do not spend searches on Reddit.
 - If direct fetches fail with DNS errors or a proxy 403 on every host, the environment's network access is set to Trusted instead of Full. Record one `sources_failed` entry per source with the error, finish with what search finds, and say so in `note`.
 
 ## 0. Setup
@@ -39,7 +39,7 @@ Order: every tier 1 source in `sources.md`, then every tier 2 source, then tier 
 
 How to read each `how_read` type:
 
-- `json` (Reddit). For each subreddit, fetch `https://www.reddit.com/r/<sub>/top.json?t=week&limit=100` and, for each query in the row, `https://www.reddit.com/r/<sub>/search.json?q=<query>&restrict_sr=1&sort=new&t=week&limit=50`. Use `curl -sL -A "claude-leaderboard/1.0 (weekly research bot)"`. For promising posts, fetch the post URL with `.json` appended to read comments for numbers. On HTTP 403 or 429, wait 5 seconds and retry once, then fall back to a web search for `site:reddit.com/r/<sub> <query>` limited to the past week, and record the failure under `sources_failed`.
+- `reddit`. Reddit's RSS endpoints work from this sandbox; its JSON endpoints return 403, so use RSS only. For each subreddit, fetch `https://www.reddit.com/r/<sub>/top.rss?t=week&limit=100` and, for each query in the row, `https://www.reddit.com/r/<sub>/search.rss?q=<query>&restrict_sr=1&sort=new&t=week&limit=50`. Use `curl -sL -A "claude-leaderboard/1.0 (weekly research bot; github.com/not-in-scope/claude-leaderboard)"`. Each Atom `<entry>` carries the post title, author, date, link, and the post body as HTML in `<content>`. For promising posts, fetch the post URL with `.rss` appended to read the comments for numbers. Parse with `python3` and `xml.etree`, not with regex on the whole file. On HTTP 403 or 429, wait 5 seconds and retry once, then record the failure under `sources_failed` and move on. Never change the user agent to look like a browser.
 - `hn`. Fetch, with the URL in double quotes so the `>` is not treated as a redirect, `"https://hn.algolia.com/api/v1/search_by_date?query=<q>&tags=story&hitsPerPage=100&numericFilters=created_at_i>EPOCH_START"` for each query, then once with `tags=ask_hn` and once with `tags=show_hn` (separate requests, since a comma in tags means AND). Open stories that look like first-hand reports.
 - `rss`. Fetch the feed URL. Read items dated in the window.
 - `fetch`. Fetch the page. Read items dated in the window.

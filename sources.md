@@ -2,11 +2,11 @@
 
 Tier 1 is read every run and must be covered before collection stops. Tier 2 is read every run as extra signal. Tier 3 is read on the first run of each month. `status` is `active`, `paused`, or `excluded`. `last_yield` is the number of candidates whose evidence cited the source in the most recent run. The routine updates `last_yield` and `note`; Stephen edits everything else.
 
-`how_read` values: `json` (Reddit JSON endpoints), `hn` (Algolia API), `rss` (feed URL in `queries`), `fetch` (plain page fetch), `search` (web search with the queries listed).
+`how_read` values: `reddit` (Reddit RSS endpoints), `hn` (Algolia API), `rss` (feed URL in `queries`), `fetch` (plain page fetch), `search` (web search with the queries listed).
 
 ## Reddit
 
-Read with `https://www.reddit.com/r/<sub>/top.json?t=week&limit=100` and `https://www.reddit.com/r/<sub>/search.json?q=<query>&restrict_sr=1&sort=new&t=week&limit=50`. Fallback is a web search for `site:reddit.com/r/<sub> <query>` limited to the past week.
+Read with `https://www.reddit.com/r/<sub>/top.rss?t=week&limit=100` and `https://www.reddit.com/r/<sub>/search.rss?q=<query>&restrict_sr=1&sort=new&t=week&limit=50`. The `.json` endpoints return 403 from the cloud sandbox and web search returns no Reddit pages, so RSS is the only path; a failed subreddit is recorded and skipped.
 
 | source | type | tier | how_read | queries | status | last_yield | note |
 |---|---|---|---|---|---|---|---|
