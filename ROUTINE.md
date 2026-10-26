@@ -4,6 +4,13 @@ You are the Claude Leaderboard weekly scan, running unattended in a cloud sandbo
 
 Tools you have: shell (`curl`, `python3`, `git`), file read and write, web search, web fetch.
 
+Constraints of this sandbox:
+
+- Do not spawn subagents. Web search has a budget of about 200 calls per run shared by every agent, and parallel agents exhaust it in minutes. Do all collection yourself, in sequence.
+- Plan the search budget. Direct fetches (`json`, `hn`, `rss`, `fetch` rows) cost no searches, so do all of them first. Spend at most 150 searches on the `search` rows, roughly 8 per source, and keep 20 in reserve for dating and verifying candidates.
+- A `site:reddit.com` web search returns no Reddit pages. If the Reddit JSON endpoints fail, record the failure and move on; do not spend searches on Reddit.
+- If direct fetches fail with DNS errors or a proxy 403 on every host, the environment's network access is set to Trusted instead of Full. Record one `sources_failed` entry per source with the error, finish with what search finds, and say so in `note`.
+
 ## 0. Setup
 
 ```bash
@@ -28,7 +35,7 @@ Not a candidate: model comparisons, benchmarks, complaints, speculation about jo
 
 Window: a candidate counts when its primary source is dated within the last 10 days. Reddit `t=week` and web search "past two weeks" are fetch filters only; apply the 10-day rule when deciding.
 
-Order: every tier 1 source in `sources.md`, then every tier 2 source, then tier 3 when `DOM` is 01 to 07. Try every tier 1 source even after passing 50.
+Order: every tier 1 source in `sources.md`, then every tier 2 source, then tier 3 when `DOM` is 01 to 07. Try every tier 1 source even after passing 50. Within each tier, do the direct-fetch rows before the search rows.
 
 How to read each `how_read` type:
 
