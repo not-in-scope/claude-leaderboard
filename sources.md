@@ -10,70 +10,70 @@ Read with `https://www.reddit.com/r/<sub>/top.rss?t=week&limit=100` and `https:/
 
 | source | type | tier | how_read | queries | status | last_yield | note |
 |---|---|---|---|---|---|---|---|
-| r/ClaudeAI | reddit | 1 | reddit | claude, "claude code", revenue, "saved me", clients | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; main hub, about 1M members |
-| r/ClaudeCode | reddit | 1 | reddit | revenue, MRR, clients, "built a", "saved me" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/Anthropic | reddit | 1 | reddit | claude, "use case", revenue | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/claude | reddit | 1 | reddit | "use claude", revenue, "saved me" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/claudexplorers | reddit | 1 | reddit | planning, family, kids, "saved me", workflow | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; non-coding use |
-| r/ClaudeHomies | reddit | 1 | reddit | planning, family, kids, "saved me", workflow | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; non-coding use |
-| r/indiehackers | reddit | 1 | reddit | claude, "claude code", MRR | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/SideProject | reddit | 1 | reddit | claude, "claude code" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/SaaS | reddit | 1 | reddit | claude, "claude code" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/microsaas | reddit | 1 | reddit | claude, "claude code" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/VibeCodingSaaS | reddit | 1 | reddit | claude, MRR | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; small, high signal |
-| r/NoCodeSaaS | reddit | 1 | reddit | claude | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/Entrepreneur | reddit | 1 | reddit | claude, "ai agent" revenue | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/EntrepreneurRideAlong | reddit | 1 | reddit | claude, "ai" revenue | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/startups | reddit | 1 | reddit | claude, "claude code" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/smallbusiness | reddit | 1 | reddit | claude, "ai saved" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/sweatystartup | reddit | 1 | reddit | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/Business_Ideas | reddit | 1 | reddit | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/freelance | reddit | 1 | reddit | claude, "ai clients" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/Upwork | reddit | 1 | reddit | claude, "ai" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/consulting | reddit | 1 | reddit | claude, "ai" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/passive_income | reddit | 1 | reddit | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/digitalnomad | reddit | 1 | reddit | claude, "ai income" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/ChatGPTCoding | reddit | 1 | reddit | claude, "claude code", revenue, clients | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; tool-agnostic |
-| r/vibecoding | reddit | 1 | reddit | claude, MRR, revenue, "saved me" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/aipromptprogramming | reddit | 1 | reddit | claude, revenue | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/AI_Agents | reddit | 1 | reddit | claude, revenue, clients | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/LLMDevs | reddit | 1 | reddit | claude, "in production", revenue | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/AgentsOfAI | reddit | 1 | reddit | claude, revenue | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/AiBuilders | reddit | 1 | reddit | claude, revenue | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/PromptEngineering | reddit | 1 | reddit | claude, "saved me", workflow | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/automation | reddit | 1 | reddit | claude, "saved me", clients | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/n8n | reddit | 1 | reddit | claude, clients, revenue | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/Parenting | reddit | 1 | reddit | claude, "ai" planning, schedule | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; life |
-| r/daddit | reddit | 1 | reddit | claude, "ai" planning | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; life |
-| r/Mommit | reddit | 1 | reddit | claude, "ai" planning | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; life |
-| r/getdisciplined | reddit | 1 | reddit | claude, "ai" planning | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; life |
-| r/personalfinance | reddit | 1 | reddit | claude, "ai" budget | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; life |
-| r/budget | reddit | 1 | reddit | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; life |
-| r/MealPrepSunday | reddit | 1 | reddit | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; life |
-| r/travel | reddit | 1 | reddit | claude, "ai itinerary" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; life |
-| r/HomeImprovement | reddit | 1 | reddit | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; life |
-| r/homeschool | reddit | 1 | reddit | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; life |
-| r/ProductManagement | reddit | 2 | reddit | claude, "ai" workflow, "saved me" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; time |
-| r/dataengineering | reddit | 2 | reddit | claude, "claude code" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; time |
-| r/datascience | reddit | 2 | reddit | claude, "claude code" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; time |
-| r/analytics | reddit | 2 | reddit | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; time |
-| r/BusinessIntelligence | reddit | 2 | reddit | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; time |
-| r/ExperiencedDevs | reddit | 2 | reddit | claude, "claude code" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; time |
-| r/productivity | reddit | 2 | reddit | claude, "ai" workflow | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; time, life |
-| r/ChatGPT | reddit | 2 | reddit | "make money", "saved me", planning | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; uses transfer to Claude |
-| r/ChatGPTPro | reddit | 2 | reddit | workflow, "saved me", revenue | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; uses transfer |
-| r/OpenAI | reddit | 2 | reddit | claude, "switched to claude" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; comparisons |
-| r/ArtificialInteligence | reddit | 2 | reddit | claude, "use case", revenue | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; thin on workflows |
-| r/artificial | reddit | 2 | reddit | claude, "use case" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/cursor | reddit | 2 | reddit | claude, revenue, clients | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/Substack | reddit | 2 | reddit | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; creator |
-| r/content_marketing | reddit | 2 | reddit | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; creator |
-| r/copywriting | reddit | 2 | reddit | claude, ai clients | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; creator |
-| r/SEO | reddit | 2 | reddit | claude, "claude code" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; creator |
-| r/blogging | reddit | 2 | reddit | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; creator |
-| r/selfpublish | reddit | 2 | reddit | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; creator |
-| r/Etsy | reddit | 2 | reddit | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; creator |
-| r/printondemand | reddit | 2 | reddit | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; creator |
+| r/ClaudeAI | reddit | 1 | reddit | claude, "claude code", revenue, "saved me", clients | active | 12 | W44 rerun: top.rss and search.rss read; RSS limited to about 1 request a minute; main hub, about 1M members |
+| r/ClaudeCode | reddit | 1 | reddit | revenue, MRR, clients, "built a", "saved me" | active | 3 | W44 rerun: top.rss and search.rss read; RSS limited to about 1 request a minute |
+| r/Anthropic | reddit | 1 | reddit | claude, "use case", revenue | active | 2 | W44 rerun: top.rss and search.rss read; RSS limited to about 1 request a minute |
+| r/claude | reddit | 1 | reddit | "use claude", revenue, "saved me" | active | 1 | W44 rerun: top.rss and search.rss read; RSS limited to about 1 request a minute |
+| r/claudexplorers | reddit | 1 | reddit | planning, family, kids, "saved me", workflow | active | 0 | W44 rerun: top.rss and search.rss read; RSS limited to about 1 request a minute; non-coding use |
+| r/ClaudeHomies | reddit | 1 | reddit | planning, family, kids, "saved me", workflow | active | 0 | W44 rerun: top.rss and search.rss read; RSS limited to about 1 request a minute; non-coding use |
+| r/indiehackers | reddit | 1 | reddit | claude, "claude code", MRR | active | 0 | W44 rerun: top.rss and search.rss read; RSS limited to about 1 request a minute; MRR query 429 |
+| r/SideProject | reddit | 1 | reddit | claude, "claude code" | active | 3 | W44 rerun: top.rss and search.rss read; RSS limited to about 1 request a minute |
+| r/SaaS | reddit | 1 | reddit | claude, "claude code" | active | 2 | W44 rerun: top.rss and search.rss read; RSS limited to about 1 request a minute |
+| r/microsaas | reddit | 1 | reddit | claude, "claude code" | active | 0 | W44 rerun: top.rss and search.rss read; RSS limited to about 1 request a minute |
+| r/VibeCodingSaaS | reddit | 1 | reddit | claude, MRR | active | 0 | W44 rerun: RSS 404 on top and search (subreddit unavailable); small, high signal |
+| r/NoCodeSaaS | reddit | 1 | reddit | claude | active | 0 | W44 rerun: top.rss and search.rss read; RSS limited to about 1 request a minute |
+| r/Entrepreneur | reddit | 1 | reddit | claude, "ai agent" revenue | active | 0 | W44 rerun: top.rss and search.rss read; RSS limited to about 1 request a minute |
+| r/EntrepreneurRideAlong | reddit | 1 | reddit | claude, "ai" revenue | active | 1 | W44 rerun: top.rss and search.rss read; RSS limited to about 1 request a minute |
+| r/startups | reddit | 1 | reddit | claude, "claude code" | active | 0 | W44 rerun: top.rss and search.rss read; RSS limited to about 1 request a minute |
+| r/smallbusiness | reddit | 1 | reddit | claude, "ai saved" | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute) |
+| r/sweatystartup | reddit | 1 | reddit | claude, ai | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute) |
+| r/Business_Ideas | reddit | 1 | reddit | claude, ai | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute) |
+| r/freelance | reddit | 1 | reddit | claude, "ai clients" | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute) |
+| r/Upwork | reddit | 1 | reddit | claude, "ai" | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute) |
+| r/consulting | reddit | 1 | reddit | claude, "ai" | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute) |
+| r/passive_income | reddit | 1 | reddit | claude, ai | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute) |
+| r/digitalnomad | reddit | 1 | reddit | claude, "ai income" | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute) |
+| r/ChatGPTCoding | reddit | 1 | reddit | claude, "claude code", revenue, clients | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute); tool-agnostic |
+| r/vibecoding | reddit | 1 | reddit | claude, MRR, revenue, "saved me" | active | 3 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute) |
+| r/aipromptprogramming | reddit | 1 | reddit | claude, revenue | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute) |
+| r/AI_Agents | reddit | 1 | reddit | claude, revenue, clients | active | 1 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute) |
+| r/LLMDevs | reddit | 1 | reddit | claude, "in production", revenue | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute) |
+| r/AgentsOfAI | reddit | 1 | reddit | claude, revenue | active | 1 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute) |
+| r/AiBuilders | reddit | 1 | reddit | claude, revenue | active | 1 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute) |
+| r/PromptEngineering | reddit | 1 | reddit | claude, "saved me", workflow | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute) |
+| r/automation | reddit | 1 | reddit | claude, "saved me", clients | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute) |
+| r/n8n | reddit | 1 | reddit | claude, clients, revenue | active | 1 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute) |
+| r/Parenting | reddit | 1 | reddit | claude, "ai" planning, schedule | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute); life |
+| r/daddit | reddit | 1 | reddit | claude, "ai" planning | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute); life |
+| r/Mommit | reddit | 1 | reddit | claude, "ai" planning | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute); life |
+| r/getdisciplined | reddit | 1 | reddit | claude, "ai" planning | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute); life |
+| r/personalfinance | reddit | 1 | reddit | claude, "ai" budget | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute); life |
+| r/budget | reddit | 1 | reddit | claude, ai | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute); life |
+| r/MealPrepSunday | reddit | 1 | reddit | claude, ai | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute); life |
+| r/travel | reddit | 1 | reddit | claude, "ai itinerary" | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute); life |
+| r/HomeImprovement | reddit | 1 | reddit | claude, ai | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute); life |
+| r/homeschool | reddit | 1 | reddit | claude, ai | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute); life |
+| r/ProductManagement | reddit | 2 | reddit | claude, "ai" workflow, "saved me" | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute); time |
+| r/dataengineering | reddit | 2 | reddit | claude, "claude code" | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute); time |
+| r/datascience | reddit | 2 | reddit | claude, "claude code" | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute); time |
+| r/analytics | reddit | 2 | reddit | claude, ai | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute); time |
+| r/BusinessIntelligence | reddit | 2 | reddit | claude, ai | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute); time |
+| r/ExperiencedDevs | reddit | 2 | reddit | claude, "claude code" | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute); time |
+| r/productivity | reddit | 2 | reddit | claude, "ai" workflow | active | 1 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute); time, life |
+| r/ChatGPT | reddit | 2 | reddit | "make money", "saved me", planning | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute); uses transfer to Claude |
+| r/ChatGPTPro | reddit | 2 | reddit | workflow, "saved me", revenue | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute); uses transfer |
+| r/OpenAI | reddit | 2 | reddit | claude, "switched to claude" | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute); comparisons |
+| r/ArtificialInteligence | reddit | 2 | reddit | claude, "use case", revenue | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute); thin on workflows |
+| r/artificial | reddit | 2 | reddit | claude, "use case" | active | 2 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute) |
+| r/cursor | reddit | 2 | reddit | claude, revenue, clients | active | 1 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute) |
+| r/Substack | reddit | 2 | reddit | claude, ai | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute); creator |
+| r/content_marketing | reddit | 2 | reddit | claude, ai | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute); creator |
+| r/copywriting | reddit | 2 | reddit | claude, ai clients | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute); creator |
+| r/SEO | reddit | 2 | reddit | claude, "claude code" | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute); creator |
+| r/blogging | reddit | 2 | reddit | claude, ai | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute); creator |
+| r/selfpublish | reddit | 2 | reddit | claude, ai | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute); creator |
+| r/Etsy | reddit | 2 | reddit | claude, ai | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute); creator |
+| r/printondemand | reddit | 2 | reddit | claude, ai | active | 0 | W44 rerun: top.rss read; search.rss queries not reached (RSS limited to about 1 request a minute); creator |
 | r/singularity | reddit | - | - | - | excluded | 0 | speculation, not use |
 | r/MakeMoneyOnline | reddit | - | - | - | excluded | 0 | low quality |
 | r/beermoney | reddit | - | - | - | excluded | 0 | low quality |

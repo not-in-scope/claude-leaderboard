@@ -1,15 +1,11 @@
 {
- "updated": "2026-10-26T22:30:00Z",
+ "updated": "2026-10-26T23:25:00Z",
  "this_week": {
   "week": "2026-W44",
-  "status": "thin",
-  "note": "Reddit returned HTTP 403 from reddit.com itself on all 63 subreddits after one retry (network is open: HN Algolia, dev.to, newsletter feeds and anthropic.com all fetched fine), so no Reddit data; per routine no searches spent on Reddit. Direct fetches did most of the work: HN Algolia stories plus comment search, the dev.to API (tags claude, claudecode, ai and others), Medium tag feeds, newsletter RSS, and shippedandpaid.com case pages for verified revenue. About 30 web searches used; results skewed old, so every kept item was dated by fetch. Tier 3 not due (day 26). Calls made: Every's /feed returns HTML and Growth Unhinged's feed 404s, so Every was read by search; Medium article bodies 403, so Medium candidates rest on feed titles and subtitles; Forbes 403, its claim carried from the earlier W44 run. Themes from the earlier W44 run were split into specific ideas (family calendar drive planner, family finance app, law-firm weekend rebuild, grant SOP, Tabby, VibeLing MCP); old theme ids family-logistics-household-admin-agent, small-org-back-office-automation and solo-apps-shipped-with-claude-code were not reused. Jake Moran moved from the short-form video record to the new HyperFrames explainer idea. Left out: Anthropic customer stories (pages undated), MailCheap and Ritmo (source posts Oct 14-15, outside window), hobby games and Simon Willison's artifacts, BI/Looker blog dated Oct 14 kept only as supporting evidence.",
-  "candidates_scored": 48,
+  "status": "ok",
+  "note": "Rerun of W44 with Reddit now readable over RSS. Reddit throttled unauthenticated RSS to about one request per minute, so the routine read top.rss?t=week for all 63 active subreddits (r/VibeCodingSaaS returned 404) and the search.rss queries for the first 15 tier 1 subs (r/ClaudeAI through r/startups); the remaining 49 subs' query feeds were not fetched. 4,419 Reddit posts in the window were parsed and triaged; 28 new Reddit candidates were added and the Berlin Job Search post was merged into the existing job-search pipeline record. The 48 candidates from the earlier W44 run today (HN Algolia, dev.to, Medium tag feeds, newsletter RSS, shippedandpaid.com, about 30 searches) were kept, since their evidence is dated Oct 14 to 26 and the window is unchanged; newsletter RSS and HN were re-fetched and showed no new first-hand reports. Only 3 web searches were spent this rerun (Indie Hackers, Starter Story, MRR) and all returned no in-window pages, so search rows were not repeated. Tier 3 not due (day 26). Calls made: second evidence links for Reddit-only stories use the author's Reddit profile when the post linked no repo or site; same-author hotel and flight posts are two ideas, scored separately; three TV debloat reports (Samsung, Xiaomi cleanyourtv, Android TV app) merged into one idea; a Cowork plumbing estimating sheet and HousingWizard takeoff skills merged as one takeoff-to-estimate idea. Left out: hobby games, Anthropic finance news, model comparisons, the Opus 63-companies $13 experiment, and the Power BI benchmark (second-hand LinkedIn).",
+  "candidates_scored": 76,
   "sources_failed": [
-   {
-    "source": "Reddit (all 63 tier 1 and 2 subreddits)",
-    "error": "HTTP 403 from reddit.com on top.json after 5 s retry; no search fallback per routine"
-   },
    {
     "source": "Every",
     "error": "https://every.to/feed returns HTML, not RSS; used search"
@@ -21,6 +17,18 @@
    {
     "source": "Product with Attitude",
     "error": "feed read, no items in window"
+   },
+   {
+    "source": "r/VibeCodingSaaS",
+    "error": "HTTP 404 on top.rss and search.rss (subreddit unavailable); one search 429"
+   },
+   {
+    "source": "Reddit search queries (r/indiehackers onward to r/printondemand, 49 subreddits)",
+    "error": "Reddit RSS allowed about 1 request a minute (x-ratelimit-remaining 0 after each call); top.rss read for all 63 subs, but per-query search feeds only completed for the first 15 subs before the run's time budget"
+   },
+   {
+    "source": "r/indiehackers",
+    "error": "one search query (MRR) returned 429 after retry"
    }
   ],
   "top5": [
@@ -69,6 +77,60 @@
       "source": "anthropic.com",
       "date": "2026-10-26",
       "claim": "Anthropic lists family schedule organization and activities as a parent use case"
+     }
+    ]
+   },
+   {
+    "id": "claude-code-job-search-pipeline",
+    "title": "Job search pipeline in Claude Code that scores postings and tailors applications",
+    "aliases": [
+     "ai job search repo",
+     "claude job hunter"
+    ],
+    "category": "time",
+    "pitch": "Gencay's Claude job hunter read 100 Upwork posts, narrowed them to 30, and drafted ten tailored proposals, building on Mads Lorentzen's open-source AI Job Search, which got its author 20 first interviews from 69 applications and one offer; Bikash Kalita released a similar free pipeline the same week. A senior PM targeting a few dozen roles could use it to cut application time while keeping every send manual.",
+    "first_step": "Clone the AI Job Search repo, run its setup with your resume, and score this week's ten most interesting PM postings.",
+    "scores": {
+     "fit": 18,
+     "upside": 12,
+     "time_to_dollar": 13,
+     "effort": 12,
+     "evidence": 12,
+     "durability": 6
+    },
+    "total": 73,
+    "reasons": {
+     "fit": "Job search is one of the profile's named time uses; scoring and tailoring play to his writing and structured thinking.",
+     "upside": "Replaces 3 to 8 hours a week of tailoring during an active search.",
+     "time_to_dollar": "First tailored application the same evening.",
+     "effort": "Under 3 hours a week once set up.",
+     "evidence": "Three independent builders with specifics (Gencay's run, Lorentzen's interview count, Berlin Job Search) plus Kalita's pipeline.",
+     "durability": "Useful for a year or two until job boards and ATS vendors build it in."
+    },
+    "dollars": {
+     "low": 22500,
+     "high": 60000,
+     "basis": "annual"
+    },
+    "hours_per_week": 2,
+    "evidence": [
+     {
+      "url": "https://www.learnwithmeai.com/p/claude-job-hunter",
+      "source": "learnwithmeai.com",
+      "date": "2026-10-21",
+      "claim": "100 Upwork posts pre-screened to 30, top ten got proposals; Lorentzen sent 69 tailored applications, got 20 first interviews"
+     },
+     {
+      "url": "https://medium.com/@kalita.bikash/my-claude-app-a-job-search-pipeline-that-automates-the-painful-parts-951e74893382",
+      "source": "Medium",
+      "date": "2026-10-26",
+      "claim": "Built an automated job search tool that runs inside Claude and made it free"
+     },
+     {
+      "url": "https://www.reddit.com/r/SideProject/comments/1xfq76n/",
+      "source": "r/SideProject",
+      "date": "2026-10-26",
+      "claim": "Berlin Job Search skill for Claude Code: searches Arbeitsagentur and LinkedIn, quotes German-language requirements, tracks applications"
      }
     ]
    },
@@ -123,54 +185,6 @@
       "source": "david.lequin.dev",
       "date": "2026-10-14",
       "claim": "Weekly viewers of Claude-made dashboards went from 23 in March to 136 in June; Looker usage down a third"
-     }
-    ]
-   },
-   {
-    "id": "claude-code-job-search-pipeline",
-    "title": "Job search pipeline in Claude Code that scores postings and tailors applications",
-    "aliases": [
-     "ai job search repo",
-     "claude job hunter"
-    ],
-    "category": "time",
-    "pitch": "Gencay's Claude job hunter read 100 Upwork posts, narrowed them to 30, and drafted ten tailored proposals, building on Mads Lorentzen's open-source AI Job Search, which got its author 20 first interviews from 69 applications and one offer; Bikash Kalita released a similar free pipeline the same week. A senior PM targeting a few dozen roles could use it to cut application time while keeping every send manual.",
-    "first_step": "Clone the AI Job Search repo, run its setup with your resume, and score this week's ten most interesting PM postings.",
-    "scores": {
-     "fit": 18,
-     "upside": 12,
-     "time_to_dollar": 13,
-     "effort": 12,
-     "evidence": 10,
-     "durability": 6
-    },
-    "total": 71,
-    "reasons": {
-     "fit": "Job search is one of the profile's named time uses; scoring and tailoring play to his writing and structured thinking.",
-     "upside": "Replaces 3 to 8 hours a week of tailoring during an active search.",
-     "time_to_dollar": "First tailored application the same evening.",
-     "effort": "Under 3 hours a week once set up.",
-     "evidence": "Two independent reports with specifics (Gencay's run, Lorentzen's interview count) plus a third builder.",
-     "durability": "Useful for a year or two until job boards and ATS vendors build it in."
-    },
-    "dollars": {
-     "low": 22500,
-     "high": 60000,
-     "basis": "annual"
-    },
-    "hours_per_week": 2,
-    "evidence": [
-     {
-      "url": "https://www.learnwithmeai.com/p/claude-job-hunter",
-      "source": "learnwithmeai.com",
-      "date": "2026-10-21",
-      "claim": "100 Upwork posts pre-screened to 30, top ten got proposals; Lorentzen sent 69 tailored applications, got 20 first interviews"
-     },
-     {
-      "url": "https://medium.com/@kalita.bikash/my-claude-app-a-job-search-pipeline-that-automates-the-painful-parts-951e74893382",
-      "source": "Medium",
-      "date": "2026-10-26",
-      "claim": "Built an automated job search tool that runs inside Claude and made it free"
      }
     ]
    },
@@ -279,103 +293,104 @@
   ],
   "category_leaders": {
    "money": {
-    "id": "freelance-scope-creep-change-order-skill",
-    "title": "Client-message scope check that drafts a priced change order",
+    "id": "posthog-funnel-fixes-by-claude-code",
+    "title": "PostHog session data read by Claude Code to fix a small site's funnel",
     "aliases": [
-     "scope-creep-guard"
+     "product analytics agent",
+     "claude reads posthog"
     ],
     "category": "money",
-    "pitch": "Kitwise Studio published a Claude skill that splits a client message into separate asks, checks each against the agreed scope, and drafts a reply with prices and schedule impact. For a PM doing fractional consulting, it protects billable hours.",
-    "first_step": "Paste your next consulting scope and one tricky client email into Claude with this skill and compare its reply to yours.",
+    "pitch": "A developer let Claude Code run their coloring site for a week: it pulled PostHog sessions, found 1 in 4 phone users rage-tapping because line taps missed shapes, and moved a sign-in popup that showed 31 times with zero sign-ins. It is his A/B testing and analytics skill applied to a side product with Claude doing the digging.",
+    "first_step": "Connect PostHog or GA to Claude Code on any small site you own and ask for the top three drop-off causes.",
     "scores": {
-     "fit": 14,
+     "fit": 17,
      "upside": 6,
-     "time_to_dollar": 12,
-     "effort": 14,
-     "evidence": 3,
+     "time_to_dollar": 10,
+     "effort": 11,
+     "evidence": 6,
      "durability": 7
     },
-    "total": 56,
+    "total": 57,
     "reasons": {
-     "fit": "Stakeholder and scope management is a PM strength.",
-     "upside": "Recovers $1k to $5k a year of unbilled work for a part-time consultant.",
-     "time_to_dollar": "First use pays off.",
-     "effort": "Minutes a week.",
-     "evidence": "One builder, no outcome numbers.",
-     "durability": "Scope discipline is durable."
+     "fit": "Uses his data and experimentation strength directly",
+     "upside": "A small side site earns under $10k a year",
+     "time_to_dollar": "Two weeks to two months to see paid conversions move",
+     "effort": "A few hours a week reviewing its reports",
+     "evidence": "One named builder with concrete numbers (280 visitors, 31 popups, 0 sign-ins)",
+     "durability": "Analytics-driven iteration is a durable skill"
     },
     "dollars": {
      "low": 1000,
-     "high": 5000,
+     "high": 8000,
      "basis": "annual"
     },
-    "hours_per_week": 1,
+    "hours_per_week": 4,
     "evidence": [
      {
-      "url": "https://dev.to/kitwisestudio/i-built-a-claude-skill-that-flags-scope-creep-before-you-reply-to-a-client-26pg",
-      "source": "Dev.to",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1xdpno8/",
+      "source": "r/ClaudeAI",
       "date": "2026-10-23",
-      "claim": "Skill compares each ask to the scope and drafts a friendly change-order reply with pricing"
+      "claim": "Claude found 1 in 4 phone users rage-tapping and a sign-in popup shown 31 times with zero sign-ins"
      },
      {
-      "url": "https://dev.to/kitwisestudio",
-      "source": "Dev.to",
+      "url": "https://tintly.art/",
+      "source": "tintly.art",
       "date": "2026-10-23",
-      "claim": "Kitwise Studio author page"
+      "claim": "Live coloring site with a $3 Halloween book offer"
      }
     ]
    },
    "time": {
-    "id": "claude-html-dashboards-replace-looker",
-    "title": "Looker dashboards replaced by Claude-written HTML pages on Snowflake",
+    "id": "claude-code-job-search-pipeline",
+    "title": "Job search pipeline in Claude Code that scores postings and tailors applications",
     "aliases": [
-     "bi software is dead",
-     "html dashboards instead of looker"
+     "ai job search repo",
+     "claude job hunter"
     ],
     "category": "time",
-    "pitch": "An engineer at Sean Anderson's company replaced a $300k-a-year Looker contract with Claude-built HTML dashboards in about two months of part-time work, and they told Google they will not renew; the same week David Lequin's write-up on doing this at a 500-person company drew 80 HN comments. It uses his SQL, data platform and BI strengths and his stakeholder skill at selling a build-versus-buy call to finance.",
-    "first_step": "Pick one Looker or QuickSight dashboard your team opens weekly and have Claude Code rebuild it as one HTML file against the same SQL, then show both side by side.",
+    "pitch": "Gencay's Claude job hunter read 100 Upwork posts, narrowed them to 30, and drafted ten tailored proposals, building on Mads Lorentzen's open-source AI Job Search, which got its author 20 first interviews from 69 applications and one offer; Bikash Kalita released a similar free pipeline the same week. A senior PM targeting a few dozen roles could use it to cut application time while keeping every send manual.",
+    "first_step": "Clone the AI Job Search repo, run its setup with your resume, and score this week's ten most interesting PM postings.",
     "scores": {
-     "fit": 24,
-     "upside": 14,
-     "time_to_dollar": 9,
-     "effort": 10,
-     "evidence": 9,
-     "durability": 7
+     "fit": 18,
+     "upside": 12,
+     "time_to_dollar": 13,
+     "effort": 12,
+     "evidence": 12,
+     "durability": 6
     },
     "total": 73,
     "reasons": {
-     "fit": "Uses SQL, data platforms, BI and VP-level build-versus-buy framing, two strengths plus a data edge.",
-     "upside": "Licence savings of $150k to $300k a year at one company; for him, 3 to 10 analyst hours a week.",
-     "time_to_dollar": "One dashboard can be rebuilt in an evening; a full migration takes the reported couple of months.",
-     "effort": "3 to 10 hours a week while dashboards are migrated, less once they run on a schedule.",
-     "evidence": "Two independent reports with specifics: a $300k Looker contract not renewed and a $150k one cut by a third.",
-     "durability": "Semantic layers and governance still matter, but cheap generated dashboards look durable for a couple of years."
+     "fit": "Job search is one of the profile's named time uses; scoring and tailoring play to his writing and structured thinking.",
+     "upside": "Replaces 3 to 8 hours a week of tailoring during an active search.",
+     "time_to_dollar": "First tailored application the same evening.",
+     "effort": "Under 3 hours a week once set up.",
+     "evidence": "Three independent builders with specifics (Gencay's run, Lorentzen's interview count, Berlin Job Search) plus Kalita's pipeline.",
+     "durability": "Useful for a year or two until job boards and ATS vendors build it in."
     },
     "dollars": {
-     "low": 30000,
-     "high": 75000,
+     "low": 22500,
+     "high": 60000,
      "basis": "annual"
     },
-    "hours_per_week": 5,
+    "hours_per_week": 2,
     "evidence": [
      {
-      "url": "https://news.ycombinator.com/item?id=50214727",
-      "source": "Hacker News",
-      "date": "2026-10-23",
-      "claim": "Replacing a $300k/yr Looker subscription; one person part-time for a couple of months; told Google they won't renew"
+      "url": "https://www.learnwithmeai.com/p/claude-job-hunter",
+      "source": "learnwithmeai.com",
+      "date": "2026-10-21",
+      "claim": "100 Upwork posts pre-screened to 30, top ten got proposals; Lorentzen sent 69 tailored applications, got 20 first interviews"
      },
      {
-      "url": "https://news.ycombinator.com/item?id=50212320",
-      "source": "Hacker News",
-      "date": "2026-10-23",
-      "claim": "'Can we replace a $150k Looker with a bucket of HTML files?', 132 points, 80 comments"
+      "url": "https://medium.com/@kalita.bikash/my-claude-app-a-job-search-pipeline-that-automates-the-painful-parts-951e74893382",
+      "source": "Medium",
+      "date": "2026-10-26",
+      "claim": "Built an automated job search tool that runs inside Claude and made it free"
      },
      {
-      "url": "https://david.lequin.dev/blog/bi-software-is-dead/",
-      "source": "david.lequin.dev",
-      "date": "2026-10-14",
-      "claim": "Weekly viewers of Claude-made dashboards went from 23 in March to 136 in June; Looker usage down a third"
+      "url": "https://www.reddit.com/r/SideProject/comments/1xfq76n/",
+      "source": "r/SideProject",
+      "date": "2026-10-26",
+      "claim": "Berlin Job Search skill for Claude Code: searches Arbeitsagentur and LinkedIn, quotes German-language requirements, tracks applications"
      }
     ]
    },
@@ -549,6 +564,71 @@
    ]
   },
   {
+   "id": "claude-code-job-search-pipeline",
+   "title": "Job search pipeline in Claude Code that scores postings and tailors applications",
+   "aliases": [
+    "ai job search repo",
+    "claude job hunter"
+   ],
+   "category": "time",
+   "first_week": "2026-W44",
+   "last_week": "2026-W44",
+   "weeks": [
+    "2026-W44"
+   ],
+   "weeks_seen": 1,
+   "best_score": 73,
+   "best_week": "2026-W44",
+   "latest": {
+    "week": "2026-W44",
+    "pitch": "Gencay's Claude job hunter read 100 Upwork posts, narrowed them to 30, and drafted ten tailored proposals, building on Mads Lorentzen's open-source AI Job Search, which got its author 20 first interviews from 69 applications and one offer; Bikash Kalita released a similar free pipeline the same week. A senior PM targeting a few dozen roles could use it to cut application time while keeping every send manual.",
+    "first_step": "Clone the AI Job Search repo, run its setup with your resume, and score this week's ten most interesting PM postings.",
+    "scores": {
+     "fit": 18,
+     "upside": 12,
+     "time_to_dollar": 13,
+     "effort": 12,
+     "evidence": 12,
+     "durability": 6
+    },
+    "total": 73,
+    "reasons": {
+     "fit": "Job search is one of the profile's named time uses; scoring and tailoring play to his writing and structured thinking.",
+     "upside": "Replaces 3 to 8 hours a week of tailoring during an active search.",
+     "time_to_dollar": "First tailored application the same evening.",
+     "effort": "Under 3 hours a week once set up.",
+     "evidence": "Three independent builders with specifics (Gencay's run, Lorentzen's interview count, Berlin Job Search) plus Kalita's pipeline.",
+     "durability": "Useful for a year or two until job boards and ATS vendors build it in."
+    },
+    "dollars": {
+     "low": 22500,
+     "high": 60000,
+     "basis": "annual"
+    },
+    "hours_per_week": 2
+   },
+   "evidence": [
+    {
+     "url": "https://www.reddit.com/r/SideProject/comments/1xfq76n/",
+     "source": "r/SideProject",
+     "date": "2026-10-26",
+     "claim": "Berlin Job Search skill for Claude Code: searches Arbeitsagentur and LinkedIn, quotes German-language requirements, tracks applications"
+    },
+    {
+     "url": "https://www.learnwithmeai.com/p/claude-job-hunter",
+     "source": "learnwithmeai.com",
+     "date": "2026-10-21",
+     "claim": "100 Upwork posts pre-screened to 30, top ten got proposals; Lorentzen sent 69 tailored applications, got 20 first interviews"
+    },
+    {
+     "url": "https://medium.com/@kalita.bikash/my-claude-app-a-job-search-pipeline-that-automates-the-painful-parts-951e74893382",
+     "source": "Medium",
+     "date": "2026-10-26",
+     "claim": "Built an automated job search tool that runs inside Claude and made it free"
+    }
+   ]
+  },
+  {
    "id": "claude-html-dashboards-replace-looker",
    "title": "Looker dashboards replaced by Claude-written HTML pages on Snowflake",
    "aliases": [
@@ -681,65 +761,6 @@
      "source": "perchnotes.substack.com",
      "date": "2026-10-21",
      "claim": "Eight weeks of putting it off, four hours with Claude (SOP update and Asana changes)"
-    }
-   ]
-  },
-  {
-   "id": "claude-code-job-search-pipeline",
-   "title": "Job search pipeline in Claude Code that scores postings and tailors applications",
-   "aliases": [
-    "ai job search repo",
-    "claude job hunter"
-   ],
-   "category": "time",
-   "first_week": "2026-W44",
-   "last_week": "2026-W44",
-   "weeks": [
-    "2026-W44"
-   ],
-   "weeks_seen": 1,
-   "best_score": 71,
-   "best_week": "2026-W44",
-   "latest": {
-    "week": "2026-W44",
-    "pitch": "Gencay's Claude job hunter read 100 Upwork posts, narrowed them to 30, and drafted ten tailored proposals, building on Mads Lorentzen's open-source AI Job Search, which got its author 20 first interviews from 69 applications and one offer; Bikash Kalita released a similar free pipeline the same week. A senior PM targeting a few dozen roles could use it to cut application time while keeping every send manual.",
-    "first_step": "Clone the AI Job Search repo, run its setup with your resume, and score this week's ten most interesting PM postings.",
-    "scores": {
-     "fit": 18,
-     "upside": 12,
-     "time_to_dollar": 13,
-     "effort": 12,
-     "evidence": 10,
-     "durability": 6
-    },
-    "total": 71,
-    "reasons": {
-     "fit": "Job search is one of the profile's named time uses; scoring and tailoring play to his writing and structured thinking.",
-     "upside": "Replaces 3 to 8 hours a week of tailoring during an active search.",
-     "time_to_dollar": "First tailored application the same evening.",
-     "effort": "Under 3 hours a week once set up.",
-     "evidence": "Two independent reports with specifics (Gencay's run, Lorentzen's interview count) plus a third builder.",
-     "durability": "Useful for a year or two until job boards and ATS vendors build it in."
-    },
-    "dollars": {
-     "low": 22500,
-     "high": 60000,
-     "basis": "annual"
-    },
-    "hours_per_week": 2
-   },
-   "evidence": [
-    {
-     "url": "https://www.learnwithmeai.com/p/claude-job-hunter",
-     "source": "learnwithmeai.com",
-     "date": "2026-10-21",
-     "claim": "100 Upwork posts pre-screened to 30, top ten got proposals; Lorentzen sent 69 tailored applications, got 20 first interviews"
-    },
-    {
-     "url": "https://medium.com/@kalita.bikash/my-claude-app-a-job-search-pipeline-that-automates-the-painful-parts-951e74893382",
-     "source": "Medium",
-     "date": "2026-10-26",
-     "claim": "Built an automated job search tool that runs inside Claude and made it free"
     }
    ]
   },
@@ -884,6 +905,65 @@
      "source": "Podcasts",
      "date": "2026-10-21",
      "claim": "How I AI episode: 'Claude Duet is beautiful. I still forgot to use it.'"
+    }
+   ]
+  },
+  {
+   "id": "meeting-recorder-mcp-decision-search",
+   "title": "Call recordings searchable by Claude for decisions and follow-ups via MCP",
+   "aliases": [
+    "overheard",
+    "meeting memory mcp"
+   ],
+   "category": "time",
+   "first_week": "2026-W44",
+   "last_week": "2026-W44",
+   "weeks": [
+    "2026-W44"
+   ],
+   "weeks_seen": 1,
+   "best_score": 68,
+   "best_week": "2026-W44",
+   "latest": {
+    "week": "2026-W44",
+    "pitch": "A developer built Overheard, a free Mac menu-bar recorder that transcribes calls with no bot joining and exposes an MCP server, so Claude answers \"what did we decide about the launch?\" with the meeting and minute cited and drafts follow-ups. For a PM aligning stakeholders up to VP, it cuts the hunt through notes before every review.",
+    "first_step": "Install Overheard, record this week's stakeholder calls, and ask Claude for Friday's decision log.",
+    "scores": {
+     "fit": 19,
+     "upside": 11,
+     "time_to_dollar": 13,
+     "effort": 13,
+     "evidence": 5,
+     "durability": 7
+    },
+    "total": 68,
+    "reasons": {
+     "fit": "Directly serves stakeholder alignment and his LLM product background",
+     "upside": "About 3 hours a week of note-hunting and follow-up drafting",
+     "time_to_dollar": "First week pays off",
+     "effort": "Runs in the background",
+     "evidence": "One named builder with a public repo and detailed setup",
+     "durability": "Meeting memory is a durable need; may be bundled by platforms"
+    },
+    "dollars": {
+     "low": 22500,
+     "high": 37500,
+     "basis": "annual"
+    },
+    "hours_per_week": 0.5
+   },
+   "evidence": [
+    {
+     "url": "https://www.reddit.com/r/ClaudeAI/comments/1xfxmvo/",
+     "source": "r/ClaudeAI",
+     "date": "2026-10-26",
+     "claim": "Claude answers \"what did we decide?\" with the minute cited; 23 of 34 commits co-authored by Claude"
+    },
+    {
+     "url": "https://github.com/anonbeat1/overheard",
+     "source": "GitHub",
+     "date": "2026-10-26",
+     "claim": "Open-source Mac app with MCP server and /recap, /followup, /todo plugin"
     }
    ]
   },
@@ -1064,6 +1144,65 @@
    ]
   },
   {
+   "id": "ghost-job-posting-detector",
+   "title": "Ghost-job postings flagged by Claude API before tailoring an application",
+   "aliases": [
+    "ghost job checker",
+    "getdiogenes"
+   ],
+   "category": "time",
+   "first_week": "2026-W44",
+   "last_week": "2026-W44",
+   "weeks": [
+    "2026-W44"
+   ],
+   "weeks_seen": 1,
+   "best_score": 63,
+   "best_week": "2026-W44",
+   "latest": {
+    "week": "2026-W44",
+    "pitch": "A finance student pulled 200 entry-level postings from Adzuna and had the Claude API score ghost-job signals (repost loops, kitchen-sink requirements, no team context) for $1 total; 47 (23.5%) were high risk. Screening postings before spending an evening tailoring is a cheap filter for a senior PM search.",
+    "first_step": "Pull this week's 30 saved PM postings into a sheet and ask Claude to score each for ghost-job signals before applying.",
+    "scores": {
+     "fit": 17,
+     "upside": 8,
+     "time_to_dollar": 14,
+     "effort": 14,
+     "evidence": 5,
+     "durability": 5
+    },
+    "total": 63,
+    "reasons": {
+     "fit": "Job search is a named time use; scoring rules fit his data skills",
+     "upside": "1 to 3 hours a week saved during an active search",
+     "time_to_dollar": "Same evening",
+     "effort": "Minutes per batch",
+     "evidence": "One named builder with clear numbers",
+     "durability": "Job boards may add their own flags"
+    },
+    "dollars": {
+     "low": 7500,
+     "high": 22500,
+     "basis": "annual"
+    },
+    "hours_per_week": 0.5
+   },
+   "evidence": [
+    {
+     "url": "https://www.reddit.com/r/SaaS/comments/1xbiphm/",
+     "source": "r/SaaS",
+     "date": "2026-10-21",
+     "claim": "$1 of Claude API on 200 postings: 47 (23.5%) flagged as high-risk ghost jobs"
+    },
+    {
+     "url": "https://www.reddit.com/user/GetDiogenes/",
+     "source": "r/SaaS",
+     "date": "2026-10-21",
+     "claim": "Detection pipeline turned into a web tool with ATS resume check"
+    }
+   ]
+  },
+  {
    "id": "grant-due-diligence-sop-to-asana",
    "title": "Grant due-diligence SOP rebuilt from webinar notes into Asana with Claude",
    "aliases": [
@@ -1119,6 +1258,136 @@
      "source": "perchnotes.substack.com",
      "date": "2026-10-21",
      "claim": "Series testing Claude Cowork on grant program work"
+    }
+   ]
+  },
+  {
+   "id": "hotel-all-in-price-and-rate-watch",
+   "title": "Hotel all-in price comparison and daily refundable-rate recheck by Claude",
+   "aliases": [
+    "hotel fee checker",
+    "hotel price drop watch"
+   ],
+   "category": "life",
+   "first_week": "2026-W44",
+   "last_week": "2026-W44",
+   "weeks": [
+    "2026-W44"
+   ],
+   "weeks_seen": 1,
+   "best_score": 63,
+   "best_week": "2026-W44",
+   "latest": {
+    "week": "2026-W44",
+    "pitch": "One traveler has Claude pull the same hotel from several sites, add every tax and resort fee, mine recent reviews for hidden charges like $40 parking, then run a scheduled task each morning to rebook the refundable rate when it drops. For a sports family booking tournament hotels several times a year, it turns an evening of tab-juggling into a single prompt plus an automatic price watch.",
+    "first_step": "Before the next away tournament, ask Claude for an all-in nightly total across three booking sites and set a daily scheduled recheck.",
+    "scores": {
+     "fit": 17,
+     "upside": 6,
+     "time_to_dollar": 14,
+     "effort": 14,
+     "evidence": 5,
+     "durability": 7
+    },
+    "total": 63,
+    "reasons": {
+     "fit": "Matches the travel load of a sports household and uses his analysis habit",
+     "upside": "Saves a few hundred dollars and an hour or two per trip, about 1 hour a week averaged",
+     "time_to_dollar": "First booking pays off",
+     "effort": "A scheduled task runs on its own",
+     "evidence": "One named user with specific numbers (43 hotels, 11% refundable premium), posted twice",
+     "durability": "Fee opacity is durable; scheduled tasks keep working"
+    },
+    "dollars": {
+     "low": 3750,
+     "high": 7500,
+     "basis": "annual"
+    },
+    "hours_per_week": 0.5
+   },
+   "evidence": [
+    {
+     "url": "https://www.reddit.com/r/Anthropic/comments/1xaui4p/",
+     "source": "r/Anthropic",
+     "date": "2026-10-20",
+     "claim": "In 43 hotels refundable rate was at most ~11% more; Claude rechecks the room every morning until free cancellation ends"
+    },
+    {
+     "url": "https://www.reddit.com/r/artificial/comments/1xbu3ox/",
+     "source": "r/artificial",
+     "date": "2026-10-21",
+     "claim": "Same workflow: all-in totals and review-mined fees before booking"
+    }
+   ]
+  },
+  {
+   "id": "smart-tv-ad-bloat-removal",
+   "title": "Smart TV ads and bloatware stripped by Claude Code over home Wi-Fi",
+   "aliases": [
+    "tv debloat",
+    "cleanyourtv"
+   ],
+   "category": "life",
+   "first_week": "2026-W44",
+   "last_week": "2026-W44",
+   "weeks": [
+    "2026-W44"
+   ],
+   "weeks_seen": 1,
+   "best_score": 63,
+   "best_week": "2026-W44",
+   "latest": {
+    "week": "2026-W44",
+    "pitch": "A Reddit user gave Claude Code their parents' Xiaomi TV model number; it found the set on Wi-Fi, disabled 25 ad and tracking apps and built a clean home screen, and the open-source result passed 16k GitHub stars in four days. A Samsung owner and an Android TV debloater author report the same result, and it is a one-evening fix for a family TV that kids use daily.",
+    "first_step": "Point Claude Code at the family TV this weekend with the cleanyourtv repo and its \"never uninstall, back up first\" rules.",
+    "scores": {
+     "fit": 10,
+     "upside": 4,
+     "time_to_dollar": 15,
+     "effort": 15,
+     "evidence": 13,
+     "durability": 6
+    },
+    "total": 63,
+    "reasons": {
+     "fit": "Generic household fix, mild edge from being comfortable with a terminal",
+     "upside": "Removes an annoyance; well under an hour a week saved",
+     "time_to_dollar": "First evening pays off",
+     "effort": "Nothing to run after setup",
+     "evidence": "Three independent reports with specifics (16k stars, 1,000 downloads, Samsung Tizen walkthrough)",
+     "durability": "Vendors may re-push ads with firmware updates, but the method keeps working"
+    },
+    "dollars": {
+     "low": 1875,
+     "high": 3750,
+     "basis": "annual"
+    },
+    "hours_per_week": 0
+   },
+   "evidence": [
+    {
+     "url": "https://www.reddit.com/r/SideProject/comments/1xbp1be/",
+     "source": "r/SideProject",
+     "date": "2026-10-21",
+     "claim": "Disabled 25 ad and tracking apps; 16k GitHub stars and ~150 TV models in 4 days"
+    },
+    {
+     "url": "https://www.reddit.com/r/ClaudeAI/comments/1xbj7jr/",
+     "source": "r/ClaudeAI",
+     "date": "2026-10-21",
+     "claim": "Claude reconfigured a Samsung Tizen TV in 30 minutes: telemetry off, ad ID deleted, custom home screen"
+    },
+    {
+     "url": "https://www.reddit.com/r/vibecoding/comments/1xg5ddy/",
+     "source": "r/vibecoding",
+     "date": "2026-10-26",
+     "claim": "Android TV debloater built with Opus 5.5 passed 1,000 downloads"
+    },
+    {
+     "url": "https://github.com/Gathin23/cleanyourtv",
+     "source": "GitHub",
+     "date": "2026-10-21",
+     "claim": "Open-source repo with one-command restore"
     }
    ]
   },
@@ -1355,10 +1624,10 @@
    ]
   },
   {
-   "id": "friday-weekly-review-skill",
-   "title": "Friday 20-minute weekly review run by a Claude Code skill",
+   "id": "trip-research-to-google-maps-list",
+   "title": "Trip research saved straight to a Google Maps list by a Claude Code plugin",
    "aliases": [
-    "weekly review skill"
+    "maps-lists plugin"
    ],
    "category": "life",
    "first_week": "2026-W44",
@@ -1367,282 +1636,48 @@
     "2026-W44"
    ],
    "weeks_seen": 1,
-   "best_score": 59,
+   "best_score": 60,
    "best_week": "2026-W44",
    "latest": {
     "week": "2026-W44",
-    "pitch": "Lil Nicky AI runs a 20-minute Friday review with a free Claude Code skill: score priorities as done, moved or dropped, home every stray task, then name the pattern. A low-effort habit for a busy parent with a heavy planning load.",
-    "first_step": "Install the skill and run it this Friday against your calendar and task list.",
-    "scores": {
-     "fit": 13,
-     "upside": 6,
-     "time_to_dollar": 14,
-     "effort": 15,
-     "evidence": 3,
-     "durability": 8
-    },
-    "total": 59,
-    "reasons": {
-     "fit": "Matches his planning load; generic.",
-     "upside": "About 1 hour a week saved in planning.",
-     "time_to_dollar": "First run pays off.",
-     "effort": "20 minutes a week.",
-     "evidence": "One builder, no numbers beyond time spent.",
-     "durability": "A durable habit."
-    },
-    "dollars": {
-     "low": 3750,
-     "high": 7500,
-     "basis": "annual"
-    },
-    "hours_per_week": 0
-   },
-   "evidence": [
-    {
-     "url": "https://dev.to/lilnickyai/the-20-minute-weekly-review-i-run-with-my-ai-agent-free-skill-41ag",
-     "source": "Dev.to",
-     "date": "2026-10-20",
-     "claim": "Every Friday, 20 minutes with the agent closes the week"
-    },
-    {
-     "url": "https://github.com/lilnickyai/claude-code-skills-samples",
-     "source": "github.com",
-     "date": "2026-10-20",
-     "claim": "Free installable skill"
-    }
-   ]
-  },
-  {
-   "id": "home-repair-diagnosis-free-claude",
-   "title": "Underfloor heating fault diagnosed and fixed with free Claude",
-   "aliases": [
-    "fix it myself with claude"
-   ],
-   "category": "life",
-   "first_week": "2026-W44",
-   "last_week": "2026-W44",
-   "weeks": [
-    "2026-W44"
-   ],
-   "weeks_seen": 1,
-   "best_score": 59,
-   "best_week": "2026-W44",
-   "latest": {
-    "week": "2026-W44",
-    "pitch": "An HN commenter fixed underfloor heating using the free Claude tier, and another had Claude trace a Windows hibernate crash to an old Nvidia driver from logs. Saves service calls in any household.",
-    "first_step": "Next time something breaks, give Claude photos, model numbers and symptoms before calling a technician.",
-    "scores": {
-     "fit": 12,
-     "upside": 7,
-     "time_to_dollar": 14,
-     "effort": 14,
-     "evidence": 4,
-     "durability": 8
-    },
-    "total": 59,
-    "reasons": {
-     "fit": "Generic household fit.",
-     "upside": "A few hundred dollars a year in service calls.",
-     "time_to_dollar": "First use pays off.",
-     "effort": "None between incidents.",
-     "evidence": "Two anonymous reports, little detail.",
-     "durability": "Durable."
-    },
-    "dollars": {
-     "low": 200,
-     "high": 1500,
-     "basis": "annual"
-    },
-    "hours_per_week": 0
-   },
-   "evidence": [
-    {
-     "url": "https://news.ycombinator.com/item?id=50245011",
-     "source": "Hacker News",
-     "date": "2026-10-26",
-     "claim": "Fixed my underfloor heating with the free Claude version"
-    },
-    {
-     "url": "https://news.ycombinator.com/item?id=50186039",
-     "source": "Hacker News",
-     "date": "2026-10-21",
-     "claim": "Claude diagnosed a hibernate-resume failure from logs to an old Nvidia driver"
-    }
-   ]
-  },
-  {
-   "id": "garmin-data-claude-training-coach",
-   "title": "Garmin sleep and HRV read by Claude to build watch workouts",
-   "aliases": [
-    "garmin mcp",
-    "claude builds my intervals"
-   ],
-   "category": "life",
-   "first_week": "2026-W44",
-   "last_week": "2026-W44",
-   "weeks": [
-    "2026-W44"
-   ],
-   "weeks_seen": 1,
-   "best_score": 58,
-   "best_week": "2026-W44",
-   "latest": {
-    "week": "2026-W44",
-    "pitch": "Ivan Ficko built an open-source Garmin Connect library and MCP server so Claude can answer how he slept, judge readiness from HRV, and push a 6x400 session to his watch. Useful for a parent fitting training around kids' schedules.",
-    "first_step": "Add the Garmin connector URL to Claude and ask for this week's sleep and readiness summary.",
-    "scores": {
-     "fit": 14,
-     "upside": 6,
-     "time_to_dollar": 14,
-     "effort": 14,
-     "evidence": 4,
-     "durability": 6
-    },
-    "total": 58,
-    "reasons": {
-     "fit": "Fits fitness planning in an active household; generic.",
-     "upside": "Under an hour to 1 hour a week of planning saved.",
-     "time_to_dollar": "Pays off on first use.",
-     "effort": "Minutes a week.",
-     "evidence": "One named builder, few outcome numbers.",
-     "durability": "Unofficial API access could break."
-    },
-    "dollars": {
-     "low": 3750,
-     "high": 7500,
-     "basis": "annual"
-    },
-    "hours_per_week": 0
-   },
-   "evidence": [
-    {
-     "url": "https://dev.to/dynamicsninja/i-built-a-garmin-connect-library-for-typescript-then-let-claude-use-it-g62",
-     "source": "Dev.to",
-     "date": "2026-10-23",
-     "claim": "MCP server lets Claude read sleep and HRV and build workouts for the watch"
-    },
-    {
-     "url": "https://garmin.ficdev.xyz/",
-     "source": "garmin.ficdev.xyz",
-     "date": "2026-10-23",
-     "claim": "Hosted connector URL to add in Claude"
-    }
-   ]
-  },
-  {
-   "id": "personal-agent-with-own-pnl",
-   "title": "Personal life agent that keeps routine and finances and runs its own P&L",
-   "aliases": [
-    "life-distributable",
-    "agent bought itself a mac mini"
-   ],
-   "category": "life",
-   "first_week": "2026-W44",
-   "last_week": "2026-W44",
-   "weeks": [
-    "2026-W44"
-   ],
-   "weeks_seen": 1,
-   "best_score": 58,
-   "best_week": "2026-W44",
-   "latest": {
-    "week": "2026-W44",
-    "pitch": "Matt Abate's open-source personal agent, set up by pasting one prompt into Claude Code, keeps him on his daily routine and manages his finances, and its own P&L stayed positive enough to pay for Claude Max at +$200 and a Mac mini at +$1,600. It suits someone who wants a single household planner.",
-    "first_step": "Paste the setup prompt into Claude Code on a spare Mac and give it only your calendar first.",
+    "pitch": "A traveler built maps-lists, a free Claude Code plugin where you describe what you want (\"natural wine bars open late in Gràcia\"), parallel research agents filter out tourist traps and closed places, and the picks land in a Google Maps list with a note each. For tournament weekends in a new city it replaces an hour of copy-paste per trip.",
+    "first_step": "Install maps-lists and build a \"food near the fields\" list for the next away tournament.",
     "scores": {
      "fit": 16,
-     "upside": 9,
-     "time_to_dollar": 12,
-     "effort": 11,
-     "evidence": 5,
-     "durability": 5
-    },
-    "total": 58,
-    "reasons": {
-     "fit": "Uses his planning and data skills for household admin.",
-     "upside": "1 to 3 hours a week of personal admin.",
-     "time_to_dollar": "Value in the first week.",
-     "effort": "Under 3 hours a week of upkeep, more early on.",
-     "evidence": "One named person with numbers.",
-     "durability": "Personal agents change fast."
-    },
-    "dollars": {
-     "low": 7500,
-     "high": 22500,
-     "basis": "annual"
-    },
-    "hours_per_week": 2
-   },
-   "evidence": [
-    {
-     "url": "https://news.ycombinator.com/item?id=50180638",
-     "source": "Hacker News",
-     "date": "2026-10-21",
-     "claim": "Keeps me on my daily routine, manages my finances; P&L hit +$1,600"
-    },
-    {
-     "url": "https://github.com/mattabate/life-distributable",
-     "source": "github.com",
-     "date": "2026-10-21",
-     "claim": "Software distributed as a prompt; builds desktop and iPhone apps"
-    }
-   ]
-  },
-  {
-   "id": "scheduled-customer-issue-investigation",
-   "title": "Weekday 10 AM scheduled Claude investigation of customer issues",
-   "aliases": [
-    "claude triages support tickets"
-   ],
-   "category": "time",
-   "first_week": "2026-W44",
-   "last_week": "2026-W44",
-   "weeks": [
-    "2026-W44"
-   ],
-   "weeks_seen": 1,
-   "best_score": 57,
-   "best_week": "2026-W44",
-   "latest": {
-    "week": "2026-W44",
-    "pitch": "Ravikumar Makwana, a developer, has Claude investigate customer issues on a schedule every weekday at 10 AM so he starts the day with findings. A PM could run the same on support tickets and bug reports.",
-    "first_step": "Schedule one Claude task that reads yesterday's support tickets and groups them by root cause.",
-    "scores": {
-     "fit": 15,
-     "upside": 6,
-     "time_to_dollar": 13,
+     "upside": 5,
+     "time_to_dollar": 14,
      "effort": 14,
-     "evidence": 3,
+     "evidence": 5,
      "durability": 6
     },
-    "total": 57,
+    "total": 60,
     "reasons": {
-     "fit": "Ticket triage and analytics use one strength.",
-     "upside": "1 to 2 hours a week.",
-     "time_to_dollar": "First week.",
-     "effort": "Minutes.",
-     "evidence": "One person, no numbers visible.",
-     "durability": "Durable pattern."
+     "fit": "Fits a family that travels for sports",
+     "upside": "About an hour per trip",
+     "time_to_dollar": "First trip",
+     "effort": "Minutes per use",
+     "evidence": "One named builder with a public plugin",
+     "durability": "Depends on Maps list access staying open"
     },
     "dollars": {
-     "low": 7500,
-     "high": 15000,
+     "low": 3750,
+     "high": 7500,
      "basis": "annual"
     },
-    "hours_per_week": 0
+    "hours_per_week": 0.3
    },
    "evidence": [
     {
-     "url": "https://medium.com/@ravikumar.makwana/i-let-claude-investigate-my-customer-issues-every-weekday-at-10-am-d3881822bf9b",
-     "source": "Medium",
-     "date": "2026-10-25",
-     "claim": "Claude investigates customer issues every weekday at 10 AM"
+     "url": "https://www.reddit.com/r/ClaudeCode/comments/1xdsrs2/",
+     "source": "r/ClaudeCode",
+     "date": "2026-10-23",
+     "claim": "Quick mode 1-2 min, deep mode 5-10 min with parallel research agents, saved to a Google Maps list"
     },
     {
-     "url": "https://medium.com/feed/tag/claude-ai",
-     "source": "Medium",
-     "date": "2026-10-25",
-     "claim": "Listed in Medium claude-ai tag feed"
+     "url": "https://www.reddit.com/user/ComprehensiveRain486/",
+     "source": "r/ClaudeCode",
+     "date": "2026-10-23",
+     "claim": "Author previously merged Claude and Gemini research by hand"
     }
    ]
   }
@@ -1651,8 +1686,8 @@
  "history": [
   {
    "week": "2026-W44",
-   "status": "thin",
-   "candidates_scored": 48
+   "status": "ok",
+   "candidates_scored": 76
   }
  ]
 }
