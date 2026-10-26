@@ -1,0 +1,527 @@
+{
+ "week": "2026-W44",
+ "run_at": "2026-10-26T20:55:00Z",
+ "model": "claude-opus-5-5",
+ "status": "skipped",
+ "note": "Skipped: only 3 merged candidates (16 raw items). The sandbox proxy blocked Reddit JSON, the HN Algolia API, and most RSS feeds, and WebFetch failed DNS on nearly every host, so collection relied on web search, which returns no reddit.com pages. The shared web search budget ran out before X accounts, YouTube, YouTube channels, and Podcasts were searched. Tier 3 not due (day 26). Calls made: related single-person reports were merged into broader ideas so each candidate has two links; several dates come from search snippets ('N days ago') or URL/ID decoding, not fetched pages. Left out for a single link or no outcome: James McAulay Claude Code growth system (Product Growth, 2026-10-20, self-reported GBP 100K/month in 95 days), Brooke Lacey Claude Code video pipeline (Lenny's, approx 2026-10-19), Simon Willison sparqlite and Battle Drones builds (2026-10-16, 2026-10-20), Ben's Bites agent-run newsletter (no numbers), Claude Duet review (no user outcome), pagecritic Show HN (title only), Claude Code music video Show HN (hobby). Fix needed: allow reddit.com, hn.algolia.com, and Substack/feed hosts in the environment's network policy.",
+ "candidates_scored": 3,
+ "sources_hit": [
+  "Hacker News",
+  "Indie Hackers",
+  "Product Hunt",
+  "Medium",
+  "Dev.to",
+  "LinkedIn",
+  "X revenue threads",
+  "One Useful Thing",
+  "Every",
+  "Latent Space",
+  "Lenny's Newsletter",
+  "Product Growth",
+  "Product with Attitude",
+  "The AI Maker",
+  "The Pragmatic Engineer",
+  "Simon Willison's weblog",
+  "Ben's Bites",
+  "The Rundown AI",
+  "Superhuman AI",
+  "The Neuron",
+  "Starter Story",
+  "Growth Unhinged",
+  "Justin Welsh",
+  "Behind the Craft",
+  "Customer stories",
+  "News",
+  "Economic Index",
+  "Claude Code changelog"
+ ],
+ "sources_failed": [
+  {
+   "source": "r/ClaudeAI",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/ClaudeCode",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/Anthropic",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/claude",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/claudexplorers",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/ClaudeHomies",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/indiehackers",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/SideProject",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/SaaS",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/microsaas",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/VibeCodingSaaS",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/NoCodeSaaS",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/Entrepreneur",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/EntrepreneurRideAlong",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/startups",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/smallbusiness",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/sweatystartup",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/Business_Ideas",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/freelance",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/Upwork",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/consulting",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/passive_income",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/digitalnomad",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/ChatGPTCoding",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/vibecoding",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/aipromptprogramming",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/AI_Agents",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/LLMDevs",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/AgentsOfAI",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/AiBuilders",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/PromptEngineering",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/automation",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/n8n",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/Parenting",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/daddit",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/Mommit",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/getdisciplined",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/personalfinance",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/budget",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/MealPrepSunday",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/travel",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/HomeImprovement",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/homeschool",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/ProductManagement",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/dataengineering",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/datascience",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/analytics",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/BusinessIntelligence",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/ExperiencedDevs",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/productivity",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/ChatGPT",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/ChatGPTPro",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/OpenAI",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/ArtificialInteligence",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/artificial",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/cursor",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/Substack",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/content_marketing",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/copywriting",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/SEO",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/blogging",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/selfpublish",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/Etsy",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "r/printondemand",
+   "error": "Reddit JSON blocked by sandbox proxy (CONNECT 403); search fallback returned no reddit.com pages"
+  },
+  {
+   "source": "Hacker News",
+   "error": "Algolia API and news.ycombinator.com unreachable; search fallback via i.buzzing.cc mirror only"
+  },
+  {
+   "source": "Dev.to",
+   "error": "RSS feed blocked by proxy; search fallback used"
+  },
+  {
+   "source": "Simon Willison's weblog",
+   "error": "feed blocked by proxy; search fallback used"
+  },
+  {
+   "source": "X accounts",
+   "error": "not searched: web search budget exhausted"
+  },
+  {
+   "source": "YouTube",
+   "error": "not searched: web search budget exhausted"
+  },
+  {
+   "source": "YouTube channels",
+   "error": "not searched: web search budget exhausted"
+  },
+  {
+   "source": "Podcasts",
+   "error": "not searched: web search budget exhausted"
+  },
+  {
+   "source": "One Useful Thing",
+   "error": "feed blocked by proxy (403) and WebFetch DNS failure; search fallback used"
+  },
+  {
+   "source": "Every",
+   "error": "feed blocked by proxy (403) and WebFetch DNS failure; search fallback used"
+  },
+  {
+   "source": "Latent Space",
+   "error": "feed blocked by proxy (403) and WebFetch DNS failure; search fallback used"
+  },
+  {
+   "source": "Lenny's Newsletter",
+   "error": "feed blocked by proxy (403) and WebFetch DNS failure; search fallback used"
+  },
+  {
+   "source": "Product Growth",
+   "error": "feed blocked by proxy (403) and WebFetch DNS failure; search fallback used"
+  },
+  {
+   "source": "Product with Attitude",
+   "error": "feed blocked by proxy (403) and WebFetch DNS failure; search fallback used"
+  },
+  {
+   "source": "The AI Maker",
+   "error": "feed blocked by proxy (403) and WebFetch DNS failure; search fallback used"
+  },
+  {
+   "source": "The Pragmatic Engineer",
+   "error": "feed blocked by proxy (403) and WebFetch DNS failure; search fallback used"
+  },
+  {
+   "source": "Ben's Bites",
+   "error": "feed blocked by proxy (403) and WebFetch DNS failure; search fallback used"
+  },
+  {
+   "source": "Growth Unhinged",
+   "error": "feed blocked by proxy (403) and WebFetch DNS failure; search fallback used"
+  },
+  {
+   "source": "Behind the Craft",
+   "error": "feed blocked by proxy (403) and WebFetch DNS failure; search fallback used"
+  }
+ ],
+ "top5": [],
+ "candidates": [
+  {
+   "id": "family-logistics-household-admin-agent",
+   "title": "Family logistics and household admin run through Claude",
+   "aliases": [
+    "kids sports calendar assistant",
+    "family finance app built with claude code"
+   ],
+   "category": "life",
+   "pitch": "A Forbes columnist runs his two teenage sons' sports calendars through Claude connected to Gmail and Calendar, getting drive times and leave-by times per parent, and a developer built a self-hosted family finance app in 9 days with Claude Code that he and his wife use daily. A sports-heavy Seattle household with a data-minded parent can wire both up in a weekend and get evenings back.",
+   "first_step": "Connect Claude to the family Google Calendar this weekend and ask it to produce next week's practice and game schedule with leave-by times for each parent.",
+   "scores": {
+    "fit": 22,
+    "upside": 15,
+    "time_to_dollar": 14,
+    "effort": 13,
+    "evidence": 9,
+    "durability": 8
+   },
+   "reasons": {
+    "fit": "Kids' sports scheduling plus household budgeting matches this household closely and uses his planning and data skills.",
+    "upside": "Removes a recurring weekly family pain point (practice logistics, who drives).",
+    "time_to_dollar": "First weekly plan pays off on first use.",
+    "effort": "Under an hour a week once connectors are set up.",
+    "evidence": "Two independent named reports with specifics, one on calendars and one on finances.",
+    "durability": "Calendar and email connectors are core product; still useful in two years, though the prompt-injection risk the Forbes piece flags needs care."
+   },
+   "dollars": {
+    "low": 15000,
+    "high": 30000,
+    "basis": "annual, 2 to 4 hours a week saved x 150 x 50"
+   },
+   "hours_per_week": 1,
+   "evidence": [
+    {
+     "url": "https://www.forbes.com/sites/ariredbord/2026/10/22/ai-can-manage-your-family-calendar-but-there-are-risks/",
+     "source": "forbes.com",
+     "date": "2026-10-22",
+     "claim": "Claude estimates the drive between the field and the gym and tells me when each parent would have to leave the house"
+    },
+    {
+     "url": "https://dev.to/rodik/i-built-a-self-hosted-family-finance-app-with-claude-code-in-9-days-heres-what-it-cost-and-what-i-2nl2",
+     "source": "Dev.to",
+     "date": "2026-10-21",
+     "claim": "Family finance app built in 9 days with Claude Code; used daily by him and his wife"
+    }
+   ],
+   "total": 81
+  },
+  {
+   "id": "small-org-back-office-automation",
+   "title": "Small-org back-office automation with Claude",
+   "aliases": [
+    "nonprofit reporting with claude in excel",
+    "sop and ops cleanup with claude"
+   ],
+   "category": "time",
+   "pitch": "A 46-person food bank used Claude in Excel for shift and pricing analysis, cutting biweekly overtime from 99 to 11 hours and a monthly report from a week to 30 seconds, while a lawyer and an ops writer each reported clearing weeks of deferred process and tooling work in a weekend or an afternoon. Reporting, SOPs and spreadsheet analysis are his data and BI home turf, and the same pattern can be sold to small orgs.",
+   "first_step": "Pick one recurring report you build by hand at work and have Claude rebuild it from the raw export in a single session, timing both.",
+   "scores": {
+    "fit": 18,
+    "upside": 12,
+    "time_to_dollar": 13,
+    "effort": 12,
+    "evidence": 8,
+    "durability": 7
+   },
+   "reasons": {
+    "fit": "Uses his data, BI and process-documentation strengths directly.",
+    "upside": "Realistically 3 to 8 hours a week of reporting and ops work saved.",
+    "time_to_dollar": "First report or SOP rebuild saves time within days.",
+    "effort": "Under 3 hours a week to maintain once built.",
+    "evidence": "Three independent reports, but only the food bank story has hard numbers; the other two are from search snippets.",
+    "durability": "Durable skill, though spreadsheet AI features will keep commoditising the simple cases."
+   },
+   "dollars": {
+    "low": 22500,
+    "high": 60000,
+    "basis": "annual, 3 to 8 hours a week saved x 150 x 50"
+   },
+   "hours_per_week": 2,
+   "evidence": [
+    {
+     "url": "https://www.anthropic.com/customers/montgomery-county-food-bank",
+     "source": "Customer stories",
+     "date": "2026-10-22",
+     "claim": "Biweekly overtime cut from 99 hours to 11; monthly report from a week of work to 30 seconds"
+    },
+    {
+     "url": "https://noelbagwell.substack.com/p/how-i-did-months-of-work-in-one-weekend",
+     "source": "noelbagwell.substack.com",
+     "date": "2026-10-26",
+     "claim": "Lawyer rebuilt much of his firm's tech stack: months of work in one weekend"
+    },
+    {
+     "url": "https://perchnotes.substack.com/p/eight-weeks-of-putting-it-off-four",
+     "source": "perchnotes.substack.com",
+     "date": "2026-10-21",
+     "claim": "Eight weeks of putting it off, four hours with Claude (SOP update and Asana changes)"
+    }
+   ],
+   "total": 70
+  },
+  {
+   "id": "solo-apps-shipped-with-claude-code",
+   "title": "Solo apps shipped fast with Claude Code",
+   "aliases": [
+    "side project built with claude code",
+    "mcp feature for existing app"
+   ],
+   "category": "money",
+   "pitch": "Solo builders shipped working products in days with Claude Code: one founder made $200 in a day after adding an MCP server to his language app, another got 141 users in 19 days for a tab manager. A 0-to-1 product manager can use Claude Code to close the engineering gap, but the space is crowded and revenue numbers are small.",
+   "first_step": "Spend one evening asking Claude Code to build a throwaway version of a compliance-workflow tool you wished existed at Amazon, then show it to two former colleagues.",
+   "scores": {
+    "fit": 17,
+    "upside": 7,
+    "time_to_dollar": 9,
+    "effort": 9,
+    "evidence": 9,
+    "durability": 4
+   },
+   "reasons": {
+    "fit": "0-to-1 product strength applies directly; Claude Code covers most of the engineering gap.",
+    "upside": "Reported results are $200 in a day and free-tier users; realistic $1k to $10k a year.",
+    "time_to_dollar": "Weeks to first dollar if a paid tier exists.",
+    "effort": "3 to 10 hours a week to maintain and market.",
+    "evidence": "Two independent reports with specifics (revenue, user counts) plus a Show HN build report.",
+    "durability": "Very crowded; easy-to-build apps get copied quickly."
+   },
+   "dollars": {
+    "low": 1000,
+    "high": 12000,
+    "basis": "annual"
+   },
+   "hours_per_week": 6,
+   "evidence": [
+    {
+     "url": "https://x.com/vital_pavlenko/status/2112154537226080295",
+     "source": "x.com",
+     "date": "2026-10-19",
+     "claim": "$200 in a day after shipping an MCP server for VibeLing"
+    },
+    {
+     "url": "https://dev.to/taewoo/19-days-546-messages-141-users-building-my-app-by-mostly-talking-to-claude-code-1mgb",
+     "source": "Dev.to",
+     "date": "2026-10-24",
+     "claim": "141 users 19 days after the first line of code"
+    },
+    {
+     "url": "https://i.buzzing.cc/en/showhn/posts/2026/43/en_hn_2026_10_21__50176936/",
+     "source": "Hacker News",
+     "date": "2026-10-21",
+     "claim": "Online multiplayer game built in two days with Claude Code (Show HN 50176936)"
+    }
+   ],
+   "total": 55
+  }
+ ]
+}
