@@ -93,7 +93,7 @@ One candidate object:
 }
 ```
 
-Rules the build script enforces: every `top5` entry is an `id` that exists in `candidates`; `top5` has exactly five ids when there are 15 or more candidates and is `[]` otherwise; `aliases` is a list of strings; scores are integers within each factor's maximum; `total` is the sum; two to five evidence items each with a `url`. `status` and `candidates_scored` are recomputed by the build script, so write your best guess.
+Rules the build script enforces: every `top5` entry is an `id` that exists in `candidates`; `top5` has exactly five ids when there are 15 or more candidates and is `[]` otherwise; `aliases` is a list of strings; scores are integers within each factor's maximum; `total` is the sum; two to five evidence items each with a `url`. Every evidence `url` starts with `http://` or `https://`. `dollars.low` and `dollars.high` are plain numbers (no `$`, commas, or `k`) with `low` no greater than `high`, and `dollars.basis` is a non-empty string such as `"annual"`. `status` and `candidates_scored` are recomputed by the build script, so write your best guess.
 
 ## 5. Build
 

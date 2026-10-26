@@ -80,8 +80,8 @@ const FACTORS = [["fit","Fit",25],["upside","Upside",20],["time_to_dollar","Time
                  ["effort","Effort",15],["evidence","Evidence",15],["durability","Durability",10]];
 const CATS = ["money","time","life"];
 const DATA_PARAM = new URLSearchParams(location.search).get("data");
-const DATA_URL = DATA_PARAM && !/^[a-z][a-z0-9+.-]*:/i.test(DATA_PARAM) && !DATA_PARAM.startsWith("//")
-  ? DATA_PARAM : "data/leaderboard.json";
+const sameOrigin = p => { try { return new URL(p, location.href).origin === location.origin; } catch { return false; } };
+const DATA_URL = DATA_PARAM && sameOrigin(DATA_PARAM) ? DATA_PARAM : "data/leaderboard.json";
 let BOARD = null, TAB = "week", CAT = "all";
 
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
