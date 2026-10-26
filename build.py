@@ -2,7 +2,7 @@
 """Validate a week file, merge it into the idea registry, and emit the board data.
 
 Usage: python build.py data/weeks/2026-W44.json
-Stdlib only. Exits 1 on validation failure and writes nothing.
+It uses only the standard library. Exits 1 on validation failure and writes nothing.
 """
 import json
 import re
@@ -16,12 +16,13 @@ FACTOR_MAX = {
 CATEGORIES = ("money", "time", "life")
 OK_MIN = 50
 THIN_MIN = 15
+TOP_N = 5
 EVIDENCE_MIN = 2
 EVIDENCE_MAX = 5
 EVIDENCE_KEEP = 10
 ALL_TIME_N = 20
 RISING_MIN_WEEKS = 3
-WEEK_RE = re.compile(r"^\d{4}-W\d{2}$")
+WEEK_RE = re.compile(r"^\d{4}-W(0[1-9]|[1-4]\d|5[0-3])$")
 
 WEEK_KEYS = {"week", "run_at", "model", "status", "note", "candidates_scored",
              "sources_hit", "sources_failed", "top5", "candidates"}
@@ -42,10 +43,18 @@ def derive_status(n):
 
 
 def validate_candidate(c, i):
+    if not isinstance(c, dict):
+        raise ValidationError(f"candidate {i}: must be an object")
     label = f"candidate {i} ({c.get('id', '?')})"
     missing = CANDIDATE_KEYS - c.keys()
     if missing:
         raise ValidationError(f"{label}: missing keys {sorted(missing)}")
+    for key in ("id", "title"):
+        if not isinstance(c[key], str) or not c[key].strip():
+            raise ValidationError(f"{label}: {key} must be a non-empty string")
+    aliases = c.get("aliases", [])
+    if not isinstance(aliases, list) or not all(isinstance(a, str) and a.strip() for a in aliases):
+        raise ValidationError(f"{label}: aliases must be a list of non-empty strings")
     if c["category"] not in CATEGORIES:
         raise ValidationError(f"{label}: category must be one of {CATEGORIES}")
     scores = c["scores"]
@@ -58,6 +67,8 @@ def validate_candidate(c, i):
     extra = set(scores) - set(FACTOR_MAX)
     if extra:
         raise ValidationError(f"{label}: unknown score factors {sorted(extra)}")
+    if not isinstance(c["total"], int) or isinstance(c["total"], bool):
+        raise ValidationError(f"{label}: total must be an int")
     if c["total"] != sum(scores.values()):
         raise ValidationError(f"{label}: total {c['total']} != sum of scores {sum(scores.values())}")
     ev = c["evidence"]
@@ -70,6 +81,8 @@ def validate_candidate(c, i):
 
 def validate_week(week):
     """Validate and normalise a week dict in place. Raises ValidationError."""
+    if not isinstance(week, dict):
+        raise ValidationError("week file must be a JSON object")
     missing = WEEK_KEYS - week.keys()
     if missing:
         raise ValidationError(f"week file: missing keys {sorted(missing)}")
@@ -89,10 +102,10 @@ def validate_week(week):
     top5 = week["top5"]
     if week["status"] == "skipped":
         if top5:
-            raise ValidationError("top5 must be empty when fewer than 15 candidates")
+            raise ValidationError(f"top5 must be empty when fewer than {THIN_MIN} candidates")
     else:
-        if not isinstance(top5, list) or len(top5) != 5 or len(set(top5)) != 5:
-            raise ValidationError("top5 must hold exactly 5 distinct ids")
+        if not isinstance(top5, list) or len(top5) != TOP_N or len(set(top5)) != TOP_N:
+            raise ValidationError(f"top5 must hold exactly {TOP_N} distinct ids")
         unknown = [s for s in top5 if s not in ids]
         if unknown:
             raise ValidationError(f"top5 ids not in candidates: {unknown}")
@@ -176,7 +189,7 @@ def build_board(ideas, weeks):
         leaders = {}
         for cat in CATEGORIES:
             pool = [c for c in w["candidates"] if c["category"] == cat]
-            leaders[cat] = max(pool, key=lambda c: (c["total"], c["id"])) if pool else None
+            leaders[cat] = sorted(pool, key=lambda c: (-c["total"], c["id"]))[0] if pool else None
         this_week = {
             "week": w["week"],
             "status": w["status"],
@@ -194,7 +207,7 @@ def build_board(ideas, weeks):
 
 
 def load_json(path):
-    with open(path, encoding="utf-8") as f:
+    with open(path, encoding="utf-8-sig") as f:
         return json.load(f)
 
 
@@ -206,6 +219,23 @@ def dump_json(path, obj):
         f.write("\n")
 
 
+def _load_week_or_error(path):
+    """Load a stored week file. A file that is unreadable or invalid becomes
+    an error stub so it shows in history and nothing else."""
+    try:
+        week = load_json(path)
+        if not isinstance(week, dict):
+            raise ValidationError("not an object")
+        if week.get("status") == "error":
+            if WEEK_KEYS - week.keys():
+                raise ValidationError("missing keys")
+            return week
+        return validate_week(week)
+    except (ValidationError, OSError, ValueError):
+        return {"week": Path(path).stem, "status": "error", "candidates_scored": 0,
+                "note": "", "sources_failed": [], "top5": [], "candidates": []}
+
+
 def run(week_path, data_dir):
     """Validate the week file, merge it, and rewrite the data files.
     The week file must live in <data_dir>/weeks/. Nothing is written if
@@ -213,6 +243,8 @@ def run(week_path, data_dir):
     week_path = Path(week_path)
     data_dir = Path(data_dir)
     weeks_dir = data_dir / "weeks"
+    if week_path.resolve().parent != weeks_dir.resolve():
+        raise ValidationError("week file must live in data/weeks/")
     ideas_path = data_dir / "ideas.json"
     board_path = data_dir / "leaderboard.json"
 
@@ -222,7 +254,7 @@ def run(week_path, data_dir):
 
     dump_json(week_path, week)
     dump_json(ideas_path, ideas)
-    weeks = [load_json(p) for p in sorted(weeks_dir.glob("*.json"))]
+    weeks = [_load_week_or_error(p) for p in sorted(weeks_dir.glob("*.json"))]
     board = build_board(ideas, weeks)
     dump_json(board_path, board)
     return board
@@ -235,7 +267,7 @@ def main(argv):
     data_dir = Path(argv[2]) if len(argv) == 3 else Path(__file__).resolve().parent / "data"
     try:
         board = run(argv[1], data_dir)
-    except ValidationError as e:
+    except (ValidationError, OSError, json.JSONDecodeError) as e:
         print(f"build.py: {e}", file=sys.stderr)
         return 1
     tw = board["this_week"]

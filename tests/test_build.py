@@ -44,7 +44,7 @@ def week_file(n, week="2026-W44", top5=None):
         top5 = [c["id"] for c in cands[:5]] if n >= 15 else []
     return {
         "week": week,
-        "run_at": f"2026-10-26T14:00:00Z",
+        "run_at": "2026-10-26T14:00:00Z",
         "model": "claude-opus-5-5",
         "status": "ok",
         "note": "",
@@ -79,7 +79,7 @@ def test_missing_week_key_rejected():
 
 def test_bad_week_id_rejected():
     w = week_file(50, week="week44")
-    with pytest.raises(build.ValidationError, match="2026-W44"):
+    with pytest.raises(build.ValidationError, match="week must look like"):
         build.validate_week(w)
 
 
@@ -340,3 +340,100 @@ def test_main_returns_1_on_invalid(data_dir, capsys):
     p = write_week(data_dir, w)
     assert build.main(["build.py", str(p), str(data_dir)]) == 1
     assert "total" in capsys.readouterr().err
+
+
+# ---- hardening ----
+
+def test_aliases_must_be_list_of_strings():
+    w = week_file(50)
+    w["candidates"][0]["aliases"] = "soc2 helper"
+    with pytest.raises(build.ValidationError, match="aliases"):
+        build.validate_week(w)
+    w["candidates"][0]["aliases"] = ["ok", ""]
+    with pytest.raises(build.ValidationError, match="aliases"):
+        build.validate_week(w)
+
+
+def test_week_must_be_dict():
+    with pytest.raises(build.ValidationError, match="object"):
+        build.validate_week([])
+
+
+def test_non_dict_candidate_rejected():
+    w = week_file(50)
+    w["candidates"][1] = "oops"
+    with pytest.raises(build.ValidationError, match="candidate 1"):
+        build.validate_week(w)
+
+
+@pytest.mark.parametrize("bad", [["idea-000"], ""])
+def test_bad_id_rejected(bad):
+    w = week_file(50)
+    w["candidates"][0]["id"] = bad
+    with pytest.raises(build.ValidationError, match="id"):
+        build.validate_week(w)
+
+
+def test_float_total_rejected():
+    w = week_file(50)
+    w["candidates"][0]["total"] = 70.0
+    with pytest.raises(build.ValidationError, match="total"):
+        build.validate_week(w)
+
+
+def test_week_id_out_of_range_rejected():
+    w = week_file(50, week="2026-W54")
+    with pytest.raises(build.ValidationError, match="week must look like"):
+        build.validate_week(w)
+
+
+def test_category_leader_tie_picks_lowest_id():
+    w = week_file(50)
+    w["candidates"][3] = candidate(3, category="time", total=72)
+    w["candidates"][7] = candidate(7, category="time", total=72)
+    ideas = build.merge([], build.validate_week(w))
+    board = build.build_board(ideas, [w])
+    assert board["this_week"]["category_leaders"]["time"]["id"] == "idea-003"
+
+
+def test_run_survives_malformed_older_week(data_dir):
+    (data_dir / "weeks" / "2026-W45.json").write_text('{"status":"ok"}', encoding="utf-8")
+    (data_dir / "weeks" / "2026-W46.json").write_text("not json", encoding="utf-8")
+    board = build.run(write_week(data_dir, week_file(50, week="2026-W44")), data_dir)
+    hist = {h["week"]: h["status"] for h in board["history"]}
+    assert hist == {"2026-W44": "ok", "2026-W45": "error", "2026-W46": "error"}
+    assert board["this_week"]["week"] == "2026-W44"
+
+
+def test_run_rejects_week_outside_weeks_dir(data_dir):
+    p = data_dir / "2026-W44.json"
+    p.write_text(json.dumps(week_file(50)), encoding="utf-8")
+    with pytest.raises(build.ValidationError, match="data/weeks"):
+        build.run(p, data_dir)
+
+
+def test_main_returns_1_on_missing_file(data_dir, capsys):
+    assert build.main(["build.py", str(data_dir / "weeks" / "nope.json"), str(data_dir)]) == 1
+    assert capsys.readouterr().err
+
+
+def test_load_json_accepts_bom(tmp_path):
+    p = tmp_path / "x.json"
+    p.write_bytes("﻿{\"a\": 1}".encode("utf-8"))
+    assert build.load_json(p) == {"a": 1}
+
+
+def test_year_boundary_merge():
+    ideas = []
+    build.merge(ideas, build.validate_week(week_file(50, week="2026-W52")))
+    build.merge(ideas, build.validate_week(week_file(50, week="2027-W01")))
+    rec = ideas[0]
+    assert rec["last_week"] == "2027-W01" and rec["weeks_seen"] == 2
+
+
+def test_skipped_week_becomes_this_week_via_run(data_dir):
+    build.run(write_week(data_dir, week_file(50, week="2026-W44")), data_dir)
+    board = build.run(write_week(data_dir, week_file(10, week="2026-W45")), data_dir)
+    assert board["this_week"]["week"] == "2026-W45"
+    assert board["this_week"]["status"] == "skipped"
+    assert board["this_week"]["top5"] == []
