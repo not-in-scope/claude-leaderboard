@@ -459,3 +459,36 @@ def test_error_week_with_non_string_week_becomes_stub(data_dir):
     board = build.run(write_week(data_dir, week_file(50, week="2026-W44")), data_dir)
     row = next(h for h in board["history"] if h["week"] == "2026-W43")
     assert row == {"week": "2026-W43", "status": "error", "candidates_scored": 0}
+
+
+@pytest.mark.parametrize("url", ["javascript:alert(1)", "//evil", 5])
+def test_evidence_url_must_be_http(url):
+    w = week_file(50)
+    w["candidates"][0]["evidence"][0]["url"] = url
+    with pytest.raises(build.ValidationError, match="url"):
+        build.validate_week(w)
+
+
+def test_dollars_missing_high_rejected():
+    w = week_file(50)
+    del w["candidates"][0]["dollars"]["high"]
+    with pytest.raises(build.ValidationError, match="dollars"):
+        build.validate_week(w)
+
+
+def test_dollars_low_above_high_rejected():
+    w = week_file(50)
+    w["candidates"][0]["dollars"].update(low=9000, high=100)
+    with pytest.raises(build.ValidationError, match="dollars"):
+        build.validate_week(w)
+
+
+def test_rising_capped():
+    ideas, weeks = [], []
+    for wk in ("2026-W44", "2026-W45", "2026-W46"):
+        w = week_file(50, week=wk)
+        build.validate_week(w)
+        build.merge(ideas, w)
+        weeks.append(w)
+    board = build.build_board(ideas, weeks)
+    assert len(board["rising"]) == build.RISING_N == 20

@@ -22,6 +22,7 @@ EVIDENCE_MAX = 5
 EVIDENCE_KEEP = 10
 ALL_TIME_N = 20
 RISING_MIN_WEEKS = 3
+RISING_N = 20
 WEEK_RE = re.compile(r"^\d{4}-W(0[1-9]|[1-4]\d|5[0-3])$")
 
 WEEK_KEYS = {"week", "run_at", "model", "status", "note", "candidates_scored",
@@ -77,6 +78,13 @@ def validate_candidate(c, i):
     for e in ev:
         if not isinstance(e, dict) or not e.get("url"):
             raise ValidationError(f"{label}: every evidence item needs a url")
+        if not isinstance(e["url"], str) or not e["url"].startswith(("http://", "https://")):
+            raise ValidationError(f"{label}: evidence url must start with http:// or https://")
+    d = c["dollars"]
+    num = lambda v: isinstance(v, (int, float)) and not isinstance(v, bool)
+    if (not isinstance(d, dict) or not num(d.get("low")) or not num(d.get("high"))
+            or d["low"] > d["high"] or not isinstance(d.get("basis"), str) or not d["basis"].strip()):
+        raise ValidationError(f"{label}: dollars needs numeric low <= high and a basis string")
 
 
 def validate_week(week):
@@ -203,7 +211,7 @@ def build_board(ideas, weeks):
         }
     all_time = sorted(ideas, key=lambda r: (-r["best_score"], r["first_week"], r["id"]))[:ALL_TIME_N]
     rising = sorted((r for r in ideas if r["weeks_seen"] >= RISING_MIN_WEEKS),
-                    key=lambda r: (-r["weeks_seen"], -r["best_score"], r["id"]))
+                    key=lambda r: (-r["weeks_seen"], -r["best_score"], r["id"]))[:RISING_N]
     return {"updated": updated, "this_week": this_week, "all_time": all_time,
             "rising": rising, "history": history}
 
