@@ -10,70 +10,70 @@ Read with `https://www.reddit.com/r/<sub>/top.rss?t=week&limit=100` and `https:/
 
 | source | type | tier | how_read | queries | status | last_yield | note |
 |---|---|---|---|---|---|---|---|
-| r/ClaudeAI | reddit | 1 | json | claude, "claude code", revenue, "saved me", clients | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; main hub, about 1M members |
-| r/ClaudeCode | reddit | 1 | json | revenue, MRR, clients, "built a", "saved me" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/Anthropic | reddit | 1 | json | claude, "use case", revenue | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/claude | reddit | 1 | json | "use claude", revenue, "saved me" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/claudexplorers | reddit | 1 | json | planning, family, kids, "saved me", workflow | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; non-coding use |
-| r/ClaudeHomies | reddit | 1 | json | planning, family, kids, "saved me", workflow | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; non-coding use |
-| r/indiehackers | reddit | 1 | json | claude, "claude code", MRR | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/SideProject | reddit | 1 | json | claude, "claude code" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/SaaS | reddit | 1 | json | claude, "claude code" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/microsaas | reddit | 1 | json | claude, "claude code" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/VibeCodingSaaS | reddit | 1 | json | claude, MRR | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; small, high signal |
-| r/NoCodeSaaS | reddit | 1 | json | claude | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/Entrepreneur | reddit | 1 | json | claude, "ai agent" revenue | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/EntrepreneurRideAlong | reddit | 1 | json | claude, "ai" revenue | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/startups | reddit | 1 | json | claude, "claude code" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/smallbusiness | reddit | 1 | json | claude, "ai saved" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/sweatystartup | reddit | 1 | json | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/Business_Ideas | reddit | 1 | json | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/freelance | reddit | 1 | json | claude, "ai clients" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/Upwork | reddit | 1 | json | claude, "ai" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/consulting | reddit | 1 | json | claude, "ai" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/passive_income | reddit | 1 | json | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/digitalnomad | reddit | 1 | json | claude, "ai income" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/ChatGPTCoding | reddit | 1 | json | claude, "claude code", revenue, clients | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; tool-agnostic |
-| r/vibecoding | reddit | 1 | json | claude, MRR, revenue, "saved me" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/aipromptprogramming | reddit | 1 | json | claude, revenue | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/AI_Agents | reddit | 1 | json | claude, revenue, clients | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/LLMDevs | reddit | 1 | json | claude, "in production", revenue | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/AgentsOfAI | reddit | 1 | json | claude, revenue | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/AiBuilders | reddit | 1 | json | claude, revenue | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/PromptEngineering | reddit | 1 | json | claude, "saved me", workflow | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/automation | reddit | 1 | json | claude, "saved me", clients | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/n8n | reddit | 1 | json | claude, clients, revenue | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/Parenting | reddit | 1 | json | claude, "ai" planning, schedule | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; life |
-| r/daddit | reddit | 1 | json | claude, "ai" planning | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; life |
-| r/Mommit | reddit | 1 | json | claude, "ai" planning | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; life |
-| r/getdisciplined | reddit | 1 | json | claude, "ai" planning | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; life |
-| r/personalfinance | reddit | 1 | json | claude, "ai" budget | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; life |
-| r/budget | reddit | 1 | json | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; life |
-| r/MealPrepSunday | reddit | 1 | json | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; life |
-| r/travel | reddit | 1 | json | claude, "ai itinerary" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; life |
-| r/HomeImprovement | reddit | 1 | json | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; life |
-| r/homeschool | reddit | 1 | json | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; life |
-| r/ProductManagement | reddit | 2 | json | claude, "ai" workflow, "saved me" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; time |
-| r/dataengineering | reddit | 2 | json | claude, "claude code" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; time |
-| r/datascience | reddit | 2 | json | claude, "claude code" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; time |
-| r/analytics | reddit | 2 | json | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; time |
-| r/BusinessIntelligence | reddit | 2 | json | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; time |
-| r/ExperiencedDevs | reddit | 2 | json | claude, "claude code" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; time |
-| r/productivity | reddit | 2 | json | claude, "ai" workflow | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; time, life |
-| r/ChatGPT | reddit | 2 | json | "make money", "saved me", planning | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; uses transfer to Claude |
-| r/ChatGPTPro | reddit | 2 | json | workflow, "saved me", revenue | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; uses transfer |
-| r/OpenAI | reddit | 2 | json | claude, "switched to claude" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; comparisons |
-| r/ArtificialInteligence | reddit | 2 | json | claude, "use case", revenue | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; thin on workflows |
-| r/artificial | reddit | 2 | json | claude, "use case" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/cursor | reddit | 2 | json | claude, revenue, clients | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
-| r/Substack | reddit | 2 | json | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; creator |
-| r/content_marketing | reddit | 2 | json | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; creator |
-| r/copywriting | reddit | 2 | json | claude, ai clients | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; creator |
-| r/SEO | reddit | 2 | json | claude, "claude code" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; creator |
-| r/blogging | reddit | 2 | json | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; creator |
-| r/selfpublish | reddit | 2 | json | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; creator |
-| r/Etsy | reddit | 2 | json | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; creator |
-| r/printondemand | reddit | 2 | json | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; creator |
+| r/ClaudeAI | reddit | 1 | reddit | claude, "claude code", revenue, "saved me", clients | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; main hub, about 1M members |
+| r/ClaudeCode | reddit | 1 | reddit | revenue, MRR, clients, "built a", "saved me" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
+| r/Anthropic | reddit | 1 | reddit | claude, "use case", revenue | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
+| r/claude | reddit | 1 | reddit | "use claude", revenue, "saved me" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
+| r/claudexplorers | reddit | 1 | reddit | planning, family, kids, "saved me", workflow | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; non-coding use |
+| r/ClaudeHomies | reddit | 1 | reddit | planning, family, kids, "saved me", workflow | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; non-coding use |
+| r/indiehackers | reddit | 1 | reddit | claude, "claude code", MRR | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
+| r/SideProject | reddit | 1 | reddit | claude, "claude code" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
+| r/SaaS | reddit | 1 | reddit | claude, "claude code" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
+| r/microsaas | reddit | 1 | reddit | claude, "claude code" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
+| r/VibeCodingSaaS | reddit | 1 | reddit | claude, MRR | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; small, high signal |
+| r/NoCodeSaaS | reddit | 1 | reddit | claude | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
+| r/Entrepreneur | reddit | 1 | reddit | claude, "ai agent" revenue | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
+| r/EntrepreneurRideAlong | reddit | 1 | reddit | claude, "ai" revenue | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
+| r/startups | reddit | 1 | reddit | claude, "claude code" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
+| r/smallbusiness | reddit | 1 | reddit | claude, "ai saved" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
+| r/sweatystartup | reddit | 1 | reddit | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
+| r/Business_Ideas | reddit | 1 | reddit | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
+| r/freelance | reddit | 1 | reddit | claude, "ai clients" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
+| r/Upwork | reddit | 1 | reddit | claude, "ai" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
+| r/consulting | reddit | 1 | reddit | claude, "ai" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
+| r/passive_income | reddit | 1 | reddit | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
+| r/digitalnomad | reddit | 1 | reddit | claude, "ai income" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
+| r/ChatGPTCoding | reddit | 1 | reddit | claude, "claude code", revenue, clients | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; tool-agnostic |
+| r/vibecoding | reddit | 1 | reddit | claude, MRR, revenue, "saved me" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
+| r/aipromptprogramming | reddit | 1 | reddit | claude, revenue | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
+| r/AI_Agents | reddit | 1 | reddit | claude, revenue, clients | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
+| r/LLMDevs | reddit | 1 | reddit | claude, "in production", revenue | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
+| r/AgentsOfAI | reddit | 1 | reddit | claude, revenue | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
+| r/AiBuilders | reddit | 1 | reddit | claude, revenue | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
+| r/PromptEngineering | reddit | 1 | reddit | claude, "saved me", workflow | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
+| r/automation | reddit | 1 | reddit | claude, "saved me", clients | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
+| r/n8n | reddit | 1 | reddit | claude, clients, revenue | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
+| r/Parenting | reddit | 1 | reddit | claude, "ai" planning, schedule | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; life |
+| r/daddit | reddit | 1 | reddit | claude, "ai" planning | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; life |
+| r/Mommit | reddit | 1 | reddit | claude, "ai" planning | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; life |
+| r/getdisciplined | reddit | 1 | reddit | claude, "ai" planning | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; life |
+| r/personalfinance | reddit | 1 | reddit | claude, "ai" budget | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; life |
+| r/budget | reddit | 1 | reddit | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; life |
+| r/MealPrepSunday | reddit | 1 | reddit | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; life |
+| r/travel | reddit | 1 | reddit | claude, "ai itinerary" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; life |
+| r/HomeImprovement | reddit | 1 | reddit | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; life |
+| r/homeschool | reddit | 1 | reddit | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; life |
+| r/ProductManagement | reddit | 2 | reddit | claude, "ai" workflow, "saved me" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; time |
+| r/dataengineering | reddit | 2 | reddit | claude, "claude code" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; time |
+| r/datascience | reddit | 2 | reddit | claude, "claude code" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; time |
+| r/analytics | reddit | 2 | reddit | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; time |
+| r/BusinessIntelligence | reddit | 2 | reddit | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; time |
+| r/ExperiencedDevs | reddit | 2 | reddit | claude, "claude code" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; time |
+| r/productivity | reddit | 2 | reddit | claude, "ai" workflow | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; time, life |
+| r/ChatGPT | reddit | 2 | reddit | "make money", "saved me", planning | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; uses transfer to Claude |
+| r/ChatGPTPro | reddit | 2 | reddit | workflow, "saved me", revenue | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; uses transfer |
+| r/OpenAI | reddit | 2 | reddit | claude, "switched to claude" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; comparisons |
+| r/ArtificialInteligence | reddit | 2 | reddit | claude, "use case", revenue | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; thin on workflows |
+| r/artificial | reddit | 2 | reddit | claude, "use case" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
+| r/cursor | reddit | 2 | reddit | claude, revenue, clients | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine |
+| r/Substack | reddit | 2 | reddit | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; creator |
+| r/content_marketing | reddit | 2 | reddit | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; creator |
+| r/copywriting | reddit | 2 | reddit | claude, ai clients | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; creator |
+| r/SEO | reddit | 2 | reddit | claude, "claude code" | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; creator |
+| r/blogging | reddit | 2 | reddit | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; creator |
+| r/selfpublish | reddit | 2 | reddit | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; creator |
+| r/Etsy | reddit | 2 | reddit | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; creator |
+| r/printondemand | reddit | 2 | reddit | claude, ai | active | 0 | W44 rerun: reddit.com returned HTTP 403 on top.json after retry (network otherwise open); no search fallback per routine; creator |
 | r/singularity | reddit | - | - | - | excluded | 0 | speculation, not use |
 | r/MakeMoneyOnline | reddit | - | - | - | excluded | 0 | low quality |
 | r/beermoney | reddit | - | - | - | excluded | 0 | low quality |
