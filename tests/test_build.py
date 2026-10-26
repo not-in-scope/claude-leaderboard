@@ -408,7 +408,7 @@ def test_run_survives_malformed_older_week(data_dir):
 def test_run_rejects_week_outside_weeks_dir(data_dir):
     p = data_dir / "2026-W44.json"
     p.write_text(json.dumps(week_file(50)), encoding="utf-8")
-    with pytest.raises(build.ValidationError, match="data/weeks"):
+    with pytest.raises(build.ValidationError, match="must live in"):
         build.run(p, data_dir)
 
 
@@ -437,3 +437,25 @@ def test_skipped_week_becomes_this_week_via_run(data_dir):
     assert board["this_week"]["week"] == "2026-W45"
     assert board["this_week"]["status"] == "skipped"
     assert board["this_week"]["top5"] == []
+
+
+def test_top5_non_string_entry_rejected():
+    w = week_file(50, top5=["idea-000", "idea-001", "idea-002", "idea-003", {"id": "x"}])
+    with pytest.raises(build.ValidationError, match="top5"):
+        build.validate_week(w)
+
+
+def test_error_week_minimal_keys_kept_in_history(data_dir):
+    err = {"week": "2026-W43", "status": "error", "candidates_scored": 7, "note": "boom"}
+    (data_dir / "weeks" / "2026-W43.json").write_text(json.dumps(err), encoding="utf-8")
+    board = build.run(write_week(data_dir, week_file(50, week="2026-W44")), data_dir)
+    row = next(h for h in board["history"] if h["week"] == "2026-W43")
+    assert row == {"week": "2026-W43", "status": "error", "candidates_scored": 7}
+
+
+def test_error_week_with_non_string_week_becomes_stub(data_dir):
+    err = {"week": 44, "status": "error", "candidates_scored": 7}
+    (data_dir / "weeks" / "2026-W43.json").write_text(json.dumps(err), encoding="utf-8")
+    board = build.run(write_week(data_dir, week_file(50, week="2026-W44")), data_dir)
+    row = next(h for h in board["history"] if h["week"] == "2026-W43")
+    assert row == {"week": "2026-W43", "status": "error", "candidates_scored": 0}

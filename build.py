@@ -104,7 +104,9 @@ def validate_week(week):
         if top5:
             raise ValidationError(f"top5 must be empty when fewer than {THIN_MIN} candidates")
     else:
-        if not isinstance(top5, list) or len(top5) != TOP_N or len(set(top5)) != TOP_N:
+        if not isinstance(top5, list) or not all(isinstance(t, str) for t in top5):
+            raise ValidationError("top5 must be a list of id strings")
+        if len(top5) != TOP_N or len(set(top5)) != TOP_N:
             raise ValidationError(f"top5 must hold exactly {TOP_N} distinct ids")
         unknown = [s for s in top5 if s not in ids]
         if unknown:
@@ -227,8 +229,8 @@ def _load_week_or_error(path):
         if not isinstance(week, dict):
             raise ValidationError("not an object")
         if week.get("status") == "error":
-            if WEEK_KEYS - week.keys():
-                raise ValidationError("missing keys")
+            if not isinstance(week.get("week"), str):
+                raise ValidationError("week must be a string")
             return week
         return validate_week(week)
     except (ValidationError, OSError, ValueError):
@@ -244,7 +246,7 @@ def run(week_path, data_dir):
     data_dir = Path(data_dir)
     weeks_dir = data_dir / "weeks"
     if week_path.resolve().parent != weeks_dir.resolve():
-        raise ValidationError("week file must live in data/weeks/")
+        raise ValidationError(f"week file must live in {weeks_dir}")
     ideas_path = data_dir / "ideas.json"
     board_path = data_dir / "leaderboard.json"
 
@@ -267,7 +269,7 @@ def main(argv):
     data_dir = Path(argv[2]) if len(argv) == 3 else Path(__file__).resolve().parent / "data"
     try:
         board = run(argv[1], data_dir)
-    except (ValidationError, OSError, json.JSONDecodeError) as e:
+    except (ValidationError, OSError, ValueError) as e:
         print(f"build.py: {e}", file=sys.stderr)
         return 1
     tw = board["this_week"]
