@@ -87,8 +87,19 @@ def validate_candidate(c, i):
         raise ValidationError(f"{label}: dollars needs numeric low <= high and a basis string")
 
 
-def validate_week(week):
-    """Validate and normalise a week dict in place. Raises ValidationError."""
+VOTES = ("interested", "no", "trying")
+
+
+def rejected_ids(feedback):
+    """Idea ids Stephen marked 'no'. feedback is the votes map or None."""
+    if not isinstance(feedback, dict):
+        return set()
+    return {k for k, v in feedback.items() if isinstance(v, dict) and v.get("vote") == "no"}
+
+
+def validate_week(week, feedback=None):
+    """Validate and normalise a week dict in place. Raises ValidationError.
+    With feedback, top5 may not hold an idea voted 'no'."""
     if not isinstance(week, dict):
         raise ValidationError("week file must be a JSON object")
     missing = WEEK_KEYS - week.keys()
@@ -119,6 +130,11 @@ def validate_week(week):
         unknown = [s for s in top5 if s not in ids]
         if unknown:
             raise ValidationError(f"top5 ids not in candidates: {unknown}")
+        rejected = [s for s in top5 if s in rejected_ids(feedback)]
+        if rejected:
+            raise ValidationError(f"top5 holds ideas Stephen rejected, pick others: {rejected}")
+    if "feedback_note" in week and not isinstance(week["feedback_note"], str):
+        raise ValidationError("feedback_note must be a string")
     return week
 
 
@@ -183,9 +199,13 @@ def merge(ideas, week):
     return ideas
 
 
-def build_board(ideas, weeks):
+def build_board(ideas, weeks, feedback=None):
     """Board data from the registry and every week dict. Weeks with status
-    'error' appear in history only."""
+    'error' appear in history only. Ideas voted 'no' leave all_time and
+    rising and sit under picks.hidden."""
+    feedback = feedback if isinstance(feedback, dict) else {}
+    ideas = [dict(r, feedback=feedback.get(r["id"]) or None) for r in ideas]
+    hidden_ids = rejected_ids(feedback)
     weeks = sorted(weeks, key=lambda w: w["week"])
     history = [{"week": w["week"], "status": w["status"],
                 "candidates_scored": w.get("candidates_scored", 0)} for w in weeks]
@@ -208,12 +228,17 @@ def build_board(ideas, weeks):
             "sources_failed": w.get("sources_failed", []),
             "top5": [by_id[s] for s in w["top5"]],
             "category_leaders": leaders,
+            "feedback_note": w.get("feedback_note", ""),
         }
-    all_time = sorted(ideas, key=lambda r: (-r["best_score"], r["first_week"], r["id"]))[:ALL_TIME_N]
-    rising = sorted((r for r in ideas if r["weeks_seen"] >= RISING_MIN_WEEKS),
+    shown = [r for r in ideas if r["id"] not in hidden_ids]
+    all_time = sorted(shown, key=lambda r: (-r["best_score"], r["first_week"], r["id"]))[:ALL_TIME_N]
+    rising = sorted((r for r in shown if r["weeks_seen"] >= RISING_MIN_WEEKS),
                     key=lambda r: (-r["weeks_seen"], -r["best_score"], r["id"]))[:RISING_N]
+    by_vote = lambda v: sorted((r for r in ideas if (r["feedback"] or {}).get("vote") == v),
+                               key=lambda r: (-r["best_score"], r["id"]))
+    picks = {"interested": by_vote("interested"), "trying": by_vote("trying"), "hidden": by_vote("no")}
     return {"updated": updated, "this_week": this_week, "all_time": all_time,
-            "rising": rising, "history": history}
+            "rising": rising, "picks": picks, "history": history}
 
 
 def load_json(path):
@@ -246,10 +271,37 @@ def _load_week_or_error(path):
                 "note": "", "sources_failed": [], "top5": [], "candidates": []}
 
 
+PAGE_HEAD = ('<!doctype html>\n<html lang="en"><head><meta charset="utf-8">'
+             '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">'
+             '<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style></head>\n<body>\n')
+PAGE_TAIL = "\n</body></html>\n"
+
+
+def render_pages(board_html_path, out_path):
+    """Wrap the Artifact page source in a document skeleton for GitHub Pages."""
+    body = Path(board_html_path).read_text(encoding="utf-8-sig")
+    out_path = Path(out_path)
+    out_path.write_text(PAGE_HEAD + body.rstrip("\n") + PAGE_TAIL, encoding="utf-8", newline="\n")
+    return out_path
+
+
+def load_feedback(data_dir):
+    """The votes snapshot the routine writes, or {} when absent or unreadable."""
+    path = Path(data_dir) / "feedback.json"
+    if not path.exists():
+        return {}
+    try:
+        fb = load_json(path)
+    except (OSError, ValueError):
+        return {}
+    return fb if isinstance(fb, dict) else {}
+
+
 def run(week_path, data_dir):
     """Validate the week file, merge it, and rewrite the data files.
     The week file must live in <data_dir>/weeks/. Nothing is written if
-    validation fails."""
+    validation fails. When board.html sits beside the data folder,
+    index.html is regenerated from it."""
     week_path = Path(week_path)
     data_dir = Path(data_dir)
     weeks_dir = data_dir / "weeks"
@@ -258,15 +310,19 @@ def run(week_path, data_dir):
     ideas_path = data_dir / "ideas.json"
     board_path = data_dir / "leaderboard.json"
 
-    week = validate_week(load_json(week_path))
+    feedback = load_feedback(data_dir)
+    week = validate_week(load_json(week_path), feedback)
     ideas = load_json(ideas_path) if ideas_path.exists() else []
     merge(ideas, week)
 
     dump_json(week_path, week)
     dump_json(ideas_path, ideas)
     weeks = [_load_week_or_error(p) for p in sorted(weeks_dir.glob("*.json"))]
-    board = build_board(ideas, weeks)
+    board = build_board(ideas, weeks, feedback)
     dump_json(board_path, board)
+    board_src = data_dir.parent / "board.html"
+    if board_src.exists():
+        render_pages(board_src, data_dir.parent / "index.html")
     return board
 
 
@@ -281,8 +337,10 @@ def main(argv):
         print(f"build.py: {e}", file=sys.stderr)
         return 1
     tw = board["this_week"]
+    p = board["picks"]
     print(f"{tw['week']}: {tw['status']}, {tw['candidates_scored']} candidates, "
-          f"{len(board['all_time'])} all-time, {len(board['rising'])} rising")
+          f"{len(board['all_time'])} all-time, {len(board['rising'])} rising, "
+          f"votes: {len(p['interested'])} interested, {len(p['trying'])} trying, {len(p['hidden'])} hidden")
     return 0
 
 

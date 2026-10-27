@@ -1,18 +1,23 @@
 <!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style></head>
+<body>
 <title>Claude Leaderboard</title>
+<meta name="claude:viewport-fit-sides" content="cover">
 <style>
-:root{--bg:#F3F6F8;--card:#fff;--line:#E4EAEF;--ink:#22303C;--ink2:#5A6B7A;--mute:#A5B1BB;
+/* Layout: one column, 960px max, cards for this week, tables for history. Votes sit on every card and row. */
+:root{--bg:#F3F6F8;--card:#fff;--line:#E4EAEF;--ink:#22303C;--ink2:#5A6B7A;--mute:#A5B1BB;--soft:#F5F8FA;--row:#F0F3F6;
   --green:#0E6E5C;--green2:#E9F6F1;--amber:#8A6116;--amber2:#FBF3E4;--red:#9A3B3B;--red2:#FBEAEA;
-  --blue:#2B5C8A;--blue2:#E8F0F8}
+  --blue:#2B5C8A;--blue2:#E8F0F8;--body:'Segoe UI',system-ui,sans-serif;--mono:Consolas,'SF Mono',monospace}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#141A1F;--card:#1C242B;--line:#2B3540;--ink:#E6EBEF;--ink2:#9AA7B2;--mute:#6B7883;--soft:#222C34;--row:#1F2830;
+  --green:#5FC9AF;--green2:#17332D;--amber:#E0B35B;--amber2:#33290F;--red:#E08C8C;--red2:#3A1F1F;--blue:#8DB6E0;--blue2:#1B2A3A;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#141A1F;--card:#1C242B;--line:#2B3540;--ink:#E6EBEF;--ink2:#9AA7B2;--mute:#6B7883;--soft:#222C34;--row:#1F2830;
+  --green:#5FC9AF;--green2:#17332D;--amber:#E0B35B;--amber2:#33290F;--red:#E08C8C;--red2:#3A1F1F;--blue:#8DB6E0;--blue2:#1B2A3A;color-scheme:dark}
 *{box-sizing:border-box}
-body{margin:0;padding:28px 16px;background:var(--bg);font-family:'Segoe UI',system-ui,sans-serif;color:var(--ink);line-height:1.45}
-.wrap{max-width:960px;margin:0 auto}
-h1{font-size:22px;margin:0}
+body{margin:0;padding-block:28px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));background:var(--bg);font-family:var(--body);color:var(--ink);line-height:1.45}
+.wrap{max-width:960px;margin:0 auto;min-width:0}
+h1{font-size:22px;margin:0;text-wrap:balance}
 .head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px}
-.stamp{font-family:Consolas,monospace;font-size:12px;color:var(--ink2)}
+.stamp{font-family:var(--mono);font-size:12px;color:var(--ink2)}
 .flag{display:inline-block;margin-left:6px;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700}
 .flag.ok{background:var(--green2);color:var(--green)}
 .flag.thin{background:var(--amber2);color:var(--amber)}
@@ -20,22 +25,23 @@ h1{font-size:22px;margin:0}
 .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0}
 @media(max-width:600px){.tiles{grid-template-columns:repeat(2,1fr)}}
 .tile{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 14px}
-.tile .n{font-size:24px;font-weight:650}
+.tile .n{font-size:24px;font-weight:650;font-variant-numeric:tabular-nums}
 .tile .l{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);margin-top:2px}
 .tabs{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 14px}
-.tab{border:1px solid var(--line);border-radius:999px;padding:5px 14px;font-size:13px;background:var(--card);cursor:pointer;color:#33424F;user-select:none}
-.tab.on{background:var(--green);border-color:var(--green);color:#fff}
+.tab{border:1px solid var(--line);border-radius:999px;padding:5px 14px;font-size:13px;background:var(--card);cursor:pointer;color:var(--ink);user-select:none}
+.tab.on{background:var(--green);border-color:var(--green);color:var(--card)}
+.tab:focus-visible,.vb:focus-visible,.chip:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 h2{font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink2);margin:22px 0 8px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin-bottom:10px;cursor:pointer}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin-bottom:10px;cursor:pointer;min-width:0}
 .card .top{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
-.rank{font-family:Consolas,monospace;font-size:13px;color:var(--ink2);min-width:26px}
-.title{font-weight:650;flex:1 1 200px;overflow-wrap:anywhere}
-.score{display:inline-block;min-width:38px;text-align:center;padding:2px 8px;border-radius:999px;font-weight:700;font-size:12px;background:var(--green2);color:var(--green)}
+.rank{font-family:var(--mono);font-size:13px;color:var(--ink2);min-width:26px}
+.title{font-weight:650;flex:1 1 200px;overflow-wrap:anywhere;min-width:0}
+.score{display:inline-block;min-width:38px;text-align:center;padding:2px 8px;border-radius:999px;font-weight:700;font-size:12px;background:var(--green2);color:var(--green);font-variant-numeric:tabular-nums}
 .cat{font-size:10px;font-weight:700;padding:1px 7px;border-radius:4px;text-transform:uppercase;letter-spacing:.04em}
 .cat.money{background:var(--green2);color:var(--green)}
 .cat.time{background:var(--blue2);color:var(--blue)}
 .cat.life{background:var(--amber2);color:var(--amber)}
-.pitch{font-size:13px;color:#33424F;margin-top:6px;overflow-wrap:anywhere}
+.pitch{font-size:13px;color:var(--ink);opacity:.9;margin-top:6px;overflow-wrap:anywhere}
 .step{font-size:13px;margin-top:6px}
 .step b{color:var(--ink2);font-weight:600;margin-right:4px}
 .links{font-size:12px;margin-top:6px}
@@ -45,49 +51,72 @@ h2{font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink2
 .sub{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;font-size:12px}
 .sub div{background:var(--bg);border-radius:6px;padding:6px 8px}
 .sub .k{color:var(--ink2);font-size:11px;text-transform:uppercase;letter-spacing:.05em}
-.sub .v{font-weight:700}
-.sub .r{color:#33424F;margin-top:2px}
+.sub .v{font-weight:700;font-variant-numeric:tabular-nums}
+.sub .r{color:var(--ink);opacity:.85;margin-top:2px}
 .leaders{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 @media(max-width:700px){.leaders{grid-template-columns:1fr}}
 .leaders .card{margin:0}
 .tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--card)}
 table{border-collapse:collapse;width:100%;font-size:13px}
-th{text-align:left;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink2);background:#F5F8FA;padding:9px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
-td{padding:9px 12px;border-bottom:1px solid #F0F3F6;vertical-align:top}
+th{text-align:left;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink2);background:var(--soft);padding:9px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 12px;border-bottom:1px solid var(--row);vertical-align:top}
 tr.row{cursor:pointer}
-tr.more td{background:#FAFCFD}
+tr.more td{background:var(--soft)}
 .empty{background:var(--card);border:1px dashed var(--line);border-radius:8px;padding:28px;text-align:center;color:var(--ink2)}
 .note{font-size:12px;color:var(--amber);margin:8px 0}
-.hist{margin-top:22px;font-family:Consolas,monospace;font-size:12px;color:var(--ink2);display:flex;gap:8px;flex-wrap:wrap}
+.learned{font-size:13px;color:var(--ink2);margin:10px 0 0;padding:10px 14px;background:var(--card);border:1px solid var(--line);border-radius:8px}
+.hist{margin-top:22px;font-family:var(--mono);font-size:12px;color:var(--ink2);display:flex;gap:8px;flex-wrap:wrap}
 .hist span{padding:2px 8px;border-radius:4px;background:var(--card);border:1px solid var(--line)}
 .foot{margin-top:14px;font-size:12px;color:var(--mute)}
 .foot a{color:var(--ink2)}
-</style></head>
-<body><div class="wrap">
+/* votes */
+.votes{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:10px}
+.votes[hidden]{display:none}
+.vb{border:1px solid var(--line);background:var(--card);color:var(--ink2);border-radius:999px;padding:3px 10px;font-size:12px;cursor:pointer;font-family:var(--body)}
+.vb:hover{border-color:var(--ink2)}
+.vb.on.interested{background:var(--green2);border-color:var(--green);color:var(--green)}
+.vb.on.no{background:var(--red2);border-color:var(--red);color:var(--red)}
+.vb.on.trying{background:var(--blue2);border-color:var(--blue);color:var(--blue)}
+.reasons{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.chip{border:1px dashed var(--line);background:transparent;color:var(--ink2);border-radius:999px;padding:2px 10px;font-size:12px;cursor:pointer;font-family:var(--body)}
+.chip.on{border-style:solid;border-color:var(--red);color:var(--red);background:var(--red2)}
+.outcome{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+.outcome input{flex:1 1 200px;min-width:0;border:1px solid var(--line);border-radius:6px;padding:6px 10px;font:inherit;font-size:13px;background:var(--bg);color:var(--ink)}
+.outcome button{border:1px solid var(--green);background:var(--green);color:var(--card);border-radius:6px;padding:6px 12px;font:inherit;font-size:12px;cursor:pointer}
+.vstate{font-size:12px;color:var(--ink2);margin-top:6px}
+.hidden-toggle{font-size:12px;color:var(--ink2);cursor:pointer;margin-top:12px;user-select:none}
+.saved{color:var(--green)}
+@media (prefers-reduced-motion: no-preference){.vb,.chip{transition:background .15s,border-color .15s}}
+</style>
+<div class="wrap">
 <div class="head"><h1>Claude Leaderboard</h1><div class="stamp" id="stamp">loading…</div></div>
+<div class="learned" id="learned" hidden></div>
 <div class="tiles" id="tiles"></div>
 <div class="tabs" id="tabs">
-  <span class="tab on" data-tab="week">This week</span>
-  <span class="tab" data-tab="all">All time</span>
-  <span class="tab" data-tab="rising">Rising</span>
+  <span class="tab on" data-tab="week" tabindex="0">This week</span>
+  <span class="tab" data-tab="all" tabindex="0">All time</span>
+  <span class="tab" data-tab="rising" tabindex="0">Rising</span>
 </div>
 <div id="view"></div>
 <div class="hist" id="hist"></div>
-<div class="foot">Weekly scan of Reddit, Substack, Hacker News and more for productive and money-making uses of Claude. Scores follow <a href="rubric.md">rubric.md</a>; sources are in <a href="sources.md">sources.md</a>.</div>
+<div class="foot">Weekly scan of Reddit, Substack, Hacker News and more for productive and money-making uses of Claude. Scores follow the rubric in the <a href="https://github.com/not-in-scope/claude-leaderboard" target="_blank" rel="noopener">repository</a>.</div>
 </div>
 <script>
 const FACTORS = [["fit","Fit",25],["upside","Upside",20],["time_to_dollar","Time to benefit",15],
                  ["effort","Effort",15],["evidence","Evidence",15],["durability","Durability",10]];
 const CATS = ["money","time","life"];
+const REASONS = [["effort","Too much effort"],["skills","Not my skills"],["doubt","Don't believe it"],["already","Already doing it"]];
 const DATA_PARAM = new URLSearchParams(location.search).get("data");
 const sameOrigin = p => { try { return new URL(p, location.href).origin === location.origin; } catch { return false; } };
 const DATA_URL = DATA_PARAM && sameOrigin(DATA_PARAM) ? DATA_PARAM : "data/leaderboard.json";
-let BOARD = null, TAB = "week", CAT = "all";
+let BOARD = null, TAB = "week", CAT = "all", SHOW_HIDDEN = false;
+let DB = null, CAN_VOTE = false, VOTES = {}, OPEN_REASONS = null;
 
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const fmtDate = iso => iso ? new Date(iso).toLocaleDateString(undefined, {month:"short", day:"numeric", year:"numeric"}) : "";
 const host = u => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch { return u; } };
 const money = n => "$" + Number(n).toLocaleString();
+const voteOf = id => VOTES[id] || null;
 
 function flag(status){ return `<span class="flag ${esc(status)}">${esc(status)}</span>`; }
 function cat(c){ return `<span class="cat ${esc(c)}">${esc(c)}</span>`; }
@@ -104,17 +133,33 @@ function dollars(d, hrs){
   if (!d) return "";
   return `<div class="pitch">Est. ${money(d.low)} to ${money(d.high)} ${esc(d.basis)} · ${esc(hrs)} hrs/week to run</div>`;
 }
+function voteBar(id){
+  if (!CAN_VOTE) return "";
+  const v = voteOf(id), vote = v?.vote;
+  const btn = (k, label) => `<button type="button" class="vb ${k} ${vote === k ? "on" : ""}" data-vote="${k}" data-id="${esc(id)}">${label}</button>`;
+  let html = `<div class="votes">${btn("interested", "Interested")}${btn("no", "Not for me")}${btn("trying", "Trying it")}`;
+  if (v?.at) html += `<span class="vstate">${vote === "no" && v.reason ? esc(REASONS.find(r => r[0] === v.reason)?.[1] || v.reason) + " · " : ""}${fmtDate(v.at)}</span>`;
+  html += `</div>`;
+  if (OPEN_REASONS === id || (vote === "no" && !v.reason)) {
+    html += `<div class="reasons">${REASONS.map(([k, l]) => `<button type="button" class="chip ${v?.reason === k ? "on" : ""}" data-reason="${k}" data-id="${esc(id)}">${l}</button>`).join("")}</div>`;
+  }
+  if (vote === "trying") {
+    html += `<div class="outcome"><input id="out-${esc(id)}" placeholder="What happened so far?" value="${esc(v.outcome || "")}" data-id="${esc(id)}"><button type="button" data-save="${esc(id)}">Save</button></div>`;
+  }
+  return html;
+}
 function card(c, rank){
   const L = c.latest || {};
   const scores = c.scores || L.scores, reasons = c.reasons || L.reasons;
   const total = c.total ?? c.best_score;
   const pitch = c.pitch ?? L.pitch, step = c.first_step ?? L.first_step;
   const d = c.dollars || L.dollars, hrs = c.hours_per_week ?? L.hours_per_week;
-  return `<div class="card" onclick="if(!event.target.closest('a'))this.classList.toggle('open')">
+  return `<div class="card" data-card="${esc(c.id)}">
     <div class="top">${rank ? `<span class="rank">#${rank}</span>` : ""}<span class="title">${esc(c.title)}</span>${cat(c.category)}<span class="score">${total}</span></div>
     <div class="pitch">${esc(pitch)}</div>
     <div class="step"><b>First step</b>${esc(step)}</div>
     <div class="links">${links(c.evidence)}</div>
+    ${voteBar(c.id)}
     <div class="detail">${subscores(scores, reasons)}${dollars(d, hrs)}</div>
   </div>`;
 }
@@ -128,24 +173,51 @@ function renderTiles(b){
   ];
   document.getElementById("tiles").innerHTML = tiles.map(([n, l]) => `<div class="tile"><div class="n">${n}</div><div class="l">${l}</div></div>`).join("");
 }
+const isHidden = id => voteOf(id)?.vote === "no";
+function picks(b){
+  const all = {};
+  for (const r of b.all_time) all[r.id] = r;
+  for (const r of b.rising) all[r.id] = r;
+  for (const r of (b.picks?.interested || [])) all[r.id] = r;
+  for (const r of (b.picks?.trying || [])) all[r.id] = r;
+  for (const r of (b.picks?.hidden || [])) all[r.id] = r;
+  const tw = b.this_week;
+  if (tw) { for (const c of tw.top5) all[c.id] = all[c.id] || c; for (const k of CATS) if (tw.category_leaders?.[k]) all[k] = all[k]; }
+  const by = kind => Object.values(all).filter(r => r.id && voteOf(r.id)?.vote === kind);
+  return {interested: by("interested"), trying: by("trying"), hidden: by("no")};
+}
 function renderWeek(b){
   const tw = b.this_week;
   if (!tw) return `<div class="empty">No runs yet. The first scan lands on Monday morning.</div>`;
   let html = "";
   if (tw.status === "thin") html += `<div class="note">Thin week. ${tw.candidates_scored} candidates were scored, below the 50 target.</div>`;
   if (tw.status === "skipped") html += `<div class="note">Skipped week, no top 5. ${esc(tw.note || "Fewer than 15 candidates were found.")}</div>`;
-  if (tw.top5.length) html += `<h2>Top 5 · ${esc(tw.week)}</h2>` + tw.top5.map((c, i) => card(c, i + 1)).join("");
+  const top = tw.top5.filter(c => SHOW_HIDDEN || !isHidden(c.id));
+  if (top.length) html += `<h2>Top 5 · ${esc(tw.week)}</h2>` + top.map((c, i) => card(c, i + 1)).join("");
   const L = tw.category_leaders || {};
   if (CATS.some(k => L[k])) {
     html += `<h2>Category leaders</h2><div class="leaders">${CATS.map(k => L[k] ? card(L[k]) : `<div class="empty">No ${k} idea this week</div>`).join("")}</div>`;
+  }
+  if (CAN_VOTE) {
+    const p = picks(b);
+    if (p.interested.length || p.trying.length) {
+      html += `<h2>Your picks</h2>`;
+      if (p.trying.length) html += `<div class="note" style="color:var(--blue)">Trying</div>` + p.trying.map(r => card(r)).join("");
+      if (p.interested.length) html += `<div class="note" style="color:var(--green)">Interested</div>` + p.interested.map(r => card(r)).join("");
+    }
+    if (p.hidden.length) {
+      html += `<div class="hidden-toggle" id="hiddenToggle">${SHOW_HIDDEN ? "Hide" : "Show"} ${p.hidden.length} idea${p.hidden.length === 1 ? "" : "s"} you marked not for me</div>`;
+      if (SHOW_HIDDEN) html += p.hidden.map(r => card(r)).join("");
+    }
   }
   if (tw.sources_failed?.length) html += `<div class="note">Sources that failed this run: ${tw.sources_failed.map(s => esc(s.source)).join(", ")}</div>`;
   return html;
 }
 function renderTable(rows){
+  rows = rows.filter(r => SHOW_HIDDEN || !isHidden(r.id));
   if (!rows.length) return `<div class="empty">Nothing here yet.</div>`;
   const body = rows.map(r => `
-    <tr class="row" onclick="if(!event.target.closest('a')){const n=this.nextElementSibling;n.style.display=n.style.display==='table-row'?'none':'table-row'}">
+    <tr class="row" data-row="${esc(r.id)}">
       <td class="rank">${r.rank}</td><td><b>${esc(r.title)}</b></td><td>${cat(r.category)}</td>
       <td><span class="score">${r.best_score}</span></td><td>${r.weeks_seen}</td><td>${esc(r.first_week)}</td>
     </tr>
@@ -153,13 +225,14 @@ function renderTable(rows){
       <div class="pitch">${esc(r.latest?.pitch)}</div>
       <div class="step"><b>First step</b>${esc(r.latest?.first_step)}</div>
       <div class="links">${links(r.evidence)}</div>
+      ${voteBar(r.id)}
       <div style="margin-top:10px">${subscores(r.latest?.scores, r.latest?.reasons)}</div>
       ${dollars(r.latest?.dollars, r.latest?.hours_per_week)}
     </td></tr>`).join("");
   return `<div class="tblwrap"><table><thead><tr><th>#</th><th>Idea</th><th>Category</th><th>Best</th><th>Weeks</th><th>First seen</th></tr></thead><tbody>${body}</tbody></table></div>`;
 }
 function renderAll(b){
-  const chips = ["all", ...CATS].map(k => `<span class="tab ${CAT === k ? "on" : ""}" data-cat="${k}">${k}</span>`).join("");
+  const chips = ["all", ...CATS].map(k => `<span class="tab ${CAT === k ? "on" : ""}" data-cat="${k}" tabindex="0">${k}</span>`).join("");
   const ranked = b.all_time.map((r, i) => ({...r, rank: i + 1}));
   const rows = CAT === "all" ? ranked : ranked.filter(r => r.category === CAT);
   return `<div class="tabs" id="cats">${chips}</div>` + renderTable(rows);
@@ -169,17 +242,87 @@ function renderRising(b){
   return renderTable(b.rising.map((r, i) => ({...r, rank: i + 1})));
 }
 function render(){
-  const b = BOARD, tw = b.this_week;
+  const b = BOARD; if (!b) return;
+  const tw = b.this_week;
   document.getElementById("stamp").innerHTML = tw ? `last run ${fmtDate(b.updated)} · ${esc(tw.week)} ${flag(tw.status)}` : "no runs yet";
+  const learned = document.getElementById("learned");
+  learned.hidden = !(tw && tw.feedback_note);
+  if (tw && tw.feedback_note) learned.textContent = tw.feedback_note;
   renderTiles(b);
   document.querySelectorAll("#tabs .tab").forEach(t => t.classList.toggle("on", t.dataset.tab === TAB));
+  const open = new Set([...document.querySelectorAll(".card.open")].map(e => e.dataset.card));
   const view = document.getElementById("view");
   view.innerHTML = TAB === "week" ? renderWeek(b) : TAB === "all" ? renderAll(b) : renderRising(b);
+  view.querySelectorAll(".card").forEach(e => { if (open.has(e.dataset.card)) e.classList.add("open"); });
   view.querySelectorAll("#cats .tab").forEach(c => c.onclick = () => { CAT = c.dataset.cat; render(); });
+  const ht = document.getElementById("hiddenToggle");
+  if (ht) ht.onclick = () => { SHOW_HIDDEN = !SHOW_HIDDEN; render(); };
   document.getElementById("hist").innerHTML = (b.history || []).slice(-12).map(h =>
     `<span title="${h.candidates_scored} scored">${esc(h.week)} ${flag(h.status)}</span>`).join("");
 }
-document.querySelectorAll("#tabs .tab").forEach(t => t.onclick = () => { TAB = t.dataset.tab; render(); });
+
+/* clicks: expand cards and rows, cast votes */
+document.getElementById("view").addEventListener("click", async ev => {
+  const t = ev.target;
+  if (t.closest("a") || t.closest("input")) return;
+  const vb = t.closest("button.vb");
+  if (vb) { ev.stopPropagation(); return castVote(vb.dataset.id, vb.dataset.vote); }
+  const chip = t.closest("button.chip");
+  if (chip) { ev.stopPropagation(); return setReason(chip.dataset.id, chip.dataset.reason); }
+  const save = t.closest("button[data-save]");
+  if (save) { ev.stopPropagation(); return saveOutcome(save.dataset.save); }
+  if (t.closest(".outcome") || t.closest(".reasons") || t.closest(".votes")) return;
+  const card = t.closest(".card");
+  if (card) return card.classList.toggle("open");
+  const row = t.closest("tr.row");
+  if (row) { const n = row.nextElementSibling; n.style.display = n.style.display === "table-row" ? "none" : "table-row"; }
+});
+document.getElementById("view").addEventListener("keydown", ev => {
+  if (ev.key === "Enter" && ev.target.matches("input[data-id]")) saveOutcome(ev.target.dataset.id);
+});
+document.querySelectorAll("#tabs .tab").forEach(t => {
+  t.onclick = () => { TAB = t.dataset.tab; render(); };
+  t.onkeydown = e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); t.click(); } };
+});
+
+async function write(id, body){
+  if (!DB) return;
+  try { await DB.doc("votes/" + id).set(body); }
+  catch (e) {
+    if (e?.code === "invalid_argument") { CAN_VOTE = false; render(); }
+    else console.warn("vote failed", e);
+  }
+}
+async function castVote(id, vote){
+  const cur = voteOf(id);
+  if (cur?.vote === vote) {
+    VOTES = {...VOTES}; delete VOTES[id]; OPEN_REASONS = null; render();
+    try { await DB.doc("votes/" + id).delete(); } catch (e) { console.warn("unvote failed", e); }
+    return;
+  }
+  const body = {vote, reason: null, outcome: cur?.outcome || "", at: new Date().toISOString()};
+  VOTES = {...VOTES, [id]: body};
+  OPEN_REASONS = vote === "no" ? id : null;
+  render();
+  await write(id, body);
+}
+async function setReason(id, reason){
+  const cur = voteOf(id) || {vote: "no", outcome: ""};
+  const body = {...cur, vote: "no", reason, at: new Date().toISOString()};
+  VOTES = {...VOTES, [id]: body}; OPEN_REASONS = null; render();
+  await write(id, body);
+}
+async function saveOutcome(id){
+  const input = document.getElementById("out-" + id);
+  if (!input) return;
+  const cur = voteOf(id) || {vote: "trying", reason: null};
+  const body = {...cur, vote: "trying", outcome: input.value.trim(), at: new Date().toISOString()};
+  VOTES = {...VOTES, [id]: body};
+  await write(id, body);
+  const btn = input.nextElementSibling; if (btn) { btn.textContent = "Saved"; setTimeout(() => { btn.textContent = "Save"; }, 1200); }
+}
+
+/* data first, votes when the store answers */
 fetch(`${DATA_URL}${DATA_URL.includes("?") ? "&" : "?"}t=${Date.now()}`)
   .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
   .then(b => { BOARD = b; render(); })
@@ -187,4 +330,22 @@ fetch(`${DATA_URL}${DATA_URL.includes("?") ? "&" : "?"}t=${Date.now()}`)
     document.getElementById("stamp").textContent = "could not load data";
     document.getElementById("view").innerHTML = `<div class="empty">Could not load ${esc(DATA_URL)} (${esc(e.message)}).</div>`;
   });
-</script></body></html>
+
+(async () => {
+  if (!window.claude?.use) return;
+  const db = await claude.use("db");
+  if (!db) return;
+  DB = db;
+  const user = await claude.use("user");
+  const can = user ? await user.can("data.write") : null;
+  CAN_VOTE = can !== false;
+  db.collection("votes").onSnapshot(snap => {
+    const next = {};
+    for (const d of snap.docs) if (d.exists) next[d.id] = d.data();
+    VOTES = next;
+    render();
+  }, err => { console.warn("votes subscription ended", err); });
+  render();
+})();
+</script>
+</body></html>

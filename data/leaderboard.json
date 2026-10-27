@@ -442,7 +442,8 @@
      }
     ]
    }
-  }
+  },
+  "feedback_note": ""
  },
  "all_time": [
   {
@@ -502,7 +503,8 @@
      "date": "2026-10-21",
      "claim": "Family finance app built in 9 days with Claude Code; used daily by him and his wife"
     }
-   ]
+   ],
+   "feedback": null
   },
   {
    "id": "family-sports-calendar-drive-time-planner",
@@ -561,7 +563,8 @@
      "date": "2026-10-26",
      "claim": "Anthropic lists family schedule organization and activities as a parent use case"
     }
-   ]
+   ],
+   "feedback": null
   },
   {
    "id": "claude-code-job-search-pipeline",
@@ -626,7 +629,8 @@
      "date": "2026-10-26",
      "claim": "Built an automated job search tool that runs inside Claude and made it free"
     }
-   ]
+   ],
+   "feedback": null
   },
   {
    "id": "claude-html-dashboards-replace-looker",
@@ -691,7 +695,8 @@
      "date": "2026-10-14",
      "claim": "Weekly viewers of Claude-made dashboards went from 23 in March to 136 in June; Looker usage down a third"
     }
-   ]
+   ],
+   "feedback": null
   },
   {
    "id": "small-org-back-office-automation",
@@ -762,7 +767,8 @@
      "date": "2026-10-21",
      "claim": "Eight weeks of putting it off, four hours with Claude (SOP update and Asana changes)"
     }
-   ]
+   ],
+   "feedback": null
   },
   {
    "id": "rec-sports-video-film-review",
@@ -821,7 +827,8 @@
      "date": "2026-10-23",
      "claim": "MIT CLI that pulls frames, cuts clips and builds a phone coaching page and spoken report"
     }
-   ]
+   ],
+   "feedback": null
   },
   {
    "id": "proactive-agent-inbox-and-morning-brief",
@@ -906,7 +913,8 @@
      "date": "2026-10-21",
      "claim": "How I AI episode: 'Claude Duet is beautiful. I still forgot to use it.'"
     }
-   ]
+   ],
+   "feedback": null
   },
   {
    "id": "meeting-recorder-mcp-decision-search",
@@ -965,7 +973,8 @@
      "date": "2026-10-26",
      "claim": "Open-source Mac app with MCP server and /recap, /followup, /todo plugin"
     }
-   ]
+   ],
+   "feedback": null
   },
   {
    "id": "self-hosted-family-finance-app",
@@ -1024,7 +1033,8 @@
      "date": "2026-10-21",
      "claim": "Open-source repo with live demo"
     }
-   ]
+   ],
+   "feedback": null
   },
   {
    "id": "solo-law-firm-stack-weekend-rebuild",
@@ -1083,7 +1093,8 @@
      "date": "2026-10-26",
      "claim": "Counsel & Clarity, a one-lawyer firm in Clarksville, Tennessee"
     }
-   ]
+   ],
+   "feedback": null
   },
   {
    "id": "floor-plan-to-3d-remodel-shopping-list",
@@ -1141,7 +1152,8 @@
      "date": "2026-10-22",
      "claim": "Ask HN thread: why doesn't OpenAI start 100 companies (context)"
     }
-   ]
+   ],
+   "feedback": null
   },
   {
    "id": "ghost-job-posting-detector",
@@ -1200,7 +1212,8 @@
      "date": "2026-10-21",
      "claim": "Detection pipeline turned into a web tool with ATS resume check"
     }
-   ]
+   ],
+   "feedback": null
   },
   {
    "id": "grant-due-diligence-sop-to-asana",
@@ -1259,7 +1272,8 @@
      "date": "2026-10-21",
      "claim": "Series testing Claude Cowork on grant program work"
     }
-   ]
+   ],
+   "feedback": null
   },
   {
    "id": "hotel-all-in-price-and-rate-watch",
@@ -1318,7 +1332,8 @@
      "date": "2026-10-21",
      "claim": "Same workflow: all-in totals and review-mined fees before booking"
     }
-   ]
+   ],
+   "feedback": null
   },
   {
    "id": "smart-tv-ad-bloat-removal",
@@ -1389,7 +1404,8 @@
      "date": "2026-10-21",
      "claim": "Open-source repo with one-command restore"
     }
-   ]
+   ],
+   "feedback": null
   },
   {
    "id": "fire-retirement-planner-agent-built",
@@ -1447,7 +1463,8 @@
      "date": "2026-10-16",
      "claim": "Open-source planner with iOS app"
     }
-   ]
+   ],
+   "feedback": null
   },
   {
    "id": "handwritten-math-feedback-markup",
@@ -1505,7 +1522,8 @@
      "date": "2026-10-20",
      "claim": "Open-source repo"
     }
-   ]
+   ],
+   "feedback": null
   },
   {
    "id": "docs-diff-watcher-routine",
@@ -1563,7 +1581,8 @@
      "date": "2026-10-16",
      "claim": "Author missed the Haiku 5.5 launch for five days before building it"
     }
-   ]
+   ],
+   "feedback": null
   },
   {
    "id": "phonics-reader-with-claude-book-import",
@@ -1621,7 +1640,8 @@
      "date": "2026-10-19",
      "claim": "Open-source reader"
     }
-   ]
+   ],
+   "feedback": null
   },
   {
    "id": "trip-research-to-google-maps-list",
@@ -1679,10 +1699,16 @@
      "date": "2026-10-23",
      "claim": "Author previously merged Claude and Gemini research by hand"
     }
-   ]
+   ],
+   "feedback": null
   }
  ],
  "rising": [],
+ "picks": {
+  "interested": [],
+  "trying": [],
+  "hidden": []
+ },
  "history": [
   {
    "week": "2026-W44",

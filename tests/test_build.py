@@ -297,7 +297,8 @@ def test_history_lists_error_weeks_but_ignores_them():
 
 def test_empty_board():
     board = build.build_board([], [])
-    assert board == {"updated": None, "this_week": None, "all_time": [], "rising": [], "history": []}
+    assert board == {"updated": None, "this_week": None, "all_time": [], "rising": [],
+                     "picks": {"interested": [], "trying": [], "hidden": []}, "history": []}
 
 
 # ---- run (file IO) ----
@@ -492,3 +493,80 @@ def test_rising_capped():
         weeks.append(w)
     board = build.build_board(ideas, weeks)
     assert len(board["rising"]) == build.RISING_N == 20
+
+
+# ---- feedback ----
+
+FB = {"idea-001": {"vote": "no", "reason": "skills", "outcome": "", "at": "2026-10-27T18:00:00Z"},
+      "idea-002": {"vote": "interested", "reason": None, "outcome": "", "at": "2026-10-27T18:01:00Z"},
+      "idea-003": {"vote": "trying", "reason": None, "outcome": "built it", "at": "2026-10-27T18:02:00Z"}}
+TOP5_OK = ["idea-000", "idea-002", "idea-003", "idea-004", "idea-005"]
+
+
+def test_top5_may_not_hold_rejected_idea():
+    w = week_file(50)
+    with pytest.raises(build.ValidationError, match="rejected"):
+        build.validate_week(w, FB)
+
+
+def test_top5_without_rejected_idea_passes_with_feedback():
+    w = week_file(50, top5=TOP5_OK)
+    build.validate_week(w, FB)
+    assert w["status"] == "ok"
+
+
+def test_board_picks_and_hidden():
+    w = week_file(50, top5=TOP5_OK)
+    w["feedback_note"] = "Hid one content idea."
+    ideas = build.merge([], build.validate_week(w, FB))
+    board = build.build_board(ideas, [w], FB)
+    ids = [r["id"] for r in board["all_time"]]
+    assert "idea-001" not in ids and "idea-002" in ids
+    assert [r["id"] for r in board["picks"]["hidden"]] == ["idea-001"]
+    assert [r["id"] for r in board["picks"]["interested"]] == ["idea-002"]
+    assert [r["id"] for r in board["picks"]["trying"]] == ["idea-003"]
+    assert board["picks"]["trying"][0]["feedback"]["outcome"] == "built it"
+    assert next(r for r in board["all_time"] if r["id"] == "idea-000")["feedback"] is None
+    assert board["this_week"]["feedback_note"] == "Hid one content idea."
+
+
+def test_rising_excludes_hidden():
+    ideas, weeks = [], []
+    for wk in ("2026-W44", "2026-W45", "2026-W46"):
+        w = build.validate_week(week_file(50, week=wk, top5=TOP5_OK), FB)
+        build.merge(ideas, w)
+        weeks.append(w)
+    board = build.build_board(ideas, weeks, FB)
+    assert "idea-001" not in {r["id"] for r in board["rising"]}
+
+
+def test_board_without_feedback_has_empty_picks():
+    w = build.validate_week(week_file(50))
+    board = build.build_board(build.merge([], w), [w])
+    assert board["picks"] == {"interested": [], "trying": [], "hidden": []}
+    assert board["this_week"]["feedback_note"] == ""
+    assert all(r["feedback"] is None for r in board["all_time"])
+
+
+def test_run_reads_feedback_file_and_renders_pages(data_dir):
+    (data_dir / "feedback.json").write_text(json.dumps(FB), encoding="utf-8")
+    (data_dir.parent / "board.html").write_text("<title>T</title>\n<div>hi</div>\n", encoding="utf-8")
+    p = write_week(data_dir, week_file(50, top5=TOP5_OK))
+    board = build.run(p, data_dir)
+    assert [r["id"] for r in board["picks"]["interested"]] == ["idea-002"]
+    page = (data_dir.parent / "index.html").read_text(encoding="utf-8")
+    assert page.startswith("<!doctype html>") and "<div>hi</div>" in page and page.rstrip().endswith("</html>")
+
+
+def test_run_rejects_top5_with_rejected_idea(data_dir):
+    (data_dir / "feedback.json").write_text(json.dumps(FB), encoding="utf-8")
+    p = write_week(data_dir, week_file(50))
+    with pytest.raises(build.ValidationError, match="rejected"):
+        build.run(p, data_dir)
+    assert not (data_dir / "leaderboard.json").exists()
+
+
+def test_malformed_feedback_file_is_ignored(data_dir):
+    (data_dir / "feedback.json").write_text("not json", encoding="utf-8")
+    board = build.run(write_week(data_dir, week_file(50)), data_dir)
+    assert board["picks"]["hidden"] == []
