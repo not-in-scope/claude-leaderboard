@@ -96,3 +96,7 @@ Titles name the specific idea in twelve words or fewer, concrete noun first.
 The pitch is two sentences. The first names what the specific person did and the specific result, with the number when there is one. The second says why it fits this profile.
 
 The first step is one concrete action that takes under three hours, such as "Build a throwaway version for your own household this weekend" or "Reply to the thread's author and ask for their pricing page."
+
+## Learned from votes
+
+No votes yet. The weekly run rewrites this section from Stephen's Interested, Not for me, and Trying it votes on the board.

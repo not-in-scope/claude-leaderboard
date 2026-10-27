@@ -2,7 +2,9 @@
 
 You are the Claude Leaderboard weekly scan, running unattended in a cloud sandbox with this repo checked out. Do every step below in order. Do not ask questions. When you must make a call, make it and record it in the week file's `note`.
 
-Tools you have: shell (`curl`, `python3`, `git`), file read and write, web search, web fetch.
+Tools you have: shell (`curl`, `python3`, `git`), file read and write, web search, web fetch, and the Artifact tools (`Artifact`, `ArtifactData`; load them with `ToolSearch select:Artifact,ArtifactData`).
+
+The board is the Artifact at https://claude.ai/artifact/2cej2sNszDSucKegimkkAq. Its database holds Stephen's votes.
 
 Constraints of this sandbox:
 
@@ -54,6 +56,18 @@ Keep a scratch list as you go, for example `/tmp/candidates.jsonl`, one JSON obj
 - Merge only when it is the same specific idea. The same person's story in two places is one candidate with both links. Two different people doing the same specific thing is one candidate with both links and stronger evidence.
 - The title names the specific idea in twelve words or fewer, concrete noun first. Banned as the main noun: automation, workflows, apps, tools, logistics, admin, use cases, productivity. If the title would fit many different reports, it is too vague.
 - Match each candidate to `data/ideas.json` by meaning, not by string. If it is the same specific idea as an existing record, reuse that `id`. Otherwise mint a new kebab-case `id` of three to six words and one to three `aliases`.
+
+## 2b. Read Stephen's votes
+
+Load the Artifact tools, then call `ArtifactData` with action `list`, url `https://claude.ai/artifact/2cej2sNszDSucKegimkkAq`, collection `votes`. Each document id is an idea id and the body is `{"vote": "interested" | "no" | "trying", "reason": "effort" | "skills" | "doubt" | "already" | null, "outcome": "...", "at": "..."}`. Write the whole map to `data/feedback.json` as `{"<idea id>": {vote, reason, outcome, at}}`. If the call fails or the collection is empty, write `{}` and continue.
+
+Apply the votes:
+
+- An idea voted `no` never goes in `top5`. The build script rejects a top5 that holds one.
+- A candidate that is a near relative of a `no` idea with reason `skills` scores Fit at most 10; with reason `effort`, Effort at most 6; with `doubt`, Evidence at most 6; with `already`, treat it as a repeat of that idea and reuse its id. Say so in the factor's reason.
+- A candidate that is a near relative of an `interested` or `trying` idea gets up to 3 extra Fit points, within the maximum, and the reason says why.
+- Rewrite the section `## Learned from votes` at the end of `rubric.md`: one dated paragraph of at most 120 words that states the patterns in plain words, such as "Stephen rejected three content-creation ideas for not my skills, so Fit for creator ideas is capped at 10." Keep facts only. Never change factor maxima or the anchor tables.
+- Set `feedback_note` in the week file to one sentence on what changed this run because of votes, or `""` when no votes exist.
 
 ## 3. Score
 
@@ -136,6 +150,10 @@ git push -u origin "week/<WEEK>"
 gh pr create --title "<WEEK> scan" --body "Weekly scan. Push to main was refused." 2>/dev/null || echo "PR needed for branch week/<WEEK>"
 ```
 
+## 7b. Publish the board
+
+After the push succeeds, publish the Artifact so the board shows this week. Call `Artifact` with action `publish`, url `https://claude.ai/artifact/2cej2sNszDSucKegimkkAq`, file_path `board.html`, and files `{"data/leaderboard.json": "data/leaderboard.json"}`. Omit `capabilities` and `icon` so the stored declaration carries forward. If the publish is refused with a newer version, read the artifact, keep its page as is, and publish again with only the data file. If it fails twice, say so in the final message; the repo already holds the data.
+
 ## 8. Final message
 
-One paragraph: the week, the status, how many candidates were scored, the five titles in `top5`, and which sources failed.
+One paragraph: the week, the status, how many candidates were scored, the five titles in `top5`, which sources failed, how many votes were read, and whether the board published.
