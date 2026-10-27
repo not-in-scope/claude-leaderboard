@@ -2,7 +2,7 @@
 
 Tier 1 is read every run and must be covered before collection stops. Tier 2 is read every run as extra signal. Tier 3 is read on the first run of each month. `status` is `active`, `paused`, or `excluded`. `last_yield` is the number of candidates whose evidence cited the source in the most recent run. The routine updates `last_yield` and `note`; Stephen edits everything else.
 
-`how_read` values: `reddit` (Reddit RSS endpoints), `hn` (Algolia API), `rss` (feed URL in `queries`), `fetch` (plain page fetch), `search` (web search with the queries listed).
+`how_read` values: `reddit` (Reddit RSS endpoints, until 2026-11-13), `gsearch` (Reddit posts through a Google Programmable Search Engine restricted to reddit.com; needs `GOOGLE_CSE_KEY` and `GOOGLE_CSE_CX`), `hn` (Algolia API), `rss` (feed URL in `queries`), `fetch` (plain page fetch), `search` (web search with the queries listed).
 
 ## Reddit
 
@@ -78,6 +78,23 @@ Reddit stopped self-serve app registration in late 2025, so API credentials exis
 | r/MakeMoneyOnline | reddit | - | - | - | excluded | 0 | low quality |
 | r/beermoney | reddit | - | - | - | excluded | 0 | low quality |
 | r/ClaudeAIJailbreak | reddit | - | - | - | excluded | 0 | off purpose |
+
+## Reddit through Google's index
+
+Used when `GOOGLE_CSE_KEY` and `GOOGLE_CSE_CX` are set on the cloud environment. The engine searches only reddit.com, each query returns up to 20 posts from the last ten days, and the routine spends at most 40 calls a run.
+
+| source | type | tier | how_read | queries | status | last_yield | note |
+|---|---|---|---|---|---|---|---|
+| Google: Claude money | gsearch | 1 | gsearch | "claude code" (MRR OR revenue OR clients OR "paying customers") | active | 0 | |
+| Google: Claude built | gsearch | 1 | gsearch | "built with claude" OR "claude code" ("I built" OR shipped OR launched) | active | 0 | |
+| Google: Claude saved time | gsearch | 1 | gsearch | claude ("saved me" OR "hours a week" OR "my workflow") | active | 0 | |
+| Google: Claude freelance | gsearch | 1 | gsearch | claude (upwork OR freelance OR consulting OR clients) | active | 0 | |
+| Google: Claude family | gsearch | 1 | gsearch | claude (kids OR family OR parenting OR household OR "meal plan") | active | 0 | life |
+| Google: Claude planning | gsearch | 1 | gsearch | claude (budget OR trip OR itinerary OR schedule OR "weekly review") | active | 0 | life |
+| Google: Claude agents | gsearch | 1 | gsearch | claude (agent OR automation OR n8n OR MCP) (clients OR revenue OR "saved me") | active | 0 | |
+| Google: Claude data work | gsearch | 1 | gsearch | claude (dashboard OR SQL OR "data pipeline" OR analytics OR PRD) ("I built" OR "saved me") | active | 0 | time |
+| Google: Claude side project | gsearch | 1 | gsearch | claude ("side project" OR "micro saas" OR "indie") (users OR revenue) | active | 0 | |
+| Google: Claude content | gsearch | 2 | gsearch | claude (newsletter OR substack OR youtube OR etsy) (revenue OR subscribers OR sales) | active | 0 | creator |
 
 ## Forums and aggregators
 
