@@ -6,7 +6,7 @@ Tier 1 is read every run and must be covered before collection stops. Tier 2 is 
 
 ## Reddit
 
-Read with `https://www.reddit.com/r/<sub>/top.rss?t=week&limit=100` and `https://www.reddit.com/r/<sub>/search.rss?q=<query>&restrict_sr=1&sort=new&t=week&limit=50`. The `.json` endpoints return 403 from the cloud sandbox and web search returns no Reddit pages, so RSS is the only path; a failed subreddit is recorded and skipped.
+Read with `https://www.reddit.com/r/<sub>/top.rss?t=week&limit=100` and `https://www.reddit.com/r/<sub>/search.rss?q=<query>&restrict_sr=1&sort=new&t=week&limit=50`. The `.json` endpoints return 403 from the cloud sandbox and web search returns no Reddit pages, so RSS is the only path; a failed subreddit is recorded and skipped. Reddit allows about one anonymous RSS request per minute, so the routine fetches the top feed for every subreddit and the query feeds only for the six Claude-specific ones.
 
 | source | type | tier | how_read | queries | status | last_yield | note |
 |---|---|---|---|---|---|---|---|
