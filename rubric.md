@@ -99,4 +99,4 @@ The first step is one concrete action that takes under three hours, such as "Bui
 
 ## Learned from votes
 
-No votes yet. The weekly run rewrites this section from Stephen's Interested, Not for me, and Trying it votes on the board.
+2026-10-28: No votes yet; the board's votes collection is empty, so no Fit, Effort or Evidence caps or boosts apply. The weekly run rewrites this section from Stephen's Interested, Not for me, and Trying it votes on the board.
