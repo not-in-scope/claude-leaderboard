@@ -20,7 +20,7 @@ TOP_N = 5
 EVIDENCE_MIN = 2
 EVIDENCE_MAX = 5
 EVIDENCE_KEEP = 10
-ALL_TIME_N = 20
+ALL_TIME_N = 500
 RISING_MIN_WEEKS = 3
 RISING_N = 20
 WEEK_RE = re.compile(r"^\d{4}-W(0[1-9]|[1-4]\d|5[0-3])$")
@@ -228,6 +228,7 @@ def build_board(ideas, weeks, feedback=None):
             "sources_failed": w.get("sources_failed", []),
             "top5": [by_id[s] for s in w["top5"]],
             "category_leaders": leaders,
+            "candidates": sorted(w["candidates"], key=lambda c: (-c["total"], c["id"])),
             "feedback_note": w.get("feedback_note", ""),
         }
     shown = [r for r in ideas if r["id"] not in hidden_ids]

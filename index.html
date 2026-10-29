@@ -168,7 +168,7 @@ function renderTiles(b){
   const tiles = [
     [tw ? tw.candidates_scored : 0, "Scored this week"],
     [tw ? tw.top5.length : 0, "Published"],
-    [b.all_time.length, "All-time ideas"],
+    [b.all_time.length, "Ideas tracked"],
     [b.rising.length, "Rising"],
   ];
   document.getElementById("tiles").innerHTML = tiles.map(([n, l]) => `<div class="tile"><div class="n">${n}</div><div class="l">${l}</div></div>`).join("");
@@ -213,8 +213,18 @@ function renderWeek(b){
       if (SHOW_HIDDEN) html += p.hidden.map(r => card(r)).join("");
     }
   }
+  const all = (tw.candidates || []).filter(c => CAT === "all" || c.category === CAT);
+  if (tw.candidates?.length) {
+    const chips = ["all", ...CATS].map(k => `<span class="tab ${CAT === k ? "on" : ""}" data-cat="${k}" tabindex="0">${k}</span>`).join("");
+    html += `<h2>All ${tw.candidates.length} scored this week</h2><div class="tabs" id="cats">${chips}</div>` + renderTable(all.map((c, i) => asRow(c, i + 1, tw.week)));
+  }
   if (tw.sources_failed?.length) html += `<div class="note">Sources that failed this run: ${tw.sources_failed.map(s => esc(s.source)).join(", ")}</div>`;
   return html;
+}
+function asRow(c, rank, week){
+  return {id: c.id, title: c.title, category: c.category, best_score: c.total, weeks_seen: "", first_week: week, rank,
+          evidence: c.evidence, latest: {pitch: c.pitch, first_step: c.first_step, scores: c.scores, reasons: c.reasons,
+                                         dollars: c.dollars, hours_per_week: c.hours_per_week}};
 }
 function renderTable(rows){
   rows = rows.filter(r => SHOW_HIDDEN || !isHidden(r.id));

@@ -241,7 +241,8 @@ def test_merge_same_week_twice_is_idempotent():
 
 # ---- board ----
 
-def test_all_time_capped_at_twenty_and_sorted():
+def test_all_time_capped_and_sorted(monkeypatch):
+    monkeypatch.setattr(build, "ALL_TIME_N", 20)
     w = week_file(50)
     w["candidates"] = [candidate(i, total=50 + (i % 26)) for i in range(50)]
     ideas = build.merge([], build.validate_week(w))
@@ -277,6 +278,9 @@ def test_this_week_top5_and_category_leaders():
     tw = board["this_week"]
     assert tw["week"] == "2026-W44" and tw["status"] == "ok"
     assert [c["id"] for c in tw["top5"]] == ["idea-000", "idea-001", "idea-002", "idea-003", "idea-004"]
+    assert len(tw["candidates"]) == 50
+    assert [c["total"] for c in tw["candidates"]] == sorted((c["total"] for c in tw["candidates"]), reverse=True)
+    assert tw["candidates"][0]["id"] == "idea-007"
     leaders = tw["category_leaders"]
     assert leaders["money"]["total"] == 70
     assert leaders["time"]["id"] == "idea-007"
