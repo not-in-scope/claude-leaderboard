@@ -31,7 +31,7 @@ If `data/weeks/<WEEK>.json` already exists, this is a rerun. Overwrite it.
 
 ## 1. Collect
 
-Target: 50 or more distinct candidates. A candidate is a first-hand report, dated within the window, of a person or small team using Claude (claude.ai, Claude Code, Claude Cowork, the API) to earn money, save hours at work, or run personal or family life. It must have a URL.
+Target: 50 or more distinct candidates. A candidate is a first-hand report, dated within the window, of a person or small team using Claude (claude.ai, Claude Code, Claude Cowork, the API) to earn money, get hired, or run home and family life. It must have a URL.
 
 Not a candidate: model comparisons, benchmarks, complaints, speculation about jobs, prompt lists with no outcome, product announcements with no user report, posts about other tools with no Claude angle.
 
@@ -92,7 +92,7 @@ Apply the votes:
 
 ## 3. Score
 
-Apply `rubric.md` exactly. Integer scores within each factor's maximum. One-line reason per factor. `total` is the sum. `category` is `money`, `time`, or `life`. `dollars` is a low and high annual estimate; for `time` and `life` compute it from hours saved and the rate in `rubric.md`. `hours_per_week` is the effort to run it. Two to five evidence items, each with `url`, `source` (as named in `sources.md`, or the domain), `date`, and a short `claim` quoting the number or outcome.
+Apply `rubric.md` exactly. Integer scores within each factor's maximum. One-line reason per factor. `total` is the sum. `category` is `earn`, `career`, or `home`. `dollars` is a low and high annual estimate; for `time` and `life` compute it from hours saved and the rate in `rubric.md`. `hours_per_week` is the effort to run it. Two to five evidence items, each with `url`, `source` (as named in `sources.md`, or the domain), `date`, and a short `claim` quoting the number or outcome.
 
 `top5` is the five highest totals. Break ties by more evidence, then more recent. If you have 15 to 49 candidates, still pick five. If you have fewer than 15, set `top5` to `[]` and explain in `note`.
 
@@ -122,7 +122,7 @@ One candidate object:
   "id": "compliance-audit-prep-micro-saas",
   "title": "Compliance audit prep micro-SaaS built with Claude Code",
   "aliases": ["soc2 evidence helper"],
-  "category": "money",
+  "category": "earn",
   "pitch": "Two sentences.",
   "first_step": "One concrete action under three hours.",
   "scores": {"fit": 22, "upside": 14, "time_to_dollar": 9, "effort": 10, "evidence": 11, "durability": 7},

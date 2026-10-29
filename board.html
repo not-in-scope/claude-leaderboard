@@ -35,9 +35,9 @@ h2{font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink2
 .title{font-weight:650;flex:1 1 200px;overflow-wrap:anywhere;min-width:0}
 .score{display:inline-block;min-width:38px;text-align:center;padding:2px 8px;border-radius:999px;font-weight:700;font-size:12px;background:var(--green2);color:var(--green);font-variant-numeric:tabular-nums}
 .cat{font-size:10px;font-weight:700;padding:1px 7px;border-radius:4px;text-transform:uppercase;letter-spacing:.04em}
-.cat.money{background:var(--green2);color:var(--green)}
-.cat.time{background:var(--blue2);color:var(--blue)}
-.cat.life{background:var(--amber2);color:var(--amber)}
+.cat.earn{background:var(--green2);color:var(--green)}
+.cat.career{background:var(--blue2);color:var(--blue)}
+.cat.home{background:var(--amber2);color:var(--amber)}
 .pitch{font-size:13px;color:var(--ink);opacity:.9;margin-top:6px;overflow-wrap:anywhere}
 .step{font-size:13px;margin-top:6px}
 .step b{color:var(--ink2);font-weight:600;margin-right:4px}
@@ -107,7 +107,9 @@ td.idea{min-width:240px}
 <script>
 const FACTORS = [["fit","Fit for you",25],["upside","Upside",20],["time_to_dollar","Time to benefit",15],
                  ["effort","Effort",15],["evidence","Evidence",15],["durability","Durability",10]];
-const CATS = ["money","time","life"];
+const CATS = ["earn","career","home"];
+const LABELS = {earn: "Earn", career: "Career", home: "Home"};
+const CAT_HELP = {earn: "makes money now", career: "gets you the next role: job search, interview prep, portfolio projects", home: "home, family, and planning"};
 const LEGEND = {
   fit: "how much it uses skills you already have (PM, data, AI, compliance), or for life ideas how well it fits your household",
   upside: "realistic annual dollars, or hours saved a week",
@@ -131,7 +133,7 @@ const money = n => "$" + Number(n).toLocaleString();
 const voteOf = id => VOTES[id] || null;
 
 function flag(status){ return `<span class="flag ${esc(status)}">${esc(status)}</span>`; }
-function cat(c){ return `<span class="cat ${esc(c)}">${esc(c)}</span>`; }
+function cat(c){ return `<span class="cat ${esc(c)}" title="${esc(CAT_HELP[c] || "")}">${esc(LABELS[c] || c)}</span>`; }
 function links(ev){
   return (ev || []).map(e => /^https?:\/\//i.test(e.url)
     ? `<a href="${esc(e.url)}" target="_blank" rel="noopener" title="${esc(e.claim || "")}">${esc(e.source || host(e.url))}</a>`
@@ -211,7 +213,7 @@ function renderWeek(b){
   if (top.length) html += `<h2>Top 5 · ${esc(tw.week)}</h2>` + top.map((c, i) => card(c, i + 1)).join("");
   const L = tw.category_leaders || {};
   if (CATS.some(k => L[k])) {
-    html += `<h2>Category leaders</h2><div class="leaders">${CATS.map(k => L[k] ? card(L[k]) : `<div class="empty">No ${k} idea this week</div>`).join("")}</div>`;
+    html += `<h2>Category leaders</h2><div class="leaders">${CATS.map(k => L[k] ? card(L[k]) : `<div class="empty">No ${LABELS[k]} idea this week</div>`).join("")}</div>`;
   }
   if (CAN_VOTE) {
     const p = picks(b);
@@ -227,7 +229,7 @@ function renderWeek(b){
   }
   const all = (tw.candidates || []).filter(c => CAT === "all" || c.category === CAT);
   if (tw.candidates?.length) {
-    const chips = ["all", ...CATS].map(k => `<span class="tab ${CAT === k ? "on" : ""}" data-cat="${k}" tabindex="0">${k}</span>`).join("");
+    const chips = ["all", ...CATS].map(k => `<span class="tab ${CAT === k ? "on" : ""}" data-cat="${k}" tabindex="0">${k === "all" ? "All" : LABELS[k]}</span>`).join("");
     html += `<h2>All ${tw.candidates.length} scored this week</h2><div class="tabs" id="cats">${chips}</div>` + renderTable(all.map(c => asRow(c, tw.week)), "week") + legend();
   }
   if (tw.sources_failed?.length) html += `<div class="note">Sources that failed this run: ${tw.sources_failed.map(s => esc(s.source)).join(", ")}</div>`;
@@ -271,7 +273,7 @@ function renderTable(rows, id, extra){
   return `<div class="tblwrap"><table><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table></div>`;
 }
 function legend(){
-  return `<div class="legend">Click a column to sort. ${FACTORS.map(([k, l, m]) => `<span><b>${l}</b> ${esc(LEGEND[k])}, 0 to ${m}.</span>`).join(" ")} <span><b>Total</b> the sum, 0 to 100.</span></div>`;
+  return `<div class="legend">Click a column to sort. ${FACTORS.map(([k, l, m]) => `<span><b>${l}</b> ${esc(LEGEND[k])}, 0 to ${m}.</span>`).join(" ")} <span><b>Total</b> the sum, 0 to 100.</span> Categories: ${CATS.map(k => `<b>${LABELS[k]}</b> ${esc(CAT_HELP[k])}`).join("; ")}.</div>`;
 }
 function asRow(c, week){
   return {id: c.id, title: c.title, category: c.category, total: c.total, scores: c.scores, reasons: c.reasons,
@@ -285,7 +287,7 @@ function ideaRow(r){
           evidence: r.evidence, first_week: r.first_week, weeks_seen: r.weeks_seen};
 }
 function renderAll(b){
-  const chips = ["all", ...CATS].map(k => `<span class="tab ${CAT === k ? "on" : ""}" data-cat="${k}" tabindex="0">${k}</span>`).join("");
+  const chips = ["all", ...CATS].map(k => `<span class="tab ${CAT === k ? "on" : ""}" data-cat="${k}" tabindex="0">${k === "all" ? "All" : LABELS[k]}</span>`).join("");
   const rows = (CAT === "all" ? b.all_time : b.all_time.filter(r => r.category === CAT)).map(ideaRow);
   return `<div class="tabs" id="cats">${chips}</div>` + renderTable(rows, "all", [["weeks", "Weeks"]]) + legend();
 }

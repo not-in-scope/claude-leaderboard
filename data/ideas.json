@@ -5,7 +5,7 @@
   "aliases": [
    "washer local control"
   ],
-  "category": "life",
+  "category": "home",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -64,7 +64,7 @@
    "cnvs",
    "design loop with claude code"
   ],
-  "category": "money",
+  "category": "earn",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -123,7 +123,7 @@
    "autonomous claude code agent ledger",
    "isbn and bookstore distribution"
   ],
-  "category": "money",
+  "category": "earn",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -181,7 +181,7 @@
   "aliases": [
    "agents write a podcast"
   ],
-  "category": "time",
+  "category": "career",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -239,7 +239,7 @@
   "aliases": [
    "ctc forced alignment"
   ],
-  "category": "life",
+  "category": "home",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -298,7 +298,7 @@
    "pagecritic",
    "let claude run a business"
   ],
-  "category": "money",
+  "category": "earn",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -357,7 +357,7 @@
    "internal linking tool",
    "seo link finder"
   ],
-  "category": "money",
+  "category": "earn",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -416,7 +416,7 @@
    "tabby tab manager",
    "19 days 546 messages"
   ],
-  "category": "money",
+  "category": "earn",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -474,7 +474,7 @@
   "aliases": [
    "claudekit"
   ],
-  "category": "money",
+  "category": "earn",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -532,7 +532,7 @@
   "aliases": [
    "claude cert study guide"
   ],
-  "category": "money",
+  "category": "earn",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -591,7 +591,7 @@
    "growth os in claude code",
    "claude code for growth marketing"
   ],
-  "category": "money",
+  "category": "earn",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -650,7 +650,7 @@
    "ai job search repo",
    "claude job hunter"
   ],
-  "category": "time",
+  "category": "career",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -716,7 +716,7 @@
    "launch videos with claude and hyperframes",
    "video-short skill"
   ],
-  "category": "money",
+  "category": "earn",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -799,7 +799,7 @@
    "bi software is dead",
    "html dashboards instead of looker"
   ],
-  "category": "time",
+  "category": "career",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -870,7 +870,7 @@
    "google ads api scripts with claude",
    "ppc freelancer claude code"
   ],
-  "category": "money",
+  "category": "earn",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -928,7 +928,7 @@
   "aliases": [
    "conferencefindr"
   ],
-  "category": "money",
+  "category": "earn",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -987,7 +987,7 @@
    "plumbing estimate spreadsheet",
    "housingwizard"
   ],
-  "category": "time",
+  "category": "career",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -1051,7 +1051,7 @@
   "aliases": [
    "diabetes app with ai"
   ],
-  "category": "life",
+  "category": "home",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -1109,7 +1109,7 @@
   "aliases": [
    "claude code routine watcher"
   ],
-  "category": "time",
+  "category": "career",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -1167,7 +1167,7 @@
   "aliases": [
    "tapo nas archiver"
   ],
-  "category": "life",
+  "category": "home",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -1225,7 +1225,7 @@
   "aliases": [
    "claude ebook digital products"
   ],
-  "category": "money",
+  "category": "earn",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -1284,7 +1284,7 @@
    "claude tax return review",
    "tax draft error check"
   ],
-  "category": "life",
+  "category": "home",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -1343,7 +1343,7 @@
    "kids sports calendar assistant",
    "family finance app built with claude code"
   ],
-  "category": "life",
+  "category": "home",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -1402,7 +1402,7 @@
    "which parent drives to which game",
    "sports schedule conflicts with claude"
   ],
-  "category": "life",
+  "category": "home",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -1460,7 +1460,7 @@
   "aliases": [
    "letsfg connector trip planning"
   ],
-  "category": "life",
+  "category": "home",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -1518,7 +1518,7 @@
   "aliases": [
    "coastmath"
   ],
-  "category": "life",
+  "category": "home",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -1576,7 +1576,7 @@
   "aliases": [
    "flight booking agent checks"
   ],
-  "category": "life",
+  "category": "home",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -1634,7 +1634,7 @@
   "aliases": [
    "home planning with claude"
   ],
-  "category": "life",
+  "category": "home",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -1692,7 +1692,7 @@
   "aliases": [
    "duology skills"
   ],
-  "category": "money",
+  "category": "earn",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -1750,7 +1750,7 @@
   "aliases": [
    "scope-creep-guard"
   ],
-  "category": "money",
+  "category": "earn",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -1808,7 +1808,7 @@
   "aliases": [
    "weekly review skill"
   ],
-  "category": "life",
+  "category": "home",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -1867,7 +1867,7 @@
    "garmin mcp",
    "claude builds my intervals"
   ],
-  "category": "life",
+  "category": "home",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -1926,7 +1926,7 @@
    "ghost job checker",
    "getdiogenes"
   ],
-  "category": "time",
+  "category": "career",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -1985,7 +1985,7 @@
    "eight weeks of putting it off",
    "sop to asana"
   ],
-  "category": "time",
+  "category": "career",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -2043,7 +2043,7 @@
   "aliases": [
    "member progress email automation"
   ],
-  "category": "money",
+  "category": "earn",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -2101,7 +2101,7 @@
   "aliases": [
    "penmentor"
   ],
-  "category": "life",
+  "category": "home",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -2159,7 +2159,7 @@
   "aliases": [
    "fix it myself with claude"
   ],
-  "category": "life",
+  "category": "home",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -2218,7 +2218,7 @@
    "hotel fee checker",
    "hotel price drop watch"
   ],
-  "category": "life",
+  "category": "home",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -2277,7 +2277,7 @@
    "faceless video studio",
    "claude animated video"
   ],
-  "category": "money",
+  "category": "earn",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -2347,7 +2347,7 @@
   "aliases": [
    "jisho replacement"
   ],
-  "category": "life",
+  "category": "home",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -2405,7 +2405,7 @@
   "aliases": [
    "family minecraft server"
   ],
-  "category": "life",
+  "category": "home",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -2463,7 +2463,7 @@
   "aliases": [
    "symptom triage"
   ],
-  "category": "life",
+  "category": "home",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -2521,7 +2521,7 @@
   "aliases": [
    "bc election dashboard"
   ],
-  "category": "time",
+  "category": "career",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -2580,7 +2580,7 @@
    "zenmode",
    "safer linkedin automation"
   ],
-  "category": "money",
+  "category": "earn",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -2644,7 +2644,7 @@
   "aliases": [
    "log my normal breakfast"
   ],
-  "category": "life",
+  "category": "home",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -2702,7 +2702,7 @@
   "aliases": [
    "deal radar"
   ],
-  "category": "money",
+  "category": "earn",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -2760,7 +2760,7 @@
   "aliases": [
    "vibeling mcp"
   ],
-  "category": "money",
+  "category": "earn",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -2818,7 +2818,7 @@
   "aliases": [
    "scan explainer video"
   ],
-  "category": "life",
+  "category": "home",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -2877,7 +2877,7 @@
    "overheard",
    "meeting memory mcp"
   ],
-  "category": "time",
+  "category": "career",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -2935,7 +2935,7 @@
   "aliases": [
    "quickchat code review benchmark"
   ],
-  "category": "time",
+  "category": "career",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -2993,7 +2993,7 @@
   "aliases": [
    "retell voice agent via claude code"
   ],
-  "category": "time",
+  "category": "career",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -3051,7 +3051,7 @@
   "aliases": [
    "tributary"
   ],
-  "category": "life",
+  "category": "home",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -3110,7 +3110,7 @@
    "aigent-os newsletter",
    "agent-run newsletter business"
   ],
-  "category": "money",
+  "category": "earn",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -3168,7 +3168,7 @@
   "aliases": [
    "independent vet"
   ],
-  "category": "money",
+  "category": "earn",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -3226,7 +3226,7 @@
   "aliases": [
    "apple tv morning edition"
   ],
-  "category": "time",
+  "category": "career",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -3284,7 +3284,7 @@
   "aliases": [
    "obsidian plugin with claude"
   ],
-  "category": "time",
+  "category": "career",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -3342,7 +3342,7 @@
   "aliases": [
    "kinetic solver review"
   ],
-  "category": "time",
+  "category": "career",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -3401,7 +3401,7 @@
    "pipeline-in-a-person",
    "mithril medicine"
   ],
-  "category": "money",
+  "category": "earn",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -3459,7 +3459,7 @@
   "aliases": [
    "claude chief of staff queue"
   ],
-  "category": "time",
+  "category": "career",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -3517,7 +3517,7 @@
   "aliases": [
    "store ops agents"
   ],
-  "category": "time",
+  "category": "career",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -3576,7 +3576,7 @@
    "life-distributable",
    "agent bought itself a mac mini"
   ],
-  "category": "life",
+  "category": "home",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -3634,7 +3634,7 @@
   "aliases": [
    "news impact prompts"
   ],
-  "category": "time",
+  "category": "career",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -3692,7 +3692,7 @@
   "aliases": [
    "yarareads"
   ],
-  "category": "life",
+  "category": "home",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -3751,7 +3751,7 @@
    "product analytics agent",
    "claude reads posthog"
   ],
-  "category": "money",
+  "category": "earn",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -3809,7 +3809,7 @@
   "aliases": [
    "podium"
   ],
-  "category": "time",
+  "category": "career",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -3870,7 +3870,7 @@
    "claude duet",
    "always-on personal agent"
   ],
-  "category": "time",
+  "category": "career",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -3959,7 +3959,7 @@
    "sports video coach",
    "claude watches my game film"
   ],
-  "category": "life",
+  "category": "home",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -4017,7 +4017,7 @@
   "aliases": [
    "diy business software"
   ],
-  "category": "time",
+  "category": "career",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -4075,7 +4075,7 @@
   "aliases": [
    "reply queue extension"
   ],
-  "category": "money",
+  "category": "earn",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -4134,7 +4134,7 @@
    "doordash alternative for restaurants",
    "nomback"
   ],
-  "category": "money",
+  "category": "earn",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -4192,7 +4192,7 @@
   "aliases": [
    "restaurant operations with claude"
   ],
-  "category": "time",
+  "category": "career",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -4251,7 +4251,7 @@
    "crewdash",
    "youth sports results tracker"
   ],
-  "category": "life",
+  "category": "home",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -4309,7 +4309,7 @@
   "aliases": [
    "30 days only claude code"
   ],
-  "category": "money",
+  "category": "earn",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -4367,7 +4367,7 @@
   "aliases": [
    "claude triages support tickets"
   ],
-  "category": "time",
+  "category": "career",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -4426,7 +4426,7 @@
    "keepard",
    "household budget app"
   ],
-  "category": "life",
+  "category": "home",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -4484,7 +4484,7 @@
   "aliases": [
    "patch servers with claude"
   ],
-  "category": "time",
+  "category": "career",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -4542,7 +4542,7 @@
   "aliases": [
    "dubbing line proofreader"
   ],
-  "category": "money",
+  "category": "earn",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -4600,7 +4600,7 @@
   "aliases": [
    "onkey"
   ],
-  "category": "life",
+  "category": "home",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -4659,7 +4659,7 @@
    "nonprofit reporting with claude in excel",
    "sop and ops cleanup with claude"
   ],
-  "category": "time",
+  "category": "career",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -4730,7 +4730,7 @@
    "tv debloat",
    "cleanyourtv"
   ],
-  "category": "life",
+  "category": "home",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -4807,7 +4807,7 @@
    "side project built with claude code",
    "mcp feature for existing app"
   ],
-  "category": "money",
+  "category": "earn",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -4872,7 +4872,7 @@
    "months of work in one weekend",
    "law firm back office with claude"
   ],
-  "category": "time",
+  "category": "career",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -4930,7 +4930,7 @@
   "aliases": [
    "monk stock research"
   ],
-  "category": "money",
+  "category": "earn",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -4988,7 +4988,7 @@
   "aliases": [
    "harvey sales agent"
   ],
-  "category": "money",
+  "category": "earn",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -5046,7 +5046,7 @@
   "aliases": [
    "teacher cowork"
   ],
-  "category": "time",
+  "category": "career",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -5104,7 +5104,7 @@
   "aliases": [
    "kid morning planner app"
   ],
-  "category": "life",
+  "category": "home",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -5162,7 +5162,7 @@
   "aliases": [
    "tradr"
   ],
-  "category": "money",
+  "category": "earn",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -5220,7 +5220,7 @@
   "aliases": [
    "maps-lists plugin"
   ],
-  "category": "life",
+  "category": "home",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -5278,7 +5278,7 @@
   "aliases": [
    "claude reviews freelancer proposals"
   ],
-  "category": "time",
+  "category": "career",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -5336,7 +5336,7 @@
   "aliases": [
    "wtfm plugin"
   ],
-  "category": "time",
+  "category": "career",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -5395,7 +5395,7 @@
    "claude meal plan shopping list",
    "macro-based dinner planning"
   ],
-  "category": "life",
+  "category": "home",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -5466,7 +5466,7 @@
    "automata mcp",
    "client chat tracking"
   ],
-  "category": "time",
+  "category": "career",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -5531,7 +5531,7 @@
    "astro conversion kit",
    "wordpress migration service"
   ],
-  "category": "money",
+  "category": "earn",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [
@@ -5589,7 +5589,7 @@
   "aliases": [
    "youtube summary bot"
   ],
-  "category": "time",
+  "category": "career",
   "first_week": "2026-W44",
   "last_week": "2026-W44",
   "weeks": [

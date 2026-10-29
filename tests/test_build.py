@@ -13,7 +13,7 @@ BASE_SCORES = {"fit": 20, "upside": 15, "time_to_dollar": 10,
                "effort": 10, "evidence": 10, "durability": 5}
 
 
-def candidate(i, category="money", total=70, week="2026-W44"):
+def candidate(i, category="earn", total=70, week="2026-W44"):
     """A valid candidate. total must be 50..75 (fit absorbs the difference)."""
     scores = dict(BASE_SCORES)
     scores["fit"] = BASE_SCORES["fit"] + (total - 70)
@@ -271,8 +271,8 @@ def test_rising_requires_three_weeks():
 
 def test_this_week_top5_and_category_leaders():
     w = week_file(50)
-    w["candidates"][3] = candidate(3, category="time", total=71)
-    w["candidates"][7] = candidate(7, category="time", total=74)
+    w["candidates"][3] = candidate(3, category="career", total=71)
+    w["candidates"][7] = candidate(7, category="career", total=74)
     ideas = build.merge([], build.validate_week(w))
     board = build.build_board(ideas, [w])
     tw = board["this_week"]
@@ -282,9 +282,9 @@ def test_this_week_top5_and_category_leaders():
     assert [c["total"] for c in tw["candidates"]] == sorted((c["total"] for c in tw["candidates"]), reverse=True)
     assert tw["candidates"][0]["id"] == "idea-007"
     leaders = tw["category_leaders"]
-    assert leaders["money"]["total"] == 70
-    assert leaders["time"]["id"] == "idea-007"
-    assert leaders["life"] is None
+    assert leaders["earn"]["total"] == 70
+    assert leaders["career"]["id"] == "idea-007"
+    assert leaders["home"] is None
 
 
 def test_history_lists_error_weeks_but_ignores_them():
@@ -394,11 +394,11 @@ def test_week_id_out_of_range_rejected():
 
 def test_category_leader_tie_picks_lowest_id():
     w = week_file(50)
-    w["candidates"][3] = candidate(3, category="time", total=72)
-    w["candidates"][7] = candidate(7, category="time", total=72)
+    w["candidates"][3] = candidate(3, category="career", total=72)
+    w["candidates"][7] = candidate(7, category="career", total=72)
     ideas = build.merge([], build.validate_week(w))
     board = build.build_board(ideas, [w])
-    assert board["this_week"]["category_leaders"]["time"]["id"] == "idea-003"
+    assert board["this_week"]["category_leaders"]["career"]["id"] == "idea-003"
 
 
 def test_run_survives_malformed_older_week(data_dir):

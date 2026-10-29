@@ -13,7 +13,7 @@ FACTOR_MAX = {
     "fit": 25, "upside": 20, "time_to_dollar": 15,
     "effort": 15, "evidence": 15, "durability": 10,
 }
-CATEGORIES = ("money", "time", "life")
+CATEGORIES = ("earn", "career", "home")
 OK_MIN = 50
 THIN_MIN = 15
 TOP_N = 5

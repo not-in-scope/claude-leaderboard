@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 import build  # noqa: E402
 
-CATS = ["money", "money", "time", "life"]
+CATS = ["earn", "earn", "career", "home"]
 WORDS = ["compliance audit prep", "meal planning", "SOC 2 evidence", "youth sports schedule",
          "Upwork data cleanup", "newsletter repurposing", "Etsy listing copy", "travel itinerary",
          "PRD drafting", "SQL review bot"]

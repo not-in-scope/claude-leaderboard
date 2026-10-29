@@ -108,7 +108,7 @@
     "which parent drives to which game",
     "sports schedule conflicts with claude"
    ],
-   "category": "life",
+   "category": "home",
    "pitch": "Ari Redbord wrote in Forbes that Claude reads the family calendar, estimates the drive between the field and the gym, and says when each parent would need to leave and who covers which event. His household has the same weekend sports juggling, and it uses his planning skill directly.",
    "first_step": "Connect Google Calendar to Claude, paste this weekend's game schedules, and ask for a two-parent driving plan with leave-by times.",
    "scores": {
@@ -156,7 +156,7 @@
     "bi software is dead",
     "html dashboards instead of looker"
    ],
-   "category": "time",
+   "category": "career",
    "pitch": "An engineer at Sean Anderson's company replaced a $300k-a-year Looker contract with Claude-built HTML dashboards in about two months of part-time work, and they told Google they will not renew; the same week David Lequin's write-up on doing this at a 500-person company drew 80 HN comments. It uses his SQL, data platform and BI strengths and his stakeholder skill at selling a build-versus-buy call to finance.",
    "first_step": "Pick one Looker or QuickSight dashboard your team opens weekly and have Claude Code rebuild it as one HTML file against the same SQL, then show both side by side.",
    "scores": {
@@ -216,7 +216,7 @@
     "ai job search repo",
     "claude job hunter"
    ],
-   "category": "time",
+   "category": "career",
    "pitch": "Gencay's Claude job hunter read 100 Upwork posts, narrowed them to 30, and drafted ten tailored proposals, building on Mads Lorentzen's open-source AI Job Search, which got its author 20 first interviews from 69 applications and one offer; Bikash Kalita released a similar free pipeline the same week. A senior PM targeting a few dozen roles could use it to cut application time while keeping every send manual.",
    "first_step": "Clone the AI Job Search repo, run its setup with your resume, and score this week's ten most interesting PM postings.",
    "scores": {
@@ -270,7 +270,7 @@
     "sports video coach",
     "claude watches my game film"
    ],
-   "category": "life",
+   "category": "home",
    "pitch": "Marius gave Claude Code frames from his rec-league shooting drill; it counted 9 of 11 set shots and 7 of 19 jump shots, caught that all eight late jump shots missed, and he open-sourced the CLI that builds a phone coaching page with clips and drills. A sports-heavy household could run this on the kids' game video every weekend.",
    "first_step": "Film ten minutes of one kid's practice this weekend and run sports-video-coach on it to see whether the feedback is usable.",
    "scores": {
@@ -318,7 +318,7 @@
     "claude meal plan shopping list",
     "macro-based dinner planning"
    ],
-   "category": "life",
+   "category": "home",
    "pitch": "Several Reddit users report handing Claude a screenshot of their macro targets or dietary limits and getting a week of dinners plus a shopping list that reuses leftovers and in-season produce, one piping the ingredients straight into a shared family list app. A busy sports household gets the Sunday planning hour back, and the setup suits his structured planning habit.",
    "first_step": "This Sunday, paste the family's calendar for the week and everyone's food constraints into Claude and ask for five dinners plus one grocery list grouped by store aisle.",
    "scores": {
@@ -378,7 +378,7 @@
     "claude duet",
     "always-on personal agent"
    ],
-   "category": "time",
+   "category": "career",
    "pitch": "Dan Shipper tested Claude Duet for two weeks and called it the first personal agent he would call a pro tool, moving his usage to roughly 50/50 with ChatGPT, while Claire Vo found it polished but too quiet and slow on inbox, Slack and ticket-hunting tasks. A PM juggling stakeholders could hand it recurring follow-ups and weekly status threads.",
    "first_step": "Join the Duet waitlist, or set up one scheduled Claude task that drafts Monday's stakeholder status from last week's threads.",
    "scores": {
@@ -438,7 +438,7 @@
     "overheard",
     "meeting memory mcp"
    ],
-   "category": "time",
+   "category": "career",
    "pitch": "A developer built Overheard, a free Mac menu-bar recorder that transcribes calls with no bot joining and exposes an MCP server, so Claude answers \"what did we decide about the launch?\" with the meeting and minute cited and drafts follow-ups. For a PM aligning stakeholders up to VP, it cuts the hunt through notes before every review.",
    "first_step": "Install Overheard, record this week's stakeholder calls, and ask Claude for Friday's decision log.",
    "scores": {
@@ -486,7 +486,7 @@
     "keepard",
     "household budget app"
    ],
-   "category": "life",
+   "category": "home",
    "pitch": "Rodion, an agency CTO, replaced a monthly Excel evening with a self-hosted household finance app built in nine days with Claude Code, and he and his wife have used it daily for two months. It uses his SQL and data-pipeline skills for the family budget.",
    "first_step": "Export three months of bank CSVs and ask Claude Code to build a local dashboard of spending by category, starting from the keepard repo.",
    "scores": {
@@ -533,7 +533,7 @@
    "aliases": [
     "kid morning planner app"
    ],
-   "category": "life",
+   "category": "home",
    "pitch": "A parent spent four days with Opus 5.5 building an iOS planner that shows a teenage daughter how long hair, clothes and breakfast take and when to hurry; after a week she opens it unprompted and wakes 20 minutes later. School-morning chaos is a recurring family pain point he could fix with a one-weekend build or a shared checklist.",
    "first_step": "Time each step of one school morning with your kids, then ask Claude to turn it into a countdown checklist on a shared phone or tablet.",
    "scores": {
@@ -581,7 +581,7 @@
     "claude tax return review",
     "tax draft error check"
    ],
-   "category": "life",
+   "category": "home",
    "pitch": "A US citizen abroad feeds a self-prepared draft return and all supporting paperwork to Claude each year; it caught a wrong exchange rate and flagged ambiguous treatments, though its estimated-tax maths was wrong. With RSUs and a family return, a second reviewer pass before filing fits his data comfort and costs one evening.",
    "first_step": "Before filing, give Claude last year's return PDF and source forms and ask it to list every number it cannot reconcile.",
    "scores": {
@@ -629,7 +629,7 @@
     "crewdash",
     "youth sports results tracker"
    ],
-   "category": "life",
+   "category": "home",
    "pitch": "A non-developer rowing parent built CrewDash with Claude Code in about two weeks after a regatta spent scrolling CrewTimer; it shows a club only its own boats with push alerts, race-day view, lineups and weather, and is now open source. A sports-heavy household could build the same filtered view for its own league's schedule and results site.",
    "first_step": "Pick the results or schedule site your kids' league uses and ask Claude Code for a one-page view filtered to your team, with a push alert on changes.",
    "scores": {
@@ -677,7 +677,7 @@
     "months of work in one weekend",
     "law firm back office with claude"
    ],
-   "category": "time",
+   "category": "career",
    "pitch": "Noel Bagwell, a solo lawyer, rebuilt his firm's website copy, intake automation, billing setup and booking calendars with Claude over one weekend, work he puts at 150 to 250 hours. The same playbook could be a consulting offer to compliance-heavy small practices.",
    "first_step": "List the ten small back-office fixes you have postponed and do the first three with Claude this Saturday.",
    "scores": {
@@ -725,7 +725,7 @@
     "tv debloat",
     "cleanyourtv"
    ],
-   "category": "life",
+   "category": "home",
    "pitch": "A Reddit user gave Claude Code their parents' Xiaomi TV model number; it found the set on Wi-Fi, disabled 25 ad and tracking apps and built a clean home screen, and the open-source result passed 16k GitHub stars in four days. A Samsung owner and an Android TV debloater author report the same result, and it is a one-evening fix for a family TV that kids use daily.",
    "first_step": "Point Claude Code at the family TV this weekend with the cleanyourtv repo and its \"never uninstall, back up first\" rules.",
    "scores": {
@@ -790,7 +790,7 @@
    "aliases": [
     "home planning with claude"
    ],
-   "category": "life",
+   "category": "home",
    "pitch": "An HN commenter had Claude convert a previous owner's rough floor plan into 3D, try options for one room, and build a shopping list from a local store with budgets, for about $1 of quota against a $10k design quote. Fits a family planning a room change.",
    "first_step": "Photograph your floor plan and ask Claude for three layouts of one room with a Home Depot list under a set budget.",
    "scores": {
@@ -838,7 +838,7 @@
     "eight weeks of putting it off",
     "sop to asana"
    ],
-   "category": "time",
+   "category": "career",
    "pitch": "Olivia Addy at the Open Wing Alliance had put off updating the grant due-diligence process for eight weeks; with Claude connected to Drive and Asana she rebuilt the plan, SOP and Asana tasks in four hours. Turning a stale process doc into a live checklist is routine PM work.",
    "first_step": "Pick one process doc you own that is out of date, connect Claude to Drive and your task tool, and ask it to propose the changes step by step.",
    "scores": {
@@ -886,7 +886,7 @@
     "hotel fee checker",
     "hotel price drop watch"
    ],
-   "category": "life",
+   "category": "home",
    "pitch": "One traveler has Claude pull the same hotel from several sites, add every tax and resort fee, mine recent reviews for hidden charges like $40 parking, then run a scheduled task each morning to rebook the refundable rate when it drops. For a sports family booking tournament hotels several times a year, it turns an evening of tab-juggling into a single prompt plus an automatic price watch.",
    "first_step": "Before the next away tournament, ask Claude for an all-in nightly total across three booking sites and set a daily scheduled recheck.",
    "scores": {
@@ -934,7 +934,7 @@
     "ghost job checker",
     "getdiogenes"
    ],
-   "category": "time",
+   "category": "career",
    "pitch": "A finance student pulled 200 entry-level postings from Adzuna and had the Claude API score ghost-job signals (repost loops, kitchen-sink requirements, no team context) for $1 total; 47 (23.5%) were high risk. Screening postings before spending an evening tailoring is a cheap filter for a senior PM search.",
    "first_step": "Pull this week's 30 saved PM postings into a sheet and ask Claude to score each for ghost-job signals before applying.",
    "scores": {
@@ -981,7 +981,7 @@
    "aliases": [
     "penmentor"
    ],
-   "category": "life",
+   "category": "home",
    "pitch": "Abdullah Alhariri released Penmentor, which has Claude annotate photos of handwritten math work the way a teacher would, and a homeschooling commenter planned to test it. Fits checking kids' homework without giving answers.",
    "first_step": "Photograph one page of your kid's math homework and run it through Penmentor or ask Claude to mark errors without solving.",
    "scores": {
@@ -1028,7 +1028,7 @@
    "aliases": [
     "letsfg connector trip planning"
    ],
-   "category": "life",
+   "category": "home",
    "pitch": "A Reddit user plans international family trips by adding the LetsFG and Booking.com connectors and giving Claude one detailed brief (two adults, kids 5 and 7, $10k budget, 20-hour flight cap, no noisy hotels, no hidden fees), saying it saves hours and hundreds of dollars. Tournament travel and holidays for a sports family fit the same brief template.",
    "first_step": "Add the flight and hotel connectors and paste your next family trip's constraints as one brief, then compare against what you would have booked.",
    "scores": {
@@ -1075,7 +1075,7 @@
    "aliases": [
     "yarareads"
    ],
-   "category": "life",
+   "category": "home",
    "pitch": "Eli Finer built a phonics reader so his 6-year-old can tap words to sound them out, with stories written by his 12-year-old, and an MCP connection so Claude can import a PDF of a book you own. Fits a family with young readers.",
    "first_step": "Try the reader with your youngest and import one favorite book through Claude.",
    "scores": {
@@ -1122,7 +1122,7 @@
    "aliases": [
     "claude chief of staff queue"
    ],
-   "category": "time",
+   "category": "career",
    "pitch": "A video-production owner runs every business lane (client renders, branding, bookkeeping, side projects) from one shared folder with per-lane CLAUDE.md files and a single queue of about 1,100 cards, using one orchestrator chat as chief of staff that sorts voice dumps into tasks. A PM with side projects could run the same queue-first setup for household and consulting work.",
    "first_step": "Make one folder with a CLAUDE.md and a queue file, then dictate today's loose tasks and have Claude sort them into cards.",
    "scores": {
@@ -1169,7 +1169,7 @@
    "aliases": [
     "maps-lists plugin"
    ],
-   "category": "life",
+   "category": "home",
    "pitch": "A traveler built maps-lists, a free Claude Code plugin where you describe what you want (\"natural wine bars open late in Gràcia\"), parallel research agents filter out tourist traps and closed places, and the picks land in a Google Maps list with a note each. For tournament weekends in a new city it replaces an hour of copy-paste per trip.",
    "first_step": "Install maps-lists and build a \"food near the fields\" list for the next away tournament.",
    "scores": {
@@ -1216,7 +1216,7 @@
    "aliases": [
     "wtfm plugin"
    ],
-   "category": "time",
+   "category": "career",
    "pitch": "Simon MX built WTFM, a free Claude Code plugin that runs a web app, seeds data, clicks through and writes illustrated end-user guides, because missing guides kept generating the same support emails. Writing launch docs and help content is routine PM work he could cut to an hour.",
    "first_step": "Install WTFM on one internal tool and generate the guide for its most-asked workflow.",
    "scores": {
@@ -1264,7 +1264,7 @@
     "automata mcp",
     "client chat tracking"
    ],
-   "category": "time",
+   "category": "career",
    "pitch": "An American working with Asian and EU clients built an MIT-licensed MCP that gives Claude access to only work chats on WhatsApp and Telegram so it can track threads and commitments, and the team has used it internally for a while. A second builder runs a similar chat watcher that drafts replies for approval.",
    "first_step": "Self-host automata-mcp against one work chat group and ask Claude for open commitments every morning.",
    "scores": {
@@ -1317,7 +1317,7 @@
    "aliases": [
     "member progress email automation"
    ],
-   "category": "money",
+   "category": "earn",
    "pitch": "A builder automated monthly progress docs for 140 members of a neighborhood gym: Claude reads CRM attendance and the lift and body-composition tracker, writes the copy, Gamma's MCP makes one doc per member, and the coach adds one line, for $20 a month. It is a data-to-narrative retention product he could sell to local studios, using his data and A/B-testing skills.",
    "first_step": "Ask a local gym or your kids' club for one month of anonymized attendance data and build three sample reports this weekend.",
    "scores": {
@@ -1364,7 +1364,7 @@
    "aliases": [
     "apple tv morning edition"
    ],
-   "category": "time",
+   "category": "career",
    "pitch": "A builder has an old Mac mini read their X, LinkedIn, Instagram, subreddits and newsletters each night; a headless Claude run picks the stories into a morning edition on Apple TV with weather, commute time and health data, learning from thumbs up and down. It replaces doom-scrolling for keeping up with AI, which a PM in the field has to do anyway.",
    "first_step": "Write a nightly script that saves your five newsletters and ask Claude to pick the three worth reading into one email.",
    "scores": {
@@ -1411,7 +1411,7 @@
    "aliases": [
     "fix it myself with claude"
    ],
-   "category": "life",
+   "category": "home",
    "pitch": "An HN commenter fixed underfloor heating using the free Claude tier, and another had Claude trace a Windows hibernate crash to an old Nvidia driver from logs. Saves service calls in any household.",
    "first_step": "Next time something breaks, give Claude photos, model numbers and symptoms before calling a technician.",
    "scores": {
@@ -1458,7 +1458,7 @@
    "aliases": [
     "flight booking agent checks"
    ],
-   "category": "life",
+   "category": "home",
    "pitch": "A traveler lets an Opus-based agent price every multi-stop trip as one ticket and as separate tickets, add bags and airport transfer, and check the pay-page total, finding a €747 per-person gap on one route. For family trips to tournaments, the same checklist catches the costs nobody prices by hand.",
    "first_step": "Give Claude your next family trip and ask it to price one-ticket vs split tickets, bags and airport transfers in one table.",
    "scores": {
@@ -1505,7 +1505,7 @@
    "aliases": [
     "weekly review skill"
    ],
-   "category": "life",
+   "category": "home",
    "pitch": "Lil Nicky AI runs a 20-minute Friday review with a free Claude Code skill: score priorities as done, moved or dropped, home every stray task, then name the pattern. A low-effort habit for a busy parent with a heavy planning load.",
    "first_step": "Install the skill and run it this Friday against your calendar and task list.",
    "scores": {
@@ -1553,7 +1553,7 @@
     "garmin mcp",
     "claude builds my intervals"
    ],
-   "category": "life",
+   "category": "home",
    "pitch": "Ivan Ficko built an open-source Garmin Connect library and MCP server so Claude can answer how he slept, judge readiness from HRV, and push a 6x400 session to his watch. Useful for a parent fitting training around kids' schedules.",
    "first_step": "Add the Garmin connector URL to Claude and ask for this week's sleep and readiness summary.",
    "scores": {
@@ -1601,7 +1601,7 @@
     "life-distributable",
     "agent bought itself a mac mini"
    ],
-   "category": "life",
+   "category": "home",
    "pitch": "Matt Abate's open-source personal agent, set up by pasting one prompt into Claude Code, keeps him on his daily routine and manages his finances, and its own P&L stayed positive enough to pay for Claude Max at +$200 and a Mac mini at +$1,600. It suits someone who wants a single household planner.",
    "first_step": "Paste the setup prompt into Claude Code on a spare Mac and give it only your calendar first.",
    "scores": {
@@ -1648,7 +1648,7 @@
    "aliases": [
     "restaurant operations with claude"
    ],
-   "category": "time",
+   "category": "career",
    "pitch": "A restaurant owner of 14 years fed sales, recipes, costs, schedules and invoices to Claude in two months; scheduled tasks now query the POS and scheduling app for live labor reports, bookkeeping is easy, and Claude built a staff web app with menus, allergens and recipe cards. The same small-business back office is a consulting niche where his data-platform skills apply.",
    "first_step": "Ask a local restaurant owner for one week of POS exports and build a labor-cost-percent report with Claude.",
    "scores": {
@@ -1695,7 +1695,7 @@
    "aliases": [
     "claude triages support tickets"
    ],
-   "category": "time",
+   "category": "career",
    "pitch": "Ravikumar Makwana, a developer, has Claude investigate customer issues on a schedule every weekday at 10 AM so he starts the day with findings. A PM could run the same on support tickets and bug reports.",
    "first_step": "Schedule one Claude task that reads yesterday's support tickets and groups them by root cause.",
    "scores": {
@@ -1742,7 +1742,7 @@
    "aliases": [
     "symptom triage"
    ],
-   "category": "life",
+   "category": "home",
    "pitch": "A Reddit user described sudden confusion and urinary blockage at 11 pm to Claude, which urged them to wake their spouse and go to the ER, where they avoided septic shock. For a parent, a calm second opinion at midnight on whether to go in matters, though it is not medical advice.",
    "first_step": "Save a family medical summary (meds, allergies, history) in a Claude project so a midnight question gets context.",
    "scores": {
@@ -1790,7 +1790,7 @@
     "product analytics agent",
     "claude reads posthog"
    ],
-   "category": "money",
+   "category": "earn",
    "pitch": "A developer let Claude Code run their coloring site for a week: it pulled PostHog sessions, found 1 in 4 phone users rage-tapping because line taps missed shapes, and moved a sign-in popup that showed 31 times with zero sign-ins. It is his A/B testing and analytics skill applied to a side product with Claude doing the digging.",
    "first_step": "Connect PostHog or GA to Claude Code on any small site you own and ask for the top three drop-off causes.",
    "scores": {
@@ -1837,7 +1837,7 @@
    "aliases": [
     "news impact prompts"
    ],
-   "category": "time",
+   "category": "career",
    "pitch": "A user stopped improvising and wrote one set of questions (effect on my money and work, strongest case for and against, hype check) plus a few lines of personal context, and now gets consistent answers on every article. It is a ten-minute setup that sharpens weekly industry reading.",
    "first_step": "Write five lines of your own context and three questions into a Claude project and run this week's articles through it.",
    "scores": {
@@ -1884,7 +1884,7 @@
    "aliases": [
     "tapo nas archiver"
    ],
-   "category": "life",
+   "category": "home",
    "pitch": "In one Claude Code session a homeowner researched a way around the Tapo D230 doorbell's missing NAS support, built and debugged a hardened Docker service against the real hub, and now archives every clip nightly; 1,600 clips came over in the first run. It is a one-session fix that keeps family footage off a single SD card.",
    "first_step": "Ask Claude Code to find the local API for one home camera and back its clips to a drive you own.",
    "scores": {
@@ -1931,7 +1931,7 @@
    "aliases": [
     "youtube summary bot"
    ],
-   "category": "time",
+   "category": "career",
    "pitch": "An n8n user built a Telegram bot that summarizes YouTube videos, chunks transcripts by minute into Qdrant, and exposes a search tool as a Claude connector so questions return youtu.be links at the exact second. For a PM who learns from talks and podcasts, it turns watched videos into a searchable library.",
    "first_step": "Index ten talks you rely on and ask Claude a question that spans three of them.",
    "scores": {
@@ -1978,7 +1978,7 @@
    "aliases": [
     "scope-creep-guard"
    ],
-   "category": "money",
+   "category": "earn",
    "pitch": "Kitwise Studio published a Claude skill that splits a client message into separate asks, checks each against the agreed scope, and drafts a reply with prices and schedule impact. For a PM doing fractional consulting, it protects billable hours.",
    "first_step": "Paste your next consulting scope and one tricky client email into Claude with this skill and compare its reply to yours.",
    "scores": {
@@ -2026,7 +2026,7 @@
     "astro conversion kit",
     "wordpress migration service"
    ],
-   "category": "money",
+   "category": "earn",
    "pitch": "After the PHP2Shell vulnerability, a web agency owner ran Opus 5.5 twelve projects at a time and converted 45 client WordPress sites to static Astro in 36 hours, with screenshot comparison until pages matched, and open-sourced the skill pack. A security-driven migration offer is a fixed-fee service that plays to his compliance angle.",
    "first_step": "Run the open-source astro-conversion-kit on one WordPress site you or a friend owns and time it end to end.",
    "scores": {
@@ -2073,7 +2073,7 @@
    "aliases": [
     "teacher cowork"
    ],
-   "category": "time",
+   "category": "career",
    "pitch": "A non-technical teacher says a month of Claude Cowork cut hours from curriculum design, grading, slide decks and student-data analysis, and uploaded teaching-strategy documents to get exam-technique coaching tips. It mirrors how he could run recurring document-heavy work, though teaching is not his job.",
    "first_step": "Pick one recurring document task at work and run it end to end in Cowork with your own templates.",
    "scores": {
@@ -2120,7 +2120,7 @@
    "aliases": [
     "reply queue extension"
    ],
-   "category": "money",
+   "category": "earn",
    "pitch": "A SaaS founder vibe-coded a Chrome extension with Opus in two prompts that pulls posts worth replying to into one dashboard, then spent 30 minutes a day writing replies: 57 replies, 2 new paying customers in 3 days. It is a low-effort distribution habit for any product he ships.",
    "first_step": "Build the two-prompt extension for one subreddit and one X search, then reply for 30 minutes a day for a week.",
    "scores": {
@@ -2168,7 +2168,7 @@
     "faceless video studio",
     "claude animated video"
    ],
-   "category": "money",
+   "category": "earn",
    "pitch": "Cybiqon's Claude Code agent researched, scripted, voiced and rendered twelve explainer videos in four days with HyperFrames and a voice clone, Wyndo has made about a dozen animated Claude videos, some selling his consulting, and Jake Moran showed how he makes launch videos from a few images. For him it is a cheap way to explain a product, not a core business.",
    "first_step": "Turn one of your own written explainers into a 60-second HyperFrames video with Claude this weekend.",
    "scores": {
@@ -2227,7 +2227,7 @@
    "aliases": [
     "retell voice agent via claude code"
    ],
-   "category": "time",
+   "category": "career",
    "pitch": "A non-coding service-business owner and short-term-rental host had Claude Code wire Retell voice AI to a VoIP line through the APIs; it answers in the caller's language, takes details and emails a triage report with transcript, at about $0.13 a minute. A household or side business that ignores the phone could cover missed calls the same way.",
    "first_step": "Give Claude Code a Retell trial key and ask it to set up a missed-call voicemail that emails you a summary.",
    "scores": {
@@ -2274,7 +2274,7 @@
    "aliases": [
     "claude reviews freelancer proposals"
    ],
-   "category": "time",
+   "category": "career",
    "pitch": "An Upwork client posted a job and had Claude review every proposal, sharing what it checked, while freelancers in the same sub report clients now run proposals through Claude. When he hires contractors for side projects, the same pass cuts shortlist time.",
    "first_step": "Next time you hire a contractor, paste the proposals into Claude with your must-haves and ask for a ranked shortlist with reasons.",
    "scores": {
@@ -2322,7 +2322,7 @@
     "internal linking tool",
     "seo link finder"
    ],
-   "category": "money",
+   "category": "earn",
    "pitch": "A blogger built a local SEO app with Claude Code that crawls the site, joins Search Console data, and suggests links in sentences that already exist, finding 77 missing links across 48 posts. It is a data-joined tool he could run for a content site or sell as a small audit service.",
    "first_step": "Run a crawl of one site you own, join its Search Console export, and ask Claude for the ten pages closest to page one.",
    "scores": {
@@ -2369,7 +2369,7 @@
    "aliases": [
     "quickchat code review benchmark"
    ],
-   "category": "time",
+   "category": "career",
    "pitch": "Piotr Grudzien measured Claude Code's multi-agent review finding 23 of 27 serious bugs for $21 in 56 minutes against 21 of 27 for $0.11 with a single agent. Useful evidence for a PM setting review policy for AI-written code.",
    "first_step": "Run single-agent review on your team's last five merged PRs and count what it would have caught.",
    "scores": {
@@ -2416,7 +2416,7 @@
    "aliases": [
     "jisho replacement"
    ],
-   "category": "life",
+   "category": "home",
    "pitch": "Gregg Tavares, studying Japanese, asked Claude to build a handwriting-recognition dictionary that tolerates a wrong stroke, sharded so it runs from GitHub Pages with no database. A model for learning tools for kids' language study.",
    "first_step": "Pick one study tool your kids complain about and have Claude build a static replacement.",
    "scores": {
@@ -2464,7 +2464,7 @@
     "plumbing estimate spreadsheet",
     "housingwizard"
    ],
-   "category": "time",
+   "category": "career",
    "pitch": "An Australian plumbing estimator built a months-deep estimating spreadsheet in Cowork that ingests Bluebeam markup CSVs, and a separate builder open-sourced agent skills that turn floor plans into traceable quantities and per-trade quote packages. A Seattle remodel or ADU project could use the same takeoff flow.",
    "first_step": "Run HousingWizard on your own floor plan and compare its quantities with a contractor quote.",
    "scores": {
@@ -2518,7 +2518,7 @@
     "google ads api scripts with claude",
     "ppc freelancer claude code"
    ],
-   "category": "money",
+   "category": "earn",
    "pitch": "A Google Ads freelancer of five years says nearly all account work now happens in Claude Code, which writes small Python scripts against the Ads API to pull search terms and conversion setup into files, and a second marketer keeps one folder per client with the offer and past decisions. His Python and SQL plus A/B-testing background maps onto paid-search analysis, though selling to clients is a weak spot.",
    "first_step": "Open a free Google Ads API test account and have Claude Code write one script that exports a search-terms report to CSV.",
    "scores": {
@@ -2565,7 +2565,7 @@
    "aliases": [
     "bc election dashboard"
    ],
-   "category": "time",
+   "category": "career",
    "pitch": "Nate Glubish built an interactive dashboard with Claude Code that pulls from Elections BC's results page in real time during election night. A quick live-data dashboard pattern for any public feed.",
    "first_step": "Point Claude Code at one public data page you follow and ask for a refreshing HTML dashboard.",
    "scores": {
@@ -2613,7 +2613,7 @@
     "claude cuts my tiktok",
     "video-short skill"
    ],
-   "category": "money",
+   "category": "earn",
    "pitch": "Creator Brooke Lacey, with 290,000+ TikTok followers, has Claude Code drive FFmpeg and Whisper to cut a raw phone take into a captioned, jump-cut vertical ad in about 15 seconds, and Peter Yang released a free /video-short skill that does the same with B-roll and a frame-level review page. Video is one of his weak spots, so this is mainly useful for cheap launch clips, not a business.",
    "first_step": "Install the free /video-short skill and turn one two-minute phone recording into a short.",
    "scores": {
@@ -2661,7 +2661,7 @@
     "growth os in claude code",
     "claude code for growth marketing"
    ],
-   "category": "money",
+   "category": "earn",
    "pitch": "James McAulay says the agentic growth system he built in Claude Code helped his business reach GBP 100,000 a month in 95 days without full-time hires, and gave the system away in Aakash Gupta's masterclass. Funnel analytics and A/B testing match his data background, though the revenue claim is self-reported.",
    "first_step": "Rebuild one piece, a weekly funnel report from your own analytics export, in Claude Code in one evening.",
    "scores": {
@@ -2708,7 +2708,7 @@
    "aliases": [
     "log my normal breakfast"
    ],
-   "category": "life",
+   "category": "home",
    "pitch": "Josh Strange built a private MyFitnessPal replacement with presets and OpenFoodFacts data, plus an MCP so he can tell an agent to log his normal breakfast, alongside a purchase-history scraper for Amazon and Kroger. Useful for a family tracking nutrition around sports.",
    "first_step": "Ask Claude Code to build a one-page meal log with your five usual meals as presets.",
    "scores": {
@@ -2755,7 +2755,7 @@
    "aliases": [
     "obsidian plugin with claude"
    ],
-   "category": "time",
+   "category": "career",
    "pitch": "An HN commenter found Opus one-shots Obsidian plugins without examples and made several for their own vault for a few dollars each. Small personal tooling for a PM's notes system.",
    "first_step": "Ask Claude Code to write one Obsidian plugin that rolls up your meeting notes by project.",
    "scores": {
@@ -2802,7 +2802,7 @@
    "aliases": [
     "claude cert study guide"
    ],
-   "category": "money",
+   "category": "earn",
    "pitch": "A builder runs claudecertificationguide.com, a free study site for the four Claude certifications where over 100,000 people have taken the CCAR-F mock exam, and publishes answer analytics from 35,000 responses. With his LLM product depth, a study site or course in this niche is a content asset with real search demand.",
    "first_step": "Draft 20 practice questions on one Claude certification domain and post the answer analysis as a free article.",
    "scores": {
@@ -2849,7 +2849,7 @@
    "aliases": [
     "podium"
    ],
-   "category": "time",
+   "category": "career",
    "pitch": "Jeroen, who calls himself horrible at presenting, had Claude build Podium, which plays a mumbling crowd and discusses the content as he rehearses. Useful before VP reviews.",
    "first_step": "Rehearse your next exec readout out loud with Claude voice and ask for the three weakest points.",
    "scores": {
@@ -2896,7 +2896,7 @@
    "aliases": [
     "vibeling mcp"
    ],
-   "category": "money",
+   "category": "earn",
    "pitch": "Vital Pavlenko says shipping an MCP server for his app VibeLing brought $200 in a day. Adding an agent-facing interface to an existing data product fits his data platform background.",
    "first_step": "List one dataset or tool you know well and sketch the three MCP tools an agent would call on it.",
    "scores": {
@@ -2943,7 +2943,7 @@
    "aliases": [
     "family minecraft server"
    ],
-   "category": "life",
+   "category": "home",
    "pitch": "A parent who had switched to Linux asked Claude how to host the family Minecraft server their kids wanted; Claude taught the setup and built a full control panel. It is a quick weekend win for a household with gaming kids.",
    "first_step": "Ask Claude Code to stand up a whitelisted family Minecraft server on a spare machine this weekend.",
    "scores": {
@@ -2990,7 +2990,7 @@
    "aliases": [
     "kinetic solver review"
    ],
-   "category": "time",
+   "category": "career",
    "pitch": "MathLab pointed Claude at C code written as a 2013 math intern for a shallow-water kinetic scheme and published what it found. A low-stakes way to audit legacy analysis scripts.",
    "first_step": "Point Claude at one old SQL or Python analysis you still rely on and ask for a bug review.",
    "scores": {
@@ -3037,7 +3037,7 @@
    "aliases": [
     "harvey sales agent"
    ],
-   "category": "money",
+   "category": "earn",
    "pitch": "The same agency owner built Harvey, a sales agent on a Claude Code subscription that scrapes local business listings, filters to WordPress sites, writes personalized outreach and drafts replies, and it went from 500 to 10k downloads in two weeks. It is a way to fill a service pipeline without paying per-token or per-seat outbound tools.",
    "first_step": "Install Harvey, point it at one niche in Seattle in approval mode, and review the first 20 drafts.",
    "scores": {
@@ -3084,7 +3084,7 @@
    "aliases": [
     "independent vet"
    ],
-   "category": "money",
+   "category": "earn",
    "pitch": "The founder of privateequityvet.org, which gets 20,000 uniques a day, built native iOS and Android apps for IndependentVet.com over three weeks of evenings with Opus 5.5. Shows a data-driven directory growing from a personal cause.",
    "first_step": "List one public dataset where ownership or compliance status is hidden and sketch a map site for it.",
    "scores": {
@@ -3131,7 +3131,7 @@
    "aliases": [
     "onkey"
    ],
-   "category": "life",
+   "category": "home",
    "pitch": "David Murrell started with Claude Code writing Python to score his pitch against Spotify, then shipped OnKey, a free Mac app; a commenter said their daughter would love it. A family hobby tool.",
    "first_step": "Install OnKey and try one song with the kids.",
    "scores": {
@@ -3178,7 +3178,7 @@
    "aliases": [
     "washer local control"
    ],
-   "category": "life",
+   "category": "home",
    "pitch": "A ten-year-old Samsung washer lost Smart Control when Samsung dropped support; in about two hours and one five-hour usage window, Claude restored full control of programs, temperature and spin. It saves buying a new appliance just to get notifications.",
    "first_step": "Pick one dropped smart-home device and ask Claude Code to find its local API.",
    "scores": {
@@ -3226,7 +3226,7 @@
     "doordash alternative for restaurants",
     "nomback"
    ],
-   "category": "money",
+   "category": "earn",
    "pitch": "A non-developer used Claude Code to build Nomback, an Expo app with Supabase, Stripe Connect, Clover register sync and DoorDash Drive delivery so a local pizzeria keeps the 25 to 30% commission, and the first paying restaurant is live. It is a real business, but the hard part was walking in and selling, which is his weak spot.",
    "first_step": "Ask three local restaurant owners what they pay delivery apps per month before writing any code.",
    "scores": {
@@ -3273,7 +3273,7 @@
    "aliases": [
     "monk stock research"
    ],
-   "category": "money",
+   "category": "earn",
    "pitch": "A builder spent a year on Monk, a stock research MCP where Claude writes queries in a small scan language and gets tables and charts back in chat; 1,260 of 2,038 commits carry a Claude co-author line. It shows a data-product path for someone strong in SQL and BI, with a long runway.",
    "first_step": "Write a ten-query scan spec over a free price dataset and ask Claude Code to expose it as one MCP tool.",
    "scores": {
@@ -3320,7 +3320,7 @@
    "aliases": [
     "diy business software"
    ],
-   "category": "time",
+   "category": "career",
    "pitch": "A new tech-repair business owner had Claude build ticketing, customer tracking and inventory software integrated with Zoho Mail and QuickBooks, replacing $300-plus a year of paid tools. Small savings, but the same pattern replaces niche subscriptions in any side business.",
    "first_step": "List your paid single-purpose subscriptions and have Claude build the cheapest one as a local app.",
    "scores": {
@@ -3367,7 +3367,7 @@
    "aliases": [
     "scan explainer video"
    ],
-   "category": "life",
+   "category": "home",
    "pitch": "A patient had Claude Code turn their own CBCT scan into a 3D skull with fitted anatomy models and render scene-by-scene explainer videos in HyperFrames, including a Spanish version; the jaw specialist asked to share it with patients. It is a way to understand a family member's diagnosis, but video is a weak spot.",
    "first_step": "Ask Claude to turn one family medical report into a plain-language annotated diagram before the next appointment.",
    "scores": {
@@ -3414,7 +3414,7 @@
    "aliases": [
     "patch servers with claude"
    ],
-   "category": "time",
+   "category": "career",
    "pitch": "An HN poster patched about ten non-critical servers during the PHP2Shell scramble by prompting a local Claude through a fleet connector instead of SSH, and others replied with their own setups. Ops work, outside his core.",
    "first_step": "Skip unless you run home servers.",
    "scores": {
@@ -3461,7 +3461,7 @@
    "aliases": [
     "duology skills"
    ],
-   "category": "money",
+   "category": "earn",
    "pitch": "A developer gave Claude Code one brief and a skill pack for the new foldable iPhone Duo; by morning Fold Days, a year-in-dots tracker with a Pro tier, was waiting for App Store review. New device form factors open short windows for paid utility apps.",
    "first_step": "Load the Duology skills and have Claude Code build one tiny paid utility for a new form factor.",
    "scores": {
@@ -3508,7 +3508,7 @@
    "aliases": [
     "agents write a podcast"
    ],
-   "category": "time",
+   "category": "career",
    "pitch": "jbdamask runs a team of Claude agents building a decision-support app for biotech investors and has them write and voice a podcast episode after each unit of work so he can follow progress. A novel status-report format for a PM overseeing agents.",
    "first_step": "Have Claude summarize one day's agent transcript as a five-minute audio brief.",
    "scores": {
@@ -3556,7 +3556,7 @@
     "autonomous claude code agent ledger",
     "isbn and bookstore distribution"
    ],
-   "category": "money",
+   "category": "earn",
    "pitch": "Sungsoo Youn runs an autonomous Claude Code agent every day that tracks his Korean e-book's ISBN approval and bookstore distribution from its own ledgers, and it found two stores already selling the book. It shows small publishing chores handed to an agent, with modest stakes.",
    "first_step": "List the recurring checks on one side project and write them into a nightly Claude Code routine that reports to you.",
    "scores": {
@@ -3603,7 +3603,7 @@
    "aliases": [
     "deal radar"
    ],
-   "category": "money",
+   "category": "earn",
    "pitch": "A collector had Claude Code and Cowork write Deal Radar, a Chrome extension and Cloudflare Worker that polls 18 marketplaces every minute and alerts on matching listings, with Telegram alerts on a Ko-fi paid plan. It is also handy for chasing used sports gear for kids.",
    "first_step": "Set up a watch for used kids' sports gear on two marketplaces with a simple Claude-built poller.",
    "scores": {
@@ -3651,7 +3651,7 @@
     "cnvs",
     "design loop with claude code"
    ],
-   "category": "money",
+   "category": "earn",
    "pitch": "Max Blade built CNVS, a Mac app that puts Claude Code and Codex sessions on a voice-controlled canvas, using a mock-up-then-Claude-Code design loop, and it shows $49,986 in verified sales since June. He sells to an existing 24.8K X audience, which Stephen does not have.",
    "first_step": "Try the design loop on a small tool: mock one screen with an image model, hand it to Claude Code, and iterate from screenshots for two hours.",
    "scores": {
@@ -3699,7 +3699,7 @@
     "zenmode",
     "safer linkedin automation"
    ],
-   "category": "money",
+   "category": "earn",
    "pitch": "Jonathan Lis, a former salesperson who got a LinkedIn warning for automation, built ZenMode with Claude and Claude Code to run outreach from the user's own machine, and it shows $1,729 MRR verified through Stripe. Building a niche B2B tool is reachable for him, though selling it leans on outreach, a weak spot.",
    "first_step": "Read ZenMode's build-in-public posts and list three tools you got burned by at Amazon that a local-first version would fix.",
    "scores": {
@@ -3752,7 +3752,7 @@
    "aliases": [
     "conferencefindr"
    ],
-   "category": "money",
+   "category": "earn",
    "pitch": "A founder spent a week's tokens having Claude verify dates, prices and duplicates for industry events, then launched a conference finder with an MCP. Data cleaning as a product fits his data strengths.",
    "first_step": "Pick one niche list you check repeatedly and have Claude build and verify a clean version.",
    "scores": {
@@ -3799,7 +3799,7 @@
    "aliases": [
     "store ops agents"
    ],
-   "category": "time",
+   "category": "career",
    "pitch": "A store owner runs one agent to create invoices, another to verify payment, and another to buy shipping labels, with Codex checking Claude Code's work, and says he is not working less because errors still need a human. It is an honest picture of where back-office agents help and where they do not.",
    "first_step": "Map one store or side-business order flow and let Claude draft only the invoice step for a week.",
    "scores": {
@@ -3846,7 +3846,7 @@
    "aliases": [
     "ctc forced alignment"
    ],
-   "category": "life",
+   "category": "home",
    "pitch": "nodja had Claude implement forced alignment with a CTC model to generate sync files for epubs and audiobooks, aligning a 60-hour book in 20 minutes on a home GPU. A hobby tool for read-along books with kids.",
    "first_step": "Skip unless you want read-along books; the technique is documented in the thread.",
    "scores": {
@@ -3893,7 +3893,7 @@
    "aliases": [
     "diabetes app with ai"
    ],
-   "category": "life",
+   "category": "home",
    "pitch": "Brian Ross, after 42 years with diabetes, built the app he always needed with AI, tagged Claude Code. Health tracking built around one family member's real routine.",
    "first_step": "Skip unless someone in the family has a chronic condition to track.",
    "scores": {
@@ -3940,7 +3940,7 @@
    "aliases": [
     "tributary"
    ],
-   "category": "life",
+   "category": "home",
    "pitch": "The Tributary builder used Claude and ChatGPT to find and summarize interviews and critics on who influenced favorite artists, pairing songs to compare. Hobby discovery tool.",
    "first_step": "Skip; hobby.",
    "scores": {
@@ -3987,7 +3987,7 @@
    "aliases": [
     "30 days only claude code"
    ],
-   "category": "money",
+   "category": "earn",
    "pitch": "Info Inlet set a rule to write no application code for 30 days and shipped a small SaaS with auth, Stripe billing, a dashboard and an API using Claude Code, logging 9 breaks where it fell short. A realistic guide to what a non-engineer PM can ship.",
    "first_step": "Read the nine logged breaks and plan around them before starting your own build.",
    "scores": {
@@ -4035,7 +4035,7 @@
     "tabby tab manager",
     "19 days 546 messages"
    ],
-   "category": "money",
+   "category": "earn",
    "pitch": "Taewoo built and shipped Tabby 1.2, a free tab manager in 12 languages, by talking to Claude Code in Vietnamese, reaching 141 users in 19 days at about $909 of API-equivalent tokens. It is a template for shipping a small browser product, though it has no revenue yet.",
    "first_step": "Pick one browser annoyance you hit daily and build a first extension with Claude Code this weekend.",
    "scores": {
@@ -4083,7 +4083,7 @@
     "aigent-os newsletter",
     "agent-run newsletter business"
    ],
-   "category": "money",
+   "category": "earn",
    "pitch": "Will Gwyn runs a daily AI newsletter of about 9,000 subscribers whose drafting, proofreading, repo picks, ad deals and email funnels are done by four Claude Code agents on a job board, with him approving anything that closes. It shows a one-person media business, but content is outside his strengths.",
    "first_step": "Read the aigent-os README and set up one agent that drafts a weekly internal digest from your saved links.",
    "scores": {
@@ -4130,7 +4130,7 @@
    "aliases": [
     "claudekit"
    ],
-   "category": "money",
+   "category": "earn",
    "pitch": "Avish Shah built ClaudeKit with Claude Code, a free Chrome extension with a $4 a month Pro tier, and it shows $279 in verified revenue. It shows how thin the money is in small add-ons to Claude itself.",
    "first_step": "Write down three annoyances in your own Claude use and check whether an extension already solves them before building.",
    "scores": {
@@ -4178,7 +4178,7 @@
     "pipeline-in-a-person",
     "mithril medicine"
    ],
-   "category": "money",
+   "category": "earn",
    "pitch": "Cody Tranbarger ran Mithril Medicine alone, using Claude to direct eight consultants and 11 outside labs, turning a program idea into a design plan in 2 to 3 days instead of 1 to 2 months, and Anthropic bought the company. The operating model is striking, but it needs scientific credentials he does not have.",
    "first_step": "Read the R&D World write-up and note which coordination steps (vendor briefs, data review) map to a regulated product you know.",
    "scores": {
@@ -4225,7 +4225,7 @@
    "aliases": [
     "dubbing line proofreader"
    ],
-   "category": "money",
+   "category": "earn",
    "pitch": "Prompt & Skill Co. built a Claude skill that flags literal translations of Chinese short-drama idioms before they ship in Spanish and Portuguese subtitles. A niche QA service, outside his strengths.",
    "first_step": "Skip unless you have a localization contact; read the failure taxonomy for ideas on LLM QA checks.",
    "scores": {
@@ -4273,7 +4273,7 @@
     "pagecritic",
     "let claude run a business"
    ],
-   "category": "money",
+   "category": "earn",
    "pitch": "Diego gave Claude a VPS, Stripe and Cloudflare and let it pick, build and promote a business; PageCritic got 547 unique visitors and 90 audits but only $9.50 of revenue. The honest result: the agent builds fine but cannot find customers.",
    "first_step": "Read the agent's public journal and stats page, then decide what one distribution step you would have taken yourself.",
    "scores": {
@@ -4320,7 +4320,7 @@
    "aliases": [
     "claude ebook digital products"
    ],
-   "category": "money",
+   "category": "earn",
    "pitch": "Kiran Grewal says she earned Rs 1,63,000 (about $1,950) selling e-books she created with Claude, along with the sales pages. Content products are a crowded, low-edge route for him.",
    "first_step": "Skip; if curious, outline one compliance-checklist e-book and test demand with a landing page.",
    "scores": {
