@@ -66,6 +66,12 @@ tr.more td{background:var(--soft)}
 .hist span{padding:2px 8px;border-radius:4px;background:var(--card);border:1px solid var(--line)}
 .foot{margin-top:14px;font-size:12px;color:var(--mute)}
 .foot a{color:var(--ink2)}
+th[data-sort]{cursor:pointer;user-select:none}
+th[data-sort]:hover,th.on{color:var(--ink)}
+td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+td.idea{min-width:240px}
+.legend{font-size:12px;color:var(--ink2);margin-top:8px;line-height:1.6}
+.legend b{color:var(--ink)}
 /* votes */
 .votes{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:10px}
 .votes[hidden]{display:none}
@@ -99,9 +105,18 @@ tr.more td{background:var(--soft)}
 <div class="foot">Weekly scan of Reddit, Substack, Hacker News and more for productive and money-making uses of Claude. Scores follow the rubric in the <a href="https://github.com/not-in-scope/claude-leaderboard" target="_blank" rel="noopener">repository</a>.</div>
 </div>
 <script>
-const FACTORS = [["fit","Fit",25],["upside","Upside",20],["time_to_dollar","Time to benefit",15],
+const FACTORS = [["fit","Fit for you",25],["upside","Upside",20],["time_to_dollar","Time to benefit",15],
                  ["effort","Effort",15],["evidence","Evidence",15],["durability","Durability",10]];
 const CATS = ["money","time","life"];
+const LEGEND = {
+  fit: "how much it uses skills you already have (PM, data, AI, compliance), or for life ideas how well it fits your household",
+  upside: "realistic annual dollars, or hours saved a week",
+  time_to_dollar: "how soon the first dollar or saved hour arrives",
+  effort: "hours a week it takes to run once set up",
+  evidence: "how many independent reports back it, and how specific they are",
+  durability: "whether it still works in two years",
+};
+let SORT = {};
 const REASONS = [["effort","Too much effort"],["skills","Not my skills"],["doubt","Don't believe it"],["already","Already doing it"]];
 const DATA_PARAM = new URLSearchParams(location.search).get("data");
 const sameOrigin = p => { try { return new URL(p, location.href).origin === location.origin; } catch { return false; } };
@@ -213,43 +228,70 @@ function renderWeek(b){
   const all = (tw.candidates || []).filter(c => CAT === "all" || c.category === CAT);
   if (tw.candidates?.length) {
     const chips = ["all", ...CATS].map(k => `<span class="tab ${CAT === k ? "on" : ""}" data-cat="${k}" tabindex="0">${k}</span>`).join("");
-    html += `<h2>All ${tw.candidates.length} scored this week</h2><div class="tabs" id="cats">${chips}</div>` + renderTable(all.map((c, i) => asRow(c, i + 1, tw.week)));
+    html += `<h2>All ${tw.candidates.length} scored this week</h2><div class="tabs" id="cats">${chips}</div>` + renderTable(all.map(c => asRow(c, tw.week)), "week") + legend();
   }
   if (tw.sources_failed?.length) html += `<div class="note">Sources that failed this run: ${tw.sources_failed.map(s => esc(s.source)).join(", ")}</div>`;
   return html;
 }
-function asRow(c, rank, week){
-  return {id: c.id, title: c.title, category: c.category, best_score: c.total, weeks_seen: "", first_week: week, rank,
-          evidence: c.evidence, latest: {pitch: c.pitch, first_step: c.first_step, scores: c.scores, reasons: c.reasons,
-                                         dollars: c.dollars, hours_per_week: c.hours_per_week}};
+function sortRows(rows, id){
+  const s = SORT[id] || {key: "total", dir: "desc"};
+  const val = r => s.key === "title" ? (r.title || "").toLowerCase()
+    : s.key === "category" ? r.category
+    : s.key === "weeks" ? (r.weeks_seen || 0)
+    : s.key === "total" ? r.total
+    : (r.scores?.[s.key] ?? -1);
+  const out = [...rows].sort((a, b) => {
+    const x = val(a), y = val(b);
+    if (x === y) return (b.total ?? 0) - (a.total ?? 0) || (a.title || "").localeCompare(b.title || "");
+    return (x < y ? -1 : 1) * (s.dir === "asc" ? 1 : -1);
+  });
+  return out.map((r, i) => ({...r, rank: i + 1}));
 }
-function renderTable(rows){
-  rows = rows.filter(r => SHOW_HIDDEN || !isHidden(r.id));
+function renderTable(rows, id, extra){
+  rows = sortRows(rows.filter(r => SHOW_HIDDEN || !isHidden(r.id)), id);
   if (!rows.length) return `<div class="empty">Nothing here yet.</div>`;
+  const s = SORT[id] || {key: "total", dir: "desc"};
+  const th = (key, label, m) => `<th data-sort="${key}" data-table="${id}" class="${s.key === key ? "on" : ""}" title="${m ? esc((LEGEND[key] || "") + " (0 to " + m + ")") : "Sort"}">${label}${s.key === key ? (s.dir === "desc" ? " ↓" : " ↑") : ""}</th>`;
+  const cols = [["total", "Total", 100], ...FACTORS];
+  const head = `<th>#</th>${th("title", "Idea")}${th("category", "Cat")}${cols.map(([k, l, m]) => th(k, l, m)).join("")}${(extra || []).map(([k, l]) => th(k, l)).join("")}`;
+  const cell = (k, r) => `<td class="num">${k === "total" ? `<span class="score">${r.total}</span>` : (r.scores?.[k] ?? "–")}</td>`;
   const body = rows.map(r => `
     <tr class="row" data-row="${esc(r.id)}">
-      <td class="rank">${r.rank}</td><td><b>${esc(r.title)}</b></td><td>${cat(r.category)}</td>
-      <td><span class="score">${r.best_score}</span></td><td>${r.weeks_seen}</td><td>${esc(r.first_week)}</td>
+      <td class="rank">${r.rank}</td><td class="idea"><b>${esc(r.title)}</b></td><td>${cat(r.category)}</td>
+      ${cols.map(([k]) => cell(k, r)).join("")}${(extra || []).map(([k]) => `<td class="num">${k === "weeks" ? r.weeks_seen : esc(r[k] ?? "")}</td>`).join("")}
     </tr>
-    <tr class="more" style="display:none"><td colspan="6">
-      <div class="pitch">${esc(r.latest?.pitch)}</div>
-      <div class="step"><b>First step</b>${esc(r.latest?.first_step)}</div>
+    <tr class="more" style="display:none"><td colspan="${3 + cols.length + (extra || []).length}">
+      <div class="pitch">${esc(r.pitch)}</div>
+      <div class="step"><b>First step</b>${esc(r.first_step)}</div>
       <div class="links">${links(r.evidence)}</div>
       ${voteBar(r.id)}
-      <div style="margin-top:10px">${subscores(r.latest?.scores, r.latest?.reasons)}</div>
-      ${dollars(r.latest?.dollars, r.latest?.hours_per_week)}
+      <div style="margin-top:10px">${subscores(r.scores, r.reasons)}</div>
+      ${dollars(r.dollars, r.hours_per_week)}
     </td></tr>`).join("");
-  return `<div class="tblwrap"><table><thead><tr><th>#</th><th>Idea</th><th>Category</th><th>Best</th><th>Weeks</th><th>First seen</th></tr></thead><tbody>${body}</tbody></table></div>`;
+  return `<div class="tblwrap"><table><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table></div>`;
+}
+function legend(){
+  return `<div class="legend">Click a column to sort. ${FACTORS.map(([k, l, m]) => `<span><b>${l}</b> ${esc(LEGEND[k])}, 0 to ${m}.</span>`).join(" ")} <span><b>Total</b> the sum, 0 to 100.</span></div>`;
+}
+function asRow(c, week){
+  return {id: c.id, title: c.title, category: c.category, total: c.total, scores: c.scores, reasons: c.reasons,
+          pitch: c.pitch, first_step: c.first_step, dollars: c.dollars, hours_per_week: c.hours_per_week,
+          evidence: c.evidence, first_week: week, weeks_seen: ""};
+}
+function ideaRow(r){
+  const L = r.latest || {};
+  return {id: r.id, title: r.title, category: r.category, total: r.best_score, scores: L.scores, reasons: L.reasons,
+          pitch: L.pitch, first_step: L.first_step, dollars: L.dollars, hours_per_week: L.hours_per_week,
+          evidence: r.evidence, first_week: r.first_week, weeks_seen: r.weeks_seen};
 }
 function renderAll(b){
   const chips = ["all", ...CATS].map(k => `<span class="tab ${CAT === k ? "on" : ""}" data-cat="${k}" tabindex="0">${k}</span>`).join("");
-  const ranked = b.all_time.map((r, i) => ({...r, rank: i + 1}));
-  const rows = CAT === "all" ? ranked : ranked.filter(r => r.category === CAT);
-  return `<div class="tabs" id="cats">${chips}</div>` + renderTable(rows);
+  const rows = (CAT === "all" ? b.all_time : b.all_time.filter(r => r.category === CAT)).map(ideaRow);
+  return `<div class="tabs" id="cats">${chips}</div>` + renderTable(rows, "all", [["weeks", "Weeks"]]) + legend();
 }
 function renderRising(b){
   if (!b.rising.length) return `<div class="empty">Ideas seen in three or more weeks show up here.</div>`;
-  return renderTable(b.rising.map((r, i) => ({...r, rank: i + 1})));
+  return renderTable(b.rising.map(ideaRow), "rising", [["weeks", "Weeks"]]) + legend();
 }
 function render(){
   const b = BOARD; if (!b) return;
@@ -282,6 +324,12 @@ document.getElementById("view").addEventListener("click", async ev => {
   const save = t.closest("button[data-save]");
   if (save) { ev.stopPropagation(); return saveOutcome(save.dataset.save); }
   if (t.closest(".outcome") || t.closest(".reasons") || t.closest(".votes")) return;
+  const th = t.closest("th[data-sort]");
+  if (th) {
+    const id = th.dataset.table, key = th.dataset.sort, cur = SORT[id] || {key: "total", dir: "desc"};
+    SORT[id] = {key, dir: cur.key === key ? (cur.dir === "desc" ? "asc" : "desc") : (key === "title" || key === "category" ? "asc" : "desc")};
+    return render();
+  }
   const card = t.closest(".card");
   if (card) return card.classList.toggle("open");
   const row = t.closest("tr.row");
