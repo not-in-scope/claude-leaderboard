@@ -182,8 +182,11 @@ function picks(b){
   for (const r of (b.picks?.trying || [])) all[r.id] = r;
   for (const r of (b.picks?.hidden || [])) all[r.id] = r;
   const tw = b.this_week;
-  if (tw) { for (const c of tw.top5) all[c.id] = all[c.id] || c; for (const k of CATS) if (tw.category_leaders?.[k]) all[k] = all[k]; }
-  const by = kind => Object.values(all).filter(r => r.id && voteOf(r.id)?.vote === kind);
+  if (tw) {
+    for (const c of tw.top5) all[c.id] = all[c.id] || c;
+    for (const k of CATS) { const L = tw.category_leaders?.[k]; if (L) all[L.id] = all[L.id] || L; }
+  }
+  const by = kind => Object.values(all).filter(r => r && r.id && voteOf(r.id)?.vote === kind);
   return {interested: by("interested"), trying: by("trying"), hidden: by("no")};
 }
 function renderWeek(b){
