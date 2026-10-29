@@ -173,7 +173,7 @@ gh pr create --title "<WEEK> scan" --body "Weekly scan. Push to main was refused
 
 ## 7b. Publish the board
 
-After the push succeeds, publish the Artifact so the board shows this week. Call `Artifact` with action `publish`, url `https://claude.ai/artifact/2cej2sNszDSucKegimkkAq`, file_path `board.html`, and files `{"data/leaderboard.json": "data/leaderboard.json"}`. Omit `capabilities` and `icon` so the stored declaration carries forward. If the publish is refused with a newer version, read the artifact, keep its page as is, and publish again with only the data file. If it fails twice, say so in the final message; the repo already holds the data.
+After the push succeeds, publish the Artifact so the board shows this week. First read the live copies so the publish is accepted: call `Artifact` with action `read`, the url below, and `path` `index.html`, then again with `path` `data/leaderboard.json`. Then call `Artifact` with action `publish`, url `https://claude.ai/artifact/2cej2sNszDSucKegimkkAq`, file_path `board.html`, and files `{"data/leaderboard.json": "data/leaderboard.json"}`. Omit `capabilities` and `icon` so the stored declaration carries forward. If the publish is refused with a newer version, read the artifact, keep its page as is, and publish again with only the data file. If it fails twice, say so in the final message; the repo already holds the data.
 
 ## 8. Final message
 
