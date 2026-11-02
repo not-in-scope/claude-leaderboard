@@ -1,1 +1,11 @@
-{}
+{
+  "claude-code-growth-operating-system": {"vote": "interested", "reason": null, "outcome": "", "at": "2026-10-30T21:52:51.071Z"},
+  "claude-code-job-search-pipeline": {"vote": "interested", "reason": null, "outcome": "", "at": "2026-10-29T22:36:06.294Z"},
+  "claude-html-dashboards-replace-looker": {"vote": "no", "reason": null, "outcome": "", "at": "2026-10-29T22:35:34.153Z"},
+  "expat-tax-return-review-by-claude": {"vote": "interested", "reason": null, "outcome": "", "at": "2026-10-30T21:52:08.096Z"},
+  "family-sports-calendar-drive-time-planner": {"vote": "no", "reason": "effort", "outcome": "", "at": "2026-10-29T22:36:12.680Z"},
+  "marketplace-listing-alert-extension": {"vote": "interested", "reason": null, "outcome": "", "at": "2026-10-30T21:53:36.676Z"},
+  "rec-sports-video-film-review": {"vote": "no", "reason": null, "outcome": "", "at": "2026-10-29T22:35:40.630Z"},
+  "rowing-regatta-results-app-for-club-parents": {"vote": "no", "reason": null, "outcome": "", "at": "2026-10-30T21:50:59.665Z"},
+  "singing-pitch-trainer-app": {"vote": "interested", "reason": null, "outcome": "", "at": "2026-10-30T21:53:13.616Z"}
+}
