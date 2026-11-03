@@ -185,7 +185,7 @@ function renderTiles(b){
   const tiles = [
     [tw ? tw.candidates_scored : 0, "Scored this week"],
     [tw ? tw.top5.length : 0, "Published"],
-    [b.all_time.length, "Ideas tracked"],
+    [b.all_time.length, "Ideas tracked, all weeks"],
     [b.rising.length, "Rising"],
   ];
   document.getElementById("tiles").innerHTML = tiles.map(([n, l]) => `<div class="tile"><div class="n">${n}</div><div class="l">${l}</div></div>`).join("");
@@ -292,7 +292,7 @@ function ideaRow(r){
 function renderAll(b){
   const chips = ["all", ...CATS].map(k => `<span class="tab ${CAT === k ? "on" : ""}" data-cat="${k}" tabindex="0">${k === "all" ? "All" : LABELS[k]}</span>`).join("");
   const rows = (CAT === "all" ? b.all_time : b.all_time.filter(r => r.category === CAT)).map(ideaRow);
-  return `<div class="tabs" id="cats">${chips}</div>` + renderTable(rows, "all", [["weeks", "Weeks"]]) + legend();
+  return `<h2>All ${b.all_time.length} ideas tracked across ${(b.history || []).length} week${(b.history || []).length === 1 ? "" : "s"}</h2><div class="tabs" id="cats">${chips}</div>` + renderTable(rows, "all", [["weeks", "Weeks"]]) + legend();
 }
 function renderRising(b){
   if (!b.rising.length) return `<div class="empty">Ideas seen in three or more weeks show up here.</div>`;
