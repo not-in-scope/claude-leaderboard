@@ -23,11 +23,47 @@
     "outcome": "",
     "at": "2026-10-30T21:52:08.096Z"
   },
+  "family-hub-app-chores-meals-leave-by": {
+    "vote": "interested",
+    "reason": null,
+    "outcome": "",
+    "at": "2026-11-20T18:06:35.097Z"
+  },
   "family-sports-calendar-drive-time-planner": {
     "vote": "no",
     "reason": "effort",
     "outcome": "",
     "at": "2026-10-29T22:36:12.680Z"
+  },
+  "family-vacation-packing-list-artifact": {
+    "vote": "interested",
+    "reason": null,
+    "outcome": "",
+    "at": "2026-11-20T18:06:46.371Z"
+  },
+  "government-decisions-public-search-archive": {
+    "vote": "no",
+    "reason": null,
+    "outcome": "",
+    "at": "2026-11-20T18:05:00.743Z"
+  },
+  "household-brain-markdown-obsidian": {
+    "vote": "interested",
+    "reason": null,
+    "outcome": "",
+    "at": "2026-11-20T18:04:50.428Z"
+  },
+  "icp-company-list-search-pipeline": {
+    "vote": "no",
+    "reason": null,
+    "outcome": "",
+    "at": "2026-11-20T18:04:41.455Z"
+  },
+  "kids-photo-problem-step-tutor": {
+    "vote": "no",
+    "reason": null,
+    "outcome": "",
+    "at": "2026-11-20T18:06:09.641Z"
   },
   "legislation-versioned-in-git": {
     "vote": "no",
@@ -41,6 +77,18 @@
     "outcome": "",
     "at": "2026-10-30T21:53:36.676Z"
   },
+  "old-kindle-eink-dashboard": {
+    "vote": "interested",
+    "reason": null,
+    "outcome": "",
+    "at": "2026-11-20T18:07:11.383Z"
+  },
+  "old-records-transcribed-for-family-history": {
+    "vote": "interested",
+    "reason": null,
+    "outcome": "",
+    "at": "2026-11-20T18:06:41.869Z"
+  },
   "pm-skills-repo-shared-across-team": {
     "vote": "no",
     "reason": null,
@@ -52,6 +100,12 @@
     "reason": null,
     "outcome": "",
     "at": "2026-10-29T22:35:40.630Z"
+  },
+  "remote-product-job-board-evidence-quotes": {
+    "vote": "no",
+    "reason": null,
+    "outcome": "",
+    "at": "2026-11-20T18:04:29.296Z"
   },
   "rowing-regatta-results-app-for-club-parents": {
     "vote": "no",

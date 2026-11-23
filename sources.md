@@ -10,70 +10,70 @@ Reddit stopped self-serve app registration in late 2025, so API credentials exis
 
 | source | type | tier | how_read | queries | status | last_yield | note |
 |---|---|---|---|---|---|---|---|
-| r/ClaudeAI | reddit | 1 | reddit | claude, "claude code", revenue, "saved me", clients | active | 15 | W47: top.rss read; search.rss query feeds HTTP 403 after retry; top.rss still served past 2026-11-13 |
-| r/ClaudeCode | reddit | 1 | reddit | revenue, MRR, clients, "built a", "saved me" | active | 10 | W47: top.rss read; search.rss query feeds HTTP 403 after retry; top.rss still served past 2026-11-13 |
-| r/Anthropic | reddit | 1 | reddit | claude, "use case", revenue | active | 0 | W47: top.rss read; search.rss query feeds HTTP 403 after retry; top.rss still served past 2026-11-13 |
-| r/claude | reddit | 1 | reddit | "use claude", revenue, "saved me" | active | 2 | W47: top.rss read; query feeds not fetched after 13 straight search.rss 403s |
-| r/claudexplorers | reddit | 1 | reddit | planning, family, kids, "saved me", workflow | active | 0 | W47: top.rss read; query feeds not fetched after 13 straight search.rss 403s |
-| r/ClaudeHomies | reddit | 1 | reddit | planning, family, kids, "saved me", workflow | active | 0 | W47: top.rss read; query feeds not fetched after 13 straight search.rss 403s |
-| r/indiehackers | reddit | 1 | reddit | claude, "claude code", MRR | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/SideProject | reddit | 1 | reddit | claude, "claude code" | active | 1 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/SaaS | reddit | 1 | reddit | claude, "claude code" | active | 4 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/microsaas | reddit | 1 | reddit | claude, "claude code" | active | 1 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/VibeCodingSaaS | reddit | 1 | reddit | claude, MRR | active | 0 | W47: top.rss 404 (subreddit unavailable) |
-| r/NoCodeSaaS | reddit | 1 | reddit | claude | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/Entrepreneur | reddit | 1 | reddit | claude, "ai agent" revenue | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/EntrepreneurRideAlong | reddit | 1 | reddit | claude, "ai" revenue | active | 1 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/startups | reddit | 1 | reddit | claude, "claude code" | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/smallbusiness | reddit | 1 | reddit | claude, "ai saved" | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/sweatystartup | reddit | 1 | reddit | claude, ai | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/Business_Ideas | reddit | 1 | reddit | claude, ai | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/freelance | reddit | 1 | reddit | claude, "ai clients" | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/Upwork | reddit | 1 | reddit | claude, "ai" | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/consulting | reddit | 1 | reddit | claude, "ai" | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/passive_income | reddit | 1 | reddit | claude, ai | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/digitalnomad | reddit | 1 | reddit | claude, "ai income" | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/ChatGPTCoding | reddit | 1 | reddit | claude, "claude code", revenue, clients | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/vibecoding | reddit | 1 | reddit | claude, MRR, revenue, "saved me" | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/aipromptprogramming | reddit | 1 | reddit | claude, revenue | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/AI_Agents | reddit | 1 | reddit | claude, revenue, clients | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/LLMDevs | reddit | 1 | reddit | claude, "in production", revenue | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/AgentsOfAI | reddit | 1 | reddit | claude, revenue | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/AiBuilders | reddit | 1 | reddit | claude, revenue | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/PromptEngineering | reddit | 1 | reddit | claude, "saved me", workflow | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/automation | reddit | 1 | reddit | claude, "saved me", clients | active | 2 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/n8n | reddit | 1 | reddit | claude, clients, revenue | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/Parenting | reddit | 1 | reddit | claude, "ai" planning, schedule | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/daddit | reddit | 1 | reddit | claude, "ai" planning | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/Mommit | reddit | 1 | reddit | claude, "ai" planning | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/getdisciplined | reddit | 1 | reddit | claude, "ai" planning | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/personalfinance | reddit | 1 | reddit | claude, "ai" budget | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/budget | reddit | 1 | reddit | claude, ai | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/MealPrepSunday | reddit | 1 | reddit | claude, ai | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/travel | reddit | 1 | reddit | claude, "ai itinerary" | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/HomeImprovement | reddit | 1 | reddit | claude, ai | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/homeschool | reddit | 1 | reddit | claude, ai | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/ProductManagement | reddit | 2 | reddit | claude, "ai" workflow, "saved me" | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/dataengineering | reddit | 2 | reddit | claude, "claude code" | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/datascience | reddit | 2 | reddit | claude, "claude code" | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/analytics | reddit | 2 | reddit | claude, ai | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/BusinessIntelligence | reddit | 2 | reddit | claude, ai | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/ExperiencedDevs | reddit | 2 | reddit | claude, "claude code" | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/productivity | reddit | 2 | reddit | claude, "ai" workflow | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/ChatGPT | reddit | 2 | reddit | "make money", "saved me", planning | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/ChatGPTPro | reddit | 2 | reddit | workflow, "saved me", revenue | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/OpenAI | reddit | 2 | reddit | claude, "switched to claude" | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/ArtificialInteligence | reddit | 2 | reddit | claude, "use case", revenue | active | 1 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/artificial | reddit | 2 | reddit | claude, "use case" | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/cursor | reddit | 2 | reddit | claude, revenue, clients | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/Substack | reddit | 2 | reddit | claude, ai | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/content_marketing | reddit | 2 | reddit | claude, ai | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/copywriting | reddit | 2 | reddit | claude, ai clients | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/SEO | reddit | 2 | reddit | claude, "claude code" | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/blogging | reddit | 2 | reddit | claude, ai | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/selfpublish | reddit | 2 | reddit | claude, ai | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/Etsy | reddit | 2 | reddit | claude, ai | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
-| r/printondemand | reddit | 2 | reddit | claude, ai | active | 0 | W47: top.rss read; query feeds skipped by design; top.rss still served past 2026-11-13 |
+| r/ClaudeAI | reddit | 1 | reddit | claude, "claude code", revenue, "saved me", clients | active | 14 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only (yield is citations found through Tavily) |
+| r/ClaudeCode | reddit | 1 | reddit | revenue, MRR, clients, "built a", "saved me" | active | 4 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only (yield is citations found through Tavily) |
+| r/Anthropic | reddit | 1 | reddit | claude, "use case", revenue | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/claude | reddit | 1 | reddit | "use claude", revenue, "saved me" | active | 1 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only (yield is citations found through Tavily) |
+| r/claudexplorers | reddit | 1 | reddit | planning, family, kids, "saved me", workflow | active | 0 | W48: top.rss HTTP 429 after retry; no API credentials, Reddit read via Tavily only |
+| r/ClaudeHomies | reddit | 1 | reddit | planning, family, kids, "saved me", workflow | active | 1 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only (yield is citations found through Tavily) |
+| r/indiehackers | reddit | 1 | reddit | claude, "claude code", MRR | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/SideProject | reddit | 1 | reddit | claude, "claude code" | active | 1 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only (yield is citations found through Tavily) |
+| r/SaaS | reddit | 1 | reddit | claude, "claude code" | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/microsaas | reddit | 1 | reddit | claude, "claude code" | active | 1 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only (yield is citations found through Tavily) |
+| r/VibeCodingSaaS | reddit | 1 | reddit | claude, MRR | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/NoCodeSaaS | reddit | 1 | reddit | claude | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/Entrepreneur | reddit | 1 | reddit | claude, "ai agent" revenue | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/EntrepreneurRideAlong | reddit | 1 | reddit | claude, "ai" revenue | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/startups | reddit | 1 | reddit | claude, "claude code" | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/smallbusiness | reddit | 1 | reddit | claude, "ai saved" | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/sweatystartup | reddit | 1 | reddit | claude, ai | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/Business_Ideas | reddit | 1 | reddit | claude, ai | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/freelance | reddit | 1 | reddit | claude, "ai clients" | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/Upwork | reddit | 1 | reddit | claude, "ai" | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/consulting | reddit | 1 | reddit | claude, "ai" | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/passive_income | reddit | 1 | reddit | claude, ai | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/digitalnomad | reddit | 1 | reddit | claude, "ai income" | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/ChatGPTCoding | reddit | 1 | reddit | claude, "claude code", revenue, clients | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/vibecoding | reddit | 1 | reddit | claude, MRR, revenue, "saved me" | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/aipromptprogramming | reddit | 1 | reddit | claude, revenue | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/AI_Agents | reddit | 1 | reddit | claude, revenue, clients | active | 0 | W48: top.rss HTTP 429 after retry; no API credentials, Reddit read via Tavily only |
+| r/LLMDevs | reddit | 1 | reddit | claude, "in production", revenue | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/AgentsOfAI | reddit | 1 | reddit | claude, revenue | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/AiBuilders | reddit | 1 | reddit | claude, revenue | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/PromptEngineering | reddit | 1 | reddit | claude, "saved me", workflow | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/automation | reddit | 1 | reddit | claude, "saved me", clients | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/n8n | reddit | 1 | reddit | claude, clients, revenue | active | 1 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only (yield is citations found through Tavily) |
+| r/Parenting | reddit | 1 | reddit | claude, "ai" planning, schedule | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/daddit | reddit | 1 | reddit | claude, "ai" planning | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/Mommit | reddit | 1 | reddit | claude, "ai" planning | active | 0 | W48: top.rss HTTP 429 after retry; no API credentials, Reddit read via Tavily only |
+| r/getdisciplined | reddit | 1 | reddit | claude, "ai" planning | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/personalfinance | reddit | 1 | reddit | claude, "ai" budget | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/budget | reddit | 1 | reddit | claude, ai | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/MealPrepSunday | reddit | 1 | reddit | claude, ai | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/travel | reddit | 1 | reddit | claude, "ai itinerary" | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/HomeImprovement | reddit | 1 | reddit | claude, ai | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/homeschool | reddit | 1 | reddit | claude, ai | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/ProductManagement | reddit | 2 | reddit | claude, "ai" workflow, "saved me" | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/dataengineering | reddit | 2 | reddit | claude, "claude code" | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/datascience | reddit | 2 | reddit | claude, "claude code" | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/analytics | reddit | 2 | reddit | claude, ai | active | 0 | W48: top.rss HTTP 429 after retry; no API credentials, Reddit read via Tavily only |
+| r/BusinessIntelligence | reddit | 2 | reddit | claude, ai | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/ExperiencedDevs | reddit | 2 | reddit | claude, "claude code" | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/productivity | reddit | 2 | reddit | claude, "ai" workflow | active | 0 | W48: top.rss HTTP 429 after retry; no API credentials, Reddit read via Tavily only |
+| r/ChatGPT | reddit | 2 | reddit | "make money", "saved me", planning | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/ChatGPTPro | reddit | 2 | reddit | workflow, "saved me", revenue | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/OpenAI | reddit | 2 | reddit | claude, "switched to claude" | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/ArtificialInteligence | reddit | 2 | reddit | claude, "use case", revenue | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/artificial | reddit | 2 | reddit | claude, "use case" | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/cursor | reddit | 2 | reddit | claude, revenue, clients | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/Substack | reddit | 2 | reddit | claude, ai | active | 1 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only (yield is citations found through Tavily) |
+| r/content_marketing | reddit | 2 | reddit | claude, ai | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/copywriting | reddit | 2 | reddit | claude, ai clients | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/SEO | reddit | 2 | reddit | claude, "claude code" | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/blogging | reddit | 2 | reddit | claude, ai | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/selfpublish | reddit | 2 | reddit | claude, ai | active | 0 | W48: top.rss HTTP 429 after retry; no API credentials, Reddit read via Tavily only |
+| r/Etsy | reddit | 2 | reddit | claude, ai | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
+| r/printondemand | reddit | 2 | reddit | claude, ai | active | 0 | W48: top.rss HTTP 404, RSS ended 2026-11-13; no API credentials, Reddit read via Tavily only |
 | r/singularity | reddit | - | - | - | excluded | 0 | speculation, not use |
 | r/MakeMoneyOnline | reddit | - | - | - | excluded | 0 | low quality |
 | r/beermoney | reddit | - | - | - | excluded | 0 | low quality |
@@ -85,27 +85,27 @@ Used when `TAVILY_API_KEY` is set on the cloud environment. Each query is restri
 
 | source | type | tier | how_read | queries | status | last_yield | note |
 |---|---|---|---|---|---|---|---|
-| Google: Claude money | search | 1 | tavily | "claude code" (MRR OR revenue OR clients OR "paying customers") | active | 3 | W47: read via Tavily (1 credit, past week); excerpts dated by Reddit id |
-| Google: Claude built | search | 1 | tavily | "built with claude" OR "claude code" ("I built" OR shipped OR launched) | active | 0 | W47: read via Tavily (1 credit, past week); excerpts dated by Reddit id |
-| Google: Claude saved time | search | 1 | tavily | claude ("saved me" OR "hours a week" OR "my workflow") | active | 0 | W47: read via Tavily (1 credit, past week); excerpts dated by Reddit id |
-| Google: Claude freelance | search | 1 | tavily | claude (upwork OR freelance OR consulting OR clients) | active | 1 | W47: read via Tavily (1 credit, past week); excerpts dated by Reddit id |
-| Google: Claude family | search | 1 | tavily | claude (kids OR family OR parenting OR household OR "meal plan") | active | 4 | W47: read via Tavily (1 credit, past week); excerpts dated by Reddit id |
-| Google: Claude planning | search | 1 | tavily | claude (budget OR trip OR itinerary OR schedule OR "weekly review") | active | 2 | W47: read via Tavily (1 credit, past week); excerpts dated by Reddit id |
-| Google: Claude agents | search | 1 | tavily | claude (agent OR automation OR n8n OR MCP) (clients OR revenue OR "saved me") | active | 2 | W47: read via Tavily (1 credit, past week); excerpts dated by Reddit id |
-| Google: Claude data work | search | 1 | tavily | claude (dashboard OR SQL OR "data pipeline" OR analytics OR PRD) ("I built" OR "saved me") | active | 2 | W47: read via Tavily (1 credit, past week); excerpts dated by Reddit id |
-| Google: Claude side project | search | 1 | tavily | claude ("side project" OR "micro saas" OR "indie") (users OR revenue) | active | 3 | W47: read via Tavily (1 credit, past week); excerpts dated by Reddit id |
-| Google: Claude content | search | 2 | tavily | claude (newsletter OR substack OR youtube OR etsy) (revenue OR subscribers OR sales) | active | 0 | W47: read via Tavily (1 credit, past week); excerpts dated by Reddit id |
+| Google: Claude money | search | 1 | tavily | "claude code" (MRR OR revenue OR clients OR "paying customers") | active | 1 | W48: read via Tavily (1 credit, past week) plus 30 extra targeted Tavily queries; excerpts dated by Reddit id |
+| Google: Claude built | search | 1 | tavily | "built with claude" OR "claude code" ("I built" OR shipped OR launched) | active | 1 | W48: read via Tavily (1 credit, past week) plus 30 extra targeted Tavily queries; excerpts dated by Reddit id |
+| Google: Claude saved time | search | 1 | tavily | claude ("saved me" OR "hours a week" OR "my workflow") | active | 2 | W48: read via Tavily (1 credit, past week) plus 30 extra targeted Tavily queries; excerpts dated by Reddit id |
+| Google: Claude freelance | search | 1 | tavily | claude (upwork OR freelance OR consulting OR clients) | active | 2 | W48: read via Tavily (1 credit, past week) plus 30 extra targeted Tavily queries; excerpts dated by Reddit id |
+| Google: Claude family | search | 1 | tavily | claude (kids OR family OR parenting OR household OR "meal plan") | active | 7 | W48: read via Tavily (1 credit, past week) plus 30 extra targeted Tavily queries; excerpts dated by Reddit id |
+| Google: Claude planning | search | 1 | tavily | claude (budget OR trip OR itinerary OR schedule OR "weekly review") | active | 0 | W48: read via Tavily (1 credit, past week) plus 30 extra targeted Tavily queries; excerpts dated by Reddit id |
+| Google: Claude agents | search | 1 | tavily | claude (agent OR automation OR n8n OR MCP) (clients OR revenue OR "saved me") | active | 5 | W48: read via Tavily (1 credit, past week) plus 30 extra targeted Tavily queries; excerpts dated by Reddit id |
+| Google: Claude data work | search | 1 | tavily | claude (dashboard OR SQL OR "data pipeline" OR analytics OR PRD) ("I built" OR "saved me") | active | 4 | W48: read via Tavily (1 credit, past week) plus 30 extra targeted Tavily queries; excerpts dated by Reddit id |
+| Google: Claude side project | search | 1 | tavily | claude ("side project" OR "micro saas" OR "indie") (users OR revenue) | active | 4 | W48: read via Tavily (1 credit, past week) plus 30 extra targeted Tavily queries; excerpts dated by Reddit id |
+| Google: Claude content | search | 2 | tavily | claude (newsletter OR substack OR youtube OR etsy) (revenue OR subscribers OR sales) | active | 5 | W48: read via Tavily (1 credit, past week) plus 30 extra targeted Tavily queries; excerpts dated by Reddit id |
 
 ## Forums and aggregators
 
 | source | type | tier | how_read | queries | status | last_yield | note |
 |---|---|---|---|---|---|---|---|
-| Hacker News | forum | 1 | hn | claude, "claude code", anthropic | active | 17 | W47: Algolia API read (story pages 0-3, ask_hn, show_hn) plus comment searches and the November What-are-you-working-on thread |
-| Indie Hackers | forum | 1 | search | site:indiehackers.com claude | active | 0 | W47: search found no in-window first-hand pages |
-| Product Hunt | forum | 1 | search | site:producthunt.com "claude code" OR "built with claude" | active | 0 | W47: search found no in-window first-hand pages |
-| Medium | blog | 2 | search | site:medium.com claude (earned OR revenue OR "saved me" OR clients) | active | 0 | W47: search found no in-window first-hand pages |
-| Dev.to | blog | 2 | rss | https://dev.to/feed/tag/claude | active | 2 | W47: feed plus dev.to API by tag (claude, claudecode, anthropic, claudeai) read |
-| LinkedIn | social | 2 | search | site:linkedin.com/posts claude (revenue OR clients OR "saved me") | active | 0 | W47: search found no in-window first-hand pages |
+| Hacker News | forum | 1 | hn | claude, "claude code", anthropic | active | 4 | W48: Algolia API read (story pages 0-3, ask_hn, show_hn; numericFilters must be URL-encoded) plus Ask HN comment trees |
+| Indie Hackers | forum | 1 | search | site:indiehackers.com claude | active | 0 | W48: search found no in-window first-hand pages |
+| Product Hunt | forum | 1 | search | site:producthunt.com "claude code" OR "built with claude" | active | 0 | W48: search found no in-window first-hand pages |
+| Medium | blog | 2 | search | site:medium.com claude (earned OR revenue OR "saved me" OR clients) | active | 0 | W48: search found no in-window first-hand pages |
+| Dev.to | blog | 2 | rss | https://dev.to/feed/tag/claude | active | 4 | W48: feed plus dev.to API by tag (claude, claudecode, anthropic, claudeai) read |
+| LinkedIn | social | 2 | search | site:linkedin.com/posts claude (revenue OR clients OR "saved me") | active | 0 | W48: search found no in-window first-hand pages |
 
 ## Newsletters
 
@@ -113,42 +113,42 @@ Read the feed, keep items dated in the window. When a feed fails, search `site:<
 
 | source | type | tier | how_read | queries | status | last_yield | note |
 |---|---|---|---|---|---|---|---|
-| One Useful Thing | newsletter | 1 | rss | https://www.oneusefulthing.org/feed | active | 0 | W47: feed read directly; no in-window first-hand items |
-| Every | newsletter | 1 | search | site:every.to claude | active | 0 | W47: search found no in-window first-hand pages |
-| Latent Space | newsletter | 1 | rss | https://www.latent.space/feed | active | 0 | W47: feed read directly; no in-window first-hand items |
-| Lenny's Newsletter | newsletter | 1 | rss | https://www.lennysnewsletter.com/feed | active | 1 | W47: feed read directly |
-| Product Growth | newsletter | 1 | rss | https://news.aakashg.com/feed | active | 1 | W47: feed read directly |
-| Product with Attitude | newsletter | 1 | rss | https://karozieminski.substack.com/feed | active | 0 | W47: feed read directly; no in-window first-hand items |
-| The AI Maker | newsletter | 1 | rss | https://aimaker.substack.com/feed | active | 1 | W47: feed read directly |
-| The Pragmatic Engineer | newsletter | 1 | rss | https://newsletter.pragmaticengineer.com/feed | active | 0 | W47: feed read directly; no in-window first-hand items |
-| Simon Willison's weblog | blog | 1 | rss | https://simonwillison.net/atom/everything/ | active | 1 | W47: feed read directly |
-| Ben's Bites | newsletter | 1 | rss | https://www.bensbites.com/feed | active | 0 | W47: feed read directly; no in-window first-hand items |
-| The Rundown AI | newsletter | 1 | search | site:therundown.ai claude | active | 0 | W47: search found no in-window first-hand pages |
-| Superhuman AI | newsletter | 1 | search | site:superhuman.ai claude | active | 0 | W47: search found no in-window first-hand pages |
-| The Neuron | newsletter | 1 | search | site:theneurondaily.com claude | active | 0 | W47: search found no in-window first-hand pages |
-| Starter Story | newsletter | 1 | search | site:starterstory.com claude | active | 0 | W47: search found no in-window first-hand pages |
-| Growth Unhinged | newsletter | 1 | search | site:growthunhinged.com claude | active | 0 | W47: search found no in-window first-hand pages |
-| Justin Welsh | newsletter | 1 | search | site:justinwelsh.me claude | active | 0 | W47: search found no in-window first-hand pages |
-| Behind the Craft | newsletter | 1 | rss | https://creatoreconomy.so/feed | active | 0 | W47: feed read directly; no in-window first-hand items |
+| One Useful Thing | newsletter | 1 | rss | https://www.oneusefulthing.org/feed | active | 0 | W48: feed read directly; no in-window first-hand items |
+| Every | newsletter | 1 | search | site:every.to claude | active | 0 | W48: search found no in-window first-hand pages |
+| Latent Space | newsletter | 1 | rss | https://www.latent.space/feed | active | 0 | W48: feed read directly; no in-window first-hand items |
+| Lenny's Newsletter | newsletter | 1 | rss | https://www.lennysnewsletter.com/feed | active | 2 | W48: feed read directly |
+| Product Growth | newsletter | 1 | rss | https://news.aakashg.com/feed | active | 1 | W48: feed read directly |
+| Product with Attitude | newsletter | 1 | rss | https://karozieminski.substack.com/feed | active | 0 | W48: feed read directly; no in-window first-hand items |
+| The AI Maker | newsletter | 1 | rss | https://aimaker.substack.com/feed | active | 2 | W48: feed read directly |
+| The Pragmatic Engineer | newsletter | 1 | rss | https://newsletter.pragmaticengineer.com/feed | active | 0 | W48: feed read directly; no in-window first-hand items |
+| Simon Willison's weblog | blog | 1 | rss | https://simonwillison.net/atom/everything/ | active | 0 | W48: feed read directly; no in-window first-hand items |
+| Ben's Bites | newsletter | 1 | rss | https://www.bensbites.com/feed | active | 0 | W48: feed read directly; no in-window first-hand items |
+| The Rundown AI | newsletter | 1 | search | site:therundown.ai claude | active | 0 | W48: search found no in-window first-hand pages |
+| Superhuman AI | newsletter | 1 | search | site:superhuman.ai claude | active | 0 | W48: search found no in-window first-hand pages |
+| The Neuron | newsletter | 1 | search | site:theneurondaily.com claude | active | 0 | W48: search found no in-window first-hand pages |
+| Starter Story | newsletter | 1 | search | site:starterstory.com claude | active | 0 | W48: search found no in-window first-hand pages |
+| Growth Unhinged | newsletter | 1 | search | site:growthunhinged.com claude | active | 0 | W48: search found no in-window first-hand pages |
+| Justin Welsh | newsletter | 1 | search | site:justinwelsh.me claude | active | 0 | W48: search found no in-window first-hand pages |
+| Behind the Craft | newsletter | 1 | rss | https://creatoreconomy.so/feed | active | 0 | W48: feed read directly; no in-window first-hand items |
 
 ## Anthropic first-party
 
 | source | type | tier | how_read | queries | status | last_yield | note |
 |---|---|---|---|---|---|---|---|
-| Customer stories | anthropic | 1 | fetch | https://www.anthropic.com/customers | active | 0 | W47: page read; stories undated, none kept |
-| News | anthropic | 1 | fetch | https://www.anthropic.com/news | active | 0 | W47: page read; Fable 5.2 launch and IPO news only |
-| Economic Index | anthropic | 1 | fetch | https://www.anthropic.com/research | active | 0 | W47: research page read; studies, not user reports |
-| Claude Code changelog | anthropic | 1 | fetch | https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md | active | 0 | W47: read 2.1.325 |
+| Customer stories | anthropic | 1 | fetch | https://www.anthropic.com/customers | active | 0 | W48: page read; stories undated, none kept |
+| News | anthropic | 1 | fetch | https://www.anthropic.com/news | active | 0 | W48: page read; no new user reports |
+| Economic Index | anthropic | 1 | fetch | https://www.anthropic.com/research | active | 0 | W48: research page read; studies, not user reports |
+| Claude Code changelog | anthropic | 1 | fetch | https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md | active | 0 | W48: read 2.1.330 |
 
 ## Social and video, search only
 
 | source | type | tier | how_read | queries | status | last_yield | note |
 |---|---|---|---|---|---|---|---|
-| X revenue threads | social | 2 | search | site:x.com "claude code" (MRR OR revenue OR "$" OR clients) | active | 0 | W47: search found no in-window first-hand pages |
-| X accounts | social | 2 | search | site:x.com (alexalbert__ OR bcherny OR levelsio OR marc_louvion OR gregisenberg OR swyx OR emollick OR danshipper OR simonw) claude | active | 0 | W47: search found no in-window first-hand pages |
-| YouTube | video | 2 | search | site:youtube.com "claude code" (business OR money OR "per month" OR clients) | active | 0 | W47: search found no in-window first-hand pages |
-| YouTube channels | video | 2 | search | site:youtube.com claude (Greg Isenberg OR "Starter Story" OR "AI Jason" OR "Matt Wolfe" OR "Riley Brown" OR "Cole Medin" OR IndyDevDan OR "Nate Herk" OR "Craig Hewitt" OR "Matthew Berman") | active | 0 | W47: search found no in-window first-hand pages |
-| Podcasts | audio | 2 | search | ("How I AI" OR "Lenny's Podcast" OR "My First Million" OR "Latent Space" OR "AI & I" OR "Indie Hackers Podcast" OR "Startup Ideas Podcast") claude | active | 0 | W47: search found no in-window first-hand pages |
+| X revenue threads | social | 2 | search | site:x.com "claude code" (MRR OR revenue OR "$" OR clients) | active | 0 | W48: search found no in-window first-hand pages |
+| X accounts | social | 2 | search | site:x.com (alexalbert__ OR bcherny OR levelsio OR marc_louvion OR gregisenberg OR swyx OR emollick OR danshipper OR simonw) claude | active | 0 | W48: search found no in-window first-hand pages |
+| YouTube | video | 2 | search | site:youtube.com "claude code" (business OR money OR "per month" OR clients) | active | 0 | W48: search found no in-window first-hand pages |
+| YouTube channels | video | 2 | search | site:youtube.com claude (Greg Isenberg OR "Starter Story" OR "AI Jason" OR "Matt Wolfe" OR "Riley Brown" OR "Cole Medin" OR IndyDevDan OR "Nate Herk" OR "Craig Hewitt" OR "Matthew Berman") | active | 0 | W48: search found no in-window first-hand pages |
+| Podcasts | audio | 2 | search | ("How I AI" OR "Lenny's Podcast" OR "My First Million" OR "Latent Space" OR "AI & I" OR "Indie Hackers Podcast" OR "Startup Ideas Podcast") claude | active | 0 | W48: search found no in-window first-hand pages |
 
 ## Demand side, monthly
 
